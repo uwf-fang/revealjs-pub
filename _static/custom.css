@@ -13,10 +13,10 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
 :root {
   --r-background-color: #fff;
   --r-main-font: Source Sans Pro, Helvetica, sans-serif;
-  --r-main-font-size: 36px;
+  --r-main-font-size: 20px;
   --r-main-color: #606060;
-  --r-block-margin: 20px;
-  --r-heading-margin: 0 0 20px 0;
+  --r-block-margin: 5px;
+  --r-heading-margin: 0 0 5px 0;
   --r-heading-font: Source Sans Pro, Helvetica, sans-serif;
   --r-heading-color: #004C97;
   --r-heading-line-height: 1.2;
@@ -25,10 +25,10 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   --r-heading-text-shadow: none;
   --r-heading-font-weight: 600;
   --r-heading1-text-shadow: none;
-  --r-heading1-size: 2em;
-  --r-heading2-size: 1.4em;
-  --r-heading3-size: 1.2em;
-  --r-heading4-size: 1em;
+  --r-heading1-size: 3em;
+  --r-heading2-size: 2.8em;
+  --r-heading3-size: 2em;
+  --r-heading4-size: 1.8em;
   --r-code-font: monospace;
   --r-link-color: #009CDE;
   --r-link-color-dark: #006692;
