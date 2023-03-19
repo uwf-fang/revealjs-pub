@@ -24,6 +24,181 @@
 </section>
 <section >
 <h2>Outline</h2>
+<ul class="simple">
+<li><p>Overview of data storage for big data</p></li>
+<li><p>File systems/Storage services for big Data</p></li>
+<li><p>NoSQL databases for big data</p></li>
+</ul>
+</section>
+<section>
+<section >
+<h2>Overview</h2>
+<ul class="simple">
+<li><p>What we care most</p></li>
+<li><p>Traditional data storage vs Big data storage</p></li>
+<li><p>Distributed filesystem</p></li>
+<li><p>Object store</p></li>
+<li><p>NoSQL</p></li>
+</ul>
+</section>
+<section >
+<h3>What we care most?</h3>
+<ul class="simple">
+<li><p>📈Scalability - Volume</p></li>
+<li><p>💰Cost - Volume</p></li>
+<li><p>🚀Performance - Velocity, Volume</p></li>
+<li><p>💪Robustness - Veracity</p></li>
+<li><p>🗄Data organization and structure - Variety</p></li>
+</ul>
+</section>
+<section >
+<h3>Traditional vs Big Data Storage</h3>
+<ul class="simple">
+<li><p>Traditional</p>
+<ul>
+<li><p>File system: unstructured data as files in directories</p></li>
+<li><p>Relational Database: structured data as records in database</p></li>
+</ul>
+</li>
+<li><p>Big Data</p>
+<ul>
+<li><p>Distributed file system: data organized as files</p></li>
+<li><p>Object store: data organized as objects</p></li>
+<li><p>NoSQL Database: data organized as records, documents, nodes, etc.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section>
+<section >
+<h2>File systems/Storage services for big Data</h2>
+<ul class="simple">
+<li><p>Distributed file system</p>
+<ul>
+<li><p>Hadoop Distributed File System (HDFS)</p></li>
+</ul>
+</li>
+<li><p>Commercial Cloud Storage Services</p>
+<ul>
+<li><p>Amazon Simple Storage Service (S3)</p></li>
+<li><p>Microsoft Azure Data Lake Storage (ADLS)</p></li>
+<li><p>Google Cloud Storage Service</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section >
+<h3>Hadoop Distributed File System (HDFS)</h3>
+<div class="flex-container docutils container">
+<div class="half docutils container">
+<ul class="simple">
+<li><p>Hadoop Distributed File System (HDFS)</p>
+<ul>
+<li><p>HDFS architecture and components</p>
+<ul>
+<li><p>NameNode, DataNode</p></li>
+</ul>
+</li>
+<li><p>HDFS data organization</p>
+<ul>
+<li><p>blocks</p></li>
+<li><p>replication</p></li>
+<li><p>rack awareness</p></li>
+</ul>
+</li>
+<li><p>HDFS operations</p>
+<ul>
+<li><p>reading</p></li>
+<li><p>writing</p></li>
+<li><p>appending</p></li>
+<li><p>deleting</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="half docutils container">
+<img alt="../_images/hadoop-hdfs.png" src="../_images/hadoop-hdfs.png" />
+<img alt="../_images/hdfs-arch.png" src="../_images/hdfs-arch.png" />
+<div class="footnote docutils container">
+<p>Credit: <a class="reference external" href="https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html">https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html</a></p>
+</div>
+</div>
+</div>
+</section>
+<section >
+<h3>Amazon Simple Storage Service (S3)</h3>
+<div class="flex-container docutils container">
+<div class="half docutils container">
+<ul class="simple">
+<li><p>Amazon S3</p>
+<ul>
+<li><p>S3 storage classes (standard, infrequent access, glacier, etc.)</p></li>
+<li><p>S3 data organization (buckets, objects, keys)</p></li>
+<li><p>S3 operations (uploading, downloading, copying, deleting)</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="half docutils container">
+<img alt="../_images/amazon-s3.png" src="../_images/amazon-s3.png" />
+<div class="footnote docutils container">
+<p>Credit: <a class="reference external" href="https://awsmag.com/what-is-amazon-s3/">https://awsmag.com/what-is-amazon-s3/</a></p>
+</div>
+</div>
+</div>
+</section>
+<section >
+<h3>Microsoft Azure Data Lake Storage (ADLS)</h3>
+<div class="flex-container docutils container">
+<div class="half docutils container">
+<ul class="simple">
+<li><p>Azure Data Lake Storage (ADLS)</p>
+<ul>
+<li><p>Overview of ADLS storage tiers (hot, cool, archive)</p></li>
+<li><p>ADLS data organization (file system, directories, files)</p></li>
+<li><p>ADLS operations (creating, reading, updating, deleting)</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="half docutils container">
+<img alt="../_images/adls.png" src="../_images/adls.png" />
+<div class="footnote docutils container">
+<p>Credit: <a class="reference external" href="https://www.analyticsvidhya.com/blog/2022/08/connecting-and-reading-data-from-azure-data-lake/">https://www.analyticsvidhya.com/blog/2022/08/connecting-and-reading-data-from-azure-data-lake/</a></p>
+</div>
+</div>
+</div>
+</section>
+<section >
+<h3>Google Cloud Storage Service</h3>
+<div class="flex-container docutils container">
+<div class="half docutils container">
+<ul class="simple">
+<li><p>Google Cloud Storage</p>
+<ul>
+<li><p>Google Cloud Storage classes (multi-regional, regional, nearline,
+coldline)</p></li>
+<li><p>Google Cloud Storage data organization (buckets, objects, keys)</p></li>
+<li><p>Google Cloud Storage operations (uploading, downloading, copying,
+deleting)</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="half docutils container">
+<img alt="../_images/gcs.png" src="../_images/gcs.png" />
+<div class="footnote docutils container">
+<p>Credit: <a class="reference external" href="https://docs.attributionapp.com/docs/google-cloud-storage-export">https://docs.attributionapp.com/docs/google-cloud-storage-export</a></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section >
+<h2>NoSQL databases for big data</h2>
 </section>
 
         </div>
