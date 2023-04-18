@@ -17,13 +17,150 @@
   </head><body>
     <div class="reveal">
         <div class="slides" role="main">
-            <section >
+            <section data-background-color="white" data-background-image="../_static/logo.png" data-background-size="50%" data-background-position="top center" data-background-repeat="no-repeat">
 <h1>Big Data For Data Science</h1>
-<p><strong>Module 6: Data stream applications</strong></p>
+<p><strong>Module 5: Data Analysis for Big Data 2</strong></p>
 <p>Xingang (Ian) Fang</p>
 </section>
 <section >
 <h2>Outline</h2>
+<div class="flex-container docutils container">
+<div class="half docutils container">
+<ul class="simple">
+<li><p>Machine Learning</p>
+<ul>
+<li><p>Evolution: from rule-based to data-driven</p></li>
+<li><p>Type of learning tasks</p></li>
+<li><p>Traditional ML models</p></li>
+<li><p>Libraries and frameworks</p></li>
+</ul>
+</li>
+<li><p>Deep Learning</p>
+<ul>
+<li><p>Characteristics of DL</p></li>
+<li><p>Comparison with traditional ML</p></li>
+<li><p>DL models</p>
+<ul>
+<li><p>Trending DL models</p></li>
+</ul>
+</li>
+<li><p>Libraries and frameworks</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="half docutils container">
+<a class="reference internal image-reference" href="../_images/ai-hierarchy.png"><img alt="AI Hierarchy" src="../_images/ai-hierarchy.png" style="width: 80%;" /></a>
+<div class="footnote docutils container">
+<p>Credit: Lollixzc, CC BY-SA 4.0 &lt;<a class="reference external" href="https://creativecommons.org/licenses/by-sa/4.0">https://creativecommons.org/licenses/by-sa/4.0</a>&gt;, via Wikimedia Commons</p>
+</div>
+</div>
+</div>
+</section>
+<section>
+<section >
+<h2>Machine Learning</h2>
+<div class="flex-container docutils container">
+<div class="half docutils container">
+<ul class="simple">
+<li><p>Evolution: from rule-based to data-driven</p>
+<ul>
+<li><p>Rule-based: expert knowledge</p></li>
+<li><p>Data-driven: data mining</p></li>
+<li><p>Future: big data driven DL models</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="half docutils container">
+<a class="reference internal image-reference" href="../_images/rule-based-and-ml.jpg"><img alt="Rule Based and Machine Learning" src="../_images/rule-based-and-ml.jpg" style="width: 80%;" /></a>
+<div class="footnote docutils container">
+<p>Credit: <a class="reference external" href="https://www.led-professional.com/resources-1/articles/ai-lighting">https://www.led-professional.com/resources-1/articles/ai-lighting</a></p>
+</div>
+</div>
+</div>
+</section>
+<section >
+<h3>Type of learning tasks</h3>
+<ul class="simple">
+<li><p>Supervised learning: labeled data, learn to predict</p></li>
+<li><p>Unsupervised learning: unlabeled data, learn to analyze and generate</p></li>
+<li><p>Reinforcement learning: learn to make better decision with reward/punishment</p></li>
+<li><p>Semi-supervised learning: a mix of labeled and unlabeled data</p></li>
+<li><p>Self-supervised learning: unlabeled data, learn to predict itself</p></li>
+<li><p>Ensemble learning: combine multiple models to improve performance</p></li>
+<li><p>Transfer learning: learn from a related task and apply to a new task</p></li>
+</ul>
+<img alt="Supervised Learning Example" src="../_images/supervised-ml.png" />
+<div class="footnote docutils container">
+<p>Credit: EpochFail, CC BY-SA 4.0 &lt;<a class="reference external" href="https://creativecommons.org/licenses/by-sa/4.0">https://creativecommons.org/licenses/by-sa/4.0</a>&gt;, via Wikimedia Commons</p>
+</div>
+</section>
+<section >
+<h3>Traditional ML Models</h3>
+<ul class="simple">
+<li><p>Supervised learning</p>
+<ul>
+<li><p>Linear Regression</p></li>
+<li><p>Logistic Regression</p></li>
+<li><p>Support Vector Machine</p></li>
+</ul>
+</li>
+<li><p>Unsupervised learning</p>
+<ul>
+<li><p>K-means clustering</p></li>
+<li><p>Principal Component Analysis (PCA)</p></li>
+</ul>
+</li>
+<li><p>Reinforcement learning</p>
+<ul>
+<li><p>Q-learning</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section >
+<a class="reference internal image-reference" href="../_images/ml-map.png"><img alt="Scikit Learning Choosing the Right Estimator" src="../_images/ml-map.png" style="width: 80%;" /></a>
+<div class="footnote docutils container">
+<ul class="simple">
+<li><p>This informatics map only shows supervised and unsupervised models</p></li>
+<li><p>Credit: <a class="reference external" href="https://scikit-learn.org/stable/tutorial/machine_learning_map/index.html">https://scikit-learn.org/stable/tutorial/machine_learning_map/index.html</a></p></li>
+</ul>
+</div>
+</section>
+<section >
+<h3>ML Libraries and Frameworks</h3>
+<div class="flex-container docutils container">
+<div class="half docutils container">
+<ul class="simple">
+<li><p>Traditional ML</p>
+<ul>
+<li><p>Scikit learning</p></li>
+<li><p>R-studio</p></li>
+<li><p>Spark MLLib</p></li>
+</ul>
+</li>
+<li><p>Visualization</p>
+<ul>
+<li><p>Matplotlib</p></li>
+<li><p>Seaborn</p></li>
+<li><p>Plotly</p></li>
+<li><p>Bokeh</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="half docutils container">
+<img alt="Machine Learning (include deep learning) libraries" src="../_images/ml-libs.png" />
+<div class="footnote docutils container">
+<ul class="simple">
+<li><p>note: Image includes deep learning libraries</p></li>
+<li><p>Credit: <a class="reference external" href="https://www.fireblazeaischool.in/blogs/python-libraries-for-machine-learning/">https://www.fireblazeaischool.in/blogs/python-libraries-for-machine-learning/</a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
 </section>
 
         </div>
