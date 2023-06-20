@@ -317,7 +317,7 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
 .reveal code * {
   font-family: monospace; }
 
-.reveal .slides section > section > p {
+.reveal .slides section p {
   text-align: left; }
 
 .reveal .footer p {
@@ -332,3 +332,14 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   letter-spacing: 0em;
   padding-top: 0.5vh;
   padding-bottom: 0.5vh; }
+
+.reveal li {
+  font-size: 90%; }
+
+.reveal ul ul,
+.reveal ul ol,
+.reveal ol ul,
+.reveal ol ol,
+.reveal dd {
+  margin-left: 20px;
+  padding-left: 0px; }
