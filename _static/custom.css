@@ -311,14 +311,18 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
     flex: 1;
     width: 50%; }
 
+.reveal .subtitle {
+  text-align: center;
+  font-size: 1.5em; }
+
 .reveal .footnote {
   font-size: 0.5em; }
 
 .reveal code * {
   font-family: monospace; }
 
-.reveal .slides section p {
-  text-align: left; }
+.reveal .slides section > p {
+  text-align: center; }
 
 .reveal .footer p {
   opacity: 1;
