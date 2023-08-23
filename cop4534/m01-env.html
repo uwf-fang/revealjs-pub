@@ -54,9 +54,10 @@
 <section >
 <h2>Be Prepared</h2>
 <p>C++ is Hard!!!!</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://imgflip.com/i/5pbnr0">5 years in C++</a></p></li>
-</ul>
+<img alt="../_images/cpp-hard.jpeg" src="../_images/cpp-hard.jpeg" />
+<div class="footnote docutils container">
+<p>Credit: <a class="reference external" href="https://imgflip.com/i/5pbnr0">https://imgflip.com/i/5pbnr0</a></p>
+</div>
 </section>
 <section>
 <section >
@@ -65,8 +66,8 @@
 <li><p>C++ is a compiled language</p></li>
 <li><p>Large C++ projects are modular</p>
 <ul>
-<li><p>Modules</p></li>
-<li><p>Drivers</p></li>
+<li><p>Modules - contains entities to be used by other modules or drivers</p></li>
+<li><p>Drivers - entry point of the program; one driver produces one executable</p></li>
 </ul>
 </li>
 <li><p>Minimal requirements for C++ development</p>
@@ -88,9 +89,9 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">.hpp</span></code> files</p></li>
 <li><p>contains contents to be shared by multiple source files</p>
 <ul>
-<li><p>function declarations</p></li>
-<li><p>class declarations</p></li>
-<li><p>global variables</p></li>
+<li><p>shared function declarations</p></li>
+<li><p>shared class declarations</p></li>
+<li><p>shared global variables (not recommended in most cases)</p></li>
 </ul>
 </li>
 </ul>
@@ -100,14 +101,17 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">.cpp</span></code> files</p></li>
 <li><p>contains contents to be compiled into object files</p>
 <ul>
+<li><p>local declarations used only in this file</p></li>
 <li><p>function definitions</p></li>
 <li><p>method definitions</p></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p>file extensions may vary 🚫</p></li>
 </ul>
+<div class="footnote docutils container">
+<p>File extensions may vary</p>
+</div>
 </div>
 <div class="half docutils container">
 <p><strong>Source code files are compiled into object files</strong></p>
@@ -115,11 +119,12 @@
 <li><p>Object files are binary files containing machine code</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">.o</span></code> files</p></li>
+<li><p>One <code class="docutils literal notranslate"><span class="pre">.cpp</span></code> file is compiled into one <code class="docutils literal notranslate"><span class="pre">.o</span></code> file</p></li>
 </ul>
 </li>
 <li><p>Object files are linked into executable files</p>
 <ul>
-<li><p>files with executable permission under Linux/Mac OS 👍</p></li>
+<li><p>Files with executable permission under Linux/Mac OS 👍</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">.exe</span></code> files under Windows</p></li>
 </ul>
 </li>
@@ -136,21 +141,24 @@
 </section>
 <section >
 <h3>Large C++ Projects are Modular</h3>
+<ul class="simple">
+<li><p>Read more <a class="reference external" href="https://uwf-fang.github.io/cpp/building/modular.html">here</a></p></li>
+</ul>
 <div class="flex-container docutils container">
 <div class="half docutils container">
 <p><strong>Modules</strong></p>
 <ul class="simple">
 <li><p>Contains entities to be used by other modules or drivers</p>
 <ul>
-<li><p>functions</p></li>
-<li><p>classes</p></li>
-<li><p>global variables</p></li>
+<li><p>Functions</p></li>
+<li><p>Classes</p></li>
+<li><p>Global variables</p></li>
 </ul>
 </li>
 <li><p>Files</p>
 <ul>
-<li><p>a pair of <code class="docutils literal notranslate"><span class="pre">.hpp</span></code> and <code class="docutils literal notranslate"><span class="pre">.cpp</span></code> file with a same base name</p></li>
-<li><p>a single header file</p></li>
+<li><p>A pair of <code class="docutils literal notranslate"><span class="pre">.hpp</span></code> and <code class="docutils literal notranslate"><span class="pre">.cpp</span></code> file with a same base name</p></li>
+<li><p>A single header file</p></li>
 </ul>
 </li>
 </ul>
@@ -160,17 +168,17 @@
 <ul class="simple">
 <li><p>Entry point of the program</p>
 <ul>
-<li><p>a <code class="docutils literal notranslate"><span class="pre">main()</span></code> function</p></li>
+<li><p>a mandatory <code class="docutils literal notranslate"><span class="pre">main()</span></code> function</p></li>
 </ul>
 </li>
 <li><p>A project may have multiple drivers</p>
 <ul>
-<li><p>each driver is the entry point of a separate executable file</p></li>
-<li><p>application drivers</p></li>
-<li><p>test drivers</p></li>
+<li><p>Each driver is the entry point of one executable file</p></li>
+<li><p>Application drivers</p></li>
+<li><p>Test drivers</p></li>
 </ul>
 </li>
-<li><p>A single cpp file with a <code class="docutils literal notranslate"><span class="pre">main()</span></code> function</p></li>
+<li><p>A cpp file with a <code class="docutils literal notranslate"><span class="pre">main()</span></code> function and usually without a paired header</p></li>
 </ul>
 </div>
 </div>
@@ -182,15 +190,18 @@
 <p><strong>An editor/IDE to edit the source code files</strong></p>
 <ul class="simple">
 <li><p>Visual Studio Code 👍</p></li>
-<li><p>Visual Studio</p></li>
-<li><p>Xcode</p></li>
-<li><p>Eclipse</p></li>
-<li><p>Vim</p></li>
+<li><p>Visual Studio - heavy and slow, overkill</p></li>
+<li><p>Xcode - heavy and slow, overkill</p></li>
+<li><p>CLion - good but you must learn CMake</p></li>
+<li><p>Eclipse - not bad if you are familiar with it</p></li>
+<li><p>Vim - hard to learn and setup</p></li>
 <li><p>Emacs</p></li>
-<li><p>Notepad++</p></li>
-<li><p>Sublime Text</p></li>
-<li><p>Atom</p></li>
-<li><p>JGrasp</p></li>
+<li><p>Notepad++ - Windows only</p></li>
+<li><p>Sublime Text - almost as good as VS Code but is not open-source, free
+lifetime trial</p></li>
+<li><p>Atom - almost as good as VS Code but much slower</p></li>
+<li><p>JGrasp - simple</p></li>
+<li><p>Code::Blocks - simple</p></li>
 <li><p>…</p></li>
 </ul>
 </div>
@@ -218,7 +229,7 @@ or libraries</strong></p>
 </div>
 </section>
 <section >
-<h3>In-class Exercise</h3>
+<h3>In-class Review</h3>
 <ul class="simple">
 <li><p>How many editors/IDEs can you find on the classroom computer?</p></li>
 <li><p>What C++ environment can you find on</p></li>
@@ -231,49 +242,80 @@ or libraries</strong></p>
 <ul class="simple">
 <li><p>g++ from GNU Compiler Collection (GCC)</p>
 <ul>
-<li><p>under Linux native bash 👍</p></li>
-<li><p>under Windows subsystem for Linux 👍</p></li>
-<li><p>under MinGW/MSYS2 🚫</p></li>
+<li><p>Under Linux native bash 👍</p></li>
+<li><p>Under Windows subsystem for Linux 👍</p></li>
+<li><p>Under Mac OS native bash - hard to install 🚫</p></li>
+<li><p>Under MinGW/MSYS2 - bad compatibility 🚫</p></li>
+<li><p>Read more <a class="reference external" href="https://uwf-fang.github.io/cpp/building/gpp.html">here</a></p></li>
 </ul>
 </li>
-<li><p>Visual C++ Compiler</p></li>
+<li><p>Visual C++ Compiler</p>
+<ul>
+<li><p>Windows native 👍🚫</p></li>
+</ul>
+</li>
 <li><p>LLVM C++ Compiler</p>
 <ul>
-<li><p>under Mac OS native bash 👍</p></li>
-<li><p>install XCode command line tools first</p></li>
-<li><p>the <code class="docutils literal notranslate"><span class="pre">clang++</span></code> tool is aliased as <code class="docutils literal notranslate"><span class="pre">g++</span></code></p></li>
-<li><p>use it as if it is <code class="docutils literal notranslate"><span class="pre">g++</span></code></p></li>
+<li><p>Under Mac OS native bash 👍</p></li>
+<li><p>Install XCode command line tools first</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">clang++</span></code> tool is aliased as <code class="docutils literal notranslate"><span class="pre">g++</span></code></p></li>
+<li><p>Use it as if it is <code class="docutils literal notranslate"><span class="pre">g++</span></code></p></li>
 </ul>
 </li>
 </ul>
 </section>
 <section >
 <h3>Auxiliary Tools</h3>
+<div class="flex-container docutils container">
+<div class="half docutils container">
+<p>GNU <code class="docutils literal notranslate"><span class="pre">make</span></code></p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">make</span></code></p>
+<li><p>A tool to automate the build process</p></li>
+<li><p>A tool to manage dependencies between source files</p></li>
+<li><p>A tool to manage the build process of a modular project</p></li>
+<li><p>An old system with many modern alternatives</p></li>
+<li><p>Easy to learn and use but hard to master</p></li>
+<li><p>Not portable (different versions on different platforms)</p></li>
+<li><p>Read more <a class="reference external" href="https://uwf-fang.github.io/tools/make.html">here</a></p></li>
+<li><p>Alternatives</p>
 <ul>
-<li><p>a tool to automate the build process</p></li>
-<li><p>a tool to manage dependencies between source files</p></li>
-<li><p>a tool to manage the build process of a modular project</p></li>
-</ul>
-</li>
-<li><p><code class="docutils literal notranslate"><span class="pre">git</span></code></p>
-<ul>
-<li><p>a tool to manage source code files</p></li>
-<li><p>share code with others</p>
-<ul>
-<li><p>assignment submission</p></li>
-<li><p>push your code before asking for help</p></li>
+<li><p>CMake</p></li>
+<li><p>Ninja</p></li>
+<li><p>…</p></li>
 </ul>
 </li>
 </ul>
+</div>
+<div class="half docutils container">
+<p><code class="docutils literal notranslate"><span class="pre">git</span></code></p>
+<ul class="simple">
+<li><p>a tool to manage pure text files including source code files</p></li>
+<li><p>What it can do for you</p>
+<ul>
+<li><p>Track changes of your code</p></li>
+<li><p>Backup your code</p></li>
+<li><p>Work on different branches</p></li>
+<li><p>Revert to previous versions</p></li>
+<li><p>Collaborate with others</p></li>
+<li><p>Share code with others</p>
+<ul>
+<li><p>Assignment submission</p></li>
+<li><p>Push your code before asking for help</p></li>
+</ul>
 </li>
 </ul>
+</li>
+<li><p>Read more <a class="reference external" href="https://uwf-fang.github.io/tools/git.html">here</a></p></li>
+</ul>
+</div>
+</div>
 </section>
 </section>
 <section>
 <section >
 <h2>Command-line Interface (CLI)</h2>
+<div class="flex-container docutils container">
+<div class="half docutils container">
 <ul class="simple">
 <li><p>Command-line interface (CLI)</p>
 <ul>
@@ -299,9 +341,19 @@ or libraries</strong></p>
 </ul>
 </li>
 </ul>
+</div>
+<div class="half docutils container">
+<img alt="Mac OS Terminal" src="../_images/mac-terminal.png" />
+<div class="footnote docutils container">
+<p>Credit: <a class="reference external" href="https://en.wikipedia.org/wiki/Terminal_%28macOS%29">https://en.wikipedia.org/wiki/Terminal_%28macOS%29</a></p>
+</div>
+</div>
+</div>
 </section>
 <section >
 <h3>Problems with GUI</h3>
+<div class="flex-container docutils container">
+<div class="half docutils container">
 <ul class="simple">
 <li><p><strong>GUI is great but not suitable to our needs</strong></p></li>
 <li><p>Imagine how you learn a new feature of Microsoft Office?</p>
@@ -330,11 +382,16 @@ or libraries</strong></p>
 </ul>
 </li>
 </ul>
-<aside class="notes">
-meme images M$ Office for example</aside>
+</div>
+<div class="half docutils container">
+<img alt="Simplified Microsoft Office Ribbon" src="../_images/ms-ribbon.webp" />
+<div class="footnote docutils container">
+<p>Credit: <a class="reference external" href="https://www.reddit.com/r/Windows11/comments/y7g4fp/ms_office_word_has_a_new_simplified_ribbon/">MS Office Word has a new Simplified ribbon</a></p>
+</div>
+</div>
+</div>
 </section>
 </section>
-<section>
 <section >
 <h2>Local Environment</h2>
 <p>A local development environment is recommended for this course.</p>
@@ -342,6 +399,8 @@ meme images M$ Office for example</aside>
 <li><p>Something worth learning as a programmer</p></li>
 <li><p>Faster and easier to use than other options</p></li>
 </ul>
+<div class="flex-container docutils container">
+<div class="half docutils container">
 <p>For Linux:</p>
 <ul class="simple">
 <li><p>Install g++ and make from Ubuntu terminal</p>
@@ -355,24 +414,27 @@ meme images M$ Office for example</aside>
 <li><p>Install Visual Studio Code</p></li>
 <li><p>Do research on your own if you are using other Linux distributions</p></li>
 </ul>
-</section>
-<section >
-<h3>Local Environment (cont.)</h3>
+</div>
+<div class="half docutils container">
 <p>For Windows:</p>
 <ul class="simple">
-<li><p>Install Ubuntu 20.04 LTS from Microsoft Store</p></li>
-<li><p>Install Visual Studio Code from Microsoft Store</p></li>
-<li><p>Install Terminal from Microsoft Store</p></li>
+<li><p>Install Ubuntu 20.04 LTS from <strong>Microsoft Store</strong></p></li>
+<li><p>Install Visual Studio Code from <strong>Microsoft Store</strong></p></li>
+<li><p>Install Terminal from <strong>Microsoft Store</strong></p></li>
 <li><p>Start an Ubuntu terminal</p></li>
 <li><p>Install g++ and make in Ubuntu terminal (same as Linux)</p></li>
 </ul>
+<div class="footnote docutils container">
+<p>Note: To install WSL in the classroom, you must use the Microsoft Store app</p>
+</div>
 <p>For Mac OS:</p>
 <ul class="simple">
 <li><p>Install XCode Command-line Tools</p></li>
 <li><p>run <code class="docutils literal notranslate"><span class="pre">xcode-select</span> <span class="pre">--install</span></code> in the terminal</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">valgrind</span></code> not directly available on Mac OS</p></li>
 </ul>
-</section>
+</div>
+</div>
 </section>
 <section >
 <h2>Remote Environment</h2>
@@ -380,6 +442,8 @@ meme images M$ Office for example</aside>
 The whole toolchain is installed on the remote computer. It is useful when
 local environment is not available. For example, when you are using a
 Chromebook or a tablet.</p>
+<div class="flex-container docutils container">
+<div class="half docutils container">
 <ul class="simple">
 <li><p>SSH Server</p>
 <ul>
@@ -388,15 +452,23 @@ Chromebook or a tablet.</p>
 <li><p>C++ Toolchain pre-installed</p></li>
 <li><p>Works like a Linux terminal (CLI)</p></li>
 <li><p>May need to either edit in the CLI or transfer files back and forth</p></li>
+<li><p>Read <a class="reference external" href="https://uwf-fang.github.io/course/cs-ssh-server.html">here</a></p></li>
 </ul>
 </li>
+</ul>
+</div>
+<div class="half docutils container">
+<ul class="simple">
 <li><p>GitHub Codespaces</p>
 <ul>
 <li><p>An in-browser editor (VS Code) with a Linux virtual machine</p></li>
 <li><p>Free hours for GitHub Classroom</p></li>
+<li><p>Read the instruction <a class="reference external" href="https://docs.github.com/en/codespaces/overview">here</a></p></li>
 </ul>
 </li>
 </ul>
+</div>
+</div>
 </section>
 <section >
 <h2>Traps and Pitfalls 🪤</h2>
@@ -418,11 +490,14 @@ Chromebook or a tablet.</p>
 <li><p>Works well for introductory courses</p></li>
 <li><p>No <code class="docutils literal notranslate"><span class="pre">make</span></code> support</p></li>
 <li><p>Not suitable for modular projects</p></li>
+<li><p>Will fail especially when you are using multiple drivers to generate
+multiple executables</p></li>
 <li><p>Examples</p>
 <ul>
 <li><p>JGrasp</p></li>
 <li><p>Run and Debug button in VS Code</p></li>
 <li><p>OnlineGDB</p></li>
+<li><p>Eclipse</p></li>
 </ul>
 </li>
 </ul>
