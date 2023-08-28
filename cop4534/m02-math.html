@@ -37,11 +37,10 @@
 <section >
 <h2>Exponents</h2>
 <ul class="simple">
-<li><p>Definition: An exponent is a quantity representing the power to which a given
-number or expression is to be raised, usually expressed as a raised symbol
-beside the number or expression.</p></li>
+<li><p>Definition: An exponent is a way of expressing repeated multiplication.</p></li>
 <li><p>Example: <span class="math notranslate nohighlight">\(2^3 = 2 \cdot 2 \cdot 2 = 8\)</span></p></li>
-<li><p>Formula: <span class="math notranslate nohighlight">\(a^n = a \cdot a \cdot a \cdot ... \cdot a\)</span> (n times)</p></li>
+<li><p>Formula: <span class="math notranslate nohighlight">\(a^n = \underbrace{a \times a \times a \times \ldots \times
+a}_{n \text{ times}}\)</span></p></li>
 <li><p>Properties</p>
 <ul>
 <li><p><strong>Product Rule:</strong> <span class="math notranslate nohighlight">\(a^{m+n} = a^m \times a^n\)</span></p></li>
@@ -76,7 +75,7 @@ value, the base, must be raised to produce that number.</p></li>
 <h2>Series</h2>
 <ul class="simple">
 <li><p>Definition: A series in mathematics is the sum of terms in a sequence.</p></li>
-<li><p>Related to the algorithm analysis in computer science</p></li>
+<li><p>Applications: algorithm analysis in computer science</p></li>
 <li><p>Arithmetic series</p>
 <ul>
 <li><p>Example: <span class="math notranslate nohighlight">\(1 + 2 + 3 + ... + n = n(n+1)/2\)</span></p></li>
@@ -111,6 +110,7 @@ value, the base, must be raised to produce that number.</p></li>
 <li><p>Definition: In mathematics, modular arithmetic is a system of arithmetic for
 integers, where numbers “wrap around” upon reaching a certain value—the
 modulus (plural moduli).</p></li>
+<li><p>A.k.a remainder</p></li>
 <li><p>Example: <span class="math notranslate nohighlight">\(13 \equiv 1 \pmod{6}\)</span> because <span class="math notranslate nohighlight">\(7 = 1 + 6 \cdot 2\)</span></p></li>
 <li><p>Formula: <span class="math notranslate nohighlight">\(a \equiv b \pmod{n}\)</span> if and only if <span class="math notranslate nohighlight">\(n | (a - b)\)</span></p></li>
 <li><p>Applications: array indexing, hash functions, pseudorandom number generators,
@@ -119,11 +119,19 @@ etc.</p></li>
 </section>
 <section >
 <h2>Proof Methods</h2>
-<ul class="simple">
-<li><p>Direct Proof</p></li>
-<li><p>Proof by Contradiction</p></li>
-<li><p>Proof by Induction</p></li>
-<li><p>Proof by Contrapositive</p></li>
+<ul>
+<li><p>Direct Proof</p>
+<p><span class="math notranslate nohighlight">\(A \Rightarrow B \quad \text{by assuming} \quad A \quad \text{and demonstrating} \quad B.\)</span></p>
+</li>
+<li><p>Proof by Contradiction</p>
+<p><span class="math notranslate nohighlight">\(\text{Proof by contradiction assumes} \quad \neg A \quad \text{and derives a contradiction, implying} \quad A.\)</span></p>
+</li>
+<li><p>Proof by Induction</p>
+<p><span class="math notranslate nohighlight">\(\text{Proof by induction involves base case} \quad (n = 1) \quad \text{and inductive step} \quad (k \Rightarrow k+1) \quad \text{to prove statement for all} \quad n.\)</span></p>
+</li>
+<li><p>Proof by Contrapositive</p>
+<p><span class="math notranslate nohighlight">\(\text{Proof by contrapositive shows} \quad A \Rightarrow B \quad \text{by proving} \quad \neg B \Rightarrow \neg A, \quad \text{its logical equivalent.}\)</span></p>
+</li>
 </ul>
 </section>
 
