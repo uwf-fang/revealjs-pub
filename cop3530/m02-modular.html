@@ -350,6 +350,17 @@ performance. Automated testing is especially important for large projects.</p></
 </li>
 <li><p>Simple test driver</p>
 <p>Display the result of a function call for the tester to compare.</p>
+<pre><code data-trim data-noescape class="c++">#include &lt;iostream&gt;
+#include &quot;store-item.hpp&quot;
+
+void testStoreItem() {
+  StoreItem item1(&quot;Apple&quot;);
+  StoreItem item2(&quot;apple&quot;);
+  if (item1.equals(item2))
+    std::cout &lt;&lt; &quot;They are equal as expect!\n&quot;;
+  else
+    std::cout &lt;&lt; &quot;They are not equal, wrong!\n&quot;;
+}</code></pre>
 </li>
 </ul>
 </section>
