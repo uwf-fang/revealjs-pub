@@ -25,7 +25,392 @@
 </div>
 </section>
 <section >
-<h2>Under Construction!</h2>
+<h2>Outline</h2>
+<ul class="simple">
+<li><p>Modular Development</p>
+<ul>
+<li><p>Definition</p></li>
+<li><p>Motivation</p></li>
+<li><p>C++ building model</p></li>
+<li><p>Source code organization</p></li>
+</ul>
+</li>
+<li><p>Building using GNU g++</p>
+<ul>
+<li><p>Overview</p></li>
+<li><p>Preprocessing directives</p></li>
+<li><p>One step compilation</p></li>
+<li><p>Step-wise modular compilation</p></li>
+</ul>
+</li>
+<li><p>Automate building using GNU make</p>
+<ul>
+<li><p>Overview</p></li>
+<li><p>Makefile</p></li>
+<li><p>Modular compilation using make</p></li>
+</ul>
+</li>
+<li><p>Testing</p>
+<ul>
+<li><p>Motivation</p></li>
+<li><p>Types</p></li>
+<li><p>Test-driven development</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section>
+<section >
+<h2>Modular Development</h2>
+<ul>
+<li><p>Definition</p>
+<p>Modular development is the process of subdividing a program into separate
+sub-units known as modules.</p>
+</li>
+<li><p>Motivation</p>
+<ul class="simple">
+<li><p>Code reusability</p></li>
+<li><p>Simplicity</p></li>
+<li><p>Encapsulation</p></li>
+<li><p>Parallel development</p></li>
+<li><p>Flexibility</p></li>
+<li><p>Testability</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section >
+<h3>C++ Building Model</h3>
+<ul class="simple">
+<li><p>Stages</p>
+<ul>
+<li><p>Preprocessing:</p>
+<ul>
+<li><p>execute preprocessor directives</p></li>
+<li><p>inject hpp file into cpp files</p></li>
+</ul>
+</li>
+<li><p>Compiling</p>
+<ul>
+<li><p>compile cpp files into object files</p></li>
+<li><p>one object file for each cpp file</p></li>
+</ul>
+</li>
+<li><p>Linking</p>
+<ul>
+<li><p>link object files into an executable</p></li>
+<li><p>link object files with libraries</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<a class="reference internal image-reference" href="../_images/cpp-build-process.png"><img alt="C++ Building Process of an Executable" src="../_images/cpp-build-process.png" style="width: 100%;" /></a>
+</section>
+<section >
+<h3>Source Code Organization</h3>
+<div class="flex-container docutils container">
+<div class="half docutils container">
+<ul class="simple">
+<li><p>Type of files</p>
+<ul>
+<li><p>Header files</p>
+<ul>
+<li><p>contain <strong>declarations</strong> of <strong>public</strong> classes, functions, global
+variables, etc.</p></li>
+<li><p>have extension <cite>.hpp</cite></p></li>
+</ul>
+</li>
+<li><p>Source files</p>
+<ul>
+<li><p>contain <strong>definitions</strong> of <strong>public</strong> classes, functions, etc.</p></li>
+<li><p>contain <strong>private declarations and definitions</strong></p></li>
+<li><p>have extension <cite>.cpp</cite></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="half docutils container">
+<ul class="simple">
+<li><p>Organization</p>
+<ul>
+<li><p>Driver</p>
+<ul>
+<li><p>contains a <code class="docutils literal notranslate"><span class="pre">main</span></code> function</p></li>
+<li><p>usually no header file</p></li>
+<li><p>E.g. <code class="docutils literal notranslate"><span class="pre">main.cpp</span></code>, <code class="docutils literal notranslate"><span class="pre">test.cpp</span></code>, <code class="docutils literal notranslate"><span class="pre">driver.cpp</span></code>, etc.</p></li>
+</ul>
+</li>
+<li><p>Modules</p>
+<ul>
+<li><p>no <code class="docutils literal notranslate"><span class="pre">main</span></code> function</p></li>
+<li><p>contain classes, functions, global variables, etc. to be used by the
+driver or other modules</p></li>
+<li><p>usually paired hpp and cpp files</p></li>
+<li><p>E.g. <code class="docutils literal notranslate"><span class="pre">table.hpp</span> <span class="pre">+</span> <span class="pre">table.cpp</span></code>, <code class="docutils literal notranslate"><span class="pre">list.hpp</span> <span class="pre">+</span> <span class="pre">list.cpp</span></code>, etc.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<section >
+<h3>Building using GNU g++</h3>
+<ul>
+<li><p>Overview</p>
+<p>Compilation is a process to translate source codes into executables or
+libraries.</p>
+<p>g++ is the GNU C++ compiler invocation command. It builds C++ source codes to
+produce libraries or executables. It serves as pre-processor, compiler, and
+linker for C++ projects.</p>
+</li>
+<li><p>Preprocessing directives</p>
+<ul>
+<li><p>They are commands to the preprocessor to perform certain tasks before
+compilation.</p></li>
+<li><p>They start with <code class="docutils literal notranslate"><span class="pre">#</span></code> and end with no semicolon.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;header&gt;</span></code>: inject the content of <code class="docutils literal notranslate"><span class="pre">&lt;header&gt;</span></code> into the current
+file.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#define</span></code>: define a macro (text replacement rule).</p></li>
+<li><p>Header guards: prevent header files from being included multiple times.</p>
+<pre><code data-trim data-noescape class="default">#ifndef HEADER_GUARD
+#define HEADER_GUARD
+
+// header file content
+
+#endif</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section >
+<h3>Building using GNU g++ (cont’d)</h3>
+<ul class="simple">
+<li><p>One step compilation (not recommended)</p>
+<ul>
+<li><p>Should be limited to simple projects.</p></li>
+<li><p>Preprocessing + Compiling + Linking all at once</p></li>
+<li><p>Generate one executable from <strong>a single driver</strong> and optionally other
+source files for modules</p></li>
+<li><p>E.g. <code class="docutils literal notranslate"><span class="pre">g++</span> <span class="pre">-Wall</span> <span class="pre">-std=c++14</span> <span class="pre">-I&lt;path/to/headers&gt;</span> <span class="pre">-o</span> <span class="pre">&lt;executable&gt;</span> <span class="pre">&lt;list</span> <span class="pre">of</span>
+<span class="pre">.cpp</span> <span class="pre">files&gt;</span></code></p></li>
+</ul>
+</li>
+<li><p>Step-wise modular compilation</p>
+<ul>
+<li><p>Allows fine control over the building process of complicated modular
+projects.</p></li>
+<li><p>Preprocessing + Compiling</p>
+<ul>
+<li><p>g++ flag: <code class="docutils literal notranslate"><span class="pre">-c</span></code></p></li>
+<li><p>generate one object file for each cpp file</p></li>
+<li><p>E.g. <code class="docutils literal notranslate"><span class="pre">g++</span> <span class="pre">-c</span> <span class="pre">-Wall</span> <span class="pre">-std=c++14</span> <span class="pre">-I&lt;path/to/headers&gt;</span> <span class="pre">&lt;file&gt;.cpp</span></code></p></li>
+</ul>
+</li>
+<li><p>Linking</p>
+<ul>
+<li><p>E.g. <code class="docutils literal notranslate"><span class="pre">g++</span> <span class="pre">-o</span> <span class="pre">&lt;executable&gt;</span> <span class="pre">&lt;list</span> <span class="pre">of</span> <span class="pre">.o</span> <span class="pre">files&gt;</span></code></p></li>
+<li><p>generate one executable from <strong>a single driver</strong> and optionally other
+object files for modules</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Common g++ errors: <a class="reference external" href="https://uwf-fang.github.io/cpp/building/gpp.html#common-error-messages-from-g">link</a></p></li>
+</ul>
+</section>
+<section >
+<h3>Automate building using GNU make</h3>
+<div class="flex-container docutils container">
+<div class="half docutils container">
+<ul>
+<li><p>Overview</p>
+<ul class="simple">
+<li><p>Step-wise modular compilation is tedious and error-prone.</p></li>
+<li><p>GNU make is a tool to automate building process.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">make</span></code> is the command-line command to trigger GNU make.</p></li>
+</ul>
+</li>
+<li><p>Makefile</p>
+<p>A file that contains rules to build a project.</p>
+</li>
+<li><p>Modular compilation using make</p>
+<ul class="simple">
+<li><p>Define rules to compile and link</p></li>
+<li><p>Have complicated syntax but easy to start with</p></li>
+<li><p>Keep it simple for beginners</p></li>
+</ul>
+</li>
+<li><p>Common make errors: <a class="reference external" href="https://uwf-fang.github.io/tools/make.html#common-error-messages-from-make">link</a></p></li>
+</ul>
+</div>
+<div class="half docutils container">
+<pre><code data-trim data-noescape class="makefile"># declare virtual targets
+.PHONY: clean
+
+# Linking to provide the executable
+main: main.o grade-book.o student.o grades.o
+    g++ -o main main.o grade-book.o student.o grades.o
+
+# Compile. One cpp file a time.
+main.o: main.cpp grade-book.hpp student.hpp
+    g++ -std=c++14 -Wall -g -c main.cpp
+
+student.o: student.cpp student.hpp
+    g++ -std=c++14 -Wall -g -c student.cpp
+
+grades.o: grades.cpp grades.hpp
+    g++ -std=c++14 -Wall -g -c grades.cpp
+
+grade-book.o: grade-book.cpp grade-book.hpp student.hpp grades.hpp
+    g++ -std=c++14 -Wall -g -c grade-book.cpp
+
+# the 'clean' virtual target to remove temporary files
+clean:
+    rm -rf *.o main *.gc* *.dSYM</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section>
+<section >
+<h2>Testing</h2>
+<ul class="simple">
+<li><p>Definition: Testing in software development is the process of evaluating and
+validating a software system to ensure its correctness, functionality, and
+performance. Automated testing is especially important for large projects.</p></li>
+<li><p>Motivation and benefits</p>
+<ul>
+<li><p>Large projects are hard to test manually.</p></li>
+<li><p>Automated testing is more efficient and reliable.</p></li>
+<li><p>Tests can describe the functionality of the system (requirements).</p></li>
+<li><p>Testable code is usually modular and well-organized.</p></li>
+</ul>
+</li>
+<li><p>Types</p>
+<ul>
+<li><p>Unit tests</p></li>
+<li><p>Integration tests</p></li>
+<li><p>System tests</p></li>
+</ul>
+</li>
+<li><p>Test-driven development (FYI)</p>
+<ul>
+<li><p>Write tests first</p></li>
+<li><p>Write code to pass tests</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section >
+<h3>Testing (cont’d)</h3>
+<ul class="simple">
+<li><p>Types of tests</p>
+<ul>
+<li><p>Unit tests</p>
+<ul>
+<li><p>Test a single function or class method.</p></li>
+<li><p>Test the correctness of the function/method.</p></li>
+<li><p>Test the boundary cases.</p></li>
+<li><p>Test the performance.</p></li>
+<li><p>May need special techniques to isolate the function/method.</p></li>
+</ul>
+</li>
+<li><p>Integration tests</p>
+<ul>
+<li><p>Test the interaction between modules.</p></li>
+<li><p>Test the correctness of the interaction.</p></li>
+</ul>
+</li>
+<li><p>System tests</p>
+<ul>
+<li><p>Test the system as a whole.</p></li>
+<li><p>Test the correctness of the system.</p></li>
+<li><p>Test the performance.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section >
+<h3>Testing (cont’d)</h3>
+<ul>
+<li><p>How to write and run test</p>
+<ul class="simple">
+<li><p>Write test drivers that call functions/class methods to be tested.</p></li>
+<li><p>Add building rules for test drivers in the makefile.</p></li>
+<li><p>Frequently run tests to ensure the correctness of the code.</p></li>
+</ul>
+</li>
+<li><p>Simple test driver</p>
+<p>Display the result of a function call for the tester to compare.</p>
+</li>
+</ul>
+</section>
+<section >
+<h3>Testing (cont’d)</h3>
+<ul>
+<li><p>Test driver using assert</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">assert</span></code> is a macro that checks the truth of an expression.</p></li>
+<li><p>If the expression is false, <code class="docutils literal notranslate"><span class="pre">assert</span></code> prints an error message and aborts
+the program.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">assert</span></code> is a simple way to write test drivers.</p></li>
+<li><p>include <code class="docutils literal notranslate"><span class="pre">&lt;cassert&gt;</span></code> to use <code class="docutils literal notranslate"><span class="pre">assert</span></code>.</p></li>
+</ul>
+<pre><code data-trim data-noescape class="c++">#include &lt;cassert&gt;
+#include &quot;store-item.hpp&quot;
+
+void testStoreItem() {
+  StoreItem item1(&quot;Apple&quot;);
+  StoreItem item2(&quot;apple&quot;);
+  assert(item1.equals(item2));
+}</code></pre>
+</li>
+</ul>
+</section>
+<section >
+<h3>Testing (cont’d)</h3>
+<ul>
+<li><p>Test driver using testing frameworks</p>
+<ul class="simple">
+<li><p>Testing frameworks are libraries that provide tools to write tests.</p></li>
+<li><p>They are more powerful than <code class="docutils literal notranslate"><span class="pre">assert</span></code>.</p></li>
+<li><p>E.g. Google Test, Boost Test, Catch2 etc.</p></li>
+<li><p>We use Catch2 in this course.</p></li>
+</ul>
+<pre><code data-trim data-noescape class="c++">#include &quot;catch.hpp&quot;
+#include &quot;store-item.hpp&quot;
+
+TEST_CASE(&quot;StoreItem equality and printing&quot;, &quot;[StoreItem]&quot;) {
+  SECTION(&quot;Case-insensitive comparison&quot;) {
+    StoreItem item1(&quot;Apple&quot;);
+    StoreItem item2(&quot;apple&quot;);
+    CHECK(item1.equals(item2));
+  }
+}</code></pre>
+</li>
+</ul>
+</section>
+<section >
+<h3>Testing (cont’d)</h3>
+<ul class="simple">
+<li><p>Learning outcomes</p>
+<ul>
+<li><p>Understand the importance of testing.</p></li>
+<li><p>Know how to write test drivers.</p></li>
+<li><p>Know how to use <code class="docutils literal notranslate"><span class="pre">assert</span></code> and Catch2.</p></li>
+</ul>
+</li>
+<li><p>More reading <a class="reference external" href="https://uwf-fang.github.io/cpp/testing/testing.html">here</a>.</p></li>
+</ul>
+</section>
 </section>
 
         </div>
