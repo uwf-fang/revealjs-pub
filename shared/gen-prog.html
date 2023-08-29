@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-  <title>Outline</title>
+  <title>General Programming Concepts</title>
     <link rel="stylesheet" type="text/css" href="../_static/revealjs4/dist/reveal.css" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/revealjs4/plugin/highlight/zenburn.css" />
@@ -17,32 +17,29 @@
   </head><body>
     <div class="reveal">
         <div class="slides" role="main">
-            <section >
-<h1>Outline</h1>
+            <section data-background-color="white" data-background-image="../_static/logo.png" data-background-size="50%" data-background-position="top center" data-background-repeat="no-repeat">
+<h1>General Programming Concepts</h1>
+<div class="subtitle docutils container">
+<p>Xingang (Ian) Fang</p>
+</div>
+</section>
+<section >
+<h2>Outline</h2>
 <ul class="simple">
-<li><p>General Programming</p>
-<ul>
 <li><p>Programming Paradigms</p></li>
 <li><p>Programming Languages</p></li>
 <li><p>Comment and Documentation</p></li>
 </ul>
-</li>
-<li><p>C++ Language Review</p>
-<ul>
-<li><p>C++ Overview</p></li>
-<li><p>C++ convention and style used in this course</p></li>
-<li><p>Type of errors</p></li>
-</ul>
-</li>
-</ul>
+</section>
+<section>
 <section >
-<h1>General Programming</h1>
+<h2>General Programming</h2>
 <ul class="simple">
 <li><p>Programming Paradigms</p>
 <ul>
-<li><p><strong>Imperative</strong></p></li>
+<li><p>Imperative</p></li>
 <li><p>Functional</p></li>
-<li><p><strong>Object-oriented</strong></p></li>
+<li><p>Object-oriented</p></li>
 <li><p>Logic</p></li>
 <li><p>…</p></li>
 </ul>
@@ -89,19 +86,22 @@ General purpose</p></td>
 </div>
 </section>
 <section >
-<h2>Comment and Documentation</h2>
+<h3>Comment and Documentation</h3>
 <div class="flex-container docutils container">
 <div class="half docutils container">
 <ul class="simple">
 <li><p>Comment</p>
 <ul>
 <li><p>The audience is the programmer themselves</p></li>
-<li><p>Used by programmers to explain the code to themselves and other programmers</p></li>
+<li><p>Used by programmers to explain the code to themselves and other
+programmers</p></li>
 <li><p>Not useful in good code structure</p></li>
 <li><p>Replaceable by names of variables, functions, classes, etc.</p></li>
 </ul>
 </li>
 </ul>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">C++ comments</span></div>
 <pre><code data-trim data-noescape class="c++">// initialize the array
 // replaceable by a function named initializeArray
 for (int i = 0; i &lt; 10; ++i) {
@@ -113,6 +113,7 @@ for (int i = 0; i &lt; 10; ++i) {
   std::cout &lt;&lt; a[i] &lt;&lt; std::endl;
 }</code></pre>
 </div>
+</div>
 <div class="half docutils container">
 <ul class="simple">
 <li><p>Documentation</p>
@@ -123,6 +124,8 @@ for (int i = 0; i &lt; 10; ++i) {
 </ul>
 </li>
 </ul>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">C++ documentation</span></div>
 <pre><code data-trim data-noescape class="c++">/**
  * &#64;brief initialize the array, doxygen style documentation
  * &#64;param a the array to be initialized
@@ -137,115 +140,9 @@ void initializeArray(int a[], int n) {
 }</code></pre>
 </div>
 </div>
+</div>
 </section>
-<section >
-<h1>C++ Convention</h1>
-<ul class="simple">
-<li><p>Claimer: The convention and style is for this course only. It is not
-necessarily the best practice in the industry.</p></li>
-<li><p>Following a convention makes your life easier</p></li>
-<li><p>Conventions in this course</p>
-<ul>
-<li><p>Naming convention</p>
-<ul>
-<li><p>Variable, function/method names: lowerCamelCase</p></li>
-<li><p>Type/Class names: UpperCamelCase</p></li>
-<li><p>Constant names: ALL_CAPS_WITH_UNDERSCORES</p></li>
-<li><p>File names: lower-case-with-hyphens, or lower_case_with_underscores</p></li>
-<li><p>File extensions: .cpp, .hpp</p></li>
-<li><p>Namespace names: lower_case_with_underscores, a.k.a. snake_case</p></li>
-<li><p><strong>No capital letters and spaces in file names!</strong></p></li>
-</ul>
-</li>
-<li><p>Coding style</p>
-<ul>
-<li><p>Indentation: 2 spaces</p></li>
-<li><p>Braces: K&amp;R style - opening curly brace on the same line as the
-statement that opens the block</p></li>
-<li><p>Spaces: no space before comma, one space after comma</p></li>
-<li><p>Line length: 80 characters</p></li>
-<li><p>…</p></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
 </section>
-<section >
-<h2>C++ Convention (cont’d)</h2>
-<ul class="simple">
-<li><p>Conventions in this course (cont’d)</p>
-<ul>
-<li><p>Documentation and comments</p>
-<ul>
-<li><p>You should differentiate documentation and comments</p></li>
-<li><p>Make it readable, ideally following a style like JavaDoc or Doxygen</p></li>
-<li><p>Add documentation to essential public class/functions/methods especially
-when they are part of an API. API related items are usually in your
-header file so <strong>your documentation will be in your header file</strong>.</p></li>
-<li><p>Add to declarations, not definitions.</p></li>
-<li><p>Do not abuse comments! No need to comment on well-known blocks of code or
-code that is self-explanatory, or code that has a name.</p></li>
-<li><p>Good finished code should have no comments.</p></li>
-</ul>
-</li>
-<li><p>C++ standard</p>
-<ul>
-<li><p>C++14</p></li>
-<li><p>g++ flag: -std=c++14</p></li>
-</ul>
-</li>
-<li><p>Testing</p>
-<ul>
-<li><p>Some are provided in projects</p></li>
-<li><p>Strongly recommended to write your own tests</p></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</section>
-<section >
-<h1>Types of Errors in C++</h1>
-<ul class="simple">
-<li><p>Syntax error</p>
-<ul>
-<li><p>A.k.a compilation error</p></li>
-<li><p>Compiler cannot understand your code</p></li>
-<li><p>Smart usage of error messages can help you debug but it is not always
-straightforward</p></li>
-<li><p>Good IDE/Editor will highlight syntax errors in your editing window but it
-may require some configuration</p></li>
-</ul>
-</li>
-<li><p>Runtime error</p>
-<ul>
-<li><p>Related concept: exception</p></li>
-<li><p>Compiler can understand your code but the program fails when it is
-running</p></li>
-<li><p>Crash, segmentation fault, freeze, etc.</p></li>
-</ul>
-</li>
-<li><p>Logic error</p>
-<ul>
-<li><p>Compiler can understand your code and the program runs without any problem,
-but the program does not do what you want it to do</p></li>
-<li><p>Problems it causes</p>
-<ul>
-<li><p>Wrong output</p></li>
-<li><p>Wrong behavior</p></li>
-<li><p>Waste of resources</p>
-<ul>
-<li><p>too slow</p></li>
-<li><p>too much memory (possible memory leak)</p></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>The most difficult type of error to debug</p></li>
-</ul>
-</li>
-</ul>
 
         </div>
     </div>

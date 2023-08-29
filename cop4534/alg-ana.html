@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-  <title>Data Structure and Algorithm Design II</title>
+  <title>Algorithm Analysis</title>
     <link rel="stylesheet" type="text/css" href="../_static/revealjs4/dist/reveal.css" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/revealjs4/plugin/highlight/zenburn.css" />
@@ -19,19 +19,14 @@
     <div class="reveal">
         <div class="slides" role="main">
             <section data-background-color="white" data-background-image="../_static/logo.png" data-background-size="50%" data-background-position="top center" data-background-repeat="no-repeat">
-<h1>Data Structure and Algorithm Design II</h1>
+<h1>Algorithm Analysis</h1>
 <div class="subtitle docutils container">
-<p><strong>Module 2: Algorithm Analysis and amortized analysis</strong></p>
 <p>Xingang (Ian) Fang</p>
 </div>
 </section>
 <section >
 <h2>Outline</h2>
-<div class="flex-container docutils container">
-<div class="half docutils container">
 <ul class="simple">
-<li><p>Algorithm Analysis</p>
-<ul>
 <li><p>Motivation</p></li>
 <li><p>Type of Analysis</p>
 <ul>
@@ -44,27 +39,12 @@
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-</div>
-<div class="half docutils container">
-<ul class="simple">
-<li><p>Amortized Analysis</p>
-<ul>
-<li><p>Motivation</p></li>
-<li><p>Aggregate Analysis</p></li>
-<li><p>Accounting Method</p></li>
-<li><p>Potential Method</p></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
 </section>
 <section >
 <h2>Algorithm Analysis</h2>
 <ul class="simple">
-<li><p>Motivation: To compare algorithms and select the best one for a given problem.</p></li>
+<li><p>Motivation: To compare algorithms and select the best algorithm for a given
+problem.</p></li>
 <li><p>Types of Analysis</p></li>
 </ul>
 <div class="flex-container docutils container">
@@ -78,7 +58,7 @@
 </ul>
 </li>
 </ul>
-<div class="literal-block-wrapper docutils container" id="id1">
+<div class="literal-block-wrapper docutils container" id="id2">
 <div class="code-block-caption"><span class="caption-text">Empirical analysis using &lt;chrono&gt; library</span></div>
 <pre><code data-trim data-noescape class="c++">#include &lt;iostream&gt;
 #include &lt;chrono&gt;
@@ -123,7 +103,7 @@ int main() {
 resources required to run it. This model ignores the hardware and software
 details and focuses on the resources required by the algorithm as the problem
 size increases.</p></li>
-<li><p>Resources: Time and Space.</p></li>
+<li><p>Resources: Time, Space, etc.</p></li>
 <li><p>Time Complexity</p>
 <ul>
 <li><p>The number of constant time operations performed by the algorithm.</p></li>
@@ -142,7 +122,7 @@ input size.</p></li>
 </li>
 </ul>
 <div class="footnote docutils container">
-<p>We will focus on <span class="math notranslate nohighlight">\(T(n)\)</span> after but the same concepts apply to
+<p>We will focus on <span class="math notranslate nohighlight">\(T(n)\)</span> afterwards and the same concepts apply to
 <span class="math notranslate nohighlight">\(S(n)\)</span>.</p>
 </div>
 </section>
@@ -177,7 +157,7 @@ behave under different scenarios and input distributions.</p>
 <section >
 <h3>Algorithms of Certain Complexity</h3>
 <div class="footnote docutils container">
-<table class="docutils align-default" id="id2">
+<table class="docutils align-default" id="id3">
 <caption><span class="caption-text">Typical Complexity and Representative Algorithms</span></caption>
 <colgroup>
 <col style="width: 20.0%" />
@@ -304,7 +284,7 @@ to take constant time.</p></li>
 </li>
 </ul>
 <div class="footnote docutils container">
-<table class="docutils align-default" id="id3">
+<table class="docutils align-default" id="id4">
 <caption><span class="caption-text">Common Growth Rates, from low to high order</span></caption>
 <colgroup>
 <col style="width: 50.0%" />
@@ -371,23 +351,6 @@ iteration complexity respectively.</p></li>
 </li>
 </ul>
 </section>
-</section>
-<section >
-<h2>Amortized Analysis</h2>
-<ul class="simple">
-<li><p>Motivation: To analyze the average time complexity of a sequence of
-operations performed on a data structure.</p></li>
-<li><p>When best, worst, and average cases are not enough to describe the
-performance of an algorithm or a data structure.</p></li>
-<li><p>Example:</p>
-<ul>
-<li><p>Dynamic arrays (resizing)</p></li>
-<li><p>Hash tables (rehashing)</p></li>
-<li><p>Self-balancing binary search trees (rebalancing)</p></li>
-<li><p>Splay trees (splaying)</p></li>
-</ul>
-</li>
-</ul>
 </section>
 
         </div>

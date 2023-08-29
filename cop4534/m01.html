@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-  <title>Development Environment For C++</title>
+  <title>Data Structure and Algorithm Design II</title>
     <link rel="stylesheet" type="text/css" href="../_static/revealjs4/dist/reveal.css" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/revealjs4/plugin/highlight/zenburn.css" />
@@ -18,6 +18,179 @@
     <div class="reveal">
         <div class="slides" role="main">
             <section data-background-color="white" data-background-image="../_static/logo.png" data-background-size="50%" data-background-position="top center" data-background-repeat="no-repeat">
+<h1>Data Structure and Algorithm Design II</h1>
+<div class="subtitle docutils container">
+<p><strong>Module 1</strong></p>
+<p>Xingang (Ian) Fang</p>
+</div>
+</section>
+<section >
+<h2>Sections</h2>
+<ul class="simple">
+<li><p>Introduction to the DSA 2 course</p></li>
+<li><p>Development Environment For C++</p></li>
+<li><p>General Programming Concepts</p></li>
+<li><p>C++ Language Review</p></li>
+</ul>
+</section>
+<section data-background-color="white" data-background-image="../_static/logo.png" data-background-size="50%" data-background-position="top center" data-background-repeat="no-repeat">
+<h1>Introduction to the COP4534 course</h1>
+<div class="subtitle docutils container">
+<p>Xingang (Ian) Fang</p>
+</div>
+</section>
+<section >
+<h2>Outline</h2>
+<ul class="simple">
+<li><p>Course Description</p></li>
+<li><p>Instructor Info</p></li>
+<li><p>Course contents</p></li>
+<li><p>Communication</p></li>
+</ul>
+</section>
+<section>
+<section >
+<h2>Course Description</h2>
+<ul>
+<li><p>Description:</p>
+<p>A second course in Data Structures and Algorithms covers topics including the
+mathematical properties of algorithms (complexity, correctness), trees and
+graphs, hashing, relational (database) structures, Dynamic Programming, and
+numerical programming. The emphasis is on issues of correctness and
+efficiency. Students entering this course are expected to have a solid
+knowledge of programming.</p>
+</li>
+<li><p>Keywords:</p>
+<p>Abstract Data Type (ADT); Data Structure; Algorithm; Algorithm Analysis;
+Recursion; Self-balancing trees; Master Theorem; Graph; Counting; Greedy
+algorithms; Genetic algorithms; Dynamic programming;</p>
+</li>
+</ul>
+</section>
+<section >
+<h3>Course Objective</h3>
+<ul class="simple">
+<li><p>Develop solutions to problems by applying algorithms discussed in class.</p></li>
+<li><p>Develop solutions that emphasize mathematical and scientific problems.</p></li>
+<li><p>Write algorithms for solving problems prior to coding.</p></li>
+<li><p>Analyze solutions in terms of time complexity.</p></li>
+<li><p>Solve probability problems and counting problems with permutations and
+combinations.</p></li>
+<li><p>Utilize greedy algorithms when applicable.</p></li>
+<li><p>Construct graphs and implement representative algorithms.</p></li>
+<li><p>Analyze and contrast graph based solutions.</p></li>
+<li><p>Construct solutions that make use of Dynamic Programming techniques.</p></li>
+</ul>
+</section>
+</section>
+<section >
+<h2>Instructor Info</h2>
+<ul class="simple">
+<li><p>Xingang Fang</p></li>
+<li><p>Lecturer, CS department, UWF</p></li>
+<li><p>email: <a class="reference external" href="mailto:xfang&#37;&#52;&#48;uwf&#46;edu">xfang<span>&#64;</span>uwf<span>&#46;</span>edu</a></p></li>
+<li><p>Zoom link: <a class="reference external" href="https://uwf.zoom.us/my/xfang">https://uwf.zoom.us/my/xfang</a></p></li>
+</ul>
+</section>
+<section>
+<section >
+<h2>Course Contents</h2>
+<ul class="simple">
+<li><p>Required textbook: zyBooks.com</p></li>
+<li><p>LMS (Canvas): <a class="reference external" href="https://uwf.instructure.com/">link</a></p></li>
+<li><p>Provided Course Notes Website: <a class="reference external" href="https://uwf-fang.github.io/course/cop4534/">link</a></p></li>
+<li><p>Code examples: <a class="reference external" href="https://github.com/uwf-fang/cop4534-examples">GitHub repository</a></p></li>
+<li><p>Course Slides: Hosted on <a class="reference external" href="https://uwf-fang.github.io/presentations/cop4534/main.html">GitHub</a></p></li>
+</ul>
+</section>
+<section >
+<h3>Textbook Info</h3>
+<ul class="simple">
+<li><p>Required textbook in this course</p>
+<ul>
+<li><p>Data Structures and Algorithm Analysis in C++, 4th Edition. Mark Allen
+Weiss.</p></li>
+<li><p>ISBN-13: 978-0132847377</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section >
+<h3>Canvas Course Shell</h3>
+<ul class="simple">
+<li><p>Learn Canvas LMS: Notification tool, calendar, mobile app</p></li>
+<li><p>The front page</p>
+<ul>
+<li><p>Optimize user experience</p></li>
+<li><p>Links to everything</p></li>
+<li><p>Mini-calendar</p></li>
+<li><p>Grades distribution</p></li>
+<li><p>Course summary</p></li>
+</ul>
+</li>
+<li><p>Zoom tab</p>
+<ul>
+<li><p>list of perspective meetings</p></li>
+<li><p>list of recordings of past meetings</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section >
+<h3>Course Notes Website and Slides</h3>
+<ul class="simple">
+<li><p>Designed as a reference for students to better understand the organization of
+knowledge points</p></li>
+<li><p>Provides a <a class="reference external" href="https://uwf-fang.github.io/course/faq.html">General FAQ</a></p></li>
+<li><p>Provides a <a class="reference external" href="https://uwf-fang.github.io/editor.html">text editor</a> for exam
+(optional)</p></li>
+<li><p>Convention</p>
+<ul>
+<li><p>Extended (optional) contents are marked as <strong>FYI</strong> or <strong>Optional</strong></p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section >
+<h2>Communication</h2>
+<ul class="simple">
+<li><p>Keep updated</p>
+<ul>
+<li><p>Group email</p></li>
+<li><p>Canvas announcement</p></li>
+<li><p>Discord &#64;everyone/&#64;here message</p></li>
+</ul>
+</li>
+<li><p>Find help</p>
+<ul>
+<li><p>Discord - sharable questions</p></li>
+<li><p>Email; Discord DM - private questions, identify yourself first</p></li>
+<li><p>Zoom (Office hour, appointment, etc.)</p></li>
+<li><p>Always share your whole project by pushing to GitHub when asking help on
+code</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section >
+<h2>Communication (cont.)</h2>
+<ul class="simple">
+<li><p>Related assignments</p>
+<ul>
+<li><p>Communication test</p></li>
+<li><p>Discord</p></li>
+</ul>
+</li>
+<li><p>Avoid 🚫</p>
+<ul>
+<li><p>Canvas/Navigation messages</p></li>
+<li><p>Provide error messages or screenshots without code</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section data-background-color="white" data-background-image="../_static/logo.png" data-background-size="50%" data-background-position="top center" data-background-repeat="no-repeat">
 <h1>Development Environment For C++</h1>
 <div class="subtitle docutils container">
 <p>Xingang (Ian) Fang</p>
@@ -365,6 +538,256 @@ multiple executables</p></li>
 <li><p>Eclipse</p></li>
 </ul>
 </li>
+</ul>
+</li>
+</ul>
+</section>
+<section data-background-color="white" data-background-image="../_static/logo.png" data-background-size="50%" data-background-position="top center" data-background-repeat="no-repeat">
+<h1>General Programming Concepts</h1>
+<div class="subtitle docutils container">
+<p>Xingang (Ian) Fang</p>
+</div>
+</section>
+<section >
+<h2>Outline</h2>
+<ul class="simple">
+<li><p>Programming Paradigms</p></li>
+<li><p>Programming Languages</p></li>
+<li><p>Comment and Documentation</p></li>
+</ul>
+</section>
+<section>
+<section >
+<h2>General Programming</h2>
+<ul class="simple">
+<li><p>Programming Paradigms</p>
+<ul>
+<li><p>Imperative</p></li>
+<li><p>Functional</p></li>
+<li><p>Object-oriented</p></li>
+<li><p>Logic</p></li>
+<li><p>…</p></li>
+</ul>
+</li>
+<li><p>Programming Languages</p></li>
+</ul>
+<div class="footnote docutils container">
+<table class="docutils align-default" id="id9">
+<caption><span class="caption-text">Popular Programming Languages</span></caption>
+<colgroup>
+<col style="width: 33.3%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Language</p></th>
+<th class="head"><p>Tags</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Java</p></td>
+<td><p>Compiled+Interpreted, Typed, High-level, Object-oriented, Class-based,
+General purpose</p></td>
+</tr>
+<tr class="row-odd"><td><p>C++</p></td>
+<td><p>Compiled, Typed, High-level, Object-oriented, Class-based,
+General purpose</p></td>
+</tr>
+<tr class="row-even"><td><p>Python</p></td>
+<td><p>Interpreted, Untyped, High-level, Object-oriented, Class-based,
+General purpose</p></td>
+</tr>
+<tr class="row-odd"><td><p>C</p></td>
+<td><p>Compiled, Typed, High-level, Procedural, General purpose</p></td>
+</tr>
+<tr class="row-even"><td><p>Javascript</p></td>
+<td><p>Interpreted, Untyped, High-level, Object-oriented, not class-based,
+General purpose</p></td>
+</tr>
+<tr class="row-odd"><td><p>SQL</p></td>
+<td><p>Interpreted, High-level, Declarative, Domain specific</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section >
+<h3>Comment and Documentation</h3>
+<div class="flex-container docutils container">
+<div class="half docutils container">
+<ul class="simple">
+<li><p>Comment</p>
+<ul>
+<li><p>The audience is the programmer themselves</p></li>
+<li><p>Used by programmers to explain the code to themselves and other
+programmers</p></li>
+<li><p>Not useful in good code structure</p></li>
+<li><p>Replaceable by names of variables, functions, classes, etc.</p></li>
+</ul>
+</li>
+</ul>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-text">C++ comments</span></div>
+<pre><code data-trim data-noescape class="c++">// initialize the array
+// replaceable by a function named initializeArray
+for (int i = 0; i &lt; 10; ++i) {
+  a[i] = 0;
+}
+
+// print the array
+for (int i = 0; i &lt; 10; ++i) {
+  std::cout &lt;&lt; a[i] &lt;&lt; std::endl;
+}</code></pre>
+</div>
+</div>
+<div class="half docutils container">
+<ul class="simple">
+<li><p>Documentation</p>
+<ul>
+<li><p>The audience is the users of the code</p></li>
+<li><p>Used by programmers to explain the code to users</p></li>
+<li><p>Always useful</p></li>
+</ul>
+</li>
+</ul>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-text">C++ documentation</span></div>
+<pre><code data-trim data-noescape class="c++">/**
+ * &#64;brief initialize the array, doxygen style documentation
+ * &#64;param a the array to be initialized
+ * &#64;param n the size of the array
+ */
+void initializeArray(int a[], int n);
+
+void initializeArray(int a[], int n) {
+  for (int i = 0; i &lt; n; ++i) {
+    a[i] = 0;
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section data-background-color="white" data-background-image="../_static/logo.png" data-background-size="50%" data-background-position="top center" data-background-repeat="no-repeat">
+<h1>C++ Language Review</h1>
+<div class="subtitle docutils container">
+<p>Xingang (Ian) Fang</p>
+</div>
+</section>
+<section >
+<h2>Outline</h2>
+<ul class="simple">
+<li><p>C++ convention and style recommended in this course</p></li>
+<li><p>Type of errors</p></li>
+</ul>
+</section>
+<section>
+<section >
+<h2>C++ Convention</h2>
+<ul class="simple">
+<li><p>Claimer: The convention and style is for this course only. It is not
+necessarily the best practice.</p></li>
+<li><p>Following a convention makes your life easier</p></li>
+<li><p>Conventions in this course</p>
+<ul>
+<li><p>Naming convention</p>
+<ul>
+<li><p>Variable, function/method names: lowerCamelCase</p></li>
+<li><p>Type/Class names: UpperCamelCase</p></li>
+<li><p>Constant names: ALL_CAPS_WITH_UNDERSCORES</p></li>
+<li><p>File names: lower-case-with-hyphens, or lower_case_with_underscores</p></li>
+<li><p>File extensions: .cpp, .hpp</p></li>
+<li><p>Namespace names: lower_case_with_underscores, a.k.a. snake_case</p></li>
+<li><p><strong>No capital letters and spaces in file names!</strong></p></li>
+</ul>
+</li>
+<li><p>Coding style</p>
+<ul>
+<li><p>Indentation: 2 spaces</p></li>
+<li><p>Braces: K&amp;R style - opening curly brace on the same line as the
+statement that opens the block</p></li>
+<li><p>Spaces: no space before comma, one space after comma</p></li>
+<li><p>Line length: 80 characters</p></li>
+<li><p>…</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section >
+<h3>C++ Convention (cont’d)</h3>
+<ul class="simple">
+<li><p>Conventions in this course (cont’d)</p>
+<ul>
+<li><p>Documentation and comments</p>
+<ul>
+<li><p>You should differentiate documentation and comments</p></li>
+<li><p>Make it readable, ideally following a style like JavaDoc or Doxygen</p></li>
+<li><p>Add documentation to essential public class/functions/methods especially
+when they are part of an API. API related items are usually in your
+header file so <strong>your documentation will be in your header file</strong>.</p></li>
+<li><p>Add to declarations, not definitions.</p></li>
+<li><p>Do not abuse comments! No need to comment on well-known blocks of code or
+code that is self-explanatory, or code that has a name.</p></li>
+<li><p>Good finished code should have no comments.</p></li>
+</ul>
+</li>
+<li><p>C++ standard</p>
+<ul>
+<li><p>Stick to the C++ 14 standard</p></li>
+<li><p>g++ flag: <code class="docutils literal notranslate"><span class="pre">-std=c++14</span></code></p></li>
+</ul>
+</li>
+<li><p>Testing</p>
+<ul>
+<li><p>Some are provided in projects</p></li>
+<li><p>Strongly recommended to write your own tests</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section >
+<h2>Types of Errors in C++</h2>
+<ul class="simple">
+<li><p>Syntax error</p>
+<ul>
+<li><p>A.k.a compilation error</p></li>
+<li><p>Compiler cannot understand your code</p></li>
+<li><p>Smart usage of error messages can help you debug but it is not always
+straightforward</p></li>
+<li><p>Good IDE/Editor will highlight syntax errors in your editing window but it
+may require some configuration</p></li>
+</ul>
+</li>
+<li><p>Runtime error</p>
+<ul>
+<li><p>Related concept: exception</p></li>
+<li><p>Compiler can understand your code but the program fails when it is
+running</p></li>
+<li><p>Crash, segmentation fault, freeze, etc.</p></li>
+</ul>
+</li>
+<li><p>Logic error</p>
+<ul>
+<li><p>Compiler can understand your code and the program runs without any problem,
+but the program does not do what you want it to do</p></li>
+<li><p>Problems it causes</p>
+<ul>
+<li><p>Wrong output</p></li>
+<li><p>Wrong behavior</p></li>
+<li><p>Waste of resources</p>
+<ul>
+<li><p>too slow</p></li>
+<li><p>too much memory (possible memory leak)</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>The most difficult type of error to debug</p></li>
 </ul>
 </li>
 </ul>
