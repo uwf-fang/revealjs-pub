@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <title>Self-balancing Trees</title>
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs4/dist/reveal.css" />
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs4/plugin/highlight/zenburn.css" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  </head><body>
+    <div class="reveal">
+        <div class="slides" role="main">
+            <section data-background-color="white" data-background-image="../_static/logo.png" data-background-size="50%" data-background-position="top center" data-background-repeat="no-repeat">
+<h1>Self-balancing Trees</h1>
+<div class="subtitle docutils container">
+<p>Xingang (Ian) Fang</p>
+</div>
+</section>
+<section >
+<h2>Outline</h2>
+<ul class="simple">
+<li><p>Definition</p></li>
+<li><p>Behaviors</p></li>
+<li><p>Implementation</p></li>
+<li><p>Drawbacks</p></li>
+<li><p>Applications</p></li>
+</ul>
+</section>
+<section >
+<h2>Definition and Behaviors</h2>
+<div class="flex-container docutils container">
+<div class="half docutils container">
+<p><strong>Definition</strong> A binary search tree (BST) is a binary tree, in which for
+every node, its left child has a smaller or equal key than itself while its
+right child has a greater or equal key than itself.</p>
+<img alt="BST" src="../_images/bst.png" />
+</div>
+<div class="half docutils container">
+<p><strong>Behaviors</strong></p>
+<ul class="simple">
+<li><p>Insertion</p></li>
+<li><p>Deletion</p></li>
+<li><p>Search</p></li>
+<li><p>Traversal</p>
+<ul>
+<li><p>In-order traversal: left subtree, root, right subtree</p>
+<ul>
+<li><p>Ascending ordered output</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<section>
+<section >
+<h2>Implementation</h2>
+<ul>
+<li><p>Algorithms that happens from top to bottom</p>
+<p>Easy to implement either iteratively or recursively</p>
+<ul class="simple">
+<li><p>search</p></li>
+<li><p>insert</p></li>
+</ul>
+</li>
+<li><p>Algorithms that happens from bottom to top</p>
+<p>Easy to implement recursively; Hard to implement iteratively (must use stack)</p>
+<ul class="simple">
+<li><p>subtree removal (may be used in the destruction of a tree)</p></li>
+<li><p>find min node or find max node (part of remove)</p></li>
+<li><p>in-order traversal</p></li>
+<li><p>pre-order traversal</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section >
+<h3>Implementation (cont’d)</h3>
+<ul class="simple">
+<li><p>Search</p>
+<ul>
+<li><p>if equal, found</p></li>
+<li><p>if smaller, search left subtree</p></li>
+<li><p>if greater, search right subtree</p></li>
+</ul>
+</li>
+<li><p>Insertion</p>
+<ul>
+<li><p>if equal, do nothing</p></li>
+<li><p>if smaller, insert to left subtree</p>
+<ul>
+<li><p>if left is empty, insert</p></li>
+</ul>
+</li>
+<li><p>if greater, insert to right subtree</p>
+<ul>
+<li><p>if right is empty, insert</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Removal</p>
+<ul>
+<li><p>remove leaf node: simply remove it</p></li>
+<li><p>remove node with one child: replace the node with its child</p></li>
+<li><p>remove node with two children</p>
+<ul>
+<li><p>find the min node in the right subtree (successor)</p></li>
+<li><p>replace the node to be removed with the min node</p></li>
+<li><p>remove the min node (min node has at most one child)</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section >
+<h2>Drawbacks of naive BST</h2>
+<div class="flex-container docutils container">
+<div class="half docutils container">
+<ul class="simple">
+<li><p>Algorithm efficiency depends on the height of the BST</p></li>
+<li><p>BST may degrade to a linked list</p></li>
+<li><p>Solution: randomize the order of insertion</p></li>
+<li><p>Solution: add balancing mechanism</p>
+<ul>
+<li><p>Self-balancing</p></li>
+<li><p>External balancing</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="half docutils container">
+<img alt="Degraded BST" src="../_images/degraded-bst.png" />
+</div>
+</div>
+</section>
+
+        </div>
+    </div>
+    
+    <script src="../_static/revealjs4/dist/reveal.js"></script>
+    
+    
+      <script src="../_static/revealjs4/plugin/notes/notes.js"></script>
+      <script src="../_static/revealjs4/plugin/highlight/highlight.js"></script>
+      <script src="../_static/revealjs4/plugin/math/math.js"></script>
+      
+    
+    <script>
+        var revealjsConfig = new Object();
+        Object.assign(revealjsConfig, JSON.parse('{"controls": true, "progress": true, "hash": true, "center": true, "transition": "slide", "slideNumber": true}'));
+        
+        
+        
+          revealjsConfig.plugins = [
+            RevealNotes,RevealHighlight,RevealMath,
+          ];
+        
+        // More info https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize(revealjsConfig);
+    </script>
+
+  </body>
+</html>
