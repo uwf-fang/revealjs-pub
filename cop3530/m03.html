@@ -395,14 +395,14 @@ dynamic data. Must be careful!</p></li>
 <li><p>Copy constructor</p>
 <ul>
 <li><p>The constructor with one parameter of the same type as the class</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">MyClass</span> <span class="pre">myObj(otherObj);</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MyClass</span> <span class="pre">myObj(otherObj);</span></code> or <code class="docutils literal notranslate"><span class="pre">MyClass</span> <span class="pre">myObj</span> <span class="pre">=</span> <span class="pre">otherObj;</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">MyClass</span> <span class="pre">*obj</span> <span class="pre">=</span> <span class="pre">new</span> <span class="pre">MyClass(otherObj);</span></code></p></li>
 <li><p>Parameter passing by value <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">func(MyClass</span> <span class="pre">obj)</span></code></p></li>
 </ul>
 </li>
 <li><p>Copy assignment operator overloading</p>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">MyClass</span> <span class="pre">obj1,</span> <span class="pre">obj2(10);</span> <span class="pre">obj1</span> <span class="pre">=</span> <span class="pre">obj2;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MyClass</span> <span class="pre">obj1,</span> <span class="pre">obj2(10);</span></code> and then <code class="docutils literal notranslate"><span class="pre">obj1</span> <span class="pre">=</span> <span class="pre">obj2;</span></code></p></li>
 </ul>
 </li>
 <li><p>Destructor</p>
