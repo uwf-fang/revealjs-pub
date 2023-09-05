@@ -208,6 +208,46 @@ delete[] myArr;</code></pre>
 </section>
 <section >
 <h2>Pitfalls</h2>
+<div class="flex-container docutils container">
+<div class="half docutils container">
+<ul class="simple">
+<li><p>Memory leak: Forgetting to deallocate memory</p></li>
+<li><p>Dangling pointer</p>
+<ul>
+<li><p>Deallocating memory but still using the pointer</p></li>
+</ul>
+</li>
+<li><p>Double free</p>
+<ul>
+<li><p>Deallocating memory twice</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="half docutils container">
+<ul class="simple">
+<li><p>Memory access violation: when the program tries to access memory that it
+does not own. A.k.a. <strong>segmentation fault</strong>.</p>
+<ul>
+<li><p>Invalid pointer</p>
+<ul>
+<li><p>Null pointer (potential logic error rather than sigfault)</p></li>
+<li><p>Uninitialized pointer</p></li>
+<li><p>Assignment of a wrong type (e.g. int) to a pointer</p></li>
+<li><p>Dangling pointer</p></li>
+</ul>
+</li>
+<li><p>Out-of-bound array access</p>
+<ul>
+<li><p>Accessing an array element with an out-of-bound index</p></li>
+<li><p>Accessing an array element with a negative index</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
 </section>
 <section >
 <h2>Memory Management Tools</h2>
