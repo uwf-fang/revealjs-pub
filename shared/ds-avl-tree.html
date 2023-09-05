@@ -6,10 +6,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-  <title>&lt;no title&gt;</title>
+  <title>AVL Tree</title>
     <link rel="stylesheet" type="text/css" href="../_static/revealjs4/dist/reveal.css" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/revealjs4/plugin/highlight/zenburn.css" />
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -17,7 +18,77 @@
   </head><body>
     <div class="reveal">
         <div class="slides" role="main">
-            
+            <section data-background-color="white" data-background-image="../_static/logo.png" data-background-size="50%" data-background-position="top center" data-background-repeat="no-repeat">
+<h1>AVL Tree</h1>
+<div class="subtitle docutils container">
+<p>Xingang (Ian) Fang</p>
+</div>
+</section>
+<section >
+<h2>Outline</h2>
+<ul class="simple">
+<li><p>Overview</p></li>
+<li><p>Implementation details</p></li>
+</ul>
+</section>
+<section >
+<h2>Overview</h2>
+<ul class="simple">
+<li><p>Definition: An AVL (Adelson-Velsky and Landis) tree is a self-balancing
+binary search tree data structure. It is designed to maintain a balanced tree
+structure at all times, ensuring that the height difference (balance factor)
+between the left and right subtrees of any node is limited to no more than
+one.</p></li>
+<li><p>Worst case guarantee for search, insert, and delete is <span class="math notranslate nohighlight">\(O(log(n))\)</span></p></li>
+</ul>
+</section>
+<section>
+<section >
+<h2>Characteristics</h2>
+<ul class="simple">
+<li><p>Balance factor = height(left subtree) - height(right subtree)</p></li>
+<li><p>Balance factor of 0, -1, or 1 is considered balanced</p></li>
+<li><p>Insertion and deletion operations may cause the tree to become unbalanced, in
+which cases the balance factor of one or more nodes will be -2 or +2.</p></li>
+<li><p>Self-balancing: balance restored by rotations during insertion and deletion</p></li>
+<li><p>Balancing operations are performed bottom-up, starting with the deepest
+unbalanced node.</p></li>
+</ul>
+</section>
+<section >
+<h3>Rotations to restore balance</h3>
+<div class="flex-container docutils container">
+<div class="half docutils container">
+<p><strong>Left rotation</strong> to restore right-right (RR) imbalance.</p>
+<img alt="../_images/RR.png" src="../_images/RR.png" />
+</div>
+<div class="half docutils container">
+<p><strong>Right rotation</strong> to restore left-left (LL) imbalance.</p>
+<img alt="../_images/LL.png" src="../_images/LL.png" />
+</div>
+</div>
+<div class="footnote docutils container">
+<p>Credit: Textbook</p>
+</div>
+</section>
+<section >
+<h3>Rotations to restore balance (cont.)</h3>
+<div class="flex-container docutils container">
+<div class="half docutils container">
+<p><strong>Left-right double rotation</strong> to restore left-right (LR) imbalance.</p>
+<img alt="../_images/LR.png" src="../_images/LR.png" />
+</div>
+<div class="half docutils container">
+<p><strong>Right-left double rotation</strong> to restore right-left (LR) imbalance.</p>
+<img alt="../_images/RL.png" src="../_images/RL.png" />
+</div>
+</div>
+<div class="footnote docutils container">
+<p>Credit: Textbook</p>
+</div>
+</section>
+</section>
+
         </div>
     </div>
     

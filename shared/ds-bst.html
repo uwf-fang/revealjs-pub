@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-  <title>Self-balancing Trees</title>
+  <title>Binary Search Tree</title>
     <link rel="stylesheet" type="text/css" href="../_static/revealjs4/dist/reveal.css" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/revealjs4/plugin/highlight/zenburn.css" />
@@ -18,7 +18,7 @@
     <div class="reveal">
         <div class="slides" role="main">
             <section data-background-color="white" data-background-image="../_static/logo.png" data-background-size="50%" data-background-position="top center" data-background-repeat="no-repeat">
-<h1>Self-balancing Trees</h1>
+<h1>Binary Search Tree</h1>
 <div class="subtitle docutils container">
 <p>Xingang (Ian) Fang</p>
 </div>
@@ -129,13 +129,22 @@ right child has a greater or equal key than itself.</p>
 <div class="flex-container docutils container">
 <div class="half docutils container">
 <ul class="simple">
-<li><p>Algorithm efficiency depends on the height of the BST</p></li>
-<li><p>BST may degrade to a linked list</p></li>
-<li><p>Solution: randomize the order of insertion</p></li>
-<li><p>Solution: add balancing mechanism</p>
+<li><p>Algorithm efficiency depends on the average height of the BST</p></li>
+<li><p>BST may degrade a very unbalanced form or even to a linked list</p></li>
+<li><p>Solution 1: randomize the order of insertion</p></li>
+<li><p>Solution 2: add balancing mechanism</p>
 <ul>
 <li><p>Self-balancing</p></li>
 <li><p>External balancing</p></li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li><p>Solution 3: move the most recently accessed node toward the root</p>
+<ul>
+<li><p>Only optimize the search performance for a specific access pattern</p></li>
+<li><p>No guarantee for the worst case</p></li>
+<li><p>Splay tree</p></li>
 </ul>
 </li>
 </ul>
@@ -144,6 +153,19 @@ right child has a greater or equal key than itself.</p>
 <img alt="Degraded BST" src="../_images/degraded-bst.png" />
 </div>
 </div>
+</section>
+<section >
+<h2>Applications</h2>
+<ul class="simple">
+<li><p>Indexing: store a set of references to records in a BST and use the key as
+the search key.</p></li>
+<li><p>Tree Sort: sort a sequence of elements by building a BST and then traversing
+it in-order.</p></li>
+<li><p>Tree Map: store a set of (key, value) pairs in a BST and use the key as the
+search key.</p></li>
+<li><p>Tree Set: store a set of elements in a BST and use the element as the search
+key.</p></li>
+</ul>
 </section>
 
         </div>

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-  <title>Amortized Analysis</title>
+  <title>Self-balancing Trees</title>
     <link rel="stylesheet" type="text/css" href="../_static/revealjs4/dist/reveal.css" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/revealjs4/plugin/highlight/zenburn.css" />
@@ -18,34 +18,75 @@
     <div class="reveal">
         <div class="slides" role="main">
             <section data-background-color="white" data-background-image="../_static/logo.png" data-background-size="50%" data-background-position="top center" data-background-repeat="no-repeat">
-<h1>Amortized Analysis</h1>
+<h1>Self-balancing Trees</h1>
 <div class="subtitle docutils container">
 <p>Xingang (Ian) Fang</p>
 </div>
 </section>
 <section >
-<h2>Amortized Analysis</h2>
+<h2>Outline</h2>
 <ul class="simple">
-<li><p>Motivation: To analyze the average time complexity of a sequence of
-operations performed on a data structure.</p></li>
-<li><p>When best, worst, and average cases are not enough to describe the
-performance of an algorithm or a data structure.</p></li>
-<li><p>Types of amortized analysis:</p>
+<li><p>Overview</p></li>
+<li><p>Variations</p></li>
+</ul>
+</section>
+<section >
+<h2>Overview</h2>
+<ul class="simple">
+<li><p>Definition: A self-balancing tree is a type of tree data structure in which
+the balance or height of the tree is automatically adjusted during insertions
+and deletions to ensure that the tree remains reasonably balanced.</p></li>
+<li><p>Motivation: To overcome the potential performance issues that can occur in
+trees due to unbalanced structures.</p></li>
+<li><p>Alternative approach: External balancing on general trees.</p></li>
+</ul>
+</section>
+<section >
+<h2>Variations</h2>
+<div class="flex-container docutils container">
+<div class="half docutils container">
+<ul class="simple">
+<li><p>BST family</p>
 <ul>
-<li><p>Aggregate analysis</p></li>
-<li><p>Accounting method</p></li>
-<li><p>Potential method</p></li>
+<li><p>AVL tree</p>
+<ul>
+<li><p>Balance factor: height(left subtree) - height(right subtree)</p></li>
+<li><p>Balance factor of each node is either -1, 0, or 1.</p></li>
+<li><p>Insertion and deletion may trigger a balance operation.</p></li>
+<li><p>Balance operations achieved by rotations.</p></li>
 </ul>
 </li>
-<li><p>Example of dynamic data structures that require amortized analysis:</p>
+<li><p>Red-black tree</p>
 <ul>
-<li><p>Dynamic arrays (resizing)</p></li>
-<li><p>Hash tables (rehashing)</p></li>
-<li><p>Self-balancing binary search trees (balancing)</p></li>
-<li><p>Splay trees (splaying)</p></li>
+<li><p>A BST implementation of 2-3 tree.</p></li>
+<li><p>Each node is colored red or black.</p></li>
+<li><p>Insertion and deletion may trigger adjustment.</p></li>
+<li><p>Adjustment achieved by a re-color or a rotation.</p></li>
 </ul>
 </li>
 </ul>
+</li>
+</ul>
+</div>
+<div class="half docutils container">
+<ul class="simple">
+<li><p>B-tree family</p>
+<ul>
+<li><p>B-tree (B tree, not B minus tree)</p>
+<ul>
+<li><p>varying but bounded number of children per node</p></li>
+<li><p>always balanced</p></li>
+<li><p>maintain balance by redistributing keys among nodes</p></li>
+<li><p>2-3 tree is a B-tree with 2 or 3 children per node</p></li>
+</ul>
+</li>
+<li><p>B+ tree</p></li>
+<li><p>B* tree</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
 </section>
 
         </div>
