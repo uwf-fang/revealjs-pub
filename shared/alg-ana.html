@@ -18,7 +18,7 @@
   </head><body>
     <div class="reveal">
         <div class="slides" role="main">
-            <section data-background-color="white" data-background-image="../_static/logo.png" data-background-size="50%" data-background-position="top center" data-background-repeat="no-repeat">
+            <section >
 <h1>Algorithm Analysis</h1>
 <div class="subtitle docutils container">
 <p>Xingang (Ian) Fang</p>
@@ -41,7 +41,7 @@
 </ul>
 </section>
 <section >
-<h2>Algorithm Analysis</h2>
+<h2>Overview</h2>
 <ul class="simple">
 <li><p>Motivation: To compare algorithms and select the best algorithm for a given
 problem.</p></li>
@@ -58,7 +58,7 @@ problem.</p></li>
 </ul>
 </li>
 </ul>
-<div class="literal-block-wrapper docutils container" id="id2">
+<div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">Empirical analysis using &lt;chrono&gt; library</span></div>
 <pre><code data-trim data-noescape class="c++">#include &lt;iostream&gt;
 #include &lt;chrono&gt;
@@ -157,7 +157,7 @@ behave under different scenarios and input distributions.</p>
 <section >
 <h3>Algorithms of Certain Complexity</h3>
 <div class="footnote docutils container">
-<table class="docutils align-default" id="id3">
+<table class="docutils align-default" id="id2">
 <caption><span class="caption-text">Typical Complexity and Representative Algorithms</span></caption>
 <colgroup>
 <col style="width: 20.0%" />
@@ -208,9 +208,19 @@ behave under different scenarios and input distributions.</p>
 </div>
 </section>
 <section >
+<h3>Checkpoint</h3>
+<ul class="simple">
+<li><p>How many searching and sorting algorithms do you know?</p></li>
+<li><p>What is the complexity of each algorithm?</p></li>
+<li><p>Is a Merge sort (<span class="math notranslate nohighlight">\(O(n log(n))\)</span>) always <strong>faster</strong> than an Insertion
+sort (<span class="math notranslate nohighlight">\(O(n^2)\)</span>)?</p></li>
+</ul>
+</section>
+<section >
 <h3>Find <span class="math notranslate nohighlight">\(T(n)\)</span></h3>
 <div class="flex-container docutils container">
 <div class="half docutils container">
+<div class="smaller docutils container">
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(T(n)\)</span> = number of operations</p></li>
 <li><p>Count the number of constant time operations</p></li>
@@ -223,6 +233,7 @@ to take constant time.</p></li>
 </ul>
 </li>
 </ul>
+</div>
 <pre><code data-trim data-noescape class="c++">int search(int * arr, int size, int val) {
   for (int i = 0; i &lt; size; ++i)
     if (arr[i] == val)
@@ -243,14 +254,11 @@ to take constant time.</p></li>
     for (int j = i + 1; j &lt; size; ++j)
       if (arr[j] &lt; arr[min])
         min = j;
-    if (min != i) {
-      int tmp = arr[i];
-      arr[i] = arr[min];
-      arr[min] = tmp;
-    }
+    if (min != i)
+      std::swap(arr[i], arr[min]);
   }
 }</code></pre>
-<div class="footnote docutils container">
+<div class="smaller docutils container">
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(T(n)\)</span> = number of comparisons + number of swaps</p></li>
 <li><p>number of comparisons = <span class="math notranslate nohighlight">\(1 + 2 + 3 + ... + n - 1 = n(n - 1) / 2\)</span></p></li>
@@ -266,8 +274,10 @@ to take constant time.</p></li>
 </section>
 <section >
 <h3>Find <span class="math notranslate nohighlight">\(O(f(n))\)</span> given <span class="math notranslate nohighlight">\(T(n)\)</span></h3>
+<div class="smaller docutils container">
 <ul class="simple">
-<li><p>Keep the term with highest order. Drop the coefficient and lower order terms.</p></li>
+<li><p>Keep the term with highest order. Drop the coefficient and lower order
+terms.</p></li>
 <li><p>Example:</p>
 <ul>
 <li><p><span class="math notranslate nohighlight">\(T(n) = 20 \times n^2 + 10 \times n + 12 = O(n^2)\)</span></p></li>
@@ -283,8 +293,7 @@ to take constant time.</p></li>
 </ul>
 </li>
 </ul>
-<div class="footnote docutils container">
-<table class="docutils align-default" id="id4">
+<table class="docutils align-default" id="id3">
 <caption><span class="caption-text">Common Growth Rates, from low to high order</span></caption>
 <colgroup>
 <col style="width: 50.0%" />
@@ -349,6 +358,22 @@ iteration complexity respectively.</p></li>
 </li>
 </ul>
 </li>
+</ul>
+</section>
+<section >
+<h3>Exercise</h3>
+<ul>
+<li><p>Given the following function:</p>
+<pre><code data-trim data-noescape class="default">bool isReverse(const char* arr1, const char* arr2, int length) {
+    for (int i = 0; i &lt; length; ++i)
+        if (arr1[i] != arr2[length - 1 - i])
+            return false;
+    return true;
+}</code></pre>
+</li>
+<li><p>What is the best and worst cases?</p></li>
+<li><p>What is the problem size?</p></li>
+<li><p>What is the worst case complexity?</p></li>
 </ul>
 </section>
 </section>
