@@ -49,7 +49,7 @@
 <section >
 <h2>Overview</h2>
 <ul class="simple">
-<li><p>Invented by Bayer and McCreight in 1970.</p></li>
+<li><p>Invented by Bayer and McCreight in 1972.</p></li>
 <li><p>A M-ary search tree that stores data in order.</p></li>
 <li><p>A balanced tree with all leaves at the same depth.</p></li>
 <li><p><strong>Definition:</strong> A B-tree of order <span class="math notranslate nohighlight">\(m\)</span> is a tree which satisfies the
@@ -68,7 +68,7 @@ following properties:</p>
 <section >
 <h2>Operations</h2>
 <p><a class="reference external" href="https://www.cs.usfca.edu/~galles/visualization/BTree.html">B-Tree Visualization</a></p>
-<div class="flex-container docutils container">
+<div class="flex-container smaller docutils container">
 <div class="half docutils container">
 <p><strong>Insertion</strong></p>
 <ul class="simple">
@@ -172,6 +172,143 @@ children.</p></li>
 </section>
 <section >
 <h2>Outline</h2>
+<ul class="simple">
+<li><p>Overview</p></li>
+<li><p>Common Paradigms</p></li>
+<li><p>TSP Example</p></li>
+<li><p>Paradigms To Be Covered</p></li>
+</ul>
+</section>
+<section >
+<h2>Overview</h2>
+<ul class="simple">
+<li><p>One of the many ways to classify algorithms</p></li>
+<li><p>One of the most important aspects of algorithm design is the choice of an
+appropriate algorithmic paradigm.</p></li>
+<li><p><strong>Definition:</strong> Fundamental approaches, strategies, or methodologies used in
+the design and analysis of algorithms. These paradigms provide high-level
+templates or frameworks for solving various types of computational problems.</p></li>
+<li><p>The choice of an algorithmic paradigm depends on the nature of the problem
+and the resources available to solve it.</p></li>
+</ul>
+</section>
+<section >
+<h2>Common Paradigms</h2>
+<ul class="simple">
+<li><p>Brute Force</p></li>
+<li><p>Divide and Conquer</p></li>
+<li><p>Greedy Algorithms</p></li>
+<li><p>Dynamic Programming</p></li>
+<li><p>Backtracking</p></li>
+<li><p>Randomized Algorithms</p></li>
+<li><p>Linear Programming</p></li>
+<li><p>Branch and Bound</p></li>
+<li><p>Parallel and Distributed Algorithms</p></li>
+<li><p>Heuristic Algorithms</p></li>
+<li><p>Graph Algorithms</p></li>
+</ul>
+<div class="footnote docutils container">
+<p>The paradigms are not mutually exclusive. Many algorithms use a
+combination of paradigms. Many problems can be solved using multiple paradigms.</p>
+</div>
+</section>
+<section >
+<h2>TSP Example</h2>
+<div class="smaller docutils container">
+<p>Given a list of cities and the distances or costs between each pair of
+cities, the goal of the Traveling Salesman Problem (TSP) is to find the
+shortest possible route that visits each city exactly once and returns to the
+starting city. <strong>This is an NP-hard problem!</strong></p>
+<ul class="simple">
+<li><p>Brute Force: Try all possible permutations of the cities and find the one
+with the minimum cost. <span class="math notranslate nohighlight">\(O(n!)\)</span></p></li>
+<li><p>Dynamic programming: Use a table to store the minimum cost of visiting a
+subset of cities.</p></li>
+<li><p>Branch and bound: Use a tree to store the partial solutions and prune the
+branches that cannot lead to a better solution.</p></li>
+<li><p>Greedy algorithms: Start with an empty tour and add the next closest city
+to the tour.</p></li>
+<li><p>Metaheuristic algorithms: Genetic algorithms, simulated annealing, ant
+colony optimization, etc.</p></li>
+<li><p>Linear programming: Formulate the problem as an integer linear program and
+relax the integer constraints.</p></li>
+<li><p>Graph algorithms: minimum spanning tree algorithms, etc.</p></li>
+</ul>
+</div>
+<img alt="../_images/tsp.png" src="../_images/tsp.png" />
+<div class="footnote docutils container">
+<p>Credit: <a class="reference external" href="https://optimization.cbe.cornell.edu/index.php?title=Traveling_salesman_problem">https://optimization.cbe.cornell.edu/index.php?title=Traveling_salesman_problem</a></p>
+</div>
+</section>
+<section>
+<section >
+<h2>Paradigms To Be Covered</h2>
+<ul class="simple">
+<li><p>Brute Force</p>
+<ul>
+<li><p>Exhaustive Search on all possible solutions.</p></li>
+<li><p>No heuristic, no pruning, no optimization.</p></li>
+<li><p>Only feasible for small problem instances.</p></li>
+<li><p>Exact solutions.</p></li>
+<li><p>Find one or all solutions.</p></li>
+<li><p>Examples: Combinations, Permutations, TSP, knapsack, etc.</p></li>
+</ul>
+</li>
+<li><p>Backtracking</p>
+<ul>
+<li><p>Try out possibilities until a solution is found or all possibilities are
+exhausted.</p></li>
+<li><p>Backtrack to the previous decision point if a partial solution cannot lead
+to a solution.</p></li>
+<li><p>Examples: N-queens, Sudoku, graph coloring, etc.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section >
+<h3>Paradigms To Be Covered (cont’d)</h3>
+<ul class="simple">
+<li><p>Divide and Conquer</p>
+<ul>
+<li><p>Divide the problem into smaller subproblems.</p></li>
+<li><p>Solve the subproblems recursively.</p></li>
+<li><p>Usually independent subproblems. Can be solved in parallel.</p></li>
+<li><p>Combine the solutions to the subproblems to obtain the solution to the
+original problem.</p></li>
+<li><p>Examples: Merge sort, quick sort, binary search, etc.</p></li>
+</ul>
+</li>
+<li><p>Dynamic Programming</p>
+<ul>
+<li><p>Divide the problem into smaller <strong>overlapping</strong> subproblems.</p></li>
+<li><p>Systematically solve the subproblems and store the solutions in a table.</p></li>
+<li><p>Top-down (recursive with memoization) or bottom-up (iterative).</p></li>
+<li><p>Examples: Fibonacci numbers, knapsack, TSP, etc.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section >
+<h3>Paradigms To Be Covered (cont’d)</h3>
+<ul class="simple">
+<li><p>Greedy</p>
+<ul>
+<li><p>Make the locally optimal choice at each step.</p></li>
+<li><p>Usually leads to a suboptimal solution.</p></li>
+<li><p>Examples: Prim’s algorithm, Kruskal’s algorithm, Dijkstra’s algorithm,
+Huffman coding, etc.</p></li>
+</ul>
+</li>
+<li><p>Randomized</p>
+<ul>
+<li><p>Introduce randomness into the algorithm.</p></li>
+<li><p>Pseudo-random number generator and seed.</p></li>
+<li><p>Examples: Randomized quick sort, Monte Carlo algorithms, Las Vegas
+algorithms, etc.</p></li>
+</ul>
+</li>
+</ul>
+</section>
 </section>
 
         </div>
