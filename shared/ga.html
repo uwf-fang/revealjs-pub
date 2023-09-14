@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <title>Genetic Algorithms</title>
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs4/dist/reveal.css" />
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs4/plugin/highlight/zenburn.css" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  </head><body>
+    <div class="reveal">
+        <div class="slides" role="main">
+            <section >
+<h1>Genetic Algorithms</h1>
+<div class="subtitle docutils container">
+<p>Xingang (Ian) Fang</p>
+</div>
+</section>
+<section >
+<h2>Outline</h2>
+<ul class="simple">
+<li><p>Overview</p></li>
+<li><p>Metaheuristic Paradigm</p></li>
+<li><p>Basics of Genetics and Evolution</p></li>
+<li><p>Core Components</p></li>
+<li><p>Limitations of Genetic Algorithms</p></li>
+</ul>
+</section>
+<section >
+<h2>Overview</h2>
+<div class="flex-container docutils container">
+<div class="half docutils container">
+<ul class="simple">
+<li><p><strong>Definition</strong>:</p>
+<ul>
+<li><p>A computational method inspired by natural evolution.</p></li>
+<li><p>Used to find approximate solutions to optimization and search problems.</p></li>
+<li><p>Merges biology and computer science to solve complex challenges.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="half docutils container">
+<ul class="simple">
+<li><p><strong>Historical Context</strong></p>
+<ul>
+<li><p><strong>Origins in Computer Science</strong>:</p>
+<ul>
+<li><p>Traces back to the work of John Holland in the 1960s.</p></li>
+<li><p>Introduced the schema theorem to describe the functioning of Genetic Algorithms.</p></li>
+</ul>
+</li>
+<li><p><strong>Biological Inspiration</strong>:</p>
+<ul>
+<li><p>Deeply rooted in Charles Darwin’s theory of natural selection.</p></li>
+<li><p>Evolution of species through the survival of the fittest individuals.</p></li>
+<li><p>Provides a foundation for computational algorithms.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<section >
+<h2>Metaheuristic Paradigm</h2>
+<ul class="simple">
+<li><p><strong>Definition</strong>:</p>
+<ul>
+<li><p>Derived from Greek words “meta” (beyond) and “heuriskein” (to search or
+find).</p></li>
+<li><p>Strategies designed to find or select heuristics for good-enough solutions
+to optimization problems.</p></li>
+<li><p>Especially effective with incomplete information or limited computation
+capacity.</p></li>
+</ul>
+</li>
+<li><p><strong>Examples of Metaheuristic Algorithms</strong>:</p>
+<ul>
+<li><p>Simulated Annealing.</p></li>
+<li><p>Tabu Search.</p></li>
+<li><p>Ant Colony Optimization.</p></li>
+<li><p>Particle Swarm Optimization.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section >
+<h2>Basics of Genetics and Evolution</h2>
+<ul class="simple">
+<li><p><strong>DNA, Genes, and Chromosomes</strong>:</p>
+<ul>
+<li><p>DNA is the carrier of genetic instructions in biological systems.</p></li>
+<li><p>Organized into chromosomes, which are collections of genes.</p></li>
+<li><p>Each gene represents specific genetic information or functions.</p></li>
+</ul>
+</li>
+<li><p><strong>Core Principles</strong>:</p>
+<ul>
+<li><p><strong>Survival of the Fittest</strong>: Differential survival and reproduction based
+on beneficial traits.</p></li>
+<li><p><strong>Reproduction</strong>: Generation of new solutions based on “fitness” or
+suitability.</p></li>
+<li><p><strong>Mutation</strong>: Introducing genetic diversity via changes in DNA.</p></li>
+<li><p><strong>Crossover (Recombination)</strong>: Combining genetic information from two
+parent genes.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section >
+<h2>Core Components</h2>
+<ul class="simple">
+<li><p><strong>Population</strong>:</p>
+<ul>
+<li><p>Collection of individual potential solutions.</p></li>
+<li><p>Each individual is a possible solution, often encoded (e.g., binary
+string).</p></li>
+<li><p>Initial population usually generated randomly.</p></li>
+</ul>
+</li>
+<li><p><strong>Fitness Function</strong>:</p>
+<ul>
+<li><p>Measures how good each solution is with respect to the problem.</p></li>
+<li><p>For example: Shorter path length in a traveling problem might be more
+“fit”.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section >
+<h2>Limitations of Genetic Algorithms</h2>
+<ul class="simple">
+<li><p><strong>No Guarantee of Optimal Solution</strong>:</p>
+<ul>
+<li><p>GAs excel at finding near-optimal solutions.</p></li>
+<li><p>They might not always reach the absolute best solution.</p></li>
+</ul>
+</li>
+<li><p><strong>Parameter Sensitivity</strong>:</p>
+<ul>
+<li><p>GA performance can greatly vary based on parameter settings.</p></li>
+<li><p>Tuning parameters like mutation rate, crossover rate, and population size
+may require trial-and-error or domain-specific knowledge.</p></li>
+</ul>
+</li>
+<li><p><strong>Computational Overhead</strong>:</p>
+<ul>
+<li><p>Depending on problem complexity and GA settings, convergence might require
+multiple generations and evaluations.</p></li>
+<li><p>Potential for high computational costs, especially for larger problems.</p></li>
+</ul>
+</li>
+<li><p><strong>Premature Convergence</strong>:</p>
+<ul>
+<li><p>GAs can converge too early to a suboptimal solution.</p></li>
+<li><p>Caused by a lack of genetic diversity in the population.</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>While GAs have these limitations, they are still a powerful tool. It’s essential to be aware of these challenges and account for them in application and design.</p>
+</div>
+</section>
+
+        </div>
+    </div>
+    
+    <script src="../_static/revealjs4/dist/reveal.js"></script>
+    
+    
+      <script src="../_static/revealjs4/plugin/notes/notes.js"></script>
+      <script src="../_static/revealjs4/plugin/highlight/highlight.js"></script>
+      <script src="../_static/revealjs4/plugin/math/math.js"></script>
+      
+    
+    <script>
+        var revealjsConfig = new Object();
+        Object.assign(revealjsConfig, JSON.parse('{"controls": true, "progress": true, "hash": true, "center": true, "transition": "slide", "slideNumber": true}'));
+        
+        
+        
+          revealjsConfig.plugins = [
+            RevealNotes,RevealHighlight,RevealMath,
+          ];
+        
+        // More info https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize(revealjsConfig);
+    </script>
+
+  </body>
+</html>

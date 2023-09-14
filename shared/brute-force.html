@@ -6,10 +6,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-  <title>Self-balancing Trees</title>
+  <title>Brute-Force Algorithm</title>
     <link rel="stylesheet" type="text/css" href="../_static/revealjs4/dist/reveal.css" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/revealjs4/plugin/highlight/zenburn.css" />
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -18,71 +19,36 @@
     <div class="reveal">
         <div class="slides" role="main">
             <section >
-<h1>Self-balancing Trees</h1>
+<h1>Brute-Force Algorithm</h1>
 <div class="subtitle docutils container">
 <p>Xingang (Ian) Fang</p>
 </div>
 </section>
 <section >
-<h2>Outline</h2>
-<ul class="simple">
-<li><p>Overview</p></li>
-<li><p>Variations</p></li>
-</ul>
-</section>
-<section >
 <h2>Overview</h2>
-<ul class="simple">
-<li><p>Definition: A self-balancing tree is a type of tree data structure in which
-the balance or height of the tree is automatically adjusted during insertions
-and deletions to ensure that the tree remains reasonably balanced.</p></li>
-<li><p>Motivation: To overcome the potential performance issues that can occur in
-trees due to unbalanced structures.</p></li>
-<li><p>Alternative approach: External balancing on general trees.</p></li>
-</ul>
-</section>
-<section >
-<h2>Variations</h2>
+<p>A brute-force algorithm is a straightforward and exhaustive problem-solving
+approach that systematically explores all possible solutions or combinations to
+a problem. It does not rely on advanced strategies or optimizations and instead
+relies on sheer computational power to find a solution.</p>
 <div class="flex-container docutils container">
 <div class="half docutils container">
+<p><strong>Characteristics</strong></p>
 <ul class="simple">
-<li><p>BST family</p>
-<ul>
-<li><p>AVL tree</p>
-<ul>
-<li><p>Balance factor: height(left subtree) - height(right subtree)</p></li>
-<li><p>Balance factor of each node is either -1, 0, or 1.</p></li>
-<li><p>Insertion and deletion may trigger a balance operation.</p></li>
-<li><p>Balance operations achieved by rotations.</p></li>
-</ul>
-</li>
-<li><p>Red-black tree (FYI)</p>
-<ul>
-<li><p>A BST implementation of 2-3 tree (Algorithm, 4th Ed.) or 2-3-4 tree
-(older versions).</p></li>
-<li><p>Each node is colored red or black.</p></li>
-<li><p>Insertion and deletion may trigger adjustment.</p></li>
-<li><p>Adjustment achieved by a re-color or a rotation.</p></li>
-</ul>
-</li>
-</ul>
-</li>
+<li><p>Exhaustive</p></li>
+<li><p>Naive</p></li>
+<li><p>Simple</p></li>
+<li><p>Inefficient: often <span class="math notranslate nohighlight">\(O(n!)\)</span> or <span class="math notranslate nohighlight">\(O(2^n)\)</span></p></li>
 </ul>
 </div>
 <div class="half docutils container">
+<p><strong>Applications</strong></p>
 <ul class="simple">
-<li><p>B-tree family</p>
+<li><p>Baseline for comparison and benchmarking</p></li>
+<li><p>Small search spaces</p></li>
+<li><p>All final states are solutions</p>
 <ul>
-<li><p>B-tree (B tree, not B minus tree)</p>
-<ul>
-<li><p>varying but bounded number of children per node</p></li>
-<li><p>always balanced</p></li>
-<li><p>maintain balance by redistributing keys among nodes</p></li>
-<li><p>2-3 tree is a B-tree with 2 or 3 children per node</p></li>
-</ul>
-</li>
-<li><p>B+ tree (FYI)</p></li>
-<li><p>B* tree (FYI)</p></li>
+<li><p>Find all permutations/combinations of a set</p></li>
+<li><p>Find all paths in a graph</p></li>
 </ul>
 </li>
 </ul>
