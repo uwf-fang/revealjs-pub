@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <title>Data Structure and Algorithm Design</title>
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs4/dist/reveal.css" />
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs4/plugin/highlight/zenburn.css" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  </head><body>
+    <div class="reveal">
+        <div class="slides" role="main">
+            <section data-background-color="white" data-background-image="../_static/logo.png" data-background-size="50%" data-background-position="top center" data-background-repeat="no-repeat">
+<h1>Data Structure and Algorithm Design</h1>
+<div class="subtitle docutils container">
+<p><strong>Module 5</strong></p>
+<p>Xingang (Ian) Fang</p>
+</div>
+</section>
+<section >
+<h2>Sections</h2>
+<ul class="simple">
+<li><p>Recursion</p></li>
+</ul>
+</section>
+<section >
+<h1>Recursion</h1>
+<div class="subtitle docutils container">
+<p>Xingang (Ian) Fang</p>
+</div>
+</section>
+<section >
+<h2>Outline</h2>
+<ul class="simple">
+<li><p>Overview</p></li>
+<li><p>Function call mechanism</p></li>
+<li><p>Implementation of recursion</p></li>
+</ul>
+</section>
+<section >
+<h2>Overview</h2>
+<ul class="simple">
+<li><p>Recursion is a technique for solving problems where the solution to a
+particular problem depends on the solution to a smaller instance of the same
+problem.</p></li>
+<li><p>Recursive data structures and recursive algorithms.</p></li>
+<li><p>Can replace loops.</p></li>
+</ul>
+</section>
+<section >
+<h2>Function call mechanism</h2>
+<ul class="simple">
+<li><p>A function call is a request to execute a function.</p></li>
+<li><p>Allocate memory for the function’s local variables and parameters.</p></li>
+<li><p>Create a new stack frame in the stack memory region.</p></li>
+<li><p>First in last out (FILO) order that is aligned with the stack ADT.</p></li>
+<li><p>Infinite recursion will cause a stack overflow.</p></li>
+</ul>
+</section>
+<section >
+<h2>Implementation of recursion</h2>
+<ul class="simple">
+<li><p>Recursive function calls itself.</p>
+<ul>
+<li><p>Directly: A calls A</p></li>
+<li><p>Indirectly: A calls B, B calls A</p></li>
+</ul>
+</li>
+<li><p>Base case: A condition that causes the function to return without making
+recursive calls.</p></li>
+<li><p>Recursive case: A condition that causes the function to make recursive calls.</p></li>
+<li><p>May have more than one base cases.</p></li>
+<li><p>May need forward declaration of the function.</p></li>
+<li><p>May need a helper function to pass additional parameters to keep track of the
+progress of the recursion.</p></li>
+</ul>
+</section>
+<section >
+<h2>Examples</h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/uwf-fang/cop3530-examples/tree/main/m05-recursion">Repository</a></p></li>
+<li><p>Factorial</p></li>
+<li><p>Linear search</p></li>
+<li><p>Reverse an array of integers</p></li>
+<li><p>Fibonacci</p></li>
+<li><p>Palindrome check</p></li>
+</ul>
+</section>
+
+        </div>
+    </div>
+    
+    <script src="../_static/revealjs4/dist/reveal.js"></script>
+    
+    
+      <script src="../_static/revealjs4/plugin/notes/notes.js"></script>
+      <script src="../_static/revealjs4/plugin/highlight/highlight.js"></script>
+      <script src="../_static/revealjs4/plugin/math/math.js"></script>
+      
+    
+    <script>
+        var revealjsConfig = new Object();
+        Object.assign(revealjsConfig, JSON.parse('{"controls": true, "progress": true, "hash": true, "center": true, "transition": "slide", "slideNumber": true}'));
+        
+        
+        
+          revealjsConfig.plugins = [
+            RevealNotes,RevealHighlight,RevealMath,
+          ];
+        
+        // More info https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize(revealjsConfig);
+    </script>
+
+  </body>
+</html>
