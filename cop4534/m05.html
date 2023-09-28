@@ -304,12 +304,6 @@ parent genes.</p></li>
 <section >
 <h2>Core Components</h2>
 <ul class="simple">
-<li><p><strong>Individual and encoding</strong></p>
-<ul>
-<li><p>An individual is a possible solution to the problem.</p></li>
-<li><p>Encoded as a string of genes, often binary, sometimes permutation.</p></li>
-</ul>
-</li>
 <li><p><strong>Population</strong>:</p>
 <ul>
 <li><p>Collection of individual potential solutions.</p></li>
@@ -323,41 +317,6 @@ string).</p></li>
 <li><p>Measures how good each solution is with respect to the problem.</p></li>
 <li><p>For example: Shorter path length in a traveling problem might be more
 “fit”.</p></li>
-</ul>
-</li>
-</ul>
-</section>
-<section >
-<h2>Core Components (cont.)</h2>
-<ul class="simple">
-<li><p><strong>Selection</strong></p>
-<ul>
-<li><p>Selects individuals for reproduction based on fitness.</p></li>
-<li><p>Individuals with higher fitness are more <strong>likely</strong> to be selected.</p></li>
-<li><p>Randomness + heuristics = <strong>stochastic</strong> selection.</p></li>
-</ul>
-</li>
-<li><p><strong>Crossover (Recombination)</strong></p>
-<ul>
-<li><p>Combines genetic information from two parent individuals.</p></li>
-<li><p>Produces offspring with genetic information from both parents.</p></li>
-<li><p>Often performed with a crossover rate (e.g., 0.8) to control the frequency
-of crossover.</p></li>
-</ul>
-</li>
-<li><p><strong>Mutation</strong></p>
-<ul>
-<li><p>Introduces genetic diversity by randomly changing genes.</p></li>
-<li><p>Random flip for binary encoding; random swap for permutation encoding; etc.</p></li>
-<li><p>Mutation rate (e.g., 0.01) controls the frequency of mutation.</p></li>
-</ul>
-</li>
-<li><p><strong>Replacement</strong></p>
-<ul>
-<li><p>Replaces individuals in the population with new offspring.</p></li>
-<li><p>Total replacement or partial replacement.</p></li>
-<li><p>Often performed with an elitism rate (e.g., 0.1) to preserve the best
-individuals.</p></li>
 </ul>
 </li>
 </ul>

@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <title>Solving Recurrence</title>
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs4/dist/reveal.css" />
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs4/plugin/highlight/zenburn.css" />
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  </head><body>
+    <div class="reveal">
+        <div class="slides" role="main">
+            <section >
+<h1>Solving Recurrence</h1>
+<div class="subtitle docutils container">
+<p>Part 1</p>
+</div>
+</section>
+<section >
+<h2>Outline</h2>
+<ul class="simple">
+<li><p>Overview</p></li>
+<li><p>Recurrence Relations</p></li>
+<li><p>Solving Recurrence Relations</p>
+<ul>
+<li><p>Substitution Method</p></li>
+<li><p>Recursion Tree Method</p></li>
+<li><p>Master Method</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section >
+<h2>Overview</h2>
+<ul class="simple">
+<li><p>Solving recurrence is a process of finding a closed form expression for a
+given recurrence relation that is usually employed to describe the time
+function of a recursive algorithm.</p></li>
+<li><p>Algorithms that are recursive in nature are usually described by recurrence
+relations.</p>
+<ul>
+<li><p>Tower of Hanoi</p></li>
+<li><p>Merge Sort</p></li>
+<li><p>Fibonacci Numbers</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section>
+<section >
+<h2>Recurrence Relations</h2>
+<ul class="simple">
+<li><p>A recurrence relation is an equation that recursively defines a sequence,
+where each term is a function of one or more of the preceding terms.</p>
+<ul>
+<li><p>E.g. <span class="math notranslate nohighlight">\(T(N) = 2T(N/2) + \Theta(N)\)</span> for merge sort</p></li>
+</ul>
+</li>
+<li><p>The goal of “solving a recurrence” is to obtain a closed form expression for
+<span class="math notranslate nohighlight">\(T(N)\)</span> that does not involve any recurrence.</p>
+<ul>
+<li><p>E.g. <span class="math notranslate nohighlight">\(T(N) = \Theta(N \log N)\)</span> for merge sort</p></li>
+</ul>
+</li>
+<li><p>This is a very challenging math problem but in computer science we are only
+interested in some certain patterns of recurrence relations.</p></li>
+<li><p>Depending on the algorithms there are some common recurrence relations
+employed in the analysis of algorithms.</p></li>
+</ul>
+</section>
+<section >
+<h3>Common Forms of Recurrence Relations</h3>
+<ul class="simple">
+<li><p>Divide and conquer Recurrence</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(T(N) = aT(N/b) + f(N)\)</span></p></li>
+<li><p>Merge sort</p></li>
+<li><p>Binary search</p></li>
+<li><p>Maximum subarray</p></li>
+<li><p>Strassen’s matrix multiplication</p></li>
+</ul>
+</li>
+<li><p>First order linear Recurrence</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(T(N) = aT(N-1) + f(N)\)</span></p></li>
+<li><p>Linear search (recursive version)</p></li>
+<li><p>Insertion sort/Selection sort (recursive version)</p></li>
+<li><p>Euclidean’s GCD algorithm</p></li>
+</ul>
+</li>
+<li><p>Second order linear Recurrence</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(T(N) = aT(N-1) + bT(N-2) + f(N)\)</span></p></li>
+<li><p>Fibonacci numbers (naive recursive version)</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section >
+<h2>Solving Recurrence Relations</h2>
+<ul class="simple">
+<li><p>Finding a closed form expression for a given recurrence relation is a
+challenging math problem.</p></li>
+<li><p>In computer science we are only interested in some certain patterns.</p></li>
+<li><p>Three methods:</p>
+<ul>
+<li><p>Substitution method</p></li>
+<li><p>Recursion tree method</p></li>
+<li><p>Master method</p></li>
+</ul>
+</li>
+</ul>
+</section>
+
+        </div>
+    </div>
+    
+    <script src="../_static/revealjs4/dist/reveal.js"></script>
+    
+    
+      <script src="../_static/revealjs4/plugin/notes/notes.js"></script>
+      <script src="../_static/revealjs4/plugin/highlight/highlight.js"></script>
+      <script src="../_static/revealjs4/plugin/math/math.js"></script>
+      
+    
+    <script>
+        var revealjsConfig = new Object();
+        Object.assign(revealjsConfig, JSON.parse('{"controls": true, "progress": true, "hash": true, "center": true, "transition": "slide", "slideNumber": true}'));
+        
+        
+        
+          revealjsConfig.plugins = [
+            RevealNotes,RevealHighlight,RevealMath,
+          ];
+        
+        // More info https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize(revealjsConfig);
+    </script>
+
+  </body>
+</html>
