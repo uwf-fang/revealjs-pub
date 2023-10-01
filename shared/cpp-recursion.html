@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <title>Recursion in C++</title>
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs4/dist/reveal.css" />
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs4/plugin/highlight/zenburn.css" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  </head><body>
+    <div class="reveal">
+        <div class="slides" role="main">
+            <section >
+<h1>Recursion in C++</h1>
+<div class="subtitle docutils container">
+<p>Xingang (Ian) Fang</p>
+</div>
+</section>
+<section >
+<h2>Outline</h2>
+<ul class="simple">
+<li><p>Overview</p></li>
+<li><p>Recursive algorithms</p>
+<ul>
+<li><p>Function call mechanism</p></li>
+<li><p>Recursive functions in C++</p></li>
+</ul>
+</li>
+<li><p>Recursive data structures</p></li>
+</ul>
+</section>
+<section >
+<h2>Overview</h2>
+<ul class="simple">
+<li><p>Recursion: Defining a problem or an entity in terms of itself.</p></li>
+<li><p>Recursive algorithm: An algorithm that breaks down the problem to smaller
+pieces and reuses itself to solve sub-problems.</p></li>
+<li><p>Recursive data structure: A data structure that is defined in terms of a
+smaller version of itself.</p></li>
+<li><p>Alternative to recursion: Iteration (loop).</p></li>
+<li><p>Components:</p>
+<ul>
+<li><p>Base case: the case that the problem can be solved directly.</p></li>
+<li><p>Recursive case: the case that the problem can be broken down to smaller
+pieces.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section>
+<section >
+<h2>Recursive algorithms</h2>
+<ul>
+<li><p>Example: Factorial</p>
+<ul class="simple">
+<li><p>Base case: 0! = 1</p></li>
+<li><p>Recursive case: n! = n * (n - 1)!</p></li>
+</ul>
+</li>
+<li><p>Implemented as recursive function in C++:</p>
+<pre><code data-trim data-noescape class="c++">int factorial(int n) {
+  if (n == 0) return 1;  // base case
+  else return n * factorial(n - 1);  // recursive case
+}</code></pre>
+</li>
+</ul>
+</section>
+<section >
+<h3>Function call mechanism</h3>
+<ul class="simple">
+<li><p>Each function call creates a new stack frame in the stack memory.</p></li>
+<li><p>The stack frame contains:</p>
+<ul>
+<li><p>Function arguments.</p></li>
+<li><p>Local variables.</p></li>
+<li><p>Return address.</p></li>
+</ul>
+</li>
+<li><p>The stack frame is popped out of the stack memory when the function returns.</p></li>
+<li><p>Stack overflow: When the stack memory is full. Usually caused by infinite
+recursion.</p></li>
+</ul>
+</section>
+<section >
+<h3>Recursive functions in C++</h3>
+<ul class="simple">
+<li><p>A function/method calls itself (directly or indirectly).</p></li>
+<li><p>Forward declaration not mandatory except for mutual recursion (A calls B and
+B calls A)</p></li>
+<li><p>Record keeping (parameters, return values, global/dynamic variable)</p></li>
+<li><p>Helper functions (extra parameters for record keeping)</p></li>
+<li><p>if statement</p></li>
+</ul>
+</section>
+<section >
+<h3>Time complexity</h3>
+<ul class="simple">
+<li><p>Use recursive trees to estimate time complexity.</p></li>
+<li><p>Multiplicative relationship</p>
+<ul>
+<li><p>Rounds of recursive calls.</p></li>
+<li><p>Cost per round of recursive calls.</p></li>
+</ul>
+</li>
+</ul>
+<img alt="../_images/recursive_tree3.png" class="align-center" src="../_images/recursive_tree3.png" />
+<div class="footnote docutils container">
+<p>credit: zybooks.com</p>
+</div>
+</section>
+</section>
+<section >
+<h2>Recursive Data Structure in C++</h2>
+<ul class="simple">
+<li><p>A class holds instance or pointer/reference to instance of its own type</p></li>
+<li><p>E.G.</p>
+<ul>
+<li><p>Linked-list</p></li>
+<li><p>Tree</p></li>
+<li><p>Directory structure</p></li>
+</ul>
+</li>
+</ul>
+</section>
+
+        </div>
+    </div>
+    
+    <script src="../_static/revealjs4/dist/reveal.js"></script>
+    
+    
+      <script src="../_static/revealjs4/plugin/notes/notes.js"></script>
+      <script src="../_static/revealjs4/plugin/highlight/highlight.js"></script>
+      <script src="../_static/revealjs4/plugin/math/math.js"></script>
+      
+    
+    <script>
+        var revealjsConfig = new Object();
+        Object.assign(revealjsConfig, JSON.parse('{"controls": true, "progress": true, "hash": true, "center": true, "transition": "slide", "slideNumber": true}'));
+        
+        
+        
+          revealjsConfig.plugins = [
+            RevealNotes,RevealHighlight,RevealMath,
+          ];
+        
+        // More info https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize(revealjsConfig);
+    </script>
+
+  </body>
+</html>

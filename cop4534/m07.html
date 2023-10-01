@@ -51,8 +51,12 @@
 <ul class="simple">
 <li><p>Two steps</p>
 <ul>
-<li><p>Guess the close form of the solution</p></li>
+<li><p>Guess the close form of the solution</p>
+<ul>
+<li><p>Guess a general form of the solution</p></li>
 <li><p>Use substitution to refine the formula (optional)</p></li>
+</ul>
+</li>
 <li><p>Use mathematical induction to prove the guess is correct</p></li>
 </ul>
 </li>
@@ -61,10 +65,11 @@
 <section >
 <h3>Guessing the Close Form</h3>
 <ul>
-<li><p>Start from the recurrence relation: $f(n) = 3f(n-1) + 3n$ and $f(1)=1$.</p></li>
-<li><p>Guess the solution is $f(n) = An^2 + Bn + C$ where $A$, $B$, $C$ are
+<li><p>Start from the recurrence relation: <span class="math notranslate nohighlight">\(f(n) = 3f(n-1) + 3n\)</span> and
+<span class="math notranslate nohighlight">\(f(1)=1\)</span>.</p></li>
+<li><p>Guess the solution is <span class="math notranslate nohighlight">\(f(n) = An^2 + Bn + C\)</span> where <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span>, <span class="math notranslate nohighlight">\(C\)</span> are
 constants.</p></li>
-<li><p>Use substitution to find $A$, $B$, $C$.</p>
+<li><p>Use substitution to find <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span>, <span class="math notranslate nohighlight">\(C\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align*}
 f(n) &amp;= f(n-1) + 3n \\
@@ -79,19 +84,20 @@ B &amp;= -2A + B + 3 \\
 C &amp;= A - B + C \\
 f(1) &amp;= A + B + C = 1 \\
 \end{align*}\end{split}\]</div>
-<p>Solve them to get $A = 1.5$, $B = 1.5$, $C = -2$.</p>
-<p>The final formula is $f(n) = 1.5n^2 + 1.5n - 2$.</p>
+<p>Solve them to get <span class="math notranslate nohighlight">\(A = 1.5\)</span>, <span class="math notranslate nohighlight">\(B = 1.5\)</span>, <span class="math notranslate nohighlight">\(C = -2\)</span>.</p>
+<p>The final formula is <span class="math notranslate nohighlight">\(f(n) = 1.5n^2 + 1.5n - 2\)</span>.</p>
 </li>
 </ul>
 </section>
 <section >
 <h3>Use Mathematical Induction</h3>
 <ul>
-<li><p>For the recurrence relation: $f(n) = 3f(n-1) + 3n$ and $f(1)=1$.</p></li>
-<li><p>To prove the formula $f(n) = 1.5n^2 + 1.5n - 2$ is correct for all $n$.</p>
+<li><p>For the recurrence relation: <span class="math notranslate nohighlight">\(f(n) = 3f(n-1) + 3n\)</span> and <span class="math notranslate nohighlight">\(f(1)=1\)</span>.</p></li>
+<li><p>To prove the formula <span class="math notranslate nohighlight">\(f(n) = 1.5n^2 + 1.5n - 2\)</span> is correct for all
+<span class="math notranslate nohighlight">\(n\)</span>.</p>
 <ul>
-<li><p>Base case: $f(1) = 1.5 + 1.5 - 2 = 1$. Correct!</p></li>
-<li><p>If the formula is correct for $n-1$, then</p>
+<li><p>Base case: <span class="math notranslate nohighlight">\(f(1) = 1.5 + 1.5 - 2 = 1\)</span>. Correct!</p></li>
+<li><p>If the formula is correct for <span class="math notranslate nohighlight">\(n-1\)</span>, then</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align*}
 f(n) &amp;= f(n-1) + 3n \\
@@ -99,7 +105,7 @@ f(n) &amp;= f(n-1) + 3n \\
 &amp;= 1.5n^2 - 3n + 1.5 + 1.5n - 1.5 - 2 + 3n \\
 &amp;= 1.5n^2 + 1.5n - 2 \\
 \end{align*}\end{split}\]</div>
-<p>So, the formula is correct for $n$.</p>
+<p>So, the formula is correct for <span class="math notranslate nohighlight">\(n\)</span>.</p>
 </li>
 <li><p>Done!</p></li>
 </ul>
@@ -120,7 +126,7 @@ f(n) &amp;= f(n-1) + 3n \\
 </li>
 <li><p>E.g. <span class="math notranslate nohighlight">\(T(n) = 3T(n/4) + \Theta(n^2)\)</span></p></li>
 </ul>
-<img alt="../_images/recursion_tree.png" class="align-center" src="../_images/recursion_tree.png" />
+<img alt="../_images/recursion_tree2.png" class="align-center" src="../_images/recursion_tree2.png" />
 <div class="footnote docutils container">
 <p>credit: Introduction to Algorithms, 4th Ed., T. Cormen et al.</p>
 </div>
@@ -132,12 +138,13 @@ f(n) &amp;= f(n-1) + 3n \\
 <li><p>A general method to solve recurrences of the form:</p>
 <div class="math notranslate nohighlight">
 \[T(n) = aT(n/b) + f(n)\]</div>
-<p>where <span class="math notranslate nohighlight">\(a \geq 1\)</span>, $b &gt; 1$ and $f(n)$ is an asymptotically positive function.</p>
+<p>where <span class="math notranslate nohighlight">\(a \geq 1\)</span>, <span class="math notranslate nohighlight">\(b &gt; 1\)</span> and <span class="math notranslate nohighlight">\(f(n)\)</span> is an asymptotically positive function.</p>
 </li>
-<li><p>$n$ is the problem size.</p></li>
-<li><p>$a$ is the number of recursive calls.</p></li>
-<li><p>$n/b$ is the size of each subproblems where $b$ is the size reduction factor.</p></li>
-<li><p>$f(n)$ is the cost of dividing the problem and combining the solutions.</p></li>
+<li><p><span class="math notranslate nohighlight">\(n\)</span> is the problem size.</p></li>
+<li><p><span class="math notranslate nohighlight">\(a\)</span> is the number of recursive calls.</p></li>
+<li><p><span class="math notranslate nohighlight">\(n/b\)</span> is the size of each subproblems where <span class="math notranslate nohighlight">\(b\)</span> is the size
+reduction factor.</p></li>
+<li><p><span class="math notranslate nohighlight">\(f(n)\)</span> is the cost of dividing the problem and combining the solutions.</p></li>
 <li><p>This is the well-known <strong>divide-and-conquer</strong> form of recurrence.</p></li>
 <li><p>Based on <strong>Master Theorem</strong>.</p></li>
 </ul>
