@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-  <title>Data Structure and Algorithm Design</title>
+  <title>Queue Abstract Data Type</title>
     <link rel="stylesheet" type="text/css" href="../_static/revealjs4/dist/reveal.css" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/revealjs4/plugin/highlight/zenburn.css" />
@@ -17,24 +17,47 @@
   </head><body>
     <div class="reveal">
         <div class="slides" role="main">
-            <section data-background-color="white" data-background-image="../_static/logo.png" data-background-size="50%" data-background-position="top center" data-background-repeat="no-repeat">
-<h1>Data Structure and Algorithm Design</h1>
-<div class="subtitle docutils container">
-<p>Xingang (Ian) Fang</p>
-<p>Copyright © Xingang (Ian) Fang 2022-23</p>
-</div>
+            <section >
+<h1>Queue Abstract Data Type</h1>
+<ul class="simple">
+<li><p>Overview</p></li>
+<li><p>Behaviors</p></li>
+</ul>
 </section>
 <section >
-<h2>Modules</h2>
+<h2>Overview</h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="m01.html"><span class="doc">Module 1</span></a></p></li>
-<li><p><a class="reference internal" href="m02.html"><span class="doc">Module 2</span></a></p></li>
-<li><p><a class="reference internal" href="m03.html"><span class="doc">Module 3</span></a></p></li>
-<li><p><a class="reference internal" href="m04.html"><span class="doc">Module 4</span></a></p></li>
-<li><p><a class="reference internal" href="m05.html"><span class="doc">Module 5</span></a></p></li>
-<li><p><a class="reference internal" href="m06.html"><span class="doc">Module 6</span></a></p></li>
-<li><p><a class="reference internal" href="m07.html"><span class="doc">Module 7</span></a></p></li>
-<li><p><a class="reference internal" href="m08.html"><span class="doc">Module 8</span></a></p></li>
+<li><p>A queue ADT is a container of elements that are inserted and removed according
+to the first-in-first-out (FIFO) principle.</p></li>
+<li><p>A.k.a. FIFO queue, waiting line, pipe, etc.</p></li>
+<li><p>Characteristics</p>
+<ul>
+<li><p>Homogeneous</p></li>
+<li><p>Access order is FIFO/LILO</p></li>
+<li><p>Finite</p></li>
+<li><p>Dynamic size</p></li>
+</ul>
+</li>
+<li><p>Applications</p>
+<ul>
+<li><p>Breadth-first search</p></li>
+<li><p>Simulation</p></li>
+<li><p>Scheduling</p></li>
+<li><p>Buffering</p></li>
+</ul>
+</li>
+<li><p>Known as one of the linear ADT because it is usually implemented using a
+linear data structure. It is not logically linear.</p></li>
+</ul>
+</section>
+<section >
+<h2>Behaviors</h2>
+<ul class="simple">
+<li><p>enqueue: Add an element to the queue.</p></li>
+<li><p>dequeue: Remove an element from the queue.</p></li>
+<li><p>peek: Return the element to be removed from the queue.</p></li>
+<li><p>isEmpty: Return true if the stack is empty, false otherwise.</p></li>
+<li><p>size (optional): Return the number of elements in the stack.</p></li>
 </ul>
 </section>
 

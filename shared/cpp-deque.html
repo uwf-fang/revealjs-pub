@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-  <title>Data Structure and Algorithm Design</title>
+  <title>C++ Implementation of Deque ADT</title>
     <link rel="stylesheet" type="text/css" href="../_static/revealjs4/dist/reveal.css" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/revealjs4/plugin/highlight/zenburn.css" />
@@ -17,24 +17,48 @@
   </head><body>
     <div class="reveal">
         <div class="slides" role="main">
-            <section data-background-color="white" data-background-image="../_static/logo.png" data-background-size="50%" data-background-position="top center" data-background-repeat="no-repeat">
-<h1>Data Structure and Algorithm Design</h1>
-<div class="subtitle docutils container">
-<p>Xingang (Ian) Fang</p>
-<p>Copyright © Xingang (Ian) Fang 2022-23</p>
-</div>
+            <section >
+<h1>C++ Implementation of Deque ADT</h1>
+<ul>
+<li><p>C++ STL container: std::queue</p></li>
+<li><p>Make from scratch as templates</p></li>
+<li><p>Example public interface:</p>
+<pre><code data-trim data-noescape class="cpp">template &lt;typename T&gt;
+class Deque {
+ private:
+  ///...
+ public:
+  void enqueueFront(const T&amp; value);
+  void enqueueBack(const T&amp; value);
+  T dequeueFront();
+  T dequeueBack();
+  T peekFront() const;
+  T peekBack() const;
+  bool isEmpty() const;
+};</code></pre>
+</li>
+</ul>
 </section>
 <section >
-<h2>Modules</h2>
+<h2>Data Structures</h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="m01.html"><span class="doc">Module 1</span></a></p></li>
-<li><p><a class="reference internal" href="m02.html"><span class="doc">Module 2</span></a></p></li>
-<li><p><a class="reference internal" href="m03.html"><span class="doc">Module 3</span></a></p></li>
-<li><p><a class="reference internal" href="m04.html"><span class="doc">Module 4</span></a></p></li>
-<li><p><a class="reference internal" href="m05.html"><span class="doc">Module 5</span></a></p></li>
-<li><p><a class="reference internal" href="m06.html"><span class="doc">Module 6</span></a></p></li>
-<li><p><a class="reference internal" href="m07.html"><span class="doc">Module 7</span></a></p></li>
-<li><p><a class="reference internal" href="m08.html"><span class="doc">Module 8</span></a></p></li>
+<li><p>Partially filled C array</p>
+<ul>
+<li><p>better to use a circular array</p></li>
+<li><p>fixed capacity</p></li>
+</ul>
+</li>
+<li><p>Linked list</p>
+<ul>
+<li><p>Ideal</p></li>
+<li><p>doubly, add and remove at the head or tail</p></li>
+</ul>
+</li>
+<li><p>Other STL containers</p>
+<ul>
+<li><p>std::list</p></li>
+</ul>
+</li>
 </ul>
 </section>
 

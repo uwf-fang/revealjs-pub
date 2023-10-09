@@ -1,0 +1,334 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <title>Data Structure and Algorithm Design</title>
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs4/dist/reveal.css" />
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs4/plugin/highlight/zenburn.css" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  </head><body>
+    <div class="reveal">
+        <div class="slides" role="main">
+            <section data-background-color="white" data-background-image="../_static/logo.png" data-background-size="50%" data-background-position="top center" data-background-repeat="no-repeat">
+<h1>Data Structure and Algorithm Design</h1>
+<div class="subtitle docutils container">
+<p><strong>Module 8</strong></p>
+<p>Xingang (Ian) Fang</p>
+</div>
+</section>
+<section >
+<h2>Sections</h2>
+<ul class="simple">
+<li><p>Stack ADT and C++ Implementation</p></li>
+<li><p>Queue ADT and C++ Implementation</p></li>
+<li><p>Deque ADT and C++ Implementation</p></li>
+</ul>
+</section>
+<section>
+<section >
+<h2>Stack Abstract Data Type</h2>
+<ul class="simple">
+<li><p>Overview</p></li>
+<li><p>Behaviors</p></li>
+</ul>
+</section>
+<section >
+<h3>Overview</h3>
+<ul class="simple">
+<li><p>A stack ADT is a container of elements that are inserted and removed according
+to the last-in first-out (LIFO) principle.</p></li>
+<li><p>A.k.a. Push-down list, LIFO list, etc.</p></li>
+<li><p>Characteristics</p>
+<ul>
+<li><p>Homogeneous</p></li>
+<li><p>Access order is LIFO/FILO</p></li>
+<li><p>Finite</p></li>
+<li><p>Dynamic size</p></li>
+</ul>
+</li>
+<li><p>Applications</p>
+<ul>
+<li><p>Editing tools (undo/redo)</p></li>
+<li><p>Backtracking algorithms</p></li>
+<li><p>Expression evaluation and conversion</p></li>
+<li><p>Memory management</p></li>
+</ul>
+</li>
+<li><p>Known as one of the linear ADT because it is usually implemented using a
+linear data structure. It is not logically linear. The concept of <code class="docutils literal notranslate"><span class="pre">top</span></code>,
+<code class="docutils literal notranslate"><span class="pre">bottom</span></code>, <code class="docutils literal notranslate"><span class="pre">depth</span></code> are also based on the implementations but not relevant
+to the ADT itself.</p></li>
+</ul>
+</section>
+<section >
+<h3>Behaviors</h3>
+<ul class="simple">
+<li><p>push: Insert an element at the top of the stack.</p></li>
+<li><p>pop: Remove the top element from the stack.</p></li>
+<li><p>top/peek: Return the top element of the stack.</p></li>
+<li><p>isEmpty: Return true if the stack is empty, false otherwise.</p></li>
+<li><p>size (optional): Return the number of elements in the stack.</p></li>
+</ul>
+</section>
+</section>
+<section>
+<section >
+<h2>C++ Implementation of Stack ADT</h2>
+<ul>
+<li><p>C++ STL container: std::stack, std::vector, std::deque, std::list</p></li>
+<li><p>Make from scratch as templates</p></li>
+<li><p>Example public interface:</p>
+<pre><code data-trim data-noescape class="cpp">template &lt;typename T&gt;
+class Stack {
+ private:
+  ///...
+ public:
+  void push(const T&amp; value);
+  T pop();
+  T top() const; // or peek()
+  bool isEmpty() const;
+};</code></pre>
+</li>
+</ul>
+</section>
+<section >
+<h3>Data Structures</h3>
+<ul class="simple">
+<li><p>Partially filled C array</p>
+<ul>
+<li><p>push pop at the end</p></li>
+<li><p>fixed capacity</p></li>
+</ul>
+</li>
+<li><p>Linked list</p>
+<ul>
+<li><p>Ideal</p></li>
+<li><p>singly, add and remove at the head</p></li>
+<li><p>doubly, add and remove at the head or tail</p></li>
+</ul>
+</li>
+<li><p>Other STL containers</p>
+<ul>
+<li><p>std::vector</p></li>
+<li><p>std::deque</p></li>
+<li><p>std::list</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section>
+<section >
+<h2>Queue Abstract Data Type</h2>
+<ul class="simple">
+<li><p>Overview</p></li>
+<li><p>Behaviors</p></li>
+</ul>
+</section>
+<section >
+<h3>Overview</h3>
+<ul class="simple">
+<li><p>A queue ADT is a container of elements that are inserted and removed according
+to the first-in-first-out (FIFO) principle.</p></li>
+<li><p>A.k.a. FIFO queue, waiting line, pipe, etc.</p></li>
+<li><p>Characteristics</p>
+<ul>
+<li><p>Homogeneous</p></li>
+<li><p>Access order is FIFO/LILO</p></li>
+<li><p>Finite</p></li>
+<li><p>Dynamic size</p></li>
+</ul>
+</li>
+<li><p>Applications</p>
+<ul>
+<li><p>Breadth-first search</p></li>
+<li><p>Simulation</p></li>
+<li><p>Scheduling</p></li>
+<li><p>Buffering</p></li>
+</ul>
+</li>
+<li><p>Known as one of the linear ADT because it is usually implemented using a
+linear data structure. It is not logically linear.</p></li>
+</ul>
+</section>
+<section >
+<h3>Behaviors</h3>
+<ul class="simple">
+<li><p>enqueue: Add an element to the queue.</p></li>
+<li><p>dequeue: Remove an element from the queue.</p></li>
+<li><p>peek: Return the element to be removed from the queue.</p></li>
+<li><p>isEmpty: Return true if the stack is empty, false otherwise.</p></li>
+<li><p>size (optional): Return the number of elements in the stack.</p></li>
+</ul>
+</section>
+</section>
+<section>
+<section >
+<h2>C++ Implementation of Queue ADT</h2>
+<ul>
+<li><p>C++ STL container: std::queue, std::deque, std::list</p></li>
+<li><p>Make from scratch as templates</p></li>
+<li><p>Example public interface:</p>
+<pre><code data-trim data-noescape class="cpp">template &lt;typename T&gt;
+class Queue {
+ private:
+  ///...
+ public:
+  void enqueue(const T&amp; value);
+  T dequeue();
+  T peek() const;
+  bool isEmpty() const;
+};</code></pre>
+</li>
+</ul>
+</section>
+<section >
+<h3>Data Structures</h3>
+<ul class="simple">
+<li><p>Partially filled C array</p>
+<ul>
+<li><p>enqueue at the end</p></li>
+<li><p>dequeue at the front</p></li>
+<li><p>better to use a circular array</p></li>
+<li><p>fixed capacity</p></li>
+</ul>
+</li>
+<li><p>Linked list</p>
+<ul>
+<li><p>Ideal</p></li>
+<li><p>doubly, add and remove at the head or tail</p></li>
+</ul>
+</li>
+<li><p>Other STL containers</p>
+<ul>
+<li><p>std::deque</p></li>
+<li><p>std::list</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section>
+<section >
+<h2>Deque Abstract Data Type</h2>
+<ul class="simple">
+<li><p>Overview</p></li>
+<li><p>Behaviors</p></li>
+</ul>
+</section>
+<section >
+<h3>Overview</h3>
+<ul class="simple">
+<li><p>A deque (double-ended queue) ADT is a container of elements that can be
+inserted and removed following either LIFO or FIFO principle. It can be used
+as a stack or a queue at the same time.</p></li>
+<li><p>Characteristics</p>
+<ul>
+<li><p>Homogeneous</p></li>
+<li><p>Access order is FIFO and LIFO</p></li>
+<li><p>Finite</p></li>
+<li><p>Dynamic size</p></li>
+</ul>
+</li>
+<li><p>Applications</p>
+<ul>
+<li><p>Implement a stack or a queue</p></li>
+</ul>
+</li>
+<li><p>Known as one of the linear ADT because it is usually implemented using a
+linear data structure. It is not logically linear.</p></li>
+</ul>
+</section>
+<section >
+<h3>Behaviors</h3>
+<ul class="simple">
+<li><p>enqueue front/back: Insert an element to the front/back of the deque.</p></li>
+<li><p>dequeue front/back: Remove an element from the front/back of the deque.</p></li>
+<li><p>peek front/back: Return the element to be removed from the deque.</p></li>
+<li><p>isEmpty: Return true if the stack is empty, false otherwise.</p></li>
+<li><p>size (optional): Return the number of elements in the stack.</p></li>
+</ul>
+</section>
+</section>
+<section>
+<section >
+<h2>C++ Implementation of Deque ADT</h2>
+<ul>
+<li><p>C++ STL container: std::queue</p></li>
+<li><p>Make from scratch as templates</p></li>
+<li><p>Example public interface:</p>
+<pre><code data-trim data-noescape class="cpp">template &lt;typename T&gt;
+class Deque {
+ private:
+  ///...
+ public:
+  void enqueueFront(const T&amp; value);
+  void enqueueBack(const T&amp; value);
+  T dequeueFront();
+  T dequeueBack();
+  T peekFront() const;
+  T peekBack() const;
+  bool isEmpty() const;
+};</code></pre>
+</li>
+</ul>
+</section>
+<section >
+<h3>Data Structures</h3>
+<ul class="simple">
+<li><p>Partially filled C array</p>
+<ul>
+<li><p>better to use a circular array</p></li>
+<li><p>fixed capacity</p></li>
+</ul>
+</li>
+<li><p>Linked list</p>
+<ul>
+<li><p>Ideal</p></li>
+<li><p>doubly, add and remove at the head or tail</p></li>
+</ul>
+</li>
+<li><p>Other STL containers</p>
+<ul>
+<li><p>std::list</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+
+        </div>
+    </div>
+    
+    <script src="../_static/revealjs4/dist/reveal.js"></script>
+    
+    
+      <script src="../_static/revealjs4/plugin/notes/notes.js"></script>
+      <script src="../_static/revealjs4/plugin/highlight/highlight.js"></script>
+      <script src="../_static/revealjs4/plugin/math/math.js"></script>
+      
+    
+    <script>
+        var revealjsConfig = new Object();
+        Object.assign(revealjsConfig, JSON.parse('{"controls": true, "progress": true, "hash": true, "center": true, "transition": "slide", "slideNumber": true}'));
+        
+        
+        
+          revealjsConfig.plugins = [
+            RevealNotes,RevealHighlight,RevealMath,
+          ];
+        
+        // More info https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize(revealjsConfig);
+    </script>
+
+  </body>
+</html>
