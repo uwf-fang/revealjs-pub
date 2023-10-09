@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <title>Greedy Algorithms</title>
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs4/dist/reveal.css" />
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs4/plugin/highlight/zenburn.css" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  </head><body>
+    <div class="reveal">
+        <div class="slides" role="main">
+            <section >
+<h1>Greedy Algorithms</h1>
+<div class="subtitle docutils container">
+<p>Xingang (Ian) Fang</p>
+</div>
+</section>
+<section >
+<h2>Outline</h2>
+<ul class="simple">
+<li><p>Overview</p></li>
+<li><p>Applications</p></li>
+<li><p>Bin Packing Problem (BPP)</p></li>
+<li><p>Hoffman Coding</p></li>
+</ul>
+</section>
+<section >
+<h2>Overview</h2>
+<ul class="simple">
+<li><p>An algorithm that makes the locally optimal choice at each stage with the
+hopes of finding the global optimum</p></li>
+<li><p>Characteristics</p>
+<ul>
+<li><p>Heuristic</p></li>
+<li><p>Local optimum</p></li>
+<li><p>Intuitive</p></li>
+<li><p>No long term planning</p></li>
+<li><p>Approximate, no guarantee to find the best solution</p></li>
+<li><p>Less time complexity than exact algorithms</p></li>
+</ul>
+</li>
+<li><p>Two variations of the problem</p>
+<ul>
+<li><p>Online: Items arrive one at a time and must be immediately packed</p></li>
+<li><p>Offline: All items are known in advance</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section >
+<h2>Applications</h2>
+<ul class="simple">
+<li><p>Suitable for optimization problems that are too complex to solve with exact
+algorithms.</p></li>
+<li><p>Graph problems</p>
+<ul>
+<li><p>Shortest path: Dijkstra’s algorithm</p></li>
+<li><p>Minimum spanning tree: Prim’s algorithm, Kruskal’s algorithm</p></li>
+<li><p>Graph coloring</p></li>
+</ul>
+</li>
+<li><p>Bin packing problem</p></li>
+<li><p>Activity selection problem</p></li>
+<li><p>Fractional knapsack problem</p></li>
+<li><p>Huffman coding</p></li>
+</ul>
+</section>
+<section>
+<section >
+<h2>Bin Packing Problem (BPP)</h2>
+<ul class="simple">
+<li><p>Given a set of items with different weights and bins with fixed capacity,
+find the minimum number of bins required to pack all items.</p></li>
+<li><p>Formal definition</p>
+<ul>
+<li><p>Items have size between 0 and 1</p></li>
+<li><p>Bins have capacity 1</p></li>
+<li><p>Each item must be packed into a bin</p></li>
+<li><p>Minimize the number of bins used to pack all items</p></li>
+</ul>
+</li>
+<li><p>Classic combinatorial optimization problem</p></li>
+<li><p>NP-hard problem</p></li>
+<li><p>Applications in logistics, scheduling, resource allocation, etc.</p></li>
+</ul>
+</section>
+<section >
+<h3>Algorithms to Solve Bin Packing Problem</h3>
+<ul class="simple">
+<li><p>Exact algorithms</p>
+<ul>
+<li><p>Brute force</p></li>
+<li><p>Dynamic programming</p></li>
+<li><p>Branch and bound</p></li>
+<li><p>Integer linear programming</p></li>
+</ul>
+</li>
+<li><p>Approximation algorithms</p>
+<ul>
+<li><p>Greedy algorithms</p></li>
+</ul>
+</li>
+<li><p>Why is not backtracking a good idea for solving BPP?</p></li>
+</ul>
+</section>
+<section >
+<h3>Baseline Solution</h3>
+<ul class="simple">
+<li><p>Brute force solution serves as the baseline solution</p>
+<ul>
+<li><p>Create all possible permutations of items</p></li>
+<li><p>Pack the permutations into bins in a deterministic order (e.g. online next
+fit)</p></li>
+<li><p>Find the permutation that uses the fewest bins</p></li>
+</ul>
+</li>
+<li><p>Exercise</p>
+<ul>
+<li><p>Which step is the determining factor for the time complexity of the
+algorithm?</p></li>
+<li><p>What are the time complexities of each step?</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section >
+<h3>Greedy Solution</h3>
+<p>Process items one by one, in each step, decide which bin to put the item in.
+Create a new bin if necessary.</p>
+<ul class="simple">
+<li><p>Heuristics for online bin packing</p>
+<ul>
+<li><p>Next Fit: only check the last bin</p></li>
+<li><p>First Fit: check all previous bins for first fit</p></li>
+<li><p>Best Fit: check all previous bins for best (tightest) fit</p></li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li><p>A simple greedy solution for offline bin packing:</p>
+<ul>
+<li><p>Sort items in decreasing order of size</p></li>
+<li><p>Pack items into bins using online method (first fit or best fit)</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section >
+<h2>Hoffman Coding</h2>
+<p>Under construction</p>
+</section>
+
+        </div>
+    </div>
+    
+    <script src="../_static/revealjs4/dist/reveal.js"></script>
+    
+    
+      <script src="../_static/revealjs4/plugin/notes/notes.js"></script>
+      <script src="../_static/revealjs4/plugin/highlight/highlight.js"></script>
+      <script src="../_static/revealjs4/plugin/math/math.js"></script>
+      
+    
+    <script>
+        var revealjsConfig = new Object();
+        Object.assign(revealjsConfig, JSON.parse('{"controls": true, "progress": true, "hash": true, "center": true, "transition": "slide", "slideNumber": true}'));
+        
+        
+        
+          revealjsConfig.plugins = [
+            RevealNotes,RevealHighlight,RevealMath,
+          ];
+        
+        // More info https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize(revealjsConfig);
+    </script>
+
+  </body>
+</html>
