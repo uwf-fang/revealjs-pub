@@ -48,12 +48,6 @@ hopes of finding the global optimum</p></li>
 <li><p>Less time complexity than exact algorithms</p></li>
 </ul>
 </li>
-<li><p>Two variations of the problem</p>
-<ul>
-<li><p>Online: Items arrive one at a time and must be immediately packed</p></li>
-<li><p>Offline: All items are known in advance</p></li>
-</ul>
-</li>
 </ul>
 </section>
 <section >
@@ -81,7 +75,7 @@ at each step.</p>
 <td><p>More time complexity</p></td>
 </tr>
 <tr class="row-odd"><td><p>May fail to find the best solution</p></td>
-<td><p>Always find the best solution</p></td>
+<td><p>Always find the best solution by finding all solutions</p></td>
 </tr>
 </tbody>
 </table>
@@ -99,9 +93,9 @@ algorithms.</p></li>
 </ul>
 </li>
 <li><p>Bin packing problem</p></li>
+<li><p>Huffman coding</p></li>
 <li><p>Activity selection problem</p></li>
 <li><p>Fractional knapsack problem</p></li>
-<li><p>Huffman coding</p></li>
 </ul>
 </section>
 <section>
@@ -121,6 +115,12 @@ find the minimum number of bins required to pack all items.</p></li>
 <li><p>Classic combinatorial optimization problem</p></li>
 <li><p>NP-hard problem</p></li>
 <li><p>Applications in logistics, scheduling, resource allocation, etc.</p></li>
+<li><p>Two variations of the problem</p>
+<ul>
+<li><p>Online: Items arrive one at a time and must be immediately packed</p></li>
+<li><p>Offline: All items are known in advance</p></li>
+</ul>
+</li>
 </ul>
 </section>
 <section >
@@ -148,7 +148,7 @@ find the minimum number of bins required to pack all items.</p></li>
 <li><p>Brute force solution serves as the baseline solution</p>
 <ul>
 <li><p>Create all possible permutations of items</p></li>
-<li><p>Pack the permutations into bins in a deterministic order (e.g. online next
+<li><p>Pack every permutation into bins in a deterministic order (e.g. online next
 fit)</p></li>
 <li><p>Find the permutation that uses the fewest bins</p></li>
 </ul>
@@ -185,9 +185,117 @@ Create a new bin if necessary.</p>
 </ul>
 </section>
 </section>
+<section>
 <section >
 <h2>Hoffman Coding</h2>
-<p>Under construction</p>
+<div class="flex-container docutils container">
+<div class="half docutils container">
+<ul class="simple">
+<li><p>A lossless data compression algorithm</p></li>
+<li><p>Variable length encoding</p></li>
+<li><p>Based on the frequency of characters</p></li>
+<li><p>Motivation</p>
+<ul>
+<li><p>ASCII uses 8 bits to encode each character</p></li>
+<li><p>Some characters are used more frequently than others</p></li>
+<li><p>Less bits for more frequent characters to save space</p></li>
+</ul>
+</li>
+<li><p>Applications</p>
+<ul>
+<li><p>Building-block for other algorithms</p></li>
+<li><p>JPEG, MP3, etc.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="half docutils container">
+<a class="reference internal image-reference" href="../_images/data-compression.png"><img alt="Data Compression" src="../_images/data-compression.png" style="width: 400px;" /></a>
+<div class="footnote docutils container">
+<p>Credit: <a class="reference external" href="https://developer.apple.com/documentation/compression">https://developer.apple.com/documentation/compression</a></p>
+</div>
+</div>
+</div>
+</section>
+<section >
+<h3>Optimal Prefix Code</h3>
+<ul class="simple">
+<li><p>Huffman coding is an optimal prefix code</p></li>
+<li><p>Prefix code (a.k.a. prefix-free code)</p>
+<ul>
+<li><p>no code is a prefix of another code</p></li>
+<li><p>no ambiguity when decoding</p></li>
+</ul>
+</li>
+<li><p>Optimal</p>
+<ul>
+<li><p>Minimizes the expected length of the encoded message</p></li>
+<li><p>The most frequent characters are encoded with the fewest bits</p></li>
+</ul>
+</li>
+<li><p>Employ a binary tree to represent the Huffman coding scheme</p>
+<ul>
+<li><p>Full binary tree</p></li>
+<li><p>Leaf nodes represent characters - guarantee prefix code</p></li>
+<li><p>Each internal node means a bit in the code</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section >
+<h3>Encoding Tree Examples</h3>
+<div class="flex-container docutils container">
+<div class="half docutils container">
+<ul>
+<li><p>Left: Fixed length encoding</p>
+<p>Total space: 3 * (45 + 13 + 12 + 16 + 9 + 5) = 300 bits</p>
+</li>
+<li><p>Right: Huffman coding</p>
+<p>Total space: 1 * 45 + 2 * 13 + 2 * 12 + 3 * 16 + 4 * 9 + 4 * 5 = 199 bits</p>
+</li>
+<li><p>Contents in nodes:</p>
+<ul class="simple">
+<li><p>Leaf node: &lt;character&gt;: &lt;frequency&gt;</p></li>
+<li><p>Internal node: &lt;frequency of subtree&gt;</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="half docutils container">
+<img alt="Prefix Coding Trees" src="../_images/prefix-coding-trees.png" />
+<div class="footnote docutils container">
+<p>Credit: Introduction to Algorithms, 4th Ed., T. Cormen et al.</p>
+</div>
+</div>
+</div>
+</section>
+<section >
+<h3>Algorithm to build the tree</h3>
+<p>Pseudo-code from <a class="reference external" href="https://en.wikipedia.org/wiki/Huffman_coding">Wikipedia</a></p>
+<ul class="simple">
+<li><p>Create a leaf node for each symbol and add it to the priority queue.</p></li>
+<li><p>While there is more than one node in the queue:</p>
+<ul>
+<li><p>Remove the two nodes of lowest frequency from the queue</p></li>
+<li><p>Create a new internal node with these two nodes as children and with
+frequency equal to the sum of the two nodes’ frequency.</p></li>
+<li><p>Add the new node to the queue.</p></li>
+</ul>
+</li>
+<li><p>The remaining node is the root node and the tree is complete.</p></li>
+</ul>
+</section>
+<section >
+<h3>Steps to build the example tree</h3>
+<img alt="Steps to Build the Example Tree" src="../_images/huffman-steps.png" />
+<div class="footnote docutils container">
+<p>Credit: Introduction to Algorithms, 4th Ed., T. Cormen et al.</p>
+</div>
+</section>
+<section >
+<h3>Visualizing Huffman Coding</h3>
+<p><a class="reference external" href="https://demo.tinyray.com/huffman">Encoding process visualization</a></p>
+</section>
 </section>
 
         </div>

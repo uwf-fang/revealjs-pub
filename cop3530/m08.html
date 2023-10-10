@@ -56,10 +56,10 @@ to the last-in first-out (LIFO) principle.</p></li>
 </li>
 <li><p>Applications</p>
 <ul>
+<li><p>Memory management (function call)</p></li>
 <li><p>Editing tools (undo/redo)</p></li>
 <li><p>Backtracking algorithms</p></li>
 <li><p>Expression evaluation and conversion</p></li>
-<li><p>Memory management</p></li>
 </ul>
 </li>
 <li><p>Known as one of the linear ADT because it is usually implemented using a
@@ -71,10 +71,10 @@ to the ADT itself.</p></li>
 <section >
 <h3>Behaviors</h3>
 <ul class="simple">
-<li><p>push: Insert an element at the top of the stack.</p></li>
-<li><p>pop: Remove the top element from the stack.</p></li>
-<li><p>top/peek: Return the top element of the stack.</p></li>
-<li><p>isEmpty: Return true if the stack is empty, false otherwise.</p></li>
+<li><p>push: Insert an element to the stack.</p></li>
+<li><p>pop: Remove and return an element from the stack.</p></li>
+<li><p>peek: Return the element to be popped from the stack.</p></li>
+<li><p>isEmpty: Check if the stack is empty.</p></li>
 <li><p>size (optional): Return the number of elements in the stack.</p></li>
 </ul>
 </section>
@@ -83,7 +83,8 @@ to the ADT itself.</p></li>
 <section >
 <h2>C++ Implementation of Stack ADT</h2>
 <ul>
-<li><p>C++ STL container: std::stack, std::vector, std::deque, std::list</p></li>
+<li><p>Use C++ STL container as a stack: std::stack, std::vector, std::deque,
+std::list</p></li>
 <li><p>Make from scratch as templates</p></li>
 <li><p>Example public interface:</p>
 <pre><code data-trim data-noescape class="cpp">template &lt;typename T&gt;
@@ -101,6 +102,8 @@ class Stack {
 </section>
 <section >
 <h3>Data Structures</h3>
+<p>List of data structures and STL containers that can be used to implement a
+stack.</p>
 <ul class="simple">
 <li><p>Partially filled C array</p>
 <ul>
@@ -115,7 +118,7 @@ class Stack {
 <li><p>doubly, add and remove at the head or tail</p></li>
 </ul>
 </li>
-<li><p>Other STL containers</p>
+<li><p>Make a wrapper class using other STL containers</p>
 <ul>
 <li><p>std::vector</p></li>
 <li><p>std::deque</p></li>
@@ -174,7 +177,7 @@ linear data structure. It is not logically linear.</p></li>
 <section >
 <h2>C++ Implementation of Queue ADT</h2>
 <ul>
-<li><p>C++ STL container: std::queue, std::deque, std::list</p></li>
+<li><p>Use C++ STL container as a queue: std::queue, std::deque, std::list</p></li>
 <li><p>Make from scratch as templates</p></li>
 <li><p>Example public interface:</p>
 <pre><code data-trim data-noescape class="cpp">template &lt;typename T&gt;
@@ -192,6 +195,8 @@ class Queue {
 </section>
 <section >
 <h3>Data Structures</h3>
+<p>List of data structures and STL containers that can be used to implement a
+queue.</p>
 <ul class="simple">
 <li><p>Partially filled C array</p>
 <ul>
@@ -207,7 +212,7 @@ class Queue {
 <li><p>doubly, add and remove at the head or tail</p></li>
 </ul>
 </li>
-<li><p>Other STL containers</p>
+<li><p>Make a wrapper class using other STL containers</p>
 <ul>
 <li><p>std::deque</p></li>
 <li><p>std::list</p></li>
@@ -229,7 +234,7 @@ class Queue {
 <ul class="simple">
 <li><p>A deque (double-ended queue) ADT is a container of elements that can be
 inserted and removed following either LIFO or FIFO principle. It can be used
-as a stack or a queue at the same time.</p></li>
+as a stack and a queue at the same time.</p></li>
 <li><p>Characteristics</p>
 <ul>
 <li><p>Homogeneous</p></li>
@@ -238,9 +243,11 @@ as a stack or a queue at the same time.</p></li>
 <li><p>Dynamic size</p></li>
 </ul>
 </li>
-<li><p>Applications</p>
+<li><p>Applications (Mostly out of the scope of this course)</p>
 <ul>
 <li><p>Implement a stack or a queue</p></li>
+<li><p>BFS in 2D grid</p></li>
+<li><p>Sliding window maximum/minimum</p></li>
 </ul>
 </li>
 <li><p>Known as one of the linear ADT because it is usually implemented using a
@@ -262,7 +269,7 @@ linear data structure. It is not logically linear.</p></li>
 <section >
 <h2>C++ Implementation of Deque ADT</h2>
 <ul>
-<li><p>C++ STL container: std::queue</p></li>
+<li><p>Use C++ STL container as a deque: std::deque</p></li>
 <li><p>Make from scratch as templates</p></li>
 <li><p>Example public interface:</p>
 <pre><code data-trim data-noescape class="cpp">template &lt;typename T&gt;
@@ -283,6 +290,8 @@ class Deque {
 </section>
 <section >
 <h3>Data Structures</h3>
+<p>List of data structures and STL containers that can be used to implement a
+deque.</p>
 <ul class="simple">
 <li><p>Partially filled C array</p>
 <ul>
