@@ -55,10 +55,12 @@ hopes of finding the global optimum</p></li>
 <p>Greedy algorithms are related to backtracking because they both make decisions
 at each step.</p>
 <table class="docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p>Greedy</p></td>
-<td><p>Backtracking</p></td>
+<thead>
+<tr class="row-odd"><th class="head"><p>Greedy</p></th>
+<th class="head"><p>Backtracking</p></th>
 </tr>
+</thead>
+<tbody>
 <tr class="row-even"><td><p>Approximate</p></td>
 <td><p>Exact</p></td>
 </tr>
@@ -237,7 +239,7 @@ Create a new bin if necessary.</p>
 <ul>
 <li><p>Full binary tree</p></li>
 <li><p>Leaf nodes represent characters - guarantee prefix code</p></li>
-<li><p>Each internal node means a bit in the code</p></li>
+<li><p>Each internal node means a bit in the codeword</p></li>
 </ul>
 </li>
 </ul>
@@ -270,7 +272,9 @@ Create a new bin if necessary.</p>
 </div>
 </section>
 <section >
-<h3>Algorithm to build the tree</h3>
+<h3>Algorithm to build a Huffman coding tree</h3>
+<p>This is a greedy algorithm that builds the tree bottom-up from the least
+frequent characters to the most frequent characters.</p>
 <p>Pseudo-code from <a class="reference external" href="https://en.wikipedia.org/wiki/Huffman_coding">Wikipedia</a></p>
 <ul class="simple">
 <li><p>Create a leaf node for each symbol and add it to the priority queue.</p></li>
