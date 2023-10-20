@@ -358,15 +358,15 @@ Like 5-0-0, 4-1-0, 3-2-0, 3-1-1, etc. Then add them up.</p></li>
 <ul>
 <li><p>5 consecutive cards, same suit</p></li>
 <li><p>Select starting card from <cite>Ace, 2, … to 10</cite> 10 ways per suit:
-<span class="math notranslate nohighlight">\(C^10_1\)</span></p></li>
-<li><p>Select suit: <span class="math notranslate nohighlight">\(C^4_1\)</span></p></li>
+<span class="math notranslate nohighlight">\(C^{10}_{1}\)</span></p></li>
+<li><p>Select suit: <span class="math notranslate nohighlight">\(C^{4}_{1}\)</span></p></li>
 <li><p>Remove over counting: royal flush</p></li>
 </ul>
 </li>
 <li><p>Four of a kind: 624 ways</p>
 <ul>
-<li><p>Select 2 ranks (order matters): <span class="math notranslate nohighlight">\(P^{13}_2\)</span></p></li>
-<li><p>Select a suite for 1 rank: <span class="math notranslate nohighlight">\(C^4_1\)</span></p></li>
+<li><p>Select 2 ranks (order matters): <span class="math notranslate nohighlight">\(P^{13}_{2}\)</span></p></li>
+<li><p>Select a suite for 1 rank: <span class="math notranslate nohighlight">\(C^{4}_{1}\)</span></p></li>
 </ul>
 </li>
 </ul>
@@ -376,22 +376,22 @@ Like 5-0-0, 4-1-0, 3-2-0, 3-1-1, etc. Then add them up.</p></li>
 <ul class="simple">
 <li><p>Full house: 3744 ways</p>
 <ul>
-<li><p>Select 2 ranks from 13 ranks (order matters) <span class="math notranslate nohighlight">\(P^13_2\)</span></p></li>
-<li><p>Select 3 suits for the first rank: <span class="math notranslate nohighlight">\(C^4_3\)</span></p></li>
-<li><p>Select 2 suits for the second rank: <span class="math notranslate nohighlight">\(C^4_2\)</span></p></li>
+<li><p>Select 2 ranks from 13 ranks (order matters) <span class="math notranslate nohighlight">\(P^{13}_{2}\)</span></p></li>
+<li><p>Select 3 suits for the 3 cards: <span class="math notranslate nohighlight">\(C^{4}_{3}\)</span></p></li>
+<li><p>Select 2 suits for the 2 cards: <span class="math notranslate nohighlight">\(C^{4}_{2}\)</span></p></li>
 </ul>
 </li>
 <li><p>Flush: 5108 ways</p>
 <ul>
 <li><p>Select 5 ranks from 13 ranks: <span class="math notranslate nohighlight">\(C^{13}_5\)</span></p></li>
-<li><p>Select a suit: <span class="math notranslate nohighlight">\(C^4_1\)</span></p></li>
+<li><p>Select a suit: <span class="math notranslate nohighlight">\(C^{4}_{1}\)</span></p></li>
 <li><p>Remove overcounting: straight flush, royal flush</p></li>
 </ul>
 </li>
 <li><p>Straight 10200 ways</p>
 <ul>
 <li><p>Product rule</p></li>
-<li><p>Select the starting card: <span class="math notranslate nohighlight">\(C^{10}_1\)</span></p></li>
+<li><p>Select the starting card: <span class="math notranslate nohighlight">\(C^{10}_{1}\)</span></p></li>
 <li><p>Select the suits for each card (repetition allowed) : <span class="math notranslate nohighlight">\(4^5\)</span></p></li>
 <li><p>Remove overcounting: straight flush, royal flush</p></li>
 </ul>
@@ -404,20 +404,20 @@ Like 5-0-0, 4-1-0, 3-2-0, 3-1-1, etc. Then add them up.</p></li>
 <li><p>Three of a kind: 54912 ways</p>
 <ul>
 <li><p>Product rule</p></li>
-<li><p>Select a rank for 3 cards: <span class="math notranslate nohighlight">\(C^13_1\)</span></p></li>
-<li><p>Select the suits for 3 cards: <span class="math notranslate nohighlight">\(C^4_3\)</span></p></li>
-<li><p>Select 2 ranks for the other 2 cards: <span class="math notranslate nohighlight">\(C^{12}_2\)</span></p></li>
+<li><p>Select a rank for 3 cards: <span class="math notranslate nohighlight">\(C^{13}_{1}\)</span></p></li>
+<li><p>Select the suits for 3 cards: <span class="math notranslate nohighlight">\(C^{4}_{3}\)</span></p></li>
+<li><p>Select 2 ranks for the other 2 cards: <span class="math notranslate nohighlight">\(C^{12}_{2}\)</span></p></li>
 <li><p>Select the suits for the other 2 cards: <span class="math notranslate nohighlight">\(4^2\)</span></p></li>
 </ul>
 </li>
 <li><p>Two pairs: 123552 ways</p>
 <ul>
 <li><p>Product rule</p></li>
-<li><p>Select 2 ranks for the pairs: <span class="math notranslate nohighlight">\(C^{13}_2\)</span> ways</p></li>
-<li><p>Select 1 rank for the other card: <span class="math notranslate nohighlight">\(C^{11}_1\)</span> ways</p></li>
-<li><p>Select 2 suits for the first pair: <span class="math notranslate nohighlight">\(C^4_2\)</span> ways</p></li>
-<li><p>Select 2 suits for the second pair: <span class="math notranslate nohighlight">\(C^4_2\)</span> ways</p></li>
-<li><p>Select 1 suit for the other card: <span class="math notranslate nohighlight">\(C^4_1\)</span> ways</p></li>
+<li><p>Select 2 ranks for the pairs: <span class="math notranslate nohighlight">\(C^{13}_{2}\)</span> ways</p></li>
+<li><p>Select 1 rank for the other card: <span class="math notranslate nohighlight">\(C^{11}_{1}\)</span> ways</p></li>
+<li><p>Select 2 suits for the first pair: <span class="math notranslate nohighlight">\(C^{4}_{2}\)</span> ways</p></li>
+<li><p>Select 2 suits for the second pair: <span class="math notranslate nohighlight">\(C^{4}_{2}\)</span> ways</p></li>
+<li><p>Select 1 suit for the other card: <span class="math notranslate nohighlight">\(C^{4}_{1}\)</span> ways</p></li>
 </ul>
 </li>
 <li><p>One pair 1,098,240 ways (exercise)</p></li>
@@ -442,22 +442,22 @@ remaining cards.</p></li>
 <li><p>With two spades in hand? How many ways to get a flush?</p>
 <ul>
 <li><p>3 spades in the remaining 11 spades</p></li>
-<li><p><span class="math notranslate nohighlight">\(C^{11}_3 = 165\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(C^{11}_{3} = 165\)</span></p></li>
 </ul>
 </li>
 <li><p>Two Aces in hand? How many ways to get a full house?</p>
 <ul>
 <li><p>Case 1: 1 Ace and a pair</p>
 <ul>
-<li><p>Select 1 Ace (2 left): <span class="math notranslate nohighlight">\(C^2_1\)</span></p></li>
-<li><p>Select 1 rank for the pair: <span class="math notranslate nohighlight">\(C^{12}_1\)</span></p></li>
-<li><p>Select 2 suits for the pair: <span class="math notranslate nohighlight">\(C^4_2\)</span></p></li>
+<li><p>Select 1 Ace (2 left): <span class="math notranslate nohighlight">\(C^{2}_{1}\)</span></p></li>
+<li><p>Select 1 rank for the pair: <span class="math notranslate nohighlight">\(C^{12}_{1}\)</span></p></li>
+<li><p>Select 2 suits for the pair: <span class="math notranslate nohighlight">\(C^{4}_{2}\)</span></p></li>
 </ul>
 </li>
 <li><p>Case 2: 3 of a kind</p>
 <ul>
-<li><p>Select 1 rank for the 3 of a kind: <span class="math notranslate nohighlight">\(C^{12}_1\)</span></p></li>
-<li><p>Select 3 suits for the 3 of a kind: <span class="math notranslate nohighlight">\(C^4_3\)</span></p></li>
+<li><p>Select 1 rank for the 3 of a kind: <span class="math notranslate nohighlight">\(C^{12}_{1}\)</span></p></li>
+<li><p>Select 3 suits for the 3 of a kind: <span class="math notranslate nohighlight">\(C^{4}_{3}\)</span></p></li>
 </ul>
 </li>
 <li><p>Add the two cases because they are exclusive</p></li>
