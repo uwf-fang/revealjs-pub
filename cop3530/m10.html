@@ -1,0 +1,438 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <title>Data Structure and Algorithm Design</title>
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs4/dist/reveal.css" />
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs4/plugin/highlight/zenburn.css" />
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  </head><body>
+    <div class="reveal">
+        <div class="slides" role="main">
+            <section data-background-color="white" data-background-image="../_static/logo.png" data-background-size="50%" data-background-position="top center" data-background-repeat="no-repeat">
+<h1>Data Structure and Algorithm Design</h1>
+<div class="subtitle docutils container">
+<p><strong>Module 10</strong></p>
+<p>Xingang (Ian) Fang</p>
+</div>
+</section>
+<section >
+<h2>Sections</h2>
+<ul class="simple">
+<li><p>Hashing</p></li>
+<li><p>Hash Table</p></li>
+</ul>
+</section>
+<section >
+<h1>Hashing</h1>
+<div class="subtitle docutils container">
+<p>Xingang (Ian) Fang</p>
+</div>
+</section>
+<section >
+<h2>Outline</h2>
+<ul class="simple">
+<li><p>Overview</p></li>
+<li><p>Hash functions</p></li>
+<li><p>Applications</p></li>
+</ul>
+</section>
+<section >
+<h2>Overview</h2>
+<ul class="simple">
+<li><p>Broad definition: Hashing is a process of mapping data of one type to data of
+another type.</p></li>
+<li><p>Narrow definition: Hashing is a process of mapping data of arbitrary size to
+data of fixed size.</p></li>
+<li><p>Hash function</p>
+<ul>
+<li><p>The core of hashing</p></li>
+</ul>
+</li>
+<li><p>Representation: <code class="docutils literal notranslate"><span class="pre">&lt;start</span> <span class="pre">type&gt;</span> <span class="pre">-&gt;</span> <span class="pre">&lt;destination</span> <span class="pre">type&gt;</span></code></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;start</span> <span class="pre">type&gt;</span></code>: The type of data to be hashed, sometimes called key type</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;destination</span> <span class="pre">type&gt;</span></code>: The type of data after hashing, sometimes called
+hash value type or hash code type</p></li>
+<li><p>E.g. <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">-&gt;</span> <span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">-&gt;</span> <span class="pre">string</span></code>, <code class="docutils literal notranslate"><span class="pre">string</span> <span class="pre">-&gt;</span> <span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">string</span> <span class="pre">-&gt;</span>
+<span class="pre">string</span></code></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section>
+<section >
+<h2>Hash Function</h2>
+<ul class="simple">
+<li><p>Domain of a hash function: The set of all possible inputs to a hash function</p></li>
+<li><p>Range of a hash function: The set of all possible outputs of a hash function</p></li>
+<li><p>Characteristics (not all required):</p>
+<ul>
+<li><p>Deterministic</p></li>
+<li><p>Constant time computation <span class="math notranslate nohighlight">\(O(1)\)</span></p></li>
+<li><p>Uniform distribution (clusters in domain are evenly distributed in range)</p></li>
+<li><p>Size of range is smaller usually than size of domain</p></li>
+<li><p>Asymmetric</p>
+<ul>
+<li><p>Hard/impossible to reverse</p></li>
+<li><p>Required in certain applications like cryptography</p></li>
+</ul>
+</li>
+<li><p>Chance of collision</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section >
+<h3>Design of Hash Functions</h3>
+<ul class="simple">
+<li><p>Integer keys</p></li>
+<li><p>String keys</p>
+<ul>
+<li><p>Handle variable length</p></li>
+<li><p>All characters are involved</p></li>
+<li><p>Uniform distribution</p></li>
+</ul>
+</li>
+<li><p>Asymmetric hash functions</p>
+<ul>
+<li><p>Hard to reverse</p></li>
+<li><p>Cryptographic hash functions</p></li>
+<li><p>E.g. MD5, SHA-1, SHA-2, SHA-3</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section >
+<h2>Applications</h2>
+<ul class="simple">
+<li><p>Hash table data structure</p>
+<ul>
+<li><p>Hash Map</p></li>
+<li><p>Hash Set</p></li>
+</ul>
+</li>
+<li><p>Fingerprinting</p>
+<ul>
+<li><p>Short summary of a large data set</p></li>
+<li><p>Checksum</p></li>
+<li><p>Password management</p></li>
+</ul>
+</li>
+<li><p>Cryptography</p></li>
+<li><p>Data structures</p>
+<ul>
+<li><p>Bloom filter</p></li>
+<li><p>Cuckoo filter</p></li>
+<li><p>Merkle tree (e.g. BitCoin)</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section >
+<h1>Hash Table in C++</h1>
+<div class="subtitle docutils container">
+<p>Xingang (Ian) Fang</p>
+</div>
+</section>
+<section >
+<h2>Outline</h2>
+<ul class="simple">
+<li><p>Overview</p></li>
+<li><p>Hash function for hash table</p></li>
+<li><p>Collision resolution</p></li>
+<li><p>Applications</p></li>
+</ul>
+</section>
+<section >
+<h2>Overview</h2>
+<p>A hash table is a data structure that maps keys to values for highly efficient
+lookup. The key-value pairs are stored in “buckets” and the hash table maps
+keys to buckets using a hash function.</p>
+<ul class="simple">
+<li><p>Characteristics</p>
+<ul>
+<li><p>Fast lookup, insert, and delete <span class="math notranslate nohighlight">\(O(1)\)</span></p></li>
+<li><p>Unordered</p></li>
+<li><p>Keys are unique</p></li>
+<li><p>Keys are immutable</p></li>
+<li><p>Redundant storage space required</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section >
+<h2>Hash Function For Hash Table</h2>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(h(key)\)</span> a special type of hash function used by hash table</p></li>
+<li><p>Maps a key of a certain type to an integer in a certain range <span class="math notranslate nohighlight">\(1, 2,
+\ldots, size - 1\)</span>, where <span class="math notranslate nohighlight">\(size\)</span> is the size of the hash table</p></li>
+<li><p>The value obtained by applying the hash function to a key is called the hash
+value of the key. It is used as an index of the bucket.</p></li>
+<li><p>Modulo arithmetic</p></li>
+<li><p>Considerations</p>
+<ul>
+<li><p>Deterministic</p></li>
+<li><p>Fast to compute</p></li>
+<li><p>Uniform distribution (reduce clustering and collision)</p></li>
+</ul>
+</li>
+<li><p>Collision</p>
+<ul>
+<li><p>More than one keys map to the same index</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section >
+<h2>Collision Resolution</h2>
+<ul class="simple">
+<li><p>The most important component of a hash table!</p></li>
+<li><p>Optimal time complexity <span class="math notranslate nohighlight">\(O(1)\)</span></p></li>
+<li><p>Load factor <span class="math notranslate nohighlight">\(\alpha = \frac{n}{size}\)</span></p>
+<ul>
+<li><p>where <span class="math notranslate nohighlight">\(n\)</span> is the number of key-value pairs</p></li>
+<li><p><span class="math notranslate nohighlight">\(size\)</span> is the size of the hash table</p></li>
+<li><p>Load factor is a measure of how full the hash table is</p></li>
+<li><p><span class="math notranslate nohighlight">\(\alpha\)</span> should be ideally a small constant (i.e. 0.5) to ensure
+<span class="math notranslate nohighlight">\(O(1)\)</span> time complexity for lookup, insert, and delete</p></li>
+</ul>
+</li>
+<li><p>Two approaches</p>
+<ul>
+<li><p>Separate chaining (or simply chaining)</p></li>
+<li><p>Open addressing</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section>
+<section >
+<h2>Chaining</h2>
+<ul class="simple">
+<li><p>Each bucket can store a variable number of key-value pairs</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(O(nk)\)</span> space complexity</p>
+<ul>
+<li><p>where <span class="math notranslate nohighlight">\(n\)</span> is the number of buckets</p></li>
+<li><p><span class="math notranslate nohighlight">\(k\)</span> is the average number of key-value pairs in each bucket</p></li>
+<li><p>Theatrically unlimited space for each bucket</p></li>
+<li><p><span class="math notranslate nohighlight">\(k\)</span> should be ideally a small constant</p></li>
+</ul>
+</li>
+<li><p><span class="math notranslate nohighlight">\(O(k)\)</span> time complexity for lookup, insert, and delete</p></li>
+</ul>
+</li>
+<li><p>Solve collision by chaining the key-value pairs together in one bucket when
+collision happens</p></li>
+</ul>
+</section>
+<section >
+<h3>Implementation of Chaining Hash Table</h3>
+<ul class="simple">
+<li><p>Array of Buckets (the hash table)</p>
+<ul>
+<li><p>Fixed length</p></li>
+<li><p>Local array</p></li>
+<li><p>Dynamic array</p></li>
+<li><p>Vector</p></li>
+</ul>
+</li>
+<li><p>Bucket</p>
+<ul>
+<li><p>Variable length</p></li>
+<li><p>Stores key-value pairs</p></li>
+<li><p>Mostly empty</p></li>
+<li><p>Linked list</p></li>
+<li><p>Vector</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section >
+<h3>Chaining Hash Table in C++</h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">vector&lt;vector&lt;pair&lt;keyType,</span> <span class="pre">valueType&gt;&gt;&gt;</span> <span class="pre">hashTable</span></code> Vector of vectors of
+pair objects.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vector&lt;LinkedListNode&lt;keyType,</span> <span class="pre">valueType&gt;</span> <span class="pre">*&gt;</span> <span class="pre">hashTable</span></code> Vector of pointers
+to linked list.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LinkedListNode&lt;keyType,</span> <span class="pre">valueType&gt;</span> <span class="pre">**</span> <span class="pre">hashTable</span></code> One dimensional dynamic
+array of pointers to a linked list.</p></li>
+</ul>
+<pre data-id="chaining-hash-table-in-c"><code data-trim data-noescape class="cpp">template &lt;typename keyType, typename valueType&gt;
+struct LikedListNode {
+  keyType key;
+  valueType value;
+  LinkedListNode * next;
+  LinkedListNode * prev;
+};</code></pre>
+</section>
+</section>
+<section>
+<section >
+<h2>Open Addressing</h2>
+<ul class="simple">
+<li><p>Each bucket stores at most one key-value pair</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(O(n)\)</span> space complexity</p>
+<ul>
+<li><p>Can store at most <span class="math notranslate nohighlight">\(n\)</span> key-value pairs</p></li>
+</ul>
+</li>
+<li><p><span class="math notranslate nohighlight">\(O(k)\)</span> time complexity for lookup, insert, and delete</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(k\)</span> is the average number of probing steps</p></li>
+<li><p><span class="math notranslate nohighlight">\(k\)</span> should be ideally a small constant</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Solve collision by finding another available bucket using a “probing
+sequence”</p></li>
+</ul>
+</section>
+<section >
+<h3>Implementation of Open Addressing Hash Table</h3>
+<ul class="simple">
+<li><p>Array of Buckets (the hash table)</p>
+<ul>
+<li><p>Fixed length</p></li>
+<li><p>Local array</p></li>
+<li><p>Dynamic array</p></li>
+<li><p>Vector</p></li>
+</ul>
+</li>
+<li><p>Bucket</p>
+<ul>
+<li><p>Stores a key-value pair</p></li>
+<li><p>Stores empty status</p>
+<ul>
+<li><p>Empty since start</p></li>
+<li><p>Empty after deletion</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section >
+<h3>Open Addressing Hash Table in C++</h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Bucket&lt;keyType,</span> <span class="pre">valueType&gt;</span> <span class="pre">*</span> <span class="pre">hashTable</span></code> One dimensional dynamic array of
+bucket objects.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vector&lt;Bucket&lt;keyType,</span> <span class="pre">valueType&gt;&gt;</span> <span class="pre">hashTable</span></code> Vector of bucket objects.</p></li>
+</ul>
+<pre data-id="open-addressing-hash-table-in-c"><code data-trim data-noescape class="cpp">template &lt;typename keyType, typename valueType&gt;
+struct Bucket {
+  keyType key;
+  valueType value;
+  bool isEmpty = true;
+  bool isDeleted = false;
+};</code></pre>
+</section>
+<section >
+<h3>Probing in Open Addressing</h3>
+<ul>
+<li><p>find another available bucket to store the value when a collision occurs</p></li>
+<li><p>probing sequence: the sequence of the buckets to check when collision happens</p></li>
+<li><p>linear probing:</p>
+<p><span class="math notranslate nohighlight">\((h1(key) + C_{1} * i) \% NUM\_BUCKETS, i = 0, 1, 2, 3 \dots\)</span></p>
+</li>
+<li><p>quadratic probing:</p>
+<p><span class="math notranslate nohighlight">\((h1(key) + C_{1} * i + C_{2} * i^2) \% NUM\_BUCKETS, i = 0, 1, 2, 3
+\dots\)</span></p>
+</li>
+<li><p>double hashing probing:</p>
+<p><span class="math notranslate nohighlight">\((h1(key) + i * h2(key)) \% NUM\_BUCKETS, i = 0, 1, 2, 3 \dots\)</span></p>
+</li>
+</ul>
+<div class="footnote docutils container">
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(h1(key)\)</span> is the primary hash function</p></li>
+<li><p><span class="math notranslate nohighlight">\(h2(key)\)</span> is the secondary hash function</p></li>
+<li><p><span class="math notranslate nohighlight">\(C_{1}\)</span> and <span class="math notranslate nohighlight">\(C_{2}\)</span>, etc. are constants</p></li>
+</ul>
+</div>
+</section>
+</section>
+<section >
+<h2>Applications of Hash Table</h2>
+<div class="flex-container docutils container">
+<div class="half docutils container">
+<ul class="simple">
+<li><p>Implement Map ADT (Hash Map)</p>
+<ul>
+<li><p>A.k.a dictionary, associative array, symbol table, etc.</p></li>
+<li><p>A collection of key-value pairs</p></li>
+<li><p>Keys are unique</p></li>
+<li><p>Behaviors</p>
+<ul>
+<li><p>Set a key-value pair</p></li>
+<li><p>Get the value of a key (lookup, contains)</p></li>
+<li><p>Delete a key-value pair</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="half docutils container">
+<ul class="simple">
+<li><p>Implement Set ADT (Hash Set)</p>
+<ul>
+<li><p>A collection of unique elements</p></li>
+<li><p>No value stored</p></li>
+<li><p>Only store keys (or say key is the value)</p></li>
+<li><p>Keys are unique</p></li>
+<li><p>Behaviors</p>
+<ul>
+<li><p>Add a key</p></li>
+<li><p>Remove a key</p></li>
+<li><p>Check if a key exists</p></li>
+<li><p>Set operations: Union, intersection, difference, subset, etc.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</section>
+
+        </div>
+    </div>
+    
+    <script src="../_static/revealjs4/dist/reveal.js"></script>
+    
+    
+      <script src="../_static/revealjs4/plugin/notes/notes.js"></script>
+      <script src="../_static/revealjs4/plugin/highlight/highlight.js"></script>
+      <script src="../_static/revealjs4/plugin/math/math.js"></script>
+      
+    
+    <script>
+        var revealjsConfig = new Object();
+        Object.assign(revealjsConfig, JSON.parse('{"controls": true, "progress": true, "hash": true, "center": true, "transition": "slide", "slideNumber": true}'));
+        
+        
+        
+          revealjsConfig.plugins = [
+            RevealNotes,RevealHighlight,RevealMath,
+          ];
+        
+        // More info https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize(revealjsConfig);
+    </script>
+
+  </body>
+</html>
