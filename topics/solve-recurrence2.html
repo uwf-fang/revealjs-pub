@@ -153,17 +153,17 @@ level, or larger than the cost of recursive calls.</p></li>
 <section >
 <h3>Examples</h3>
 <p>For the recurrence relation of the Merge Sort algorithm:</p>
-<p><span class="math notranslate nohighlight">\(T(n) = 2T\left(\frac{n}{2}\right) + n\)</span></p>
+<p><span class="math notranslate nohighlight">\(T(n) = 2T\left(\frac{n}{2}\right) + \Theta(n)\)</span></p>
 <p>We have:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(a = 2\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(b = 2\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(f(n) = n\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(f(n) = \Theta(n) = \Theta(n^1 \times \log ^0 n)\)</span></p></li>
 </ul>
 <p>Using the Master Method:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\log_b a = \log_2 2 = 1\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(f(n) = n = \Theta(n^1)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(f(n) = \Theta(n^1 \times \log ^0 n)\)</span></p></li>
 </ul>
 <p>This falls under Case 2 with <span class="math notranslate nohighlight">\(k = 0\)</span>. Thus, the solution is: <span class="math notranslate nohighlight">\(T(n)
 = \Theta(n \log n)\)</span></p>
@@ -184,12 +184,18 @@ level, or larger than the cost of recursive calls.</p></li>
 <h3>Solutions</h3>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align*}
-1. &amp; \log_b a = \log_4 3 &lt; 1; f(n) = n = n^1; \text{case 3} \quad T(n) = \Theta(n)\\
-2. &amp; \log_b a = \log_2 2 = 1; f(n) = n^2; \text{case 3} \quad T(n) = \Theta(n^2)\\
-3. &amp; \log_b a = \log_2 4 = 2; f(n) = n^2; \text{case 2 (k = 0)} \quad T(n) = \Theta(n \log n)\\
-4. &amp; \log_b a = \log_3 4 \approx 1.28; f(n) = n^{1.5}; \text{case 3} \quad T(n) = \Theta(n^{1.5})\\
-5. &amp; \log_b a = \log_2 3 \approx 1.58; f(n) = n^1; \text{case 1} \quad T(n) = \Theta(n^{\log_2 3})\\
-6. &amp; \log_b a = \log_4 2 = 0.5; f(n) = n^{0.5} \log n; \text{case 2 (k = 1)} \quad T(n) = \Theta(n \log^2 n)\\
+1. &amp; \log_b a  = \log_4 3 &lt; 1; f(n) = n = n^1; \\
+              &amp; \text{case 3} \quad T(n) = \Theta(n)\\
+2. &amp; \log_b a  = \log_2 2 = 1; f(n) = n^2; \\
+              &amp; \text{case 3} \quad T(n) = \Theta(n^2)\\
+3. &amp; \log_b a  = \log_2 4 = 2; f(n) = n^2 = n^2 \log ^0 n; \\
+              &amp; \text{case 2 (k = 0)} \quad T(n) = \Theta(n^2 \log n)\\
+4. &amp; \log_b a  = \log_3 4 \approx 1.28; f(n) = n^{1.5}; \\
+              &amp; \text{case 3} \quad T(n) = \Theta(n^{1.5})\\
+5. &amp; \log_b a  = \log_2 3 \approx 1.58; f(n) = n^1; \\
+              &amp; \text{case 1} \quad T(n) = \Theta(n^{\log_2 3})\\
+6. &amp; \log_b a  = \log_4 2 = 0.5; f(n) = n^{0.5} \log n; \\
+              &amp; \text{case 2 (k = 1)} \quad T(n) = \Theta(\sqrt{n} \log^2 n)\\
 \end{align*}\end{split}\]</div>
 </section>
 </section>
