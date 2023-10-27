@@ -340,7 +340,7 @@ greater and equal than the pivot.</p></li>
 <li><p>Move the right cursor to the left until it points to an element less
 and equal than the pivot.</p></li>
 <li><p>If the left cursor meets the right cursor, the partition is complete.
-Return the right cursor.</p></li>
+Return the left or right cursor.</p></li>
 <li><p>Swap the elements pointed by the two cursors.</p></li>
 <li><p>Repeat steps 2-5 until the partition is complete (step 4 returns).</p></li>
 </ol>
@@ -352,11 +352,14 @@ Return the right cursor.</p></li>
 <ul class="simple">
 <li><p>Hoare’s partition scheme</p></li>
 <li><p>Middle element as pivot</p></li>
+<li><p>Pivot value will be swapped multiple times until it reaches its final
+position</p></li>
+<li><p>The returned index is the final position of the pivot</p></li>
 </ul>
 <pre data-id="quick-partition-example"><code data-trim data-noescape class="default">function hoare_partition(arr, low, high):
   // Select the middle element as the pivot
-  pivot_index = (low + high) / 2
-  pivot = arr[pivot_index]
+  middle = (low + high) / 2
+  pivot = arr[middle]
 
   i = low
   j = high
@@ -370,12 +373,45 @@ Return the right cursor.</p></li>
     while arr[j] &gt; pivot
       j = j - 1
 
-    // If pointers cross/meet, partition is complete
-    if i &gt;= j:
-      return j  // Return the rightmost index
+    // If pointers meet, partition is complete
+    if i == j:
+      return j  // Return the index
 
     // Swap arr[i] and arr[j]
     swap(arr, i, j)</code></pre>
+</section>
+<section >
+<h3>Quick Partition Example (con’d)</h3>
+<ul>
+<li><p>Given an int array <code class="docutils literal notranslate"><span class="pre">{42,</span> <span class="pre">7,</span> <span class="pre">85,</span> <span class="pre">23,</span> <span class="pre">64,</span> <span class="pre">91,</span> <span class="pre">9,</span> <span class="pre">73,</span> <span class="pre">18,</span> <span class="pre">56}</span></code></p></li>
+<li><p>First round of partitioning</p>
+<pre><code data-trim data-noescape class="text">// low is 0, high is 9 initially
+middle = (low + high) / 2 = 4
+pivot = arr[middle] = 64
+
+{42, 7, 85, 23, 64, 91, 9, 73, 18, 56} swap 85, 56
+        l                          h
+{42, 7, 56, 23, 64, 91, 9, 73, 18, 85} swap 64, 18
+                l              h
+{42, 7, 56, 23, 18, 91, 9, 73, 64, 85} swap 91, 64
+                    l          h
+{42, 7, 56, 23, 18, 64, 9, 73, 91, 85} swap 64, 9
+                    l   h
+{42, 7, 56, 23, 18, 9, 64, 73, 91, 85} return 6
+                       lh</code></pre>
+</li>
+<li><p>All elements to the left of the returned index are less than or equal to the
+pivot, and all elements to the right of the returned index are greater than
+or equal to the pivot.</p></li>
+<li><p>The returned index is the final position of the pivot.</p></li>
+<li><p><strong>Exercise:</strong></p>
+<ul class="simple">
+<li><p>Next round of partitioning on the left and right sublists.</p></li>
+<li><p>How about the first element is selected as the pivot? Is there more
+movement of data?</p></li>
+</ul>
+</li>
+</ul>
 </section>
 <section >
 <h3>Quick Sort Algorithm</h3>
@@ -390,17 +426,20 @@ Return the right cursor.</p></li>
 </ol>
 </li>
 </ul>
-<pre data-id="quick-sort-algorithm"><code data-trim data-noescape class="default">function quick_sort(arr, low, high):
-  if low &lt;= high:
+<pre data-id="quick-sort-algorithm"><code data-trim data-noescape class="default">function quick_sort(arr, size):
+  quick_sort_helper(arr, 0, size - 1)
+
+function quick_sort_helper(arr, low, high):
+  if low &gt;= high:
     return
 
   // Partition the list into two sublists
-  pivot_index = hoare_partition(arr, low, high)
+  middle = hoare_partition(arr, low, high)
 
   // Recursively call quick sort on both sublists
   // The pivot is already in its final position
-  quick_sort(arr, low, pivot_index - 1)
-  quick_sort(arr, pivot_index + 1, high)</code></pre>
+  quick_sort_helper(arr, low, middle - 1)
+  quick_sort_helper(arr, middle + 1, high)</code></pre>
 </section>
 <section >
 <h3>Complexity</h3>

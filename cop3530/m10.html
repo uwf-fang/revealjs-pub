@@ -195,6 +195,28 @@ value of the key. It is used as an index of the bucket.</p></li>
 </ul>
 </section>
 <section >
+<h2>Behaviors</h2>
+<ul class="simple">
+<li><p>The hash table stores either key-value pairs or only keys</p></li>
+<li><p>Behaviors</p>
+<ul>
+<li><p>Set a key-value pair/add a key</p></li>
+<li><p>Get the value of a key/lookup a key</p></li>
+<li><p>Delete a key-value pair/delete a key</p></li>
+<li><p>Check size</p></li>
+<li><p>Check empty</p></li>
+<li><p>Rehashing (resize)</p>
+<ul>
+<li><p>When the load factor <span class="math notranslate nohighlight">\(\alpha\)</span> is too large</p></li>
+<li><p>When the load factor <span class="math notranslate nohighlight">\(\alpha\)</span> is too small</p></li>
+<li><p>When there is a large number of tombstone buckets (open addressing)</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section >
 <h2>Collision Resolution</h2>
 <ul class="simple">
 <li><p>The most important component of a hash table!</p></li>
@@ -315,12 +337,19 @@ sequence”</p></li>
 <li><p>Bucket</p>
 <ul>
 <li><p>Stores a key-value pair</p></li>
-<li><p>Stores empty status</p>
+<li><p>Stores empty status and deletion status to indicate whether probing should
+continue.</p>
 <ul>
 <li><p>Empty since start</p></li>
 <li><p>Empty after deletion</p></li>
 </ul>
 </li>
+</ul>
+</li>
+<li><p>Performance degradation caused by frequent delete</p>
+<ul>
+<li><p>More “tombstone” buckets accumulate</p></li>
+<li><p>Need rehashing to reset the hash table</p></li>
 </ul>
 </li>
 </ul>
@@ -343,17 +372,18 @@ struct Bucket {
 <section >
 <h3>Probing in Open Addressing</h3>
 <ul>
-<li><p>find another available bucket to store the value when a collision occurs</p></li>
-<li><p>probing sequence: the sequence of the buckets to check when collision happens</p></li>
-<li><p>linear probing:</p>
-<p><span class="math notranslate nohighlight">\((h1(key) + C_{1} * i) \% NUM\_BUCKETS, i = 0, 1, 2, 3 \dots\)</span></p>
+<li><p>Find another available bucket to store the value when a collision occurs</p></li>
+<li><p>Probing sequence: the sequence of the buckets to check when collision happens</p></li>
+<li><p>You will never probe buckets more than <span class="math notranslate nohighlight">\(size\)</span> times</p></li>
+<li><p>Linear probing:</p>
+<p><span class="math notranslate nohighlight">\((h1(key) + C_{1} * i) \% size, i = 0, 1, 2, 3 \dots size - 1\)</span></p>
 </li>
 <li><p>quadratic probing:</p>
-<p><span class="math notranslate nohighlight">\((h1(key) + C_{1} * i + C_{2} * i^2) \% NUM\_BUCKETS, i = 0, 1, 2, 3
-\dots\)</span></p>
+<p><span class="math notranslate nohighlight">\((h1(key) + C_{1} * i^2) \% size, i = 0, 1, 2, 3 \dots size - 1\)</span></p>
 </li>
 <li><p>double hashing probing:</p>
-<p><span class="math notranslate nohighlight">\((h1(key) + i * h2(key)) \% NUM\_BUCKETS, i = 0, 1, 2, 3 \dots\)</span></p>
+<p><span class="math notranslate nohighlight">\((h1(key) + C_{1} * i * h2(key)) \% size, i = 0, 1, 2, 3 \dots size -
+1\)</span></p>
 </li>
 </ul>
 <div class="footnote docutils container">
