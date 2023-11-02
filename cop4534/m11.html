@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <title>Data Structure and Algorithm Design II</title>
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs4/dist/reveal.css" />
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs4/plugin/highlight/zenburn.css" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  </head><body>
+    <div class="reveal">
+        <div class="slides" role="main">
+            <section data-background-color="white" data-background-image="../_static/logo.png" data-background-size="50%" data-background-position="top center" data-background-repeat="no-repeat">
+<h1>Data Structure and Algorithm Design II</h1>
+<div class="subtitle docutils container">
+<p><strong>Module 11</strong></p>
+<p>Xingang (Ian) Fang</p>
+</div>
+</section>
+<section >
+<h2>Sections</h2>
+<ul class="simple">
+<li><p>Dynamic Programming</p></li>
+</ul>
+</section>
+<section >
+<h1>Dynamic Programming</h1>
+<div class="subtitle docutils container">
+<p>Xingang (Ian) Fang</p>
+</div>
+</section>
+<section >
+<h2>Outline</h2>
+<ul class="simple">
+<li><p>Overview</p></li>
+<li><p>Applications</p></li>
+<li><p>Benefit and Challenges</p></li>
+<li><p>Complexity</p></li>
+</ul>
+</section>
+<section >
+<h2>Overview</h2>
+<ul class="simple">
+<li><p>An algorithmic paradigm</p></li>
+<li><p>Break into overlapping subproblems</p></li>
+<li><p>Only calculate once to avoid repeated work</p></li>
+<li><p>Store the result in a table for future use</p></li>
+</ul>
+</section>
+<section >
+<h2>Characteristics</h2>
+<ul class="simple">
+<li><p>Optimal substructure</p></li>
+<li><p>Overlapping subproblems</p></li>
+<li><p>Memoization/tabulation</p></li>
+<li><p>Recursive formulation</p></li>
+<li><p>Either top-down or bottom-up</p></li>
+</ul>
+</section>
+<section >
+<h2>DP Algorithms</h2>
+<ul class="simple">
+<li><p>Enumeration, decision or optimization types of problems</p></li>
+<li><p>Fibonacci numbers</p></li>
+<li><p>Knapsack problem</p></li>
+<li><p>Longest common subsequence</p></li>
+<li><p>Integer partition</p></li>
+<li><p>Coin change</p></li>
+<li><p>Rod cutting</p></li>
+<li><p>Matrix chain multiplication</p></li>
+</ul>
+<p><strong>Quick Exercises:</strong></p>
+<ul class="simple">
+<li><p>Can you categorize the above problems by their problem types?</p></li>
+<li><p>Why dynamic programming is not a good fit for bin packing problems?</p></li>
+</ul>
+</section>
+<section >
+<h2>Benefit and Challenges</h2>
+<div class="flex-container docutils container">
+<div class="half docutils container">
+<p><strong>Benefits</strong></p>
+<ul class="simple">
+<li><p>Optimal solution</p></li>
+<li><p>Efficiency</p></li>
+<li><p>Versatility</p></li>
+<li><p>Clarity</p></li>
+</ul>
+</div>
+<div class="half docutils container">
+<p><strong>Challenges</strong></p>
+<ul class="simple">
+<li><p>Memory usage</p></li>
+<li><p>Identifying subproblems</p></li>
+<li><p>Algorithm design</p></li>
+<li><p>Time complexity</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section >
+<h2>Complexity Analysis</h2>
+<div class="flex-container docutils container">
+<div class="half docutils container">
+<p><strong>Time Complexity</strong></p>
+<ul class="simple">
+<li><p>Number of distinct subproblems</p></li>
+<li><p>Work per subproblem</p></li>
+<li><p>Memoization/tabulation overhead</p></li>
+<li><p>Recursive call overhead</p></li>
+</ul>
+</div>
+<div class="half docutils container">
+<p><strong>Space Complexity</strong></p>
+<ul class="simple">
+<li><p>number of distinct subproblems</p></li>
+</ul>
+</div>
+</div>
+</section>
+
+        </div>
+    </div>
+    
+    <script src="../_static/revealjs4/dist/reveal.js"></script>
+    
+    
+      <script src="../_static/revealjs4/plugin/notes/notes.js"></script>
+      <script src="../_static/revealjs4/plugin/highlight/highlight.js"></script>
+      <script src="../_static/revealjs4/plugin/math/math.js"></script>
+      
+    
+    <script>
+        var revealjsConfig = new Object();
+        Object.assign(revealjsConfig, JSON.parse('{"controls": true, "progress": true, "hash": true, "center": true, "transition": "slide", "slideNumber": true}'));
+        
+        
+        
+          revealjsConfig.plugins = [
+            RevealNotes,RevealHighlight,RevealMath,
+          ];
+        
+        // More info https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize(revealjsConfig);
+    </script>
+
+  </body>
+</html>
