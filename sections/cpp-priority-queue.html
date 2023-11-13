@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-  <title>&lt;no title&gt;</title>
+  <title>C++ Implementation of Priority Queue ADT</title>
     <link rel="stylesheet" type="text/css" href="../_static/revealjs4/dist/reveal.css" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/revealjs4/plugin/highlight/zenburn.css" />
@@ -17,7 +17,38 @@
   </head><body>
     <div class="reveal">
         <div class="slides" role="main">
-            
+            <section >
+<h1>C++ Implementation of Priority Queue ADT</h1>
+<ul>
+<li><p>Use C++ STL container std::priority_queue</p></li>
+<li><p>Make from scratch as templates</p></li>
+<li><p>Example public interface:</p>
+<pre><code data-trim data-noescape class="cpp">template &lt;typename T&gt;
+class PriorityQueue {
+ private:
+  ///...
+ public:
+  void enqueue(const T&amp; value);
+  T dequeue();
+  T peek() const;
+  bool isEmpty() const;
+};</code></pre>
+</li>
+</ul>
+</section>
+<section >
+<h2>Data Structures</h2>
+<ul class="simple">
+<li><p>Heap</p></li>
+<li><p>Sorted array or linked list</p>
+<ul>
+<li><p>enqueue: perform a sorted insert (part of the insertion sort algorithm)</p></li>
+<li><p>dequeue: remove the first/last element</p></li>
+</ul>
+</li>
+</ul>
+</section>
+
         </div>
     </div>
     
