@@ -357,6 +357,25 @@ Y[1..n])</cite> multiple times.</p></li>
 </ul>
 </section>
 <section >
+<h3>Divide and Conquer Approach</h3>
+<ul class="simple">
+<li><p>Employ the subproblem definition of LCS</p></li>
+<li><p>Recursively divide the problem into smaller subproblems</p></li>
+<li><p>Redundant computations on overlapping subproblems</p></li>
+</ul>
+<pre data-id="divide-and-conquer-approach"><code data-trim data-noescape class="default">function findLCSLength(s1, s2, m, n):
+    // Base case: If either of the strings is empty, LCS length is 0
+    if m == 0 or n == 0:
+        return 0
+
+    // If the last characters of both strings match
+    if s1[m-1] == s2[n-1]:
+        return 1 + findLCSLength(s1, s2, m-1, n-1)
+
+    // If the last characters of both strings don't match
+    return max(findLCSLength(s1, s2, m, n-1), findLCSLength(s1, s2, m-1, n))</code></pre>
+</section>
+<section >
 <h3>Dynamic Programming (DP) Solution</h3>
 <ul class="simple">
 <li><p>DP Table: set up with dimensions one greater than sequence lengths</p></li>
