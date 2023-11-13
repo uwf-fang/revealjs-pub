@@ -399,7 +399,8 @@ Y[1..n])</cite> multiple times.</p></li>
 <li><p><strong>Can only find one LCS</strong></p></li>
 <li><p>Reconstruct LCS from the filled DP table</p></li>
 <li><p>Backtrack from <cite>dp[m][n]</cite>, storing characters</p></li>
-<li><p>Diagonal movement for matches, otherwise to cell with higher value</p></li>
+<li><p>Diagonal movement for matches; otherwise to cell with higher value; if
+same, go up</p></li>
 <li><p>Complexity: <cite>O(m+n)</cite></p></li>
 <li><p><strong>Question</strong>: How about same values?</p></li>
 </ul>
@@ -441,7 +442,7 @@ While i &gt; 0 and j &gt; 0:
         LCS = X[i] + LCS  # Prepend the character to LCS
         i = i - 1
         j = j - 1
-    Else If dp[i-1][j] &gt; dp[i][j-1]:
+    Else If dp[i-1][j] &gt;= dp[i][j-1]: # if same, go up
         i = i - 1
     Else:
         j = j - 1
