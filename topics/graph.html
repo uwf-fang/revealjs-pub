@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-  <title>Data Structure and Algorithm Design II</title>
+  <title>Graph</title>
     <link rel="stylesheet" type="text/css" href="../_static/revealjs4/dist/reveal.css" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/revealjs4/plugin/highlight/zenburn.css" />
@@ -17,20 +17,7 @@
   </head><body>
     <div class="reveal">
         <div class="slides" role="main">
-            <section data-background-color="white" data-background-image="../_static/logo.png" data-background-size="50%" data-background-position="top center" data-background-repeat="no-repeat">
-<h1>Data Structure and Algorithm Design II</h1>
-<div class="subtitle docutils container">
-<p><strong>Module 13</strong></p>
-<p>Xingang (Ian) Fang</p>
-</div>
-</section>
-<section >
-<h2>Sections</h2>
-<ul class="simple">
-<li><p>Graph</p></li>
-</ul>
-</section>
-<section >
+            <section >
 <h1>Graph</h1>
 <div class="subtitle docutils container">
 <p>Xingang (Ian) Fang</p>
@@ -53,7 +40,7 @@
 <li><p>Graphs are used to model networks, complex relationships, etc.</p></li>
 <li><p>Vertices(nodes) connected by edges.</p></li>
 </ul>
-<div class="graphviz"><img src="../_images/graphviz-bdb28d5a9b84640d784ca1bd8c14d97b30ce4f4f.png" alt="digraph G {
+<div class="graphviz"><img src="../_images/graphviz-18dab9fec25f226444b2adb8f515efccc8f58aa4.png" alt="digraph G {
    A -&gt; B;
    A -&gt; C;
    B -&gt; C;
@@ -140,7 +127,7 @@
 <div class="flex-container docutils container">
 <div class="half docutils container">
 <figure class="align-default" id="id1">
-<div class="graphviz"><img src="../_images/graphviz-21b0c3d58037e8faf4848f4bd9a6301d37541001.png" alt="digraph G {
+<div class="graphviz"><img src="../_images/graphviz-d91c8e64a3a06586dace2ea634f2140a58f5c526.png" alt="digraph G {
   node[shape=circle];
   a -&gt; {b, c, d};
   b -&gt; {a, d};
@@ -150,7 +137,7 @@
 </figcaption>
 </figure>
 <figure class="align-default" id="id2">
-<div class="graphviz"><img src="../_images/graphviz-62f530ded08b22c8a8f5b499b914757606d0c095.png" alt="graph G {
+<div class="graphviz"><img src="../_images/graphviz-9bc7001c52753001d13d89bbace2b900b0a08936.png" alt="graph G {
   node[shape=ellipse];
   Atlanta -- Dallas [label=4];
   Atlanta -- Miami [label=4];
@@ -165,7 +152,7 @@
 </div>
 <div class="half docutils container">
 <figure class="align-default" id="id3">
-<div class="graphviz"><img src="../_images/graphviz-7e01b9377bdc90ee335105c62e95a392727904f6.png" alt="graph G {
+<div class="graphviz"><img src="../_images/graphviz-657b60775075444ba238803e76b64cd0d690bec6.png" alt="graph G {
   node[shape=circle];
   b -- a;
   a -- {c, d};
@@ -176,7 +163,7 @@
 </figcaption>
 </figure>
 <figure class="align-default" id="id4">
-<div class="graphviz"><img src="../_images/graphviz-e8ef4b69abf32a0b88bbc5703e8b31f6ecde54a1.png" alt="digraph G {
+<div class="graphviz"><img src="../_images/graphviz-e0697e8e77a0f601a45c7db9b2dae30ef383bc4f.png" alt="digraph G {
   rankdir=LR;
   node[shape=box];
   task1 -&gt; task2;
