@@ -193,10 +193,24 @@
 </section>
 <section >
 <h2>Representations</h2>
-<ul class="simple">
-<li><p>List of edges</p></li>
-<li><p>Adjacency list</p></li>
-<li><p>Adjacency matrix</p></li>
+<ul>
+<li><p>List of edges</p>
+<p>A list of edges is a 1d array in which every element in the array represents
+an edge. It is the simplest way to represent a graph. It is also an easy way
+to store a graph in a relational database. It is not efficient for most graph
+algorithms though.</p>
+</li>
+<li><p>Adjacency list</p>
+<p>An adjacency list is a 1d array in which every element in the array
+represents a vertex and points to a list of its neighbors.</p>
+</li>
+<li><p>Adjacency matrix</p>
+<blockquote>
+<div><p>An adjacency matrix is a 2d array in which each row represents a source</p>
+</div></blockquote>
+<p>vertex and each column represents a destination vertex. The elements in the
+matrix represents the edge between the two vertices.</p>
+</li>
 </ul>
 </section>
 <section >
