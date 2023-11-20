@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-  <title>Data Structure and Algorithm Design II</title>
+  <title>Data Structure and Algorithm Design</title>
     <link rel="stylesheet" type="text/css" href="../_static/revealjs4/dist/reveal.css" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/revealjs4/plugin/highlight/zenburn.css" />
@@ -18,9 +18,9 @@
     <div class="reveal">
         <div class="slides" role="main">
             <section data-background-color="white" data-background-image="../_static/logo.png" data-background-size="50%" data-background-position="top center" data-background-repeat="no-repeat">
-<h1>Data Structure and Algorithm Design II</h1>
+<h1>Data Structure and Algorithm Design</h1>
 <div class="subtitle docutils container">
-<p><strong>Module 13</strong></p>
+<p><strong>Chapter 13</strong></p>
 <p>Xingang (Ian) Fang</p>
 </div>
 </section>
@@ -28,10 +28,8 @@
 <h2>Sections</h2>
 <ul class="simple">
 <li><p>Graph</p></li>
-<li><p>Graph Traversal Algorithms</p></li>
-<li><p>Topological Sort Algorithm</p></li>
-<li><p>Minimum Spanning Tree Algorithms</p></li>
-<li><p>Shortest Path Algorithms</p></li>
+<li><p>Graph Traversal</p></li>
+<li><p>Single Source Shortest Path (SSSP) Dijkstra’s Algorithm</p></li>
 </ul>
 </section>
 <section >
@@ -57,7 +55,7 @@
 <li><p>Graphs are used to model networks, complex relationships, etc.</p></li>
 <li><p>Vertices(nodes) connected by edges.</p></li>
 </ul>
-<div class="graphviz"><img src="../_images/graphviz-bdb28d5a9b84640d784ca1bd8c14d97b30ce4f4f.png" alt="digraph G {
+<div class="graphviz"><img src="../_images/graphviz-c654ecfb94637395402d4032ecca0acfbc580ad9.png" alt="digraph G {
    A -&gt; B;
    A -&gt; C;
    B -&gt; C;
@@ -143,8 +141,8 @@
 <h2>Examples</h2>
 <div class="flex-container docutils container">
 <div class="half docutils container">
-<figure class="align-default" id="id6">
-<div class="graphviz"><img src="../_images/graphviz-21b0c3d58037e8faf4848f4bd9a6301d37541001.png" alt="digraph G {
+<figure class="align-default" id="id2">
+<div class="graphviz"><img src="../_images/graphviz-e890b722977eef371c117a946bdc967e9d515735.png" alt="digraph G {
   node[shape=circle];
   a -&gt; {b, c, d};
   b -&gt; {a, d};
@@ -153,8 +151,8 @@
 <p><span class="caption-text">Directed connected cyclic graph</span></p>
 </figcaption>
 </figure>
-<figure class="align-default" id="id7">
-<div class="graphviz"><img src="../_images/graphviz-62f530ded08b22c8a8f5b499b914757606d0c095.png" alt="graph G {
+<figure class="align-default" id="id3">
+<div class="graphviz"><img src="../_images/graphviz-9433465ce6b46f6d4a817db88658197a78b196e1.png" alt="graph G {
   node[shape=ellipse];
   Atlanta -- Dallas [label=4];
   Atlanta -- Miami [label=4];
@@ -168,8 +166,8 @@
 </figure>
 </div>
 <div class="half docutils container">
-<figure class="align-default" id="id8">
-<div class="graphviz"><img src="../_images/graphviz-7e01b9377bdc90ee335105c62e95a392727904f6.png" alt="graph G {
+<figure class="align-default" id="id4">
+<div class="graphviz"><img src="../_images/graphviz-c35b19aef65c76fe2c4d9d04dbb6787d202aecdb.png" alt="graph G {
   node[shape=circle];
   b -- a;
   a -- {c, d};
@@ -179,8 +177,8 @@
 <p><span class="caption-text">Undirected connected acyclic graph (Tree)</span></p>
 </figcaption>
 </figure>
-<figure class="align-default" id="id9">
-<div class="graphviz"><img src="../_images/graphviz-e8ef4b69abf32a0b88bbc5703e8b31f6ecde54a1.png" alt="digraph G {
+<figure class="align-default" id="id5">
+<div class="graphviz"><img src="../_images/graphviz-3080055ffffe7d7a068c200df4dec621576a12af.png" alt="digraph G {
   rankdir=LR;
   node[shape=box];
   task1 -&gt; task2;
@@ -273,7 +271,7 @@ matrix represents the edge between the two vertices.</p>
 <ul class="simple">
 <li><p>Stack based implementation</p></li>
 </ul>
-<div class="literal-block-wrapper docutils container" id="id10">
+<div class="literal-block-wrapper docutils container" id="id6">
 <div class="code-block-caption"><span class="caption-text">Iterative DFS traversal using a stack</span></div>
 <pre><code data-trim data-noescape class="default">function dfs(startVertex):
   create a new stack
@@ -295,7 +293,7 @@ matrix represents the edge between the two vertices.</p>
 <ul class="simple">
 <li><p>Recursive implementation</p></li>
 </ul>
-<div class="literal-block-wrapper docutils container" id="id11">
+<div class="literal-block-wrapper docutils container" id="id7">
 <div class="code-block-caption"><span class="caption-text">DFS traversal using recursion</span></div>
 <pre><code data-trim data-noescape class="default">function dfs(vertex, visited):
   if vertex is not visited:
@@ -315,7 +313,7 @@ matrix represents the edge between the two vertices.</p>
 <li><p>Like a wave, you visit all vertices at the same level before going deeper</p></li>
 <li><p>Queue based implementation</p></li>
 </ul>
-<div class="literal-block-wrapper docutils container" id="id12">
+<div class="literal-block-wrapper docutils container" id="id8">
 <div class="code-block-caption"><span class="caption-text">BFS traversal using a queue</span></div>
 <pre><code data-trim data-noescape class="default">function bfs(startVertex):
   create a new queue
@@ -342,212 +340,36 @@ matrix represents the edge between the two vertices.</p>
 </ul>
 </section>
 </section>
-<section>
 <section >
-<h2>Topological sort</h2>
+<h2>Dijkstra’s Algorithm</h2>
 <ul class="simple">
-<li><p>Overview</p></li>
-<li><p>Algorithm</p></li>
-</ul>
-</section>
-<section >
-<h3>Overview</h3>
-<ul class="simple">
-<li><p>Only works on directed acyclic graphs (DAGs)</p></li>
-<li><p>Will provide a unique ordering of the vertices if the order of of vertices in
-the graph is unique</p></li>
-<li><p>Will provide a linear ordering of the vertices</p></li>
-<li><p>Applications and Use cases</p>
+<li><p>Single source shortest path algorithm</p></li>
+<li><p>Greedy algorithm</p></li>
+<li><p>visualization</p>
 <ul>
-<li><p>Task scheduling</p></li>
-<li><p>Dependency resolution</p></li>
-<li><p>Compiler optimization</p></li>
+<li><p><a class="reference external" href="https://visualgo.net/en/sssp">https://visualgo.net/en/sssp</a></p></li>
+<li><p><a class="reference external" href="https://www.cs.usfca.edu/~galles/visualization/Dijkstra.html">https://www.cs.usfca.edu/~galles/visualization/Dijkstra.html</a></p></li>
 </ul>
 </li>
 </ul>
-</section>
-<section >
-<h3>Algorithm</h3>
-<ul class="simple">
-<li><p>For every vertex, use DFS to find all vertices reachable from it</p></li>
-<li><p>Add the vertex to a result list after the recursive call</p></li>
-<li><p>Reverse the result list to get the topological sort</p></li>
-<li><p>visualization <a class="reference external" href="https://www.cs.usfca.edu/~galles/visualization/TopoSortDFS.html">https://www.cs.usfca.edu/~galles/visualization/TopoSortDFS.html</a></p></li>
-</ul>
-<pre data-id="algorithm"><code data-trim data-noescape class="default">function topologicalSort(graph):
-  initialize an empty list 'result' to store the topological order
-  initialize a set 'visited' to keep track of visited nodes
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text">Dijkstra’s Algorithm</span></div>
+<pre><code data-trim data-noescape class="default">function dijkstra(graph, source):
+  create a priority queue Q
+  initialize distances to all vertices as infinity
+  set the distance to the source as 0
 
-  for each node 'v' in graph:
-    if 'v' is not in 'visited':
-      performDFS(v, visited, result)
+  while Q is not empty:
+    current_vertex = vertex with the smallest distance in Q
+    remove current_vertex from Q
 
-return 'result' in reverse order
-
-function performDFS(node, visited, result):
-  mark 'node' as visited
-  for each neighbor 'n' of 'node':
-    if 'n' is not in 'visited':
-      performDFS(n, visited, result)
-  append 'node' to 'result'</code></pre>
-</section>
-</section>
-<section>
-<section >
-<h2>Minimum Spanning Tree</h2>
-<ul class="simple">
-<li><p>Overview</p></li>
-<li><p>Prim’s Algorithm</p></li>
-<li><p>Kruskal’s Algorithm</p></li>
-<li><p>Comparison</p></li>
-<li><p>Visualization</p></li>
-</ul>
-</section>
-<section >
-<h3>Overview</h3>
-<ul class="simple">
-<li><p>A spanning tree of a graph is a subgraph that contains all the vertices of
-the graph and is a tree.</p></li>
-<li><p>A minimum spanning tree (MST) of a weighted graph is a spanning tree whose
-total weight is minimum.</p></li>
-<li><p>Prim’s Algorithm</p></li>
-<li><p>Kruskal’s Algorithm</p></li>
-<li><p>Other</p>
-<ul>
-<li><p>Boruvka’s Algorithm</p></li>
-<li><p>Reverse-Delete Algorithm</p></li>
-</ul>
-</li>
-</ul>
-</section>
-<section >
-<h3>Prim’s Algorithm</h3>
-<ul class="simple">
-<li><p>Greedy</p></li>
-<li><p>Vertex based</p></li>
-<li><p>Use a priority queue</p></li>
-<li><p>Steps</p>
-<ol class="arabic simple">
-<li><p>Create an empty MST.</p></li>
-<li><p>Initialize a priority queue with all vertices and their respective
-weights.</p></li>
-<li><p>Start with an arbitrary vertex as the current vertex.</p></li>
-<li><p>Mark the current vertex as visited.</p></li>
-<li><p>While the priority queue is not empty:</p>
-<ol class="loweralpha simple">
-<li><p>Dequeue the vertex with the smallest weight from the priority queue.</p></li>
-<li><p>If the dequeued vertex is not in the MST, add it to the MST and update
-its neighbors’ weights in the priority queue.</p></li>
-</ol>
-</li>
-<li><p>Repeat steps 4-5 until all vertices are in the MST.</p></li>
-</ol>
-</li>
-</ul>
-</section>
-<section >
-<h3>Kruskal’s Algorithm</h3>
-<ul class="simple">
-<li><p>Greedy</p></li>
-<li><p>Edge based</p></li>
-<li><p>Use a disjoint set and a sorted edge list</p></li>
-<li><p>Steps</p>
-<ol class="arabic simple">
-<li><p>Create an empty MST.</p></li>
-<li><p>Sort all edges in the graph in ascending order of their weights.</p></li>
-<li><p>Initialize a disjoint-set data structure to keep track of connected
-components.</p></li>
-<li><p>For each edge in sorted order:</p>
-<ol class="loweralpha simple">
-<li><p>If adding the edge to the MST does not create a cycle, add it to the
-MST.</p></li>
-</ol>
-</li>
-<li><p>Repeat step 4 until the MST has (n-1) edges, where n is the number of
-vertices in the graph.</p></li>
-</ol>
-</li>
-</ul>
-</section>
-<section >
-<h3>Comparison</h3>
-<table class="docutils align-default" id="id13">
-<caption><span class="caption-text">Comparison of two MST algorithms</span></caption>
-<tbody>
-<tr class="row-odd"><td><p>Comparison Criteria</p></td>
-<td><p>Prim’s Algorithm</p></td>
-<td><p>Kruskal’s Algorithm</p></td>
-</tr>
-<tr class="row-even"><td><p>Type</p></td>
-<td><p>Greedy</p></td>
-<td><p>Greedy</p></td>
-</tr>
-<tr class="row-odd"><td><p>Graph elements</p></td>
-<td><p>Vertices</p></td>
-<td><p>Edges</p></td>
-</tr>
-<tr class="row-even"><td><p>Efficient for</p></td>
-<td><p>Dense graphs</p></td>
-<td><p>Sparse graphs</p></td>
-</tr>
-<tr class="row-odd"><td><p>Data structure/ADT</p></td>
-<td><p>Priority queue</p></td>
-<td><p>Disjoint-set</p></td>
-</tr>
-<tr class="row-even"><td><p>Parallelization</p></td>
-<td><p>Not suitable</p></td>
-<td><p>Suitable</p></td>
-</tr>
-<tr class="row-odd"><td><p>Connected results</p></td>
-<td><p>Yes</p></td>
-<td><p>Yes (extra step)</p></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section >
-<h3>Visualization</h3>
-<ul class="simple">
-<li><p><a class="reference external" href="https://visualgo.net/en/mst">https://visualgo.net/en/mst</a></p></li>
-<li><p><a class="reference external" href="https://www.cs.usfca.edu/~galles/visualization/Prim.html">https://www.cs.usfca.edu/~galles/visualization/Prim.html</a></p></li>
-<li><p><a class="reference external" href="https://www.cs.usfca.edu/~galles/visualization/Kruskal.html">https://www.cs.usfca.edu/~galles/visualization/Kruskal.html</a></p></li>
-</ul>
-</section>
-</section>
-<section>
-<section >
-<h2>Shortest Path Algorithms</h2>
-<ul class="simple">
-<li><p>Overview</p></li>
-<li><p>Dijkstra’s Algorithm (Single Source Shortest Path)</p></li>
-<li><p>Floyd-Warshall Algorithm (All Pairs Shortest Path)</p></li>
-</ul>
-</section>
-<section >
-<h3>Overview</h3>
-<ul class="simple">
-<li><p><strong>Shortest Path Problem</strong>: Given a weighted graph G, find the shortest path</p>
-<ul>
-<li><p>Single Source Shortest Path (SSSP): from a source vertex to all other
-vertices in G</p></li>
-<li><p>All Pairs Shortest Path (APSP): among all pairs of vertices in G.</p></li>
-</ul>
-</li>
-<li><p>Algorithms</p>
-<ul>
-<li><p>Dijkstra’s Algorithm (SSSP)</p></li>
-<li><p>Floyd-Warshall Algorithm (APSP)</p></li>
-</ul>
-</li>
-<li><p>Applications</p>
-<ul>
-<li><p>Network routing</p></li>
-<li><p>GPS navigation</p></li>
-<li><p>Optimization problems</p></li>
-</ul>
-</li>
-</ul>
-</section>
+    for each neighbor of current_vertex:
+      edge_weight = weight of the edge between current_vertex and neighbor
+      tentative_distance = distance to current_vertex + edge_weight
+      if tentative_distance &lt; distance to neighbor:
+        set distance to neighbor as tentative_distance
+        add neighbor to Q</code></pre>
+</div>
 </section>
 
         </div>

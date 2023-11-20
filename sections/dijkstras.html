@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-  <title>Shortest Path Algorithms</title>
+  <title>Dijkstra’s Algorithm</title>
     <link rel="stylesheet" type="text/css" href="../_static/revealjs4/dist/reveal.css" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/revealjs4/plugin/highlight/zenburn.css" />
@@ -18,39 +18,6 @@
     <div class="reveal">
         <div class="slides" role="main">
             <section >
-<h1>Shortest Path Algorithms</h1>
-<ul class="simple">
-<li><p>Overview</p></li>
-<li><p>Dijkstra’s Algorithm (Single Source Shortest Path)</p></li>
-<li><p>Floyd-Warshall Algorithm (All Pairs Shortest Path)</p></li>
-</ul>
-</section>
-<section >
-<h2>Overview</h2>
-<ul class="simple">
-<li><p><strong>Shortest Path Problem</strong>: Given a weighted graph G, find the shortest path</p>
-<ul>
-<li><p>Single Source Shortest Path (SSSP): from a source vertex to all other
-vertices in G</p></li>
-<li><p>All Pairs Shortest Path (APSP): among all pairs of vertices in G.</p></li>
-</ul>
-</li>
-<li><p>Algorithms</p>
-<ul>
-<li><p>Dijkstra’s Algorithm (SSSP)</p></li>
-<li><p>Floyd-Warshall Algorithm (APSP)</p></li>
-</ul>
-</li>
-<li><p>Applications</p>
-<ul>
-<li><p>Network routing</p></li>
-<li><p>GPS navigation</p></li>
-<li><p>Optimization problems</p></li>
-</ul>
-</li>
-</ul>
-</section>
-<section >
 <h1>Dijkstra’s Algorithm</h1>
 <ul class="simple">
 <li><p>Single source shortest path algorithm</p></li>
@@ -79,28 +46,6 @@ vertices in G</p></li>
       if tentative_distance &lt; distance to neighbor:
         set distance to neighbor as tentative_distance
         add neighbor to Q</code></pre>
-</div>
-<section >
-<h1>Floyd-Warshall Algorithm</h1>
-<ul class="simple">
-<li><p>All pairs shortest path algorithm</p></li>
-<li><p>Dynamic programming</p></li>
-<li><p>Visualization <a class="reference external" href="https://www.cs.usfca.edu/~galles/visualization/Floyd.html">https://www.cs.usfca.edu/~galles/visualization/Floyd.html</a></p></li>
-</ul>
-<div class="literal-block-wrapper docutils container" id="id2">
-<div class="code-block-caption"><span class="caption-text">Floyd-Warshall Algorithm</span></div>
-<pre><code data-trim data-noescape class="default">function floyd_warshall(graph):
-  initialize a distance matrix with infinite values
-  set diagonal entries to 0 (distance to itself)
-
-  for each edge (u, v) with weight w in the graph:
-    set distance[u][v] = w
-
-  for k in all vertices:
-    for i in all vertices:
-      for j in all vertices:
-        if distance[i][j] &gt; distance[i][k] + distance[k][j]:
-          set distance[i][j] = distance[i][k] + distance[k][j]</code></pre>
 </div>
 
         </div>
