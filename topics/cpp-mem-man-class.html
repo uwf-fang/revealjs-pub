@@ -39,7 +39,8 @@ memory management is more complicated than in the function context.</p></li>
 <li><p>E.g. For a class that owns a dynamic int array:</p>
 <ul>
 <li><p>Declare an instance variable <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">*array;</span></code></p></li>
-<li><p>Allocation in the constructor <code class="docutils literal notranslate"><span class="pre">this-&gt;array</span> <span class="pre">=</span> <span class="pre">new</span> <span class="pre">int[size];</span></code></p></li>
+<li><p>Allocation in the constructor or other methods <code class="docutils literal notranslate"><span class="pre">this-&gt;array</span> <span class="pre">=</span> <span class="pre">new</span>
+<span class="pre">int[size];</span></code></p></li>
 <li><p>Deallocation in the destructor, etc. <code class="docutils literal notranslate"><span class="pre">delete[]</span> <span class="pre">this-&gt;array;</span></code></p></li>
 <li><p>Deep copy in the copy constructor, copy assignment operator, etc.</p>
 <pre><code data-trim data-noescape class="c++">for (int i = 0; i &lt; size; ++i)
@@ -59,34 +60,9 @@ memory management is more complicated than in the function context.</p></li>
 <section >
 <h2>Memory Management in Class Context</h2>
 <ul class="simple">
-<li><p>Common problems</p></li>
 <li><p>Implicitly defined methods</p></li>
+<li><p>Common mem problems in classes</p></li>
 <li><p>The rule of three</p></li>
-</ul>
-</section>
-<section >
-<h3>Common Memory Management Problems in Class Context</h3>
-<ul class="simple">
-<li><p>Memory leak</p>
-<ul>
-<li><p>forget to deallocate the dynamic data in the destructor</p></li>
-</ul>
-</li>
-<li><p>Shallow copy</p>
-<ul>
-<li><p>use <code class="docutils literal notranslate"><span class="pre">=</span></code> operator to copy the dynamic data by assigning the pointer
-variable only)</p></li>
-<li><p>triggered the implicitly defined copy constructor and copy assignment
-operator with dynamic data</p></li>
-</ul>
-</li>
-<li><p>Double free</p>
-<ul>
-<li><p>shallow copy of the dynamic data will cause multiple objects to point to
-the same dynamic data and thus multiple objects will try to deallocate the
-same dynamic data more than once in their destructors.</p></li>
-</ul>
-</li>
 </ul>
 </section>
 <section >
@@ -116,10 +92,8 @@ dynamic data. Must be careful!</p></li>
 </ul>
 </section>
 <section >
-<h3>Implicitly Defined Methods (cont’d)</h3>
+<h3>How to trigger</h3>
 <ul class="simple">
-<li><p>Triggering</p>
-<ul>
 <li><p>Default constructor</p>
 <ul>
 <li><p>The constructor without any parameter</p></li>
@@ -149,6 +123,28 @@ dynamic data. Must be careful!</p></li>
 </ul>
 </li>
 </ul>
+</section>
+<section >
+<h3>Common Memory Management Problems in Class Context</h3>
+<ul class="simple">
+<li><p>Memory leak</p>
+<ul>
+<li><p>forget to deallocate the dynamic data in the destructor</p></li>
+</ul>
+</li>
+<li><p>Shallow copy</p>
+<ul>
+<li><p>use a <code class="docutils literal notranslate"><span class="pre">=</span></code> operator to copy dynamic data</p></li>
+<li><p>triggered the implicitly defined copy constructor and copy assignment
+operator with dynamic data</p></li>
+</ul>
+</li>
+<li><p>Double free</p>
+<ul>
+<li><p>shallow copy of the dynamic data will cause multiple objects to point to
+the same dynamic data and thus multiple objects will try to deallocate the
+same dynamic data more than once in their destructors.</p></li>
+</ul>
 </li>
 </ul>
 </section>
@@ -156,7 +152,7 @@ dynamic data. Must be careful!</p></li>
 <h3>Explicitly Defining These Methods</h3>
 <ul class="simple">
 <li><p>Default constructor: initialize the pointer to <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> or allocate
-memory. Replaceable by other constructors.</p></li>
+memory. Or stay away and always use other constructors</p></li>
 <li><p>Copy constructor: deep copy the dynamic data</p></li>
 <li><p>Copy assignment operator overloading: deep copy the dynamic data</p></li>
 <li><p>Destructor: deallocate the dynamic data</p></li>
@@ -165,18 +161,17 @@ memory. Replaceable by other constructors.</p></li>
 <section >
 <h3>The Rule of Three</h3>
 <ul class="simple">
-<li><p>The “Rule of Three” in C++ suggests that if you define one of the special
-member functions (copy constructor, copy assignment operator, or destructor),
-you often need to define all three to ensure proper resource management.</p>
+<li><p>The “Rule of Three”</p>
 <ul>
-<li><p>These three methods are known as “The Big Three”.</p></li>
-<li><p>Although they may not be triggered, it is safer to define them all.</p></li>
+<li><p>The Big Three: destructor, copy constructor, copy assignment operator
+overloading</p></li>
+<li><p>Although they may not all be triggered, it is safer to define them all.</p></li>
 </ul>
 </li>
-<li><p>The “Rule of Three” is a rule of thumb, not a rule of language.</p>
+<li><p>The “Rule of Three” is a rule of thumb</p>
 <ul>
 <li><p>It is not enforced by the compiler.</p></li>
-<li><p>It is not a language rule, but a guideline for resource management.</p></li>
+<li><p>It is just a guideline for memory security.</p></li>
 </ul>
 </li>
 <li><p>The “Rule of five” after C++11 for performance optimization (FYI)</p>

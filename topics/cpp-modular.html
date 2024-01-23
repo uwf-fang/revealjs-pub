@@ -36,7 +36,6 @@
 </li>
 <li><p>Building using GNU g++</p>
 <ul>
-<li><p>Overview</p></li>
 <li><p>Preprocessing directives</p></li>
 <li><p>One step compilation</p></li>
 <li><p>Step-wise modular compilation</p></li>
@@ -44,19 +43,22 @@
 </li>
 <li><p>Automate the building process using GNU make</p>
 <ul>
-<li><p>Overview</p></li>
 <li><p>Makefile</p></li>
 <li><p>Modular compilation using make</p></li>
 </ul>
 </li>
+<li><p>Pitfalls and common errors</p></li>
 </ul>
+</section>
+<section >
+<h2>TL;DR</h2>
 <ul class="simple">
-<li><p>Pitfalls and common errors</p>
-<ul>
-<li><p>g++</p></li>
-<li><p>make</p></li>
-</ul>
-</li>
+<li><p>Must go modular in this course!</p></li>
+<li><p>No longer have single-cpp-file projects.</p></li>
+<li><p>Organize source code as header and source files.</p></li>
+<li><p>Logically organized as drivers and modules.</p></li>
+<li><p>Use g++ step-wise compilation</p></li>
+<li><p>Learn <strong>basic</strong> makefile syntax</p></li>
 </ul>
 </section>
 <section>
@@ -100,7 +102,7 @@ variables, etc.</p></li>
 <ul>
 <li><p>contain <strong>definitions</strong> of <strong>public</strong> classes, functions, etc.</p></li>
 <li><p>contain <strong>private declarations and definitions</strong></p></li>
-<li><p>have extension <cite>.cpp</cite></p></li>
+<li><p>preferred extension <cite>.cpp</cite></p></li>
 </ul>
 </li>
 </ul>
@@ -114,7 +116,8 @@ variables, etc.</p></li>
 <li><p>Drivers</p>
 <ul>
 <li><p>contains a <code class="docutils literal notranslate"><span class="pre">main</span></code> function</p></li>
-<li><p>usually no header file</p></li>
+<li><p>should has no header file</p></li>
+<li><p>one per executable</p></li>
 <li><p>E.g. <code class="docutils literal notranslate"><span class="pre">main.cpp</span></code>, <code class="docutils literal notranslate"><span class="pre">test.cpp</span></code>, <code class="docutils literal notranslate"><span class="pre">driver.cpp</span></code>, etc.</p></li>
 </ul>
 </li>
@@ -299,8 +302,10 @@ clean:
 <li><p>Include .cpp files using #include directive</p></li>
 <li><p>Mismatched filenames in #include directives</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">using</span> <span class="pre">namespace</span> <span class="pre">std;</span></code> in header files</p></li>
-<li><p>Include header files in the g++ command line</p></li>
+<li><p>Include header file names in the g++ command line</p></li>
 <li><p>Linking object files of multiple drivers into one executable</p></li>
+<li><p>Google and ChatGPT are your friends because the error message is usually
+confusing!</p></li>
 </ul>
 </section>
 

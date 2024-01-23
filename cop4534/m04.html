@@ -29,7 +29,7 @@
 <h2>Sections</h2>
 <ul class="simple">
 <li><p>B tree and variants</p></li>
-<li><p>Introduction to algorithmic paradigms</p></li>
+<li><p>Introduction to problem and algorithm classification</p></li>
 </ul>
 </section>
 <section >
@@ -165,7 +165,33 @@ children.</p></li>
 </ul>
 </section>
 <section >
-<h1>Algorithmic Paradigm</h1>
+<h1>Problem Classification</h1>
+<div class="subtitle docutils container">
+<p>Xingang (Ian) Fang</p>
+</div>
+</section>
+<section >
+<h2>Overview</h2>
+<ul class="simple">
+<li><p>Essential to understand the problem</p></li>
+<li><p>Most problems can be solved by multiple algorithms</p></li>
+<li><p>Many problems can be solved by similar algorithms</p></li>
+<li><p>Essential to choose or design the algorithms to solve the problem</p></li>
+</ul>
+</section>
+<section >
+<h2>By The Goal</h2>
+<ul class="simple">
+<li><p>Find a(n) optimal/near-optimal solution - optimization</p></li>
+<li><p>Find whether something is true or false - decision</p></li>
+<li><p>Find a solution that satisfies given criteria - search</p></li>
+<li><p>Find all solutions that satisfies given criteria - enumeration</p></li>
+<li><p>Find how many ways to do something - counting</p></li>
+<li><p>Find the output of a mathematical or logical function - evaluation problem</p></li>
+</ul>
+</section>
+<section >
+<h1>Algorithmic Classification</h1>
 <div class="subtitle docutils container">
 <p>Xingang (Ian) Fang</p>
 </div>
@@ -174,43 +200,51 @@ children.</p></li>
 <h2>Outline</h2>
 <ul class="simple">
 <li><p>Overview</p></li>
-<li><p>Common Paradigms</p></li>
+<li><p>Algorithmic Paradigms</p></li>
 <li><p>TSP Example</p></li>
-<li><p>Paradigms To Be Covered</p></li>
+<li><p>Groups To Be Covered</p></li>
 </ul>
 </section>
 <section >
 <h2>Overview</h2>
 <ul class="simple">
-<li><p>One of the many ways to classify algorithms</p></li>
-<li><p>One of the most important aspects of algorithm design is the choice of an
-appropriate algorithmic paradigm.</p></li>
-<li><p><strong>Definition:</strong> Fundamental approaches, strategies, or methodologies used in
-the design and analysis of algorithms. These paradigms provide high-level
-templates or frameworks for solving various types of computational problems.</p></li>
-<li><p>The choice of an algorithmic paradigm depends on the nature of the problem
-and the resources available to solve it.</p></li>
+<li><p>Many ways to classify algorithms</p></li>
+<li><p>In this course</p>
+<ul>
+<li><p>algorithmic paradigms</p>
+<ul>
+<li><p>Brute force</p></li>
+<li><p>Backtracking</p></li>
+<li><p>Divide and conquer</p></li>
+<li><p>Dynamic programming</p></li>
+<li><p>Greedy algorithms</p></li>
+</ul>
+</li>
+<li><p>data structure based algorithms</p>
+<ul>
+<li><p>Self-balancing binary search tree related</p></li>
+<li><p>Graph related</p></li>
+</ul>
+</li>
+<li><p>other groups</p>
+<ul>
+<li><p>Randomized algorithms</p></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </section>
 <section >
-<h2>Common Paradigms</h2>
+<h2>Algorithmic Paradigms</h2>
 <ul class="simple">
-<li><p>Brute Force</p></li>
-<li><p>Divide and Conquer</p></li>
-<li><p>Greedy Algorithms</p></li>
-<li><p>Dynamic Programming</p></li>
-<li><p>Backtracking</p></li>
-<li><p>Randomized Algorithms</p></li>
-<li><p>Linear Programming</p></li>
-<li><p>Branch and Bound</p></li>
-<li><p>Parallel and Distributed Algorithms</p></li>
-<li><p>Heuristic Algorithms</p></li>
-<li><p>Graph Algorithms</p></li>
+<li><p><strong>Algorithmic Paradigm:</strong> Fundamental approaches, strategies, or
+methodologies used in the design and analysis of algorithms. These paradigms
+provide high-level templates or frameworks for solving various types of
+computational problems.</p></li>
+<li><p>The choice of an algorithmic paradigm depends on the nature of the problem
+and the resources available to solve it.</p></li>
 </ul>
-<div class="footnote docutils container">
-<p>The paradigms are not mutually exclusive. Many algorithms use a
-combination of paradigms. Many problems can be solved using multiple paradigms.</p>
-</div>
 </section>
 <section >
 <h2>TSP Example</h2>
@@ -221,18 +255,14 @@ shortest possible route that visits each city exactly once and returns to the
 starting city. <strong>This is an NP-hard problem!</strong></p>
 <ul class="simple">
 <li><p>Brute Force: Try all possible permutations of the cities and find the one
-with the minimum cost. <span class="math notranslate nohighlight">\(O(n!)\)</span></p></li>
+with the minimum cost. <span class="math notranslate nohighlight">\(O((n-1)!)\)</span></p></li>
 <li><p>Dynamic programming: Use a table to store the minimum cost of visiting a
 subset of cities.</p></li>
 <li><p>Branch and bound: Use a tree to store the partial solutions and prune the
 branches that cannot lead to a better solution.</p></li>
 <li><p>Greedy algorithms: Start with an empty tour and add the next closest city
 to the tour.</p></li>
-<li><p>Metaheuristic algorithms: Genetic algorithms, simulated annealing, ant
-colony optimization, etc.</p></li>
-<li><p>Linear programming: Formulate the problem as an integer linear program and
-relax the integer constraints.</p></li>
-<li><p>Graph algorithms: minimum spanning tree algorithms, etc.</p></li>
+<li><p>Metaheuristic algorithms: Genetic algorithms, simulated annealing, etc.</p></li>
 </ul>
 </div>
 <img alt="../_images/tsp.png" src="../_images/tsp.png" />
@@ -249,8 +279,9 @@ relax the integer constraints.</p></li>
 <li><p>Exhaustive Search on all possible solutions.</p></li>
 <li><p>No heuristic, no pruning, no optimization.</p></li>
 <li><p>Only feasible for small problem instances.</p></li>
-<li><p>Exact solutions.</p></li>
-<li><p>Find one or all solutions.</p></li>
+<li><p>Exact algorithms.</p></li>
+<li><p>Solves enumeration problems thus can also solve searching, optimization,
+decision and counting problems.</p></li>
 <li><p>Examples: Combinations, Permutations, TSP, knapsack, etc.</p></li>
 </ul>
 </li>
@@ -263,6 +294,14 @@ to a solution.</p></li>
 <li><p>Examples: N-queens, Sudoku, graph coloring, etc.</p></li>
 </ul>
 </li>
+<li><p>Greedy</p>
+<ul>
+<li><p>Make the locally optimal choice at each step.</p></li>
+<li><p>Usually leads to a suboptimal solution.</p></li>
+<li><p>Examples: Prim’s algorithm, Kruskal’s algorithm, Dijkstra’s algorithm,
+Huffman coding, etc.</p></li>
+</ul>
+</li>
 </ul>
 </section>
 <section >
@@ -272,7 +311,8 @@ to a solution.</p></li>
 <ul>
 <li><p>Divide the problem into smaller subproblems.</p></li>
 <li><p>Solve the subproblems recursively.</p></li>
-<li><p>Usually independent subproblems. Can be solved in parallel.</p></li>
+<li><p>Solves independent subproblems or ignore the dependency and overlapping
+factors.</p></li>
 <li><p>Combine the solutions to the subproblems to obtain the solution to the
 original problem.</p></li>
 <li><p>Examples: Merge sort, quick sort, binary search, etc.</p></li>
@@ -288,27 +328,31 @@ original problem.</p></li>
 </li>
 </ul>
 </section>
+</section>
 <section >
-<h3>Paradigms To Be Covered (cont’d)</h3>
+<h2>Other Groups To Be Covered</h2>
 <ul class="simple">
-<li><p>Greedy</p>
+<li><p>Self-balancing tree related</p>
 <ul>
-<li><p>Make the locally optimal choice at each step.</p></li>
-<li><p>Usually leads to a suboptimal solution.</p></li>
-<li><p>Examples: Prim’s algorithm, Kruskal’s algorithm, Dijkstra’s algorithm,
-Huffman coding, etc.</p></li>
+<li><p>AVL tree</p></li>
+<li><p>B-tree</p></li>
 </ul>
 </li>
-<li><p>Randomized</p>
+<li><p>Graph related</p>
+<ul>
+<li><p>Minimum spanning tree</p></li>
+<li><p>Shortest path</p></li>
+</ul>
+</li>
+<li><p>Randomized Algorithms</p>
 <ul>
 <li><p>Introduce randomness into the algorithm.</p></li>
 <li><p>Pseudo-random number generator and seed.</p></li>
-<li><p>Examples: Randomized quick sort, Monte Carlo algorithms, Las Vegas
-algorithms, etc.</p></li>
+<li><p>Examples: Genetic Algorithm, Randomized quick sort, Monte Carlo algorithms,
+Las Vegas algorithms, etc.</p></li>
 </ul>
 </li>
 </ul>
-</section>
 </section>
 
         </div>
