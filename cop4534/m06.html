@@ -28,108 +28,146 @@
 <section >
 <h2>Sections</h2>
 <ul class="simple">
-<li><p>Solving Recurrences (Part 1)</p></li>
+<li><p>Divide and Conquer</p></li>
 </ul>
 </section>
 <section >
-<h1>Solving Recurrence</h1>
+<h1>Divide and Conquer</h1>
 <div class="subtitle docutils container">
-<p>Part 1</p>
+<p>Xingang (Ian) Fang</p>
 </div>
 </section>
 <section >
 <h2>Outline</h2>
 <ul class="simple">
 <li><p>Overview</p></li>
-<li><p>Recurrence Relations</p></li>
-<li><p>Solving Recurrence Relations</p>
-<ul>
-<li><p>Substitution Method</p></li>
-<li><p>Recursion Tree Method</p></li>
-<li><p>Master Method</p></li>
-</ul>
-</li>
+<li><p>Stages</p></li>
+<li><p>Pro and Con</p></li>
+<li><p>Applications</p></li>
+<li><p>Complexity</p></li>
 </ul>
 </section>
 <section >
 <h2>Overview</h2>
+<div class="flex-container docutils container">
+<div class="half docutils container">
 <ul class="simple">
-<li><p>Solving recurrence is a process of finding a closed form expression for a
-given recurrence relation that is usually employed to describe the time
-function of a recursive algorithm.</p></li>
-<li><p>Algorithms that are recursive in nature are usually described by recurrence
-relations.</p>
+<li><p>An algorithmic paradigm that solves a problem by breaking it into
+subproblems, solving the subproblems recursively, and combining the
+solutions to the subproblems to solve the original problem.</p></li>
+<li><p>Real-world example: Jigsaw puzzle</p>
 <ul>
-<li><p>Tower of Hanoi</p></li>
+<li><p>Group pieces by color, border/non-border, etc.</p></li>
+<li><p>Solve each group separately</p></li>
+<li><p>Combine the finished parts</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="half docutils container">
+<a class="reference internal image-reference" href="../_images/jigsaw-puzzle.jpg"><img alt="Jigsaw Puzzle" src="../_images/jigsaw-puzzle.jpg" style="width: 70%;" /></a>
+<div class="footnote docutils container">
+<p>Credit: Photo by Bianca Ackermann on Unsplash</p>
+</div>
+</div>
+</div>
+</section>
+<section >
+<h2>Stages</h2>
+<ol class="arabic simple">
+<li><p>Divide - Break the problem into subproblems</p></li>
+<li><p>Conquer - Solve the subproblems recursively</p></li>
+<li><p>Combine - Combine the solutions to the subproblems to solve the original
+problem</p></li>
+</ol>
+<div class="footnote docutils container">
+<p>Sometimes, the three stages of Divide and Conquer may not be distinct. For
+example, in Quick Sort, the division and combination steps are combined into
+a single partitioning step.</p>
+</div>
+</section>
+<section >
+<h2>Pro and Con</h2>
+<ul class="simple">
+<li><p>Pros</p>
+<ul>
+<li><p>Simplification of Complex Problems</p></li>
+<li><p>Efficiency Improvements</p></li>
+<li><p>Parallel Processing Potential</p></li>
+<li><p>Flexibility and Versatility</p></li>
+</ul>
+</li>
+<li><p>Cons</p>
+<ul>
+<li><p>Recursive Overhead</p></li>
+<li><p>Risk of Stack Overflow</p></li>
+<li><p>Not Always Optimal for Small Inputs</p></li>
+<li><p>Complexity in Design</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section >
+<h2>Applications</h2>
+<ul class="simple">
+<li><p>Binary Search</p></li>
+<li><p>Quick Sort</p></li>
 <li><p>Merge Sort</p></li>
-<li><p>Fibonacci Numbers</p></li>
-</ul>
-</li>
-</ul>
-</section>
-<section>
-<section >
-<h2>Recurrence Relations</h2>
-<ul class="simple">
-<li><p>A recurrence relation is an equation that recursively defines a sequence,
-where each term is a function of one or more of the preceding terms.</p>
-<ul>
-<li><p>E.g. <span class="math notranslate nohighlight">\(T(N) = 2T(N/2) + \Theta(N)\)</span> for merge sort</p></li>
-</ul>
-</li>
-<li><p>The goal of “solving a recurrence” is to obtain a closed form expression for
-<span class="math notranslate nohighlight">\(T(N)\)</span> that does not involve any recurrence.</p>
-<ul>
-<li><p>E.g. <span class="math notranslate nohighlight">\(T(N) = \Theta(N \log N)\)</span> for merge sort</p></li>
-</ul>
-</li>
-<li><p>This is a very challenging math problem but in computer science we are only
-interested in some certain patterns of recurrence relations.</p></li>
-<li><p>Depending on the algorithms there are some common recurrence relations
-employed in the analysis of algorithms.</p></li>
+<li><p>Max Subarray Sum</p></li>
+<li><p>Closest Pair of Points</p></li>
+<li><p>Strassen’s Matrix Multiplication</p></li>
+<li><p>Fast Fourier Transform (FFT) for Discrete Fourier Transform (DFT)</p></li>
 </ul>
 </section>
 <section >
-<h3>Common Forms of Recurrence Relations</h3>
+<h2>Time Complexity</h2>
 <ul class="simple">
-<li><p>Divide and conquer Recurrence</p>
+<li><p>Steps</p>
 <ul>
-<li><p><span class="math notranslate nohighlight">\(T(N) = aT(N/b) + f(N)\)</span></p></li>
-<li><p>Merge sort</p></li>
-<li><p>Binary search</p></li>
-<li><p>Maximum subarray</p></li>
-<li><p>Strassen’s matrix multiplication</p></li>
+<li><p>Find recurrence relation</p></li>
+<li><p>Solve recurrence relation using Master Theorem</p></li>
 </ul>
 </li>
-<li><p>First order linear Recurrence</p>
-<ul>
-<li><p><span class="math notranslate nohighlight">\(T(N) = aT(N-1) + f(N)\)</span></p></li>
-<li><p>Linear search (recursive version)</p></li>
-<li><p>Insertion sort/Selection sort (recursive version)</p></li>
-<li><p>Euclidean’s GCD algorithm</p></li>
+<li><p>Quick Sort <span class="math notranslate nohighlight">\(T(n) = T(k) + T(n-k-1) + \Theta (n)\)</span>, where <span class="math notranslate nohighlight">\(k\)</span> is the
+number of elements which are smaller than pivot</p></li>
+<li><p>Merge Sort <span class="math notranslate nohighlight">\(T(n) = 2T(n/2) + \Theta (n)\)</span></p></li>
+<li><p>Binary Search <span class="math notranslate nohighlight">\(T(n) = T(n/2) + \Theta (1)\)</span></p></li>
+<li><p>Max Subarray Sum <span class="math notranslate nohighlight">\(T(n) = 2T(n/2) + \Theta (n)\)</span></p></li>
+<li><p>Closest Pair of Points <span class="math notranslate nohighlight">\(T(n) = 2T(n/2) + \Theta (n \log n)\)</span></p></li>
+<li><p>Strassen’s Matrix Multiplication <span class="math notranslate nohighlight">\(T(n) = 7T(n/2) + \Theta (n^2)\)</span></p></li>
+<li><p>Fast Fourier Transform (FFT) <span class="math notranslate nohighlight">\(T(n) = 2T(n/2) + \Theta (n)\)</span></p></li>
 </ul>
-</li>
-<li><p>Second order linear Recurrence</p>
-<ul>
-<li><p><span class="math notranslate nohighlight">\(T(N) = aT(N-1) + bT(N-2) + f(N)\)</span></p></li>
-<li><p>Fibonacci numbers (naive recursive version)</p></li>
-</ul>
-</li>
-</ul>
-</section>
+<p><strong>Exercise:</strong> Solve the recurrence relation for each of the above algorithms</p>
 </section>
 <section >
-<h2>Solving Recurrence Relations</h2>
-<ul class="simple">
-<li><p>Finding a closed form expression for a given recurrence relation is a
-challenging math problem.</p></li>
-<li><p>In computer science we are only interested in some certain patterns.</p></li>
-<li><p>Three methods:</p>
+<h2>Relationships to Other Paradigms</h2>
 <ul>
-<li><p>Substitution method</p></li>
-<li><p>Recursion tree method</p></li>
-<li><p>Master method</p></li>
-</ul>
+<li><p>Dynamic Programming</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Properties</p></th>
+<th class="head"><p>Divide and Conquer</p></th>
+<th class="head"><p>Dynamic Programming</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Subproblems</p></td>
+<td><p>Distinct</p></td>
+<td><p>Overlapping</p></td>
+</tr>
+<tr class="row-odd"><td><p>Direction</p></td>
+<td><p>Top-down</p></td>
+<td><p>Bottom-up/Top-down</p></td>
+</tr>
+<tr class="row-even"><td><p>Parallelism</p></td>
+<td><p>Friendly</p></td>
+<td><p>Friendly</p></td>
+</tr>
+</tbody>
+</table>
+<p>Dynamic Programming is considered an extension of Divide and Conquer in many
+cases. However, we employed a narrower definition of Divide and Conquer in
+this lecture so they are treated as separate paradigms.</p>
 </li>
 </ul>
 </section>
