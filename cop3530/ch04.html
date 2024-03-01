@@ -151,14 +151,14 @@ input size.</p></li>
 <li><p>A.k.a Bachmann–Landau notation. A mathematical notation system to
 describe the limiting behavior of a function.</p></li>
 <li><p>Provides a simple way to describe the complexity of an algorithm.</p></li>
-<li><p>Big O notation <span class="math notranslate nohighlight">\(T(n) = O(f(n))\)</span> describes the upper bound of the
+<li><p><strong>Big O notation</strong> <span class="math notranslate nohighlight">\(T(n) = O(f(n))\)</span> describes the upper bound of the
 function <span class="math notranslate nohighlight">\(T(n)\)</span>.</p></li>
 <li><p>Big Omega notation <span class="math notranslate nohighlight">\(T(n) = \Omega(f(n))\)</span> describes the lower bound of
 the function <span class="math notranslate nohighlight">\(T(n)\)</span>.</p></li>
 <li><p>Big Theta notation <span class="math notranslate nohighlight">\(T(n) = \Theta(f(n))\)</span> describes the tight bound of
 the function <span class="math notranslate nohighlight">\(T(n)\)</span>.</p></li>
 <li><p>Little o notation <span class="math notranslate nohighlight">\(T(n) = o(f(n))\)</span> describes the strict upper bound of
-the function <span class="math notranslate nohighlight">\(T(n)\)</span>.</p></li>
+the function <span class="math notranslate nohighlight">\(T(n)\)</span>. (FYI)</p></li>
 </ul>
 <a class="reference internal image-reference" href="../_images/asymptotic.png"><img alt="../_images/asymptotic.png" src="../_images/asymptotic.png" style="width: 50%;" /></a>
 </section>
@@ -210,15 +210,11 @@ behave under different scenarios and input distributions.</p>
 <td><p><span class="math notranslate nohighlight">\(O(n^2)\)</span></p></td>
 <td><p>Bubble Sort, Selection Sort, Insertion Sort</p></td>
 </tr>
-<tr class="row-odd"><td><p>Polynomial (k &gt; 2)</p></td>
-<td><p><span class="math notranslate nohighlight">\(O(n^k)\)</span></p></td>
-<td><p>Matrix Multiplication (naive approach)</p></td>
-</tr>
-<tr class="row-even"><td><p>Exponential</p></td>
+<tr class="row-odd"><td><p>Exponential</p></td>
 <td><p><span class="math notranslate nohighlight">\(O(2^n)\)</span></p></td>
 <td><p>Recursive algorithms without memoization (e.g., naive Fibonacci)</p></td>
 </tr>
-<tr class="row-odd"><td><p>Factorial</p></td>
+<tr class="row-even"><td><p>Factorial</p></td>
 <td><p><span class="math notranslate nohighlight">\(O(n!)\)</span></p></td>
 <td><p>Traveling Salesman Problem (naive solution)</p></td>
 </tr>

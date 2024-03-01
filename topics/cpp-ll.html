@@ -67,10 +67,13 @@
 <h2>Variations</h2>
 <ul class="simple">
 <li><p>Minimal implementation: a head pointer; singly-linked</p></li>
+<li><p>Ideal implementation: a head pointer, a tail pointer, and a size;
+doubly-linked</p></li>
 <li><p>Reference pointers</p>
 <ul>
 <li><p>head pointer</p></li>
 <li><p>tail pointer (optional)</p></li>
+<li><p>size (optional)</p></li>
 </ul>
 </li>
 <li><p>Number of links per node</p>
@@ -79,15 +82,16 @@
 <li><p>doubly-linked - pointers to previous and next nodes</p></li>
 </ul>
 </li>
-<li><p>Terminal node handling</p>
+<li><p>Terminal node handling (FYI)</p>
 <ul>
-<li><p>cyclic - link(s) connecting the first and last nodes</p></li>
+<li><p>cyclic - link(s) connecting the first and last nodes; not useful</p></li>
 <li><p>acyclic</p></li>
 </ul>
 </li>
-<li><p>Dummy node before the first node</p>
+<li><p>Dummy node before the first node (FYI)</p>
 <ul>
 <li><p>simplifies empty list and first node handling</p></li>
+<li><p>not useful</p></li>
 </ul>
 </li>
 </ul>
@@ -97,7 +101,6 @@
 <ul class="simple">
 <li><p>Access</p>
 <ul>
-<li><p>by value</p></li>
 <li><p>by index</p></li>
 <li><p>first</p></li>
 <li><p>last</p></li>
@@ -107,14 +110,15 @@
 <ul>
 <li><p>at the beginning</p></li>
 <li><p>at the end</p></li>
-<li><p>at a specified position (by value, by index)</p></li>
+<li><p>at a specified position (by pointer/iterator, by index)</p></li>
 </ul>
 </li>
 <li><p>Removal</p>
 <ul>
 <li><p>at the beginning</p></li>
 <li><p>at the end</p></li>
-<li><p>at a specified position (by value, by index)</p></li>
+<li><p>at a specified position (by pointer/iterator, by index)</p></li>
+<li><p>by value</p></li>
 </ul>
 </li>
 </ul>
@@ -145,9 +149,9 @@
 <section >
 <h2>Time Complexity</h2>
 <ul class="simple">
+<li><p>Based on the ideal implementation</p></li>
 <li><p>Access</p>
 <ul>
-<li><p>by value <span class="math notranslate nohighlight">\(O(n)\)</span></p></li>
 <li><p>by index <span class="math notranslate nohighlight">\(O(n)\)</span></p></li>
 <li><p>first <span class="math notranslate nohighlight">\(O(1)\)</span></p></li>
 <li><p>last <span class="math notranslate nohighlight">\(O(1)\)</span></p></li>
@@ -158,7 +162,7 @@
 <li><p>at the beginning <span class="math notranslate nohighlight">\(O(1)\)</span></p></li>
 <li><p>at the end <span class="math notranslate nohighlight">\(O(1)\)</span></p></li>
 <li><p>at a specified position (by pointer/iterator) <span class="math notranslate nohighlight">\(O(1)\)</span></p></li>
-<li><p>at a specified position (by value, by index) <span class="math notranslate nohighlight">\(O(n)\)</span></p></li>
+<li><p>at a specified position (by index) <span class="math notranslate nohighlight">\(O(n)\)</span></p></li>
 </ul>
 </li>
 </ul>

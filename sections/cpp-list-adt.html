@@ -26,20 +26,18 @@
 <pre><code data-trim data-noescape class="cpp">template &lt;typename T&gt;
 class List {
  private:
-  ///...
+  Node&lt;T&gt; *head;
+  Node&lt;T&gt; *tail;
+  int count;
  public:
-  // allow modification
-  T&amp; at(int index);
-  // read only
-  const T&amp; at(int index) const;
-  // index can be size to append to the end
-  void insert(int index, const T&amp; value);
+  T at(int index) const; // read-only access
+  Node&lt;T&gt; *search(const T&amp; value) const;
+  void insertBefore(Node&lt;T&gt; *index, const T&amp; value);
+  void append(const T&amp; value);
   void remove(int index);
-  void remove(const T&amp; value);
   void clear();
   int size() const;
-  bool empty() const;
-  int search(const T&amp; value) const;
+  bool isEmpty() const;
   void print() const;
 };</code></pre>
 </li>
