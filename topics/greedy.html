@@ -253,7 +253,7 @@ Create a new bin if necessary.</p>
 <p>Total space: 3 * (45 + 13 + 12 + 16 + 9 + 5) = 300 bits</p>
 </li>
 <li><p>Right: Huffman coding</p>
-<p>Total space: 1 * 45 + 2 * 13 + 2 * 12 + 3 * 16 + 4 * 9 + 4 * 5 = 199 bits</p>
+<p>Total space: 1 * 45 + 3 * (13 + 12 + 16) + 4 * (9 + 5) = 224 bits</p>
 </li>
 <li><p>Contents in nodes:</p>
 <ul class="simple">
@@ -275,15 +275,16 @@ Create a new bin if necessary.</p>
 <h3>Algorithm to build a Huffman coding tree</h3>
 <p>This is a greedy algorithm that builds the tree bottom-up from the least
 frequent characters to the most frequent characters.</p>
-<p>Pseudo-code from <a class="reference external" href="https://en.wikipedia.org/wiki/Huffman_coding">Wikipedia</a></p>
+<p>Pseudo-code adopted from <a class="reference external" href="https://en.wikipedia.org/wiki/Huffman_coding">Wikipedia</a></p>
 <ul class="simple">
 <li><p>Create a leaf node for each symbol and add it to the priority queue.</p></li>
 <li><p>While there is more than one node in the queue:</p>
 <ul>
-<li><p>Remove the two nodes of lowest frequency from the queue</p></li>
-<li><p>Create a new internal node with these two nodes as children and with
-frequency equal to the sum of the two nodes’ frequency.</p></li>
-<li><p>Add the new node to the queue.</p></li>
+<li><p>Dequeue two nodes with the lowest frequencies from the queue</p></li>
+<li><p>Create a new internal node with these two nodes as its children (order does
+not matter) and with frequency equal to the sum of the two nodes’
+frequency.</p></li>
+<li><p>Add the new node to the priority queue.</p></li>
 </ul>
 </li>
 <li><p>The remaining node is the root node and the tree is complete.</p></li>
