@@ -46,13 +46,14 @@
 <li><p>Applications</p></li>
 </ul>
 </section>
+<section>
 <section >
 <h2>Overview</h2>
 <ul class="simple">
-<li><p>Broad definition: Hashing is a process of mapping data of one type to data of
-another type.</p></li>
-<li><p>Narrow definition: Hashing is a process of mapping data of arbitrary size to
-data of fixed size.</p></li>
+<li><p>Broad definition: Hashing is a process of mapping keys of a certain type to
+data of another type.</p></li>
+<li><p>Other definition: Hashing is a process of mapping data of arbitrary size to
+data of fixed size. (not always true)</p></li>
 <li><p>Hash function</p>
 <ul>
 <li><p>The core of hashing</p></li>
@@ -69,25 +70,50 @@ hash value type or hash code type</p></li>
 </li>
 </ul>
 </section>
+<section >
+<h3>Hashing Glossary</h3>
+<dl class="simple glossary">
+<dt id="term-Hash-Function">Hash Function</dt><dd><p>A function that maps a variable sized value to a fixed sized value.</p>
+</dd>
+<dt id="term-Key-hashing">Key (hashing)</dt><dd><p>The input value to the hash function.</p>
+</dd>
+<dt id="term-Value-hashing">Value (hashing)</dt><dd><p>A.k.a hash value, hash code or simply hash. The output of the hash
+function.</p>
+</dd>
+<dt id="term-Key-space-Domain-hashing">Key space / Domain (hashing)</dt><dd><p>The set of all possible keys.</p>
+</dd>
+<dt id="term-Value-space-Range-hashing">Value space / Range (hashing)</dt><dd><p>The set of all possible values.</p>
+</dd>
+<dt id="term-Collision-hashing">Collision (hashing)</dt><dd><p>Multiple distinct keys maps to a same output value.</p>
+</dd>
+</dl>
+</section>
+</section>
 <section>
 <section >
 <h2>Hash Function</h2>
 <ul class="simple">
-<li><p>Domain of a hash function: The set of all possible inputs to a hash function</p></li>
-<li><p>Range of a hash function: The set of all possible outputs of a hash function</p></li>
-<li><p>Characteristics (not all required):</p>
+<li><p>The function that performs the mapping</p></li>
+<li><p>Required properties</p>
 <ul>
-<li><p>Deterministic</p></li>
-<li><p>Constant time computation <span class="math notranslate nohighlight">\(O(1)\)</span></p></li>
-<li><p>Uniform distribution (clusters in domain are evenly distributed in range)</p></li>
-<li><p>Size of range is smaller usually than size of domain</p></li>
-<li><p>Asymmetric</p>
+<li><p>deterministic</p></li>
+<li><p>uniform distribution</p>
 <ul>
-<li><p>Hard/impossible to reverse</p></li>
-<li><p>Required in certain applications like cryptography</p></li>
+<li><p>hash function that maps all possible input values (keys) with roughly
+equal probability to each possible output value (hash code)</p></li>
+<li><p>ensures minimal collision</p></li>
+<li><p>hard to guarantee and prove</p></li>
 </ul>
 </li>
-<li><p>Chance of collision</p></li>
+</ul>
+</li>
+<li><p>Other properties (application specific)</p>
+<ul>
+<li><p>variable length key to fixed length hash value</p></li>
+<li><p>constant time computation <span class="math notranslate nohighlight">\(O(1)\)</span></p></li>
+<li><p>squeeze a large domain to a smaller range</p></li>
+<li><p>chance of collision</p></li>
+<li><p>asymmetric</p></li>
 </ul>
 </li>
 </ul>
@@ -118,8 +144,8 @@ hash value type or hash code type</p></li>
 <ul class="simple">
 <li><p>Hash table data structure</p>
 <ul>
-<li><p>Hash Map</p></li>
-<li><p>Hash Set</p></li>
+<li><p>Hash Map (Map ADT, dictionary, key-value store)</p></li>
+<li><p>Hash Set (Set ADT)</p></li>
 </ul>
 </li>
 <li><p>Fingerprinting</p>
@@ -130,7 +156,7 @@ hash value type or hash code type</p></li>
 </ul>
 </li>
 <li><p>Cryptography</p></li>
-<li><p>Data structures</p>
+<li><p>Advanced data structures</p>
 <ul>
 <li><p>Bloom filter</p></li>
 <li><p>Cuckoo filter</p></li>
@@ -156,17 +182,21 @@ hash value type or hash code type</p></li>
 </section>
 <section >
 <h2>Overview</h2>
-<p>A hash table is a data structure that maps keys to values for highly efficient
-lookup. The key-value pairs are stored in “buckets” and the hash table maps
-keys to buckets using a hash function.</p>
+<p>A hash table is a <strong>data structure</strong> that maps keys to values for highly
+efficient lookup. The key-value pairs are stored in “buckets” and the hash
+table maps keys to buckets using a hash function.</p>
 <ul class="simple">
-<li><p>Characteristics</p>
+<li><p>Requirements</p>
+<ul>
+<li><p>Keys are unique (no duplicate keys)</p></li>
+<li><p>Keys are immutable</p></li>
+</ul>
+</li>
+<li><p>Properties</p>
 <ul>
 <li><p>Fast lookup, insert, and delete <span class="math notranslate nohighlight">\(O(1)\)</span></p></li>
 <li><p>Unordered</p></li>
-<li><p>Keys are unique</p></li>
-<li><p>Keys are immutable</p></li>
-<li><p>Redundant storage space required</p></li>
+<li><p>Redundant storage to reduce collision and ensure performance</p></li>
 </ul>
 </li>
 </ul>
@@ -175,8 +205,8 @@ keys to buckets using a hash function.</p>
 <h2>Hash Function For Hash Table</h2>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(h(key)\)</span> a special type of hash function used by hash table</p></li>
-<li><p>Maps a key of a certain type to an integer in a certain range <span class="math notranslate nohighlight">\(0, 1, 2,
-\ldots, size - 1\)</span>, where <span class="math notranslate nohighlight">\(size\)</span> is the size of the hash table</p></li>
+<li><p>Maps a key of an arbitrary type to an integer in a certain range <span class="math notranslate nohighlight">\(0, 1,
+2, \ldots, size - 1\)</span>, where <span class="math notranslate nohighlight">\(size\)</span> is the size of the hash table</p></li>
 <li><p>The value obtained by applying the hash function to a key is called the hash
 value of the key. It is used as an index of the bucket.</p></li>
 <li><p>Modulo arithmetic</p></li>
@@ -184,7 +214,7 @@ value of the key. It is used as an index of the bucket.</p></li>
 <ul>
 <li><p>Deterministic</p></li>
 <li><p>Fast to compute</p></li>
-<li><p>Uniform distribution (reduce clustering and collision)</p></li>
+<li><p>Uniform distribution</p></li>
 </ul>
 </li>
 <li><p>Collision</p>
@@ -195,52 +225,47 @@ value of the key. It is used as an index of the bucket.</p></li>
 </ul>
 </section>
 <section >
-<h2>Behaviors</h2>
+<h2>Hash Table Applications</h2>
+<div class="flex-container docutils container">
+<div class="half docutils container">
+<p><strong>Hash Map</strong></p>
 <ul class="simple">
-<li><p>The hash table stores either key-value pairs or only keys</p></li>
+<li><p>Implementation of the <strong>Map ADT</strong> using hash table</p></li>
+<li><p>A.k.a dictionary, associative array, symbol table, etc.</p></li>
+<li><p>A collection of key-value pairs</p></li>
+<li><p>Key is unique and immutable</p></li>
 <li><p>Behaviors</p>
 <ul>
-<li><p>Set a key-value pair/add a key</p></li>
-<li><p>Get the value of a key/lookup a key</p></li>
-<li><p>Delete a key-value pair/delete a key</p></li>
-<li><p>Check size</p></li>
-<li><p>Check empty</p></li>
-<li><p>Rehashing (resize)</p>
-<ul>
-<li><p>When the load factor <span class="math notranslate nohighlight">\(\alpha\)</span> is too large</p></li>
-<li><p>When the load factor <span class="math notranslate nohighlight">\(\alpha\)</span> is too small</p></li>
-<li><p>When there is a large number of tombstone buckets (open addressing)</p></li>
+<li><p>Set a key-value pair</p></li>
+<li><p>Get the value of a key (key lookup)</p></li>
+<li><p>Delete a key-value pair</p></li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-</section>
-<section >
-<h2>Collision Resolution</h2>
+</div>
+<div class="half docutils container">
+<p><strong>Hash Set</strong></p>
 <ul class="simple">
-<li><p>The most important component of a hash table!</p></li>
-<li><p>Optimal time complexity <span class="math notranslate nohighlight">\(O(1)\)</span></p></li>
-<li><p>Load factor <span class="math notranslate nohighlight">\(\alpha = \frac{n}{size}\)</span></p>
+<li><p>Implementation of the <strong>Set ADT</strong> using hash table</p></li>
+<li><p>A collection of unique elements</p></li>
+<li><p>A special case of key-value pairs when no value is present</p></li>
+<li><p>Only store keys (or say keys themselves are considered the values)</p></li>
+<li><p>Keys are unique and immutable</p></li>
+<li><p>Behaviors</p>
 <ul>
-<li><p>where <span class="math notranslate nohighlight">\(n\)</span> is the number of key-value pairs</p></li>
-<li><p><span class="math notranslate nohighlight">\(size\)</span> is the size of the hash table</p></li>
-<li><p>Load factor is a measure of how full the hash table is</p></li>
-<li><p><span class="math notranslate nohighlight">\(\alpha\)</span> should be ideally a small constant (i.e. 0.5) to ensure
-<span class="math notranslate nohighlight">\(O(1)\)</span> time complexity for lookup, insert, and delete</p></li>
-</ul>
-</li>
-<li><p>Two approaches</p>
-<ul>
-<li><p>Separate chaining (or simply chaining)</p></li>
-<li><p>Open addressing</p></li>
+<li><p>Add a key</p></li>
+<li><p>Remove a key</p></li>
+<li><p>Check if a key exists</p></li>
+<li><p>Other set operations: Union, intersection, difference, subset, etc.</p></li>
 </ul>
 </li>
 </ul>
+</div>
+</div>
 </section>
 <section>
 <section >
-<h2>Chaining</h2>
+<h2>Chaining (Collision Resolution)</h2>
 <ul class="simple">
 <li><p>Each bucket can store a variable number of key-value pairs</p>
 <ul>
@@ -283,26 +308,29 @@ collision happens</p></li>
 </section>
 <section >
 <h3>Chaining Hash Table in C++</h3>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">vector&lt;vector&lt;pair&lt;keyType,</span> <span class="pre">valueType&gt;&gt;&gt;</span> <span class="pre">hashTable</span></code> Vector of vectors of
-pair objects.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">vector&lt;LinkedListNode&lt;keyType,</span> <span class="pre">valueType&gt;</span> <span class="pre">*&gt;</span> <span class="pre">hashTable</span></code> Vector of pointers
-to linked list.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">LinkedListNode&lt;keyType,</span> <span class="pre">valueType&gt;</span> <span class="pre">**</span> <span class="pre">hashTable</span></code> One dimensional dynamic
-array of pointers to a linked list.</p></li>
-</ul>
-<pre data-id="chaining-hash-table-in-c"><code data-trim data-noescape class="cpp">template &lt;typename keyType, typename valueType&gt;
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">vector&lt;vector&lt;pair&lt;keyType,</span> <span class="pre">valueType&gt;&gt;&gt;</span> <span class="pre">hashTable</span></code></p>
+<p>Vector of vectors of pair objects.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vector&lt;LinkedListNode&lt;keyType,</span> <span class="pre">valueType&gt;</span> <span class="pre">*&gt;</span> <span class="pre">hashTable</span></code></p>
+<p>Vector of pointers to linked list.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LinkedListNode&lt;keyType,</span> <span class="pre">valueType&gt;</span> <span class="pre">**</span> <span class="pre">hashTable</span></code></p>
+<p>One dimensional dynamic array of pointers to a linked list.</p>
+<pre><code data-trim data-noescape class="cpp">template &lt;typename keyType, typename valueType&gt;
 struct LikedListNode {
   keyType key;
   valueType value;
   LinkedListNode * next;
   LinkedListNode * prev;
 };</code></pre>
+</li>
+</ul>
 </section>
 </section>
 <section>
 <section >
-<h2>Open Addressing</h2>
+<h2>Open Addressing (Collision Resolution)</h2>
 <ul class="simple">
 <li><p>Each bucket stores at most one key-value pair</p>
 <ul>
@@ -356,18 +384,21 @@ continue.</p>
 </section>
 <section >
 <h3>Open Addressing Hash Table in C++</h3>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Bucket&lt;keyType,</span> <span class="pre">valueType&gt;</span> <span class="pre">*</span> <span class="pre">hashTable</span></code> One dimensional dynamic array of
-bucket objects.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">vector&lt;Bucket&lt;keyType,</span> <span class="pre">valueType&gt;&gt;</span> <span class="pre">hashTable</span></code> Vector of bucket objects.</p></li>
-</ul>
-<pre data-id="open-addressing-hash-table-in-c"><code data-trim data-noescape class="cpp">template &lt;typename keyType, typename valueType&gt;
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Bucket&lt;keyType,</span> <span class="pre">valueType&gt;</span> <span class="pre">*</span> <span class="pre">hashTable</span></code></p>
+<p>One dimensional dynamic array of bucket objects.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vector&lt;Bucket&lt;keyType,</span> <span class="pre">valueType&gt;&gt;</span> <span class="pre">hashTable</span></code></p>
+<p>Vector of bucket objects.</p>
+<pre><code data-trim data-noescape class="cpp">template &lt;typename keyType, typename valueType&gt;
 struct Bucket {
   keyType key;
   valueType value;
   bool isEmpty = true;
   bool isDeleted = false;
 };</code></pre>
+</li>
+</ul>
 </section>
 <section >
 <h3>Probing in Open Addressing</h3>
@@ -394,49 +425,6 @@ struct Bucket {
 </ul>
 </div>
 </section>
-</section>
-<section >
-<h2>Applications of Hash Table</h2>
-<div class="flex-container docutils container">
-<div class="half docutils container">
-<ul class="simple">
-<li><p>Implement Map ADT (Hash Map)</p>
-<ul>
-<li><p>A.k.a dictionary, associative array, symbol table, etc.</p></li>
-<li><p>A collection of key-value pairs</p></li>
-<li><p>Keys are unique</p></li>
-<li><p>Behaviors</p>
-<ul>
-<li><p>Set a key-value pair</p></li>
-<li><p>Get the value of a key (lookup, contains)</p></li>
-<li><p>Delete a key-value pair</p></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="half docutils container">
-<ul class="simple">
-<li><p>Implement Set ADT (Hash Set)</p>
-<ul>
-<li><p>A collection of unique elements</p></li>
-<li><p>No value stored</p></li>
-<li><p>Only store keys (or say key is the value)</p></li>
-<li><p>Keys are unique</p></li>
-<li><p>Behaviors</p>
-<ul>
-<li><p>Add a key</p></li>
-<li><p>Remove a key</p></li>
-<li><p>Check if a key exists</p></li>
-<li><p>Set operations: Union, intersection, difference, subset, etc.</p></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
 </section>
 
         </div>
