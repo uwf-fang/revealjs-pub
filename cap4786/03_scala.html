@@ -38,6 +38,11 @@
 </ul>
 </li>
 <li><p>Spark is written in Scala</p></li>
+<li><p>Scala 2.xx is different from Scala 3.xx</p>
+<ul>
+<li><p>spark-shell uses Scala 2.12</p></li>
+</ul>
+</li>
 </ul>
 </section>
 <section >
@@ -77,9 +82,9 @@
 <li><p>Syntax basics</p></li>
 <li><p>Values, variables, and types</p></li>
 <li><p><strong>Functions</strong></p></li>
-<li><p>Classes</p></li>
+<li><p>Classes and objects</p></li>
+<li><p>Misc Scala features</p></li>
 <li><p>Advanced data types</p></li>
-<li><p>Other features</p></li>
 </ul>
 <div class="footnote docutils container">
 <p><strong>Bold</strong> topics are essential for Spark programming, while others are
@@ -332,6 +337,7 @@ val adder = makeAdder(5) // Create a closure that adds 5 to its argument
 println(adder(3)) // Output is 5 + 3 = 8</code></pre>
 </section>
 </section>
+<section>
 <section >
 <h2>Scala Classes</h2>
 <ul class="simple">
@@ -341,9 +347,11 @@ println(adder(3)) // Output is 5 + 3 = 8</code></pre>
 class keyword</p></li>
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">new</span></code> keyword to create an instance of a class (an object)</p></li>
 <li><p>Methods are defined as inner/nested functions in a class</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">new</span></code> keyword to create an instance</p></li>
 <li><p>dot, parentheses can be omitted when calling a method</p></li>
 </ul>
-<pre data-id="scala-classes"><code data-trim data-noescape class="scala">class Person(name: String, age: Int) {
+<pre data-id="scala-classes"><code data-trim data-noescape class="scala">// This class come with a constructor and a print method
+class Person(name: String, age: Int) {
   def print(): Unit = {
     println(s&quot;Name: $name, Age: $age&quot;)
   }
@@ -357,7 +365,7 @@ p.print()  // Name: Alice, Age: 25
 // p print</code></pre>
 </section>
 <section >
-<h2>Scala Objects</h2>
+<h3>Scala Objects</h3>
 <ul class="simple">
 <li><p>Objects are instances of classes or singletons (unique in scala)</p></li>
 <li><p>We focus on singleton here</p></li>
@@ -374,6 +382,7 @@ point for the application</p></li>
   }
 }
 
+// Use object name to call the method
 Hello.print()  // Hello, World!
 // Hello print()
 // Hello print
@@ -384,6 +393,115 @@ object Main {
     println(&quot;Hello, World!&quot;)
   }
 }</code></pre>
+</section>
+<section >
+<h3>Scala Traits</h3>
+<ul class="simple">
+<li><p>Traits are template classes that can be mixed into classes to define
+interfaces</p></li>
+<li><p>Traits are somewhat like interfaces in Java but allows concrete methods and
+fields</p></li>
+<li><p>It is actually closer to Python Mixin classes</p></li>
+<li><p>A class can extend multiple traits</p></li>
+</ul>
+<pre data-id="scala-traits"><code data-trim data-noescape class="scala">trait Person {
+  def greet(): Unit
+}
+
+class British(name : String) extends Person {
+  def greet(): Unit = {
+    println(s&quot;Hello $name&quot;)
+  }
+}
+
+val p = new British(&quot;Alice&quot;)
+p greet  // Hello Alice</code></pre>
+</section>
+<section >
+<h3>Operators in Scala</h3>
+<ul class="simple">
+<li><p>Operators are methods in Scala</p></li>
+<li><p>You can alway override operators in Scala</p></li>
+</ul>
+<pre data-id="operators-in-scala"><code data-trim data-noescape class="scala">val a = 10
+val b = 5
+val c = a + b  // same as a.+(b)</code></pre>
+</section>
+</section>
+<section>
+<section >
+<h2>Misc. Scala Features</h2>
+<div class="flex-container docutils container">
+<div class="half docutils container">
+<p><strong>Package and import</strong></p>
+<ul class="simple">
+<li><p>Similar to Java</p></li>
+<li><p>package: A way to organize classes</p></li>
+<li><p>import: A way to use classes from other packages</p></li>
+<li><p>Can import java classes</p></li>
+</ul>
+<pre><code data-trim data-noescape class="scala">// declare package
+package com.example
+
+// import packages
+import scala.collection.mutable.ListBuffer
+import java.util.Date
+import scala.io._  // _ means import everything</code></pre>
+</div>
+<div class="half docutils container">
+<p><strong>Pattern Matching</strong></p>
+<ul class="simple">
+<li><p>A powerful feature to match a value against a pattern</p></li>
+<li><p>Return values according to the matched pattern</p></li>
+<li><p>Similar to switch-case in Java</p></li>
+</ul>
+<pre><code data-trim data-noescape class="scala">val x = 10
+// Match and perform action accordingly
+x match {
+  case 1 =&gt; println(&quot;One&quot;)
+  case 2 =&gt; println(&quot;Two&quot;)
+  case _ =&gt; println(&quot;Other&quot;)
+}
+
+val color = &quot;red&quot;
+// Match and return values accordingly
+val code = color match {
+  case &quot;red&quot; =&gt; &quot;#FF0000&quot;
+  case &quot;green&quot; =&gt; &quot;#00FF00&quot;
+  case &quot;blue&quot; =&gt; &quot;#0000FF&quot;
+  case _ =&gt; &quot;Unknown&quot;
+}</code></pre>
+</div>
+</div>
+</section>
+<section >
+<h3>Misc. Scala Features cont.d</h3>
+<ul class="simple">
+<li><p>Building Stand-alone Applications</p>
+<ul>
+<li><p>.scala file to hold source code (no one class per file rule)</p></li>
+<li><p>Each application/executable require a singleton object with a main method</p></li>
+<li><p>Optional package declaration to manage complex project</p></li>
+<li><p>Application can be delivered as a JAR file</p></li>
+</ul>
+</li>
+<li><p>Simple build tool (SBT)</p>
+<ul>
+<li><p>A build tool for Scala and Java projects</p></li>
+<li><p>Similar to system like Make, Maven or Gradle</p></li>
+<li><p>Build definition in a file named <code class="docutils literal notranslate"><span class="pre">build.sbt</span></code></p></li>
+<li><p>Allows reproducible and efficient building of complicated projects</p></li>
+</ul>
+</li>
+<li><p>Work with Spark</p>
+<ul>
+<li><p>Submit either .scala or .jar file to Spark cluster to run</p></li>
+<li><p>When working with notebook interfaces, each cell is sent to Spark cluster
+for execution</p></li>
+</ul>
+</li>
+</ul>
+</section>
 </section>
 <section>
 <section >
@@ -419,7 +537,39 @@ println(t._3) // 3.14
 // println(t._4) // Error: Tuple index out of range
 
 var t1 = (1, &quot;Hello&quot;, 3.14)
-t1 = (2, &quot;World&quot;, 6.28)  // allowed</code></pre>
+t1 = (2, &quot;World&quot;, 6.28)  // allowed
+
+t = (10, &quot;World&quot;, 6.28)  // does not work because t is declared as val
+t._1 = 10  // Error: tuples are immutable
+
+var t1 = (1, &quot;Hello&quot;, 3.14)
+t1 = (10, &quot;World&quot;, 6.28)  // OK
+
+// batch assignment with tuple expansion
+val (x, y, z) = t1
+println(x) // 10
+println(y) // World
+println(z) // 6.28</code></pre>
+</section>
+<section >
+<h3>Option Type</h3>
+<ul class="simple">
+<li><p>Option type is used to represent optional values</p></li>
+<li><p>It can be either <code class="docutils literal notranslate"><span class="pre">Some</span></code> or <code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
+<li><p>Useful to avoid null pointer exception</p></li>
+</ul>
+<pre data-id="option-type"><code data-trim data-noescape class="scala">val x: Option[Int] = Some(10)
+val y: Option[Int] = None
+
+println(x.get) // 10
+println(y.get) // Error: NoSuchElementException
+
+// Use match to handle None
+val z = y match {
+  case Some(value) =&gt; value
+  case None =&gt; 0
+}
+println(z) // 0</code></pre>
 </section>
 <section >
 <h3>Case Class</h3>
@@ -432,10 +582,71 @@ t1 = (2, &quot;World&quot;, 6.28)  // allowed</code></pre>
 <pre data-id="case-class"><code data-trim data-noescape class="scala">case class Person(name: String, age: Int)
 val p = Person(&quot;Alice&quot;, 25)  // Create an instance without &quot;new&quot; keyword
 println(p.name) // Alice
-println(p.age) // 25</code></pre>
+println(p.age) // 25
+
+val greeting = p match {
+    case Person(&quot;John&quot;, _) =&gt; &quot;Hello John&quot;
+    case Person(&quot;Alice&quot;, _) =&gt; &quot;Hello Alice&quot;
+    case Person(name, _) =&gt; &quot;I do not know you&quot;
+  } // Hello Alice
+
+def getGreeting(p: Person): String = p match {
+    case Person(&quot;John&quot;, _) =&gt; &quot;Hello John&quot;
+    case Person(&quot;Alice&quot;, _) =&gt; &quot;Hello Alice&quot;
+    case Person(name, _) =&gt; &quot;I do not know you&quot;
+  }
+
+println(getGreeting(p)) // Hello Alice
+println(getGreeting(Person(&quot;John&quot;, 21))) // Hello John
+println(getGreeting(Person(&quot;Bob&quot;, 24))) // I do not know you</code></pre>
+</section>
+</section>
+<section>
+<section >
+<h2>Collections</h2>
+<ul>
+<li><p>Collections in Scala provide high-level of operations on data</p></li>
+<li><p><strong>Collections are immutable by default and works well with functional
+programming</strong></p></li>
+<li><p>Collections provide rich set of operations and only part of them are covered
+here. Please refer to Scala documentation for more details as needed.</p></li>
+<li><p>Sequence (Seq trait)</p>
+<p>A collection of ordered elements of the same type. Ordered means that each
+element has an index or has predecessor and successor (except the first and
+last element).</p>
+<ul class="simple">
+<li><p>List: A linked list implementation</p></li>
+<li><p>Array: A fixed-size array implementation</p></li>
+<li><p>Vector: A resizable array implementation</p></li>
+</ul>
+</li>
+<li><p>Set: A collection of unique elements, no duplicates, order does not matter</p></li>
+<li><p>Map: A collection of key-value pairs, key is unique</p></li>
+</ul>
 </section>
 <section >
-<h3>Collections</h3>
+<h3>Organization of Collections</h3>
+<ul class="simple">
+<li><p>Collections are organized in a hierarchy of traits and classes</p></li>
+</ul>
+<img alt="../_images/scala-types.png" src="../_images/scala-types.png" />
+</section>
+<section >
+<h3>Collection Operations</h3>
+<ul class="simple">
+<li><p>Collections provide a rich set of operations</p></li>
+<li><p>Some high-level operations are similar to Spark operations</p>
+<ul>
+<li><p>map: Apply a function to each element</p></li>
+<li><p>flatMap: Apply a function to each element and flatten the result</p></li>
+<li><p>reduce: Combine elements to a single value</p></li>
+<li><p>filter: Filter elements based on a condition</p></li>
+<li><p>foreach: Apply a function to each element</p></li>
+</ul>
+</li>
+<li><p>They usually serve as local version of data storage to be readily converted to
+Spark RDD for further parallel processing</p></li>
+</ul>
 </section>
 </section>
 
