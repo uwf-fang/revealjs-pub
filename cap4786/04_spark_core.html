@@ -105,7 +105,8 @@ nodes.</p></li>
 <ul class="simple">
 <li><p>Key concepts</p>
 <ul>
-<li><p>Shuffle:  Redistributes data among cluster of nodes.</p></li>
+<li><p>Shuffle:  Redistributes data among cluster of nodes according certain
+criteria.</p></li>
 <li><p>Job: A job is a set of computations that spark performs to return results
 to a driver program.</p></li>
 <li><p>Stage: A stage is a collection of tasks. Spark splits a task into a DAG
@@ -116,9 +117,10 @@ to a driver program.</p></li>
 <ol class="arabic simple">
 <li><p>The driver program connects to the cluster manager to acquire resources.</p></li>
 <li><p>Algorithms are submitted as jobs</p></li>
-<li><p>Spark breaks the job into a DAG (directed acyclic graph) of stages</p></li>
+<li><p>Spark breaks the job into a DAG (directed acyclic graph) of stages; Each
+stage is a collection of tasks.</p></li>
 <li><p>Stages are scheduled on executors</p></li>
-<li><p>Executors run tasks and return results to the driver program</p></li>
+<li><p>Executors run tasks and return results</p></li>
 </ol>
 </li>
 </ul>
@@ -331,13 +333,19 @@ new data.</p></li>
 </section>
 <section >
 <h2>Shared Variable</h2>
-<ul class="simple">
+<ul>
 <li><p>A share-nothing model by default</p></li>
 <li><p>Two types of shared variables</p>
 <ul>
 <li><p>Broadcast variables: Efficiently distribute large read-only values to
-workers.</p></li>
-<li><p>Accumulators: Aggregate values from workers back to the driver program.</p></li>
+workers.</p>
+<pre><code data-trim data-noescape class="scala">val broadcastVar = sc.broadcast(Array(1, 2, 3))
+broadcastVar.value  // can be used in every worker now</code></pre>
+</li>
+<li><p>Accumulators: Aggregate values from workers back to the driver program.</p>
+<pre><code data-trim data-noescape class="scala">val accum = sc.accumulator(&quot;My Accumulator&quot;)
+sc.parallelize(Array(1, 2, 3, 4)).foreach(x =&gt; accum.add(x))</code></pre>
+</li>
 </ul>
 </li>
 </ul>
