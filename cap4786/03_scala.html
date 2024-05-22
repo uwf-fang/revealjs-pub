@@ -171,7 +171,7 @@ JavaScript in my opinion.</p></li>
 <li><p>Values</p>
 <ul>
 <li><p>Immutable</p></li>
-<li><p>Declared using <code class="docutils literal notranslate"><span class="pre">val</span></code> keyword</p></li>
+<li><p>Declared using <code class="docutils literal notranslate"><span class="pre">val</span></code> keyword with mandatory initialization</p></li>
 <li><p>Analog to <code class="docutils literal notranslate"><span class="pre">final</span></code> variable in Java and <code class="docutils literal notranslate"><span class="pre">const</span></code> variable in C++</p></li>
 </ul>
 </li>
@@ -234,6 +234,12 @@ JavaScript in my opinion.</p></li>
 </section>
 <section >
 <h3>Value, Variable, and Type Examples</h3>
+<ul class="simple">
+<li><p>Every value/variable has a type</p></li>
+<li><p>Value must be initialized and can never be re-assigned</p></li>
+<li><p>Type is specified after a colon</p></li>
+<li><p>Type can be omitted/inferred</p></li>
+</ul>
 <pre data-id="value-variable-and-type-examples"><code data-trim data-noescape class="scala">val x: Int = 10
 var y: String = &quot;Hello, World!&quot;
 
@@ -253,7 +259,10 @@ a = 20 // Error: reassignment to val</code></pre>
 <ul>
 <li><p>Functions can be used as objects: as parameter, as return value, as
 assigned value</p></li>
-<li><p>High-order function: A function that takes another function as an argument</p></li>
+<li><p>Function has a type e.g. <code class="docutils literal notranslate"><span class="pre">Int</span> <span class="pre">=&gt;</span> <span class="pre">Int</span></code> means a function that takes an
+integer and returns an integer</p></li>
+<li><p>Higher-order function: A function that takes another function as an
+argument or returns a function</p></li>
 </ul>
 </li>
 <li><p>Flexible syntax to define functions (a drawback in my opinion)</p>
@@ -261,11 +270,12 @@ assigned value</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">def</span></code> keyword - formal way</p></li>
 <li><p>anonymous function (function literal)</p>
 <ul>
-<li><p>usually used as an actual parameter in a function call</p></li>
+<li><p>assigned to a variable to make a named function</p></li>
+<li><p>used as an actual parameter in a function call</p></li>
 </ul>
 </li>
-<li><p>return keyword is optional</p></li>
-<li><p>parentheses are optional for single parameter</p></li>
+<li><p>return keyword is optional, last expression is returned</p></li>
+<li><p>parentheses are optional for no/single parameter function call</p></li>
 </ul>
 </li>
 </ul>
@@ -301,15 +311,16 @@ println(square(10))  // 100</code></pre>
 <ul class="simple">
 <li><p>Anonymous function is a function without a name</p></li>
 <li><p>Syntax: <code class="docutils literal notranslate"><span class="pre">(parameters)</span> <span class="pre">=&gt;</span> <span class="pre">expression</span></code></p></li>
-<li><p>It can be assigned to a variable</p></li>
+<li><p>It can be assigned to a variable to make a named function</p></li>
 <li><p>It can be passed as an argument to another function</p></li>
 <li><p>It can be returned from another function</p></li>
 <li><p>Underscores can be used as placeholders</p></li>
 </ul>
 <pre data-id="anonymous-functions-function-literals"><code data-trim data-noescape class="scala">val square = (x: Int) =&gt; x * x  // return type is inferred
 
-val square = x: Int =&gt; x * x
+val square = x: Int =&gt; x * x  // parentheses are optional
 
+// square is a variable storing a function of Int =&gt; Int type
 val square : Int =&gt; Int = x =&gt; x * x
 
 // When _ is used, the second =&gt; can be omitted
@@ -319,17 +330,21 @@ val square : Int =&gt; Int = x =&gt; x * x
 val add : (Int, Int) =&gt; Int = _ * _</code></pre>
 </section>
 <section >
-<h3>High-order Functions</h3>
+<h3>Higher-order Functions</h3>
 <ul class="simple">
-<li><p>High-order function: A function that takes another function as an argument</p></li>
+<li><p>Higher-order function: A function that takes another function as an argument
+or returns a function</p></li>
 </ul>
-<pre data-id="high-order-functions"><code data-trim data-noescape class="scala">def compute(f: Int =&gt; Int, x: Int): Int = f(x)
+<pre data-id="higher-order-functions"><code data-trim data-noescape class="scala">def compute(f: Int =&gt; Int, x: Int): Int = f(x)
 
 println(compute(square, 10)  // 100, use existing function
 println(compute(x =&gt; x * x, 10))  // 100, use anonymous function
 
 // Alternative syntax to define the function
-val compute = (f: Int =&gt; Int, x: Int) =&gt; f(x)</code></pre>
+val compute = (f: Int =&gt; Int, x: Int) =&gt; f(x)
+
+// A function that returns a function
+// Refer to the makeAdder example in the Closure slide</code></pre>
 </section>
 <section >
 <h3>Closure</h3>
@@ -528,7 +543,7 @@ for execution</p></li>
 <li><p>Sequence: List, Array, Vector</p></li>
 <li><p>Set</p></li>
 <li><p>Map</p></li>
-<li><p>High-order methods of collections</p></li>
+<li><p>Higher-order methods of collections</p></li>
 </ul>
 </li>
 </ul>
