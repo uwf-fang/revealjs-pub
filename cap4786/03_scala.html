@@ -25,6 +25,16 @@
 </div>
 </section>
 <section >
+<h2>TL;DR</h2>
+<ul class="simple">
+<li><p>Stick to Scala 2.xx for Spark programming, ignore Scala 3.xx</p></li>
+<li><p>Learn just enough Scala</p></li>
+<li><p>Stick to one style you like (As explicit as possible IMO)</p></li>
+<li><p>Focus on the functional programming aspects</p></li>
+<li><p>PySpark is more recommended in the future</p></li>
+</ul>
+</section>
+<section >
 <h2>Scala Programming Language</h2>
 <ul class="simple">
 <li><p>General purpose</p></li>
@@ -146,6 +156,7 @@ JavaScript in my opinion.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">return</span></code>, semicolons, parentheses, dot, etc. can be omitted in many cases</p></li>
 <li><p>types can be inferred</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">_</span></code> can be used as a placeholder or wildcard</p></li>
+<li><p>Stick to one style you like! Do not waste time to master everything!</p></li>
 </ul>
 </li>
 </ul>
@@ -161,6 +172,7 @@ JavaScript in my opinion.</p></li>
 <ul>
 <li><p>Immutable</p></li>
 <li><p>Declared using <code class="docutils literal notranslate"><span class="pre">val</span></code> keyword</p></li>
+<li><p>Analog to <code class="docutils literal notranslate"><span class="pre">final</span></code> variable in Java and <code class="docutils literal notranslate"><span class="pre">const</span></code> variable in C++</p></li>
 </ul>
 </li>
 <li><p>Variables</p>
@@ -263,7 +275,8 @@ assigned value</p></li>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">def</span></code> keyword</p></li>
 <li><p>Return type can be inferred</p></li>
-<li><p>Returning <code class="docutils literal notranslate"><span class="pre">Unit</span></code> means no return value (like void in Java)</p></li>
+<li><p>Returning <code class="docutils literal notranslate"><span class="pre">Unit</span></code> means that we do not care the return value (like void in
+Java)</p></li>
 <li><p>Return keyword is optional</p></li>
 <li><p>Curly braces are optional for single line function</p></li>
 <li><p>When calling, parentheses are optional for zero parameter function</p></li>
