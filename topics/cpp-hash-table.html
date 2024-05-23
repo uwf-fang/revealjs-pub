@@ -47,7 +47,7 @@ table maps keys to buckets using a hash function.</p>
 </li>
 <li><p>Properties</p>
 <ul>
-<li><p>Fast lookup, insert, and delete <span class="math notranslate nohighlight">\(O(1)\)</span></p></li>
+<li><p>Fast lookup, insert, and delete <span class="math notranslate nohighlight">\(\Theta(1)\)</span></p></li>
 <li><p>Unordered</p></li>
 <li><p>Redundant storage to reduce collision and ensure performance</p></li>
 </ul>
@@ -122,7 +122,7 @@ value of the key. It is used as an index of the bucket.</p></li>
 <ul class="simple">
 <li><p>Each bucket can store a variable number of key-value pairs</p>
 <ul>
-<li><p><span class="math notranslate nohighlight">\(O(nk)\)</span> space complexity</p>
+<li><p><span class="math notranslate nohighlight">\(\Theta(nk)\)</span> space complexity</p>
 <ul>
 <li><p>where <span class="math notranslate nohighlight">\(n\)</span> is the number of buckets</p></li>
 <li><p><span class="math notranslate nohighlight">\(k\)</span> is the average number of key-value pairs in each bucket</p></li>
@@ -130,7 +130,7 @@ value of the key. It is used as an index of the bucket.</p></li>
 <li><p><span class="math notranslate nohighlight">\(k\)</span> should be ideally a small constant</p></li>
 </ul>
 </li>
-<li><p><span class="math notranslate nohighlight">\(O(k)\)</span> time complexity for lookup, insert, and delete</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Theta(k)\)</span> time complexity for lookup, insert, and delete</p></li>
 </ul>
 </li>
 <li><p>Solve collision by chaining the key-value pairs together in one bucket when
@@ -187,12 +187,12 @@ struct LikedListNode {
 <ul class="simple">
 <li><p>Each bucket stores at most one key-value pair</p>
 <ul>
-<li><p><span class="math notranslate nohighlight">\(O(n)\)</span> space complexity</p>
+<li><p><span class="math notranslate nohighlight">\(\Theta(n)\)</span> space complexity</p>
 <ul>
 <li><p>Can store at most <span class="math notranslate nohighlight">\(n\)</span> key-value pairs</p></li>
 </ul>
 </li>
-<li><p><span class="math notranslate nohighlight">\(O(k)\)</span> time complexity for lookup, insert, and delete</p>
+<li><p><span class="math notranslate nohighlight">\(\Theta(k)\)</span> time complexity for lookup, insert, and delete</p>
 <ul>
 <li><p><span class="math notranslate nohighlight">\(k\)</span> is the average number of probing steps</p></li>
 <li><p><span class="math notranslate nohighlight">\(k\)</span> should be ideally a small constant</p></li>

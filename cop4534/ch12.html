@@ -379,7 +379,7 @@ Y[1..n])</cite> multiple times.</p></li>
 <li><p>Matching characters: increment LCS length</p></li>
 <li><p>Non-matching characters: take the maximum value from adjacent cells</p></li>
 <li><p>LCS length located at <cite>dp[m][n]</cite></p></li>
-<li><p>Algorithm complexity: <cite>O(m*n)</cite> for both time and space</p></li>
+<li><p>Algorithm complexity: <span class="math notranslate nohighlight">\(\Theta(m*n)\)</span> for both time and space</p></li>
 </ul>
 </section>
 <section >
@@ -398,7 +398,7 @@ Y[1..n])</cite> multiple times.</p></li>
 <li><p>Backtrack from <cite>dp[m][n]</cite>, storing characters</p></li>
 <li><p>Diagonal movement for matches; otherwise to cell with higher value; if
 same, go up</p></li>
-<li><p>Complexity: <cite>O(m+n)</cite></p></li>
+<li><p>Complexity: <span class="math notranslate nohighlight">\(\Theta(m+n)\)</span></p></li>
 <li><p><strong>Question</strong>: How about same values?</p></li>
 </ul>
 </div>
@@ -456,9 +456,9 @@ LCS length.</p></li>
 characters within a string. The Longest Common Substring (LCSu) problem is
 similar to the LCS problem, but requires that the common elements be
 contiguous.</p></li>
-<li><p><strong>Improve space complexity</strong>: The DP solution requires <cite>O(m*n)</cite> space. This
-can be improved to <cite>O(min(m, n))</cite> by only storing the current and previous
-rows of the DP table.</p></li>
+<li><p><strong>Improve space complexity</strong>: The DP solution requires <span class="math notranslate nohighlight">\(\Theta(m*n)\)</span>
+space. This can be improved to <span class="math notranslate nohighlight">\(\Theta(min(m, n))\)</span> by only storing the
+current and previous rows of the DP table.</p></li>
 </ul>
 </section>
 </section>
