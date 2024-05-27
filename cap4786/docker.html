@@ -103,6 +103,8 @@ Windows and Mac OS)</p></li>
 container as /opt/spark/work-dir so you can access file in the current
 directory from the container. The <code class="docutils literal notranslate"><span class="pre">$(pwd)</span></code> is the current directory and
 may be different in Windows shells.</p></li>
+<li><p>You can always change <code class="docutils literal notranslate"><span class="pre">$(pwd)</span></code> to the full path of the directory like
+<code class="docutils literal notranslate"><span class="pre">/home/user/project</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">--name</span> <span class="pre">spark</span></code>: name the container as <code class="docutils literal notranslate"><span class="pre">spark</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">spark:latest</span></code>: the image to run</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">/opt/spark/bin/spark-shell</span></code>: the command to run in the container</p></li>
