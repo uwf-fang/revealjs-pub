@@ -109,8 +109,9 @@ nodes.</p></li>
 criteria.</p></li>
 <li><p>Job: A job is a set of computations that spark performs to return results
 to a driver program.</p></li>
-<li><p>Stage: A stage is a collection of tasks. Spark splits a task into a DAG
-(Directed acyclic graphs) of stages.</p></li>
+<li><p>Stage: A stage is a collection of tasks. Spark splits a job into a DAG
+(Directed acyclic graphs) of stages. Tasks that do not require a shuffle
+are grouped into a single stage.</p></li>
 </ul>
 </li>
 <li><p>Execution flow</p>

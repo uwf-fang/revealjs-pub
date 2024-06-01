@@ -20,7 +20,7 @@
             <section data-background-color="white" data-background-image="../_static/logo.png" data-background-size="50%" data-background-position="top center" data-background-repeat="no-repeat">
 <h1>Introduction to Big Data Analytics</h1>
 <div class="subtitle docutils container">
-<p><strong>Chapter 4: Interactive Data Analysis with Spark Shell</strong></p>
+<p><strong>Chapter 4: Interactive Data Analysis with Spark</strong></p>
 <p>Xingang (Ian) Fang</p>
 </div>
 </section>
@@ -103,7 +103,7 @@ analysis (EDA)</p></li>
 <section >
 <h3>Load Data</h3>
 <ul class="simple">
-<li><p>Make fake data for demonstration, e.g. <code class="code docutils literal notranslate"><span class="pre">val</span> <span class="pre">data</span> <span class="pre">=</span> <span class="pre">(1</span> <span class="pre">to</span> <span class="pre">1000).toList</span></code></p></li>
+<li><p>Artificial data, e.g. <code class="code docutils literal notranslate"><span class="pre">val</span> <span class="pre">data</span> <span class="pre">=</span> <span class="pre">(1</span> <span class="pre">to</span> <span class="pre">1000).toList</span></code></p></li>
 <li><p>Load data from a file</p>
 <ul>
 <li><p>File sources</p>
@@ -132,7 +132,7 @@ file system!</p></li>
 </ul>
 </section>
 <section >
-<h3>Loading Files in Databricks Community Edition</h3>
+<h3>Loading/saving Files in Databricks Community Edition</h3>
 <ul class="simple">
 <li><p>Your code runs in a disposable container (compute). Thus, data stored in the
 local file system will be lost after the container is recycled</p></li>
@@ -142,11 +142,25 @@ local file system will be lost after the container is recycled</p></li>
 <li><p>Not accessible in Web Terminal!!! Use the notebook interface instead</p></li>
 <li><p>All computes have access to the same DBFS</p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">dbfs:</span></code> prefix to access the files in DBFS formally but this prefix
-can be omitted</p></li>
+can be omitted. In spark, you can access the files in DBFS as if they are
+in the local file system, although you cannot find the files in the local
+file system using the terminal. <strong>Note: single slash used after dbfs:</strong></p>
+<ul>
+<li><p>E.g. <code class="code docutils literal notranslate"><span class="pre">val</span> <span class="pre">data</span> <span class="pre">=</span> <span class="pre">sc.textFile(&quot;dbfs:/FileStore/tables/data.txt&quot;)</span></code></p></li>
+<li><p>E.g. <code class="code docutils literal notranslate"><span class="pre">val</span> <span class="pre">data</span> <span class="pre">=</span> <span class="pre">sc.textFile(&quot;/FileStore/tables/data.txt&quot;)</span></code></p></li>
+</ul>
+</li>
 <li><p>Files stored in <code class="code docutils literal notranslate"><span class="pre">dbfs:/FileStore</span></code> are accessible in the notebook
-interface</p></li>
+interface.</p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">SparkContext</span></code> provides methods to read files in DBFS</p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">dbutils.fs</span></code> library to handle the files in DBFS</p></li>
+</ul>
+</li>
+<li><p>There are other protocols such as <code class="code docutils literal notranslate"><span class="pre">hdfs:</span></code> for Hadoop distributed file
+system, <code class="code docutils literal notranslate"><span class="pre">s3:</span></code> for Amazon S3, <code class="code docutils literal notranslate"><span class="pre">wasb:</span></code> for Azure Blob Storage, etc.</p>
+<ul>
+<li><p><strong>Note: these protocols should be followed by double slashes, e.g.
+:code:`s3://my-bucket/my-file`</strong></p></li>
 </ul>
 </li>
 </ul>
@@ -199,6 +213,7 @@ processing</p></li>
 <section >
 <h3>Analyze Data</h3>
 <ul class="simple">
+<li><p>Big data applications usually start with big data size</p></li>
 <li><p>After data processing, the data can be either still big or small in size</p></li>
 <li><p>For small data, use the traditional data analysis tools (e.g. pandas, numpy)</p></li>
 <li><p>For big data</p>
