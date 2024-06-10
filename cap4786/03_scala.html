@@ -320,8 +320,6 @@ println(square(10))  // 100</code></pre>
 </ul>
 <pre data-id="anonymous-functions-function-literals"><code data-trim data-noescape class="scala">val square = (x: Int) =&gt; x * x  // return type is inferred
 
-val square = x: Int =&gt; x * x  // parentheses are optional
-
 // square is a variable storing a function of Int =&gt; Int type
 val square : Int =&gt; Int = x =&gt; x * x
 
@@ -339,7 +337,7 @@ or returns a function</p></li>
 </ul>
 <pre data-id="higher-order-functions"><code data-trim data-noescape class="scala">def compute(f: Int =&gt; Int, x: Int): Int = f(x)
 
-println(compute(square, 10)  // 100, use existing function
+println(compute(square, 10))  // 100, use existing function
 println(compute(x =&gt; x * x, 10))  // 100, use anonymous function
 
 // Alternative syntax to define the function
@@ -571,9 +569,6 @@ t1 = (2, &quot;World&quot;, 6.28)  // allowed
 
 t = (10, &quot;World&quot;, 6.28)  // does not work because t is declared as val
 t._1 = 10  // Error: tuples are immutable
-
-var t1 = (1, &quot;Hello&quot;, 3.14)
-t1 = (10, &quot;World&quot;, 6.28)  // OK
 
 // batch assignment with tuple expansion
 val (x, y, z) = t1
