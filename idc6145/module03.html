@@ -183,7 +183,38 @@ to process large-scale data and perform real-time analytics.</p></li>
 <li><p>Components:</p>
 <ul>
 <li><p>Core, Sparkle SQL, Streaming, MLLib, GraphX</p></li>
-<li><p>PySpark, SparkR</p></li>
+<li><p>API language support</p>
+<ul>
+<li><p>Scala: native</p></li>
+<li><p>Python: PySpark</p></li>
+<li><p>R</p></li>
+<li><p>Java</p></li>
+<li><p>SQL: through Spark SQL APIs in other languages</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section >
+<h3>Spark Components</h3>
+<ul class="simple">
+<li><p>Internal Components</p>
+<ul>
+<li><p>Spark Core</p></li>
+<li><p>Spark SQL</p></li>
+<li><p>Spark Streaming</p></li>
+<li><p>MLlib</p></li>
+<li><p>GraphX</p></li>
+<li><p>Language support: Scala, Java, Python, R, SQL (through other languages)</p></li>
+</ul>
+</li>
+<li><p>External Components</p>
+<ul>
+<li><p>Resource/Cluster Managers: Apache Mesos, Hadoop YARN</p></li>
+<li><p>Storage Systems: HDFS, DBFS, S3, ADLS</p></li>
+<li><p>NoSQL Databases: Apache Cassandra, Apache HBase</p></li>
+<li><p>RDBMS: MySQL, PostgreSQL, Oracle, MS SQL</p></li>
 </ul>
 </li>
 </ul>
@@ -256,7 +287,7 @@ to process large-scale data and perform real-time analytics.</p></li>
 <section >
 <h3>Data APIs</h3>
 <ul class="simple">
-<li><p>RDD (Resilient Distributed Datasets)</p></li>
+<li><p><strong>RDD (Resilient Distributed Datasets)</strong></p></li>
 <li><p>DataFrame</p></li>
 <li><p>DataSet</p></li>
 </ul>
@@ -291,6 +322,10 @@ to process large-scale data and perform real-time analytics.</p></li>
 </tr>
 </tbody>
 </table>
+<div class="footnote docutils container">
+<p>We focus on RDD in this course as it is more relevant to the Big Data
+processing and other APIs are extensively covered elsewhere.</p>
+</div>
 </section>
 <section >
 <h3>PySpark Examples</h3>

@@ -30,8 +30,9 @@
 <li><p>Note: the text book only covers the basics of Spark shell and I will cover
 more examples and details about data analysis</p></li>
 <li><p>Motivation</p></li>
-<li><p>Notebook interface over Spark shell</p></li>
 <li><p>Introduction to interactive data processing and analysis</p></li>
+<li><p>Interactive shell and notebook interfaces</p></li>
+<li><p>Detailed steps of interactive data processing and analysis</p></li>
 </ul>
 </section>
 <section >
@@ -51,44 +52,27 @@ end-to-end repeatedly</p></li>
 </ul>
 </section>
 <section >
-<h2>Interfaces</h2>
+<h2>Data Processing Overview</h2>
 <ul class="simple">
-<li><p>Spark shell: traditional command-line interface</p>
+<li><p>Two types of data processing</p>
 <ul>
-<li><p>REPL (Read-Eval-Print Loop) interface</p></li>
-<li><p>You need to save and manage your code and outcome separately (e.g. copy and
-paste an editor)</p></li>
-<li><p>Awkward to reuse code snippets</p></li>
+<li><p>Batch processing and analysis: repeated end to end process with
+sophisticated procedures</p></li>
+<li><p>Interactive processing and analysis: interactively process with unknown
+procedures; employed in one-time analysis or exploratory data analysis for
+potential batch processing pipeline development</p></li>
 </ul>
 </li>
-<li><p>Notebook interface: a web-based interface</p>
-<ul>
-<li><p>Mostly based on Jupyter Notebook</p></li>
-<li><p>Require backend (local or remote) to run the code snippets</p></li>
-<li><p>Cells to keep both documentation and code snippets</p></li>
-<li><p>Run code snippets in cells and see the outcome immediately</p></li>
-<li><p>Easy import/export of code snippets to code files or html files</p></li>
-<li><p>Convenient to give and collect assignments in teaching</p></li>
-</ul>
-</li>
-</ul>
-</section>
-<section>
-<section >
-<h2>Interactive Data Processing and Analysis</h2>
-<ul class="simple">
-<li><p>Steps to data processing and analysis</p>
+<li><p>Typical steps of <strong>batch</strong> data processing and analysis</p>
 <ul>
 <li><p>Load data</p></li>
 <li><p>Process data</p></li>
 <li><p>Analyze data</p></li>
 <li><p>Visualize data</p></li>
-<li><p>Save report and visualizations</p></li>
-<li><p>Save data</p></li>
+<li><p>Save/Export report and visualizations</p></li>
+<li><p>Save/Export data</p></li>
 </ul>
 </li>
-<li><p>When you need to check the outcome of each step, it is an interactive data
-processing and analysis</p></li>
 <li><p>Common workflow in data science</p>
 <ul>
 <li><p>Collect new data</p></li>
@@ -99,6 +83,118 @@ analysis (EDA)</p></li>
 </ul>
 </li>
 </ul>
+</section>
+<section >
+<h2>Interactive Data Processing and Analysis</h2>
+<ul class="simple">
+<li><p>In interactive data processing and analysis, the steps are the same but the
+process is more iterative. You will go back and forth between the steps to
+refine the data processing and analysis.</p></li>
+<li><p>Try and refine upstream steps and then proceed to the downstream steps</p></li>
+<li><p>When downstream steps are not satisfactory as a problem related to upstream
+steps, go back to the upstream steps and try again</p></li>
+<li><p>The process is iterative and interactive</p></li>
+<li><p>Two types of interface for interactive data processing and analysis</p>
+<ul>
+<li><p>Interactive shell</p></li>
+<li><p>Notebook interface</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section>
+<section >
+<h2>Interfaces</h2>
+<ul class="simple">
+<li><p>Spark shell: traditional command-line interface</p>
+<ul>
+<li><p>REPL (Read-Eval-Print Loop) interface</p></li>
+<li><p>You need to save and manage your code and outcome separately (e.g. copy and
+paste an editor)</p></li>
+<li><p>Awkward to reuse code snippets</p></li>
+</ul>
+</li>
+<li><p>Notebook interface: a modern web-based interface</p>
+<ul>
+<li><p>Mostly based on Jupyter Notebook</p></li>
+<li><p>Require backend (local or remote) to run the code snippets</p></li>
+<li><p>Cells to keep both documentation and code snippets</p></li>
+<li><p>Run code snippets in cells and see the outcome immediately</p></li>
+<li><p>Easy import/export of code snippets to code files or html files</p></li>
+<li><p>Convenient to give and collect assignments in teaching</p></li>
+<li><p><strong>Note: Databricks Community Edition provides a notebook interface with on
+cloud backend free of charge</strong></p></li>
+<li><p><strong>Note: Databricks Community Edition is the only service that supports
+Scala in the notebook interface</strong></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section >
+<h3>Introduction to Spark Shell</h3>
+<ul class="simple">
+<li><p>Spark shell is a command-line interface to interact with Spark using Scala</p></li>
+<li><p>REPL (Read-Eval-Print Loop) interface</p></li>
+<li><p>Start Spark shell to enter the REPL interface</p></li>
+<li><p>Enter a Scala code snippet to interact with Spark backend</p></li>
+<li><p>Commands started with <code class="code docutils literal notranslate"><span class="pre">:</span></code> are special commands</p>
+<ul>
+<li><p><code class="code docutils literal notranslate"><span class="pre">help</span></code>: list all special commands</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">quit</span></code>: exit the shell</p></li>
+</ul>
+</li>
+<li><p>Reuse history commands: Ctrl-R to search history commands</p></li>
+<li><p>Multi-line code snippets</p>
+<ul>
+<li><p>Single command in multiple lines</p>
+<ul>
+<li><p>The shell will wait if the command seems incomplete</p></li>
+<li><p>the trick is to use open parenthesis or open brackets to make the command
+incomplete</p></li>
+</ul>
+</li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">:paste</span></code> to enter multiple lines of code with any number of
+statements</p>
+<ul>
+<li><p>Ctrl-D to exit the paste mode</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Straight forward to use and easy access to local file system</p></li>
+<li><p>Very limited edition capability and awkward to reuse code snippets</p></li>
+<li><p>Refer to <a class="reference internal" href="docker.html"><span class="doc">Spark In Docker</span></a> slides for the setup of the Spark shell in Docker</p></li>
+</ul>
+</section>
+<section >
+<h3>Introduction to DataBricks Notebook</h3>
+<ul class="simple">
+<li><p>Jupyter notebook like interface</p>
+<ul>
+<li><p>Commonly used in data science with support to Python, R, Julia, etc.</p></li>
+</ul>
+</li>
+<li><p>Databricks Community Edition</p>
+<ul>
+<li><p>Only known service that supports Scala</p></li>
+<li><p>Direct access to Spark backend and Databricks File System (DBFS)</p>
+<ul>
+<li><p>the SparkContext is already created and named as <code class="code docutils literal notranslate"><span class="pre">sc</span></code></p></li>
+<li><p>access DBFS with <code class="code docutils literal notranslate"><span class="pre">dbfs:</span></code> prefix when using file paths</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">dbutils</span></code> library to access Databricks utilities</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Refer to <a class="reference internal" href="dce.html"><span class="doc">Databricks Community Edition</span></a> slides for the setup of DCE</p></li>
+</ul>
+</section>
+</section>
+<section>
+<section >
+<h2>Detailed steps of interactive data processing and analysis</h2>
+<p>Details are shown for all step with focus on how they works with both Spark
+shell and notebook interface</p>
 </section>
 <section >
 <h3>Load Data</h3>
