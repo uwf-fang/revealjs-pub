@@ -192,9 +192,12 @@ statements</p>
 </section>
 <section>
 <section >
-<h2>Detailed steps of interactive data processing and analysis</h2>
-<p>Details are shown for all step with focus on how they works with both Spark
-shell and notebook interface</p>
+<h2>Steps of interactive processing and analysis</h2>
+<ul class="simple">
+<li><p>Details are shown for all steps</p></li>
+<li><p>Both Spark shell and Databricks notebook are used for the demonstration</p></li>
+<li><p>Spark in docker container handles files in the local file system directly</p></li>
+</ul>
 </section>
 <section >
 <h3>Load Data</h3>
@@ -232,6 +235,7 @@ file system!</p></li>
 <ul class="simple">
 <li><p>Your code runs in a disposable container (compute). Thus, data stored in the
 local file system will be lost after the container is recycled</p></li>
+<li><p>Refer to the file operations with DCE recording on Canvas in module 3</p></li>
 <li><p>Databricks provides a distributed file system called Databricks File System
 (DBFS)</p>
 <ul>
