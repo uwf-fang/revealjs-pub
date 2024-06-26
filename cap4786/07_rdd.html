@@ -179,18 +179,24 @@ optimizing overall data processing efficiency.</p></li>
 specified condition.</p></li>
 <li><p><cite>flatMap</cite>: Similar to <cite>map</cite>, but each input item can be mapped to zero or
 more output items (thus “flattening” the results into a new RDD).</p></li>
-<li><p><cite>reduceByKey</cite>: Applies a reduce function to the data items with the same
-key, which is useful for aggregating results. <strong>Pair RDDs only</strong>.</p></li>
 <li><p><cite>groupByKey</cite>: Groups data items by key into a single sequence, allowing for
 subsequent aggregation operations. <strong>Pair RDDs only</strong>.</p></li>
+<li><p><cite>reduceByKey</cite>: Applies a reduce function to the data items with the same
+key, which is useful for aggregating results. <strong>Pair RDDs only</strong>.</p></li>
+</ul>
+</li>
+<li><p><strong>Lazy Evaluation and Shuffling</strong></p>
+<ul>
+<li><p>Transformations that can be executed totally on local share of data are not
+executed immediately, but are stored as a DAG.</p></li>
+<li><p>Some transformations such as <cite>groupByKey</cite> and <cite>reduceByKey</cite> require data
+shuffling across partitions, will trigger execution.</p></li>
 </ul>
 </li>
 <li><p><strong>Functional Programming</strong></p>
 <ul>
 <li><p>RDD transformations are high-level methods that takes functions to process
 the data.</p></li>
-<li><p>Make use of Scala’s functional programming features like anonymous functions
-and closures to write concise and expressive code.</p></li>
 <li><p>Make pure functions to ensure deterministic results and avoid side effects.</p></li>
 </ul>
 </li>
