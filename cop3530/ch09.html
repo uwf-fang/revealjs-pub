@@ -161,7 +161,7 @@ base type must be comparable.</p></li>
 </div>
 </section>
 <section >
-<h2>Real-World Choices</h2>
+<h2>Real-World Choices (FYI)</h2>
 <div class="flex-container docutils container">
 <div class="half docutils container">
 <p><strong>Summary of real-world state-of-art for array</strong></p>
@@ -226,9 +226,9 @@ base type must be comparable.</p></li>
 <li><p>Bubble sort <span class="math notranslate nohighlight">\(\Theta(n^2)\)</span></p></li>
 <li><p>Selection sort <span class="math notranslate nohighlight">\(\Theta(n^2)\)</span></p></li>
 <li><p>Insertion sort <span class="math notranslate nohighlight">\(\Theta(n^2)\)</span></p></li>
-<li><p>Merge sort <span class="math notranslate nohighlight">\(\Theta(n\log n)\)</span></p></li>
-<li><p>Quick sort <span class="math notranslate nohighlight">\(\Theta(n\log n)\)</span> (average), <span class="math notranslate nohighlight">\(\Theta(n^2)\)</span> (worst)</p></li>
-<li><p>Heap sort <span class="math notranslate nohighlight">\(\Theta(n\log n)\)</span></p></li>
+<li><p>Merge sort <span class="math notranslate nohighlight">\(\Theta(n \log n)\)</span></p></li>
+<li><p>Quick sort <span class="math notranslate nohighlight">\(\Theta(n \log n)\)</span> (average), <span class="math notranslate nohighlight">\(\Theta(n^2)\)</span> (worst)</p></li>
+<li><p>Heap sort <span class="math notranslate nohighlight">\(\Theta(n \log n)\)</span></p></li>
 </ul>
 </li>
 <li><p>Non-comparison-based sorting algorithms (Array)</p>
@@ -241,7 +241,7 @@ base type must be comparable.</p></li>
 </li>
 <li><p>Linked list</p>
 <ul>
-<li><p>Merge sort <span class="math notranslate nohighlight">\(\Theta(n\log n)\)</span></p></li>
+<li><p>Merge sort <span class="math notranslate nohighlight">\(\Theta(n \log n)\)</span></p></li>
 <li><p>Insertion sort <span class="math notranslate nohighlight">\(\Theta(n^2)\)</span></p></li>
 </ul>
 </li>
@@ -249,23 +249,20 @@ base type must be comparable.</p></li>
 </section>
 <section >
 <h3>Space Complexity</h3>
-<p>The following discussion is on array only. For linked list, the space
-complexity is always <span class="math notranslate nohighlight">\(\Theta(1)\)</span>.</p>
+<p><strong>The following discussion is on array only.</strong></p>
 <ul class="simple">
 <li><p>In-place sorting algorithms (swap based) <span class="math notranslate nohighlight">\(\Theta(1)\)</span></p>
 <ul>
-<li><p>Bubble sort</p></li>
-<li><p>Selection sort</p></li>
-<li><p>Insertion sort</p></li>
-<li><p>Quick sort</p></li>
-<li><p>Heap sort</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Theta(1)\)</span> for swapping</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Theta(\log n)\)</span> to <span class="math notranslate nohighlight">\(\Theta(n)\)</span> for recursion stack</p></li>
+<li><p>Iterative: swapping only</p></li>
+<li><p>Recursive: swapping + recursion stack</p></li>
 </ul>
 </li>
 <li><p>Out-of-place sorting algorithms <span class="math notranslate nohighlight">\(\Theta(n)\)</span></p>
 <ul>
-<li><p>Merge sort</p></li>
-<li><p>Radix sort</p></li>
-<li><p>Bucket sort</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Theta(n)\)</span> for a new array</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Theta(\log n)\)</span> to <span class="math notranslate nohighlight">\(\Theta(n)\)</span> for recursion stack</p></li>
 </ul>
 </li>
 </ul>
@@ -293,8 +290,7 @@ complexity is always <span class="math notranslate nohighlight">\(\Theta(1)\)</s
 <h3>Quick partition algorithm</h3>
 <ul class="simple">
 <li><p>The core of quick sort</p></li>
-<li><p>Many variations: <strong>Use our variation of Hoare’s partition scheme to keep
-everything consistent!</strong></p></li>
+<li><p>Many variations: <strong>Stick to our variation from zyBook!</strong></p></li>
 <li><p>Steps</p>
 <ol class="arabic simple">
 <li><p>Pick an element, called a pivot, from the list.</p></li>
@@ -305,31 +301,25 @@ after it.</p></li>
 <li><p>Return the <strong>location of the partition.</strong></p></li>
 </ol>
 </li>
-<li><p>Select the pivot</p>
-<ul>
-<li><p>First element as pivot</p></li>
-<li><p>Middle element as pivot</p></li>
-<li><p>Random element as pivot</p></li>
-</ul>
-</li>
 </ul>
 </section>
 <section >
-<h3>Quick Partition Algorithm: Our Variation (Hoare’s Scheme)</h3>
+<h3>Quick Partition Algorithm</h3>
 <ul class="simple">
 <li><p>Lomuto’s partition scheme (FYI)</p></li>
-<li><p>Hoare’s partition scheme (Our variation)</p>
+<li><p>Hoare’s partition scheme (zyBook variation)</p>
 <ol class="arabic simple">
-<li><p>Let two cursor indices to point to the first and last element of the
-list respectively.</p></li>
-<li><p>Move the left cursor to the right until it points to an element
+<li><p>Let two cursor indices to point to the first - 1 and last + 1 positions of
+the list respectively.</p></li>
+<li><p>Keep moving the left cursor to the right until it points to an element
 <strong>greater and equal</strong> than the pivot.</p></li>
 <li><p>Move the right cursor to the left until it points to an element <strong>less
 and equal</strong> than the pivot.</p></li>
-<li><p>If the left cursor meets the right cursor, the partition is complete.
-Return the left or right cursor.</p></li>
+<li><p>If the left cursor meets or passes the right cursor, the partition is
+complete. Return the right cursor.</p></li>
 <li><p>Swap the elements pointed by the two cursors.</p></li>
-<li><p>Repeat steps 2-5 until the partition is complete (step 4 returns).</p></li>
+<li><p>Move both cursors one more step</p></li>
+<li><p>Repeat steps 2-6 until the partition is complete (step 4 returns).</p></li>
 </ol>
 </li>
 </ul>
@@ -343,28 +333,23 @@ Return the left or right cursor.</p></li>
 times.</strong></p></li>
 <li><p>The returned index is the final position of the pivot</p></li>
 </ul>
-<pre data-id="id3"><code data-trim data-noescape class="default">function hoare_partition(arr, low, high):
-  // Select the middle element as the pivot
+<pre data-id="quick-partition-algorithm-our-variation-hoare-s-scheme"><code data-trim data-noescape class="default">function hoare_partition(arr, low, high):
   middle = (low + high) / 2  // integer division
   pivot = arr[middle]
-
   i = low
   j = high
 
   while True:
     // Find leftmost element greater than or equal to pivot
-    while arr[i] &lt; pivot:
-      i = i + 1
-
+    while arr[i] &lt; pivot: i = i + 1
     // Find rightmost element less than or equal to pivot
-    while arr[j] &gt; pivot
-      j = j - 1
-
+    while arr[j] &gt; pivot j = j - 1
     // If pointers meet, partition is complete
     if i == j:
-      return i  // Return the index
-
-    swap(arr[i], arr[j])</code></pre>
+      return i  // it is same to break here and return later
+    swap(arr[i], arr[j])
+    i = i + 1
+    j = j - 1</code></pre>
 </section>
 <section >
 <h3>Quick Partition Example (con’d)</h3>
@@ -375,24 +360,24 @@ times.</strong></p></li>
 middle = (low + high) / 2 = 4
 pivot = arr[middle] = 64
 
-{42, 7, 85, 23, 64, 91, 9, 73, 18, 56} swap 85, 56
+{42, 7, 85, 23, 64, 91, 9, 73, 18, 56} find position
         l                          h
-{42, 7, 56, 23, 64, 91, 9, 73, 18, 85} swap 64, 18
+{42, 7, 56, 23, 64, 91, 9, 73, 18, 85} swap 85, 56, and move by 1
+            l                  h
+{42, 7, 56, 23, 64, 91, 9, 73, 18, 85} find position (hit pivot)
                 l              h
-{42, 7, 56, 23, 18, 91, 9, 73, 64, 85} swap 91, 64
-                    l          h
-{42, 7, 56, 23, 18, 64, 9, 73, 91, 85} swap 64, 9
+{42, 7, 56, 23, 18, 91, 9, 73, 64, 85} swap 64, 18, and move by 1
+                    l      h
+{42, 7, 56, 23, 18, 91, 9, 73, 64, 85} find position
                     l   h
-{42, 7, 56, 23, 18, 9, 64, 73, 91, 85} return 6
-                       lh</code></pre>
+{42, 7, 56, 23, 18, 9, 91, 91, 64, 85} swap 91, 9, and move by 1
+                    h  l
+h &lt;= l, return h; left: low to h, right: h + 1 to high</code></pre>
 </li>
-<li><p>All elements to the left of the returned index are less than or equal to the
-pivot, and all elements to the right of the returned index are greater than
-or equal to the pivot. <strong>The pivot is already in its final position.</strong></p></li>
-<li><p>The returned index is the final position of the pivot.</p></li>
+<li><p>The pivot is moved only once.</p></li>
+<li><p>The returned index is NOT the final position of the pivot!</p></li>
 <li><p><strong>Exercise:</strong></p>
 <ul class="simple">
-<li><p>Next round of partitioning on the left and right sublists.</p></li>
 <li><p>How about the first element is selected as the pivot? Is there more
 movement of data?</p></li>
 </ul>
@@ -418,13 +403,10 @@ movement of data?</p></li>
 function quick_sort_helper(arr, low, high):
   if low &gt;= high:
     return
-
   // Partition the list into two sublists
   partition_index = hoare_partition(arr, low, high)
-
   // Recursively call quick sort on both sublists
-  // The pivot is already in its final position
-  quick_sort_helper(arr, low, partition_index - 1)
+  quick_sort_helper(arr, low, partition_index)  // do not - 1
   quick_sort_helper(arr, partition_index + 1, high)</code></pre>
 </section>
 <section >
@@ -438,13 +420,13 @@ of roughly equal size</p></li>
 <li><p><span class="math notranslate nohighlight">\(\Theta(n^2)\)</span> worst case, extremely uneven partitioning</p></li>
 </ul>
 </li>
-<li><p>Space - <span class="math notranslate nohighlight">\(\Theta(1)\)</span></p></li>
+<li><p>Space - <span class="math notranslate nohighlight">\(\Theta(\log n)\)</span> to <span class="math notranslate nohighlight">\(\Theta(n)\)</span> depending on partition</p></li>
 <li><p>Improvement attempts</p>
 <ul>
 <li><p>Pivot selection</p>
 <ul>
 <li><p>Randomized quick sort</p></li>
-<li><p>Median of medians</p></li>
+<li><p>Median of three</p></li>
 </ul>
 </li>
 <li><p>Shuffling the list before sorting</p></li>
@@ -469,8 +451,6 @@ configurations and are not compatible with our demonstration.</p>
 <li><p><a class="reference external" href="http://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html">http://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html</a></p></li>
 </ul>
 </li>
-<li><p>The zybook example uses Hoare’s scheme and the middle element as the pivot
-but allow the pivot to be passed by the cursor.</p></li>
 </ul>
 </section>
 </section>

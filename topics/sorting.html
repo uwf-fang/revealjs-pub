@@ -148,7 +148,7 @@ base type must be comparable.</p></li>
 </div>
 </section>
 <section >
-<h2>Real-World Choices</h2>
+<h2>Real-World Choices (FYI)</h2>
 <div class="flex-container docutils container">
 <div class="half docutils container">
 <p><strong>Summary of real-world state-of-art for array</strong></p>
@@ -213,9 +213,9 @@ base type must be comparable.</p></li>
 <li><p>Bubble sort <span class="math notranslate nohighlight">\(\Theta(n^2)\)</span></p></li>
 <li><p>Selection sort <span class="math notranslate nohighlight">\(\Theta(n^2)\)</span></p></li>
 <li><p>Insertion sort <span class="math notranslate nohighlight">\(\Theta(n^2)\)</span></p></li>
-<li><p>Merge sort <span class="math notranslate nohighlight">\(\Theta(n\log n)\)</span></p></li>
-<li><p>Quick sort <span class="math notranslate nohighlight">\(\Theta(n\log n)\)</span> (average), <span class="math notranslate nohighlight">\(\Theta(n^2)\)</span> (worst)</p></li>
-<li><p>Heap sort <span class="math notranslate nohighlight">\(\Theta(n\log n)\)</span></p></li>
+<li><p>Merge sort <span class="math notranslate nohighlight">\(\Theta(n \log n)\)</span></p></li>
+<li><p>Quick sort <span class="math notranslate nohighlight">\(\Theta(n \log n)\)</span> (average), <span class="math notranslate nohighlight">\(\Theta(n^2)\)</span> (worst)</p></li>
+<li><p>Heap sort <span class="math notranslate nohighlight">\(\Theta(n \log n)\)</span></p></li>
 </ul>
 </li>
 <li><p>Non-comparison-based sorting algorithms (Array)</p>
@@ -228,7 +228,7 @@ base type must be comparable.</p></li>
 </li>
 <li><p>Linked list</p>
 <ul>
-<li><p>Merge sort <span class="math notranslate nohighlight">\(\Theta(n\log n)\)</span></p></li>
+<li><p>Merge sort <span class="math notranslate nohighlight">\(\Theta(n \log n)\)</span></p></li>
 <li><p>Insertion sort <span class="math notranslate nohighlight">\(\Theta(n^2)\)</span></p></li>
 </ul>
 </li>
@@ -236,23 +236,20 @@ base type must be comparable.</p></li>
 </section>
 <section >
 <h3>Space Complexity</h3>
-<p>The following discussion is on array only. For linked list, the space
-complexity is always <span class="math notranslate nohighlight">\(\Theta(1)\)</span>.</p>
+<p><strong>The following discussion is on array only.</strong></p>
 <ul class="simple">
 <li><p>In-place sorting algorithms (swap based) <span class="math notranslate nohighlight">\(\Theta(1)\)</span></p>
 <ul>
-<li><p>Bubble sort</p></li>
-<li><p>Selection sort</p></li>
-<li><p>Insertion sort</p></li>
-<li><p>Quick sort</p></li>
-<li><p>Heap sort</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Theta(1)\)</span> for swapping</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Theta(\log n)\)</span> to <span class="math notranslate nohighlight">\(\Theta(n)\)</span> for recursion stack</p></li>
+<li><p>Iterative: swapping only</p></li>
+<li><p>Recursive: swapping + recursion stack</p></li>
 </ul>
 </li>
 <li><p>Out-of-place sorting algorithms <span class="math notranslate nohighlight">\(\Theta(n)\)</span></p>
 <ul>
-<li><p>Merge sort</p></li>
-<li><p>Radix sort</p></li>
-<li><p>Bucket sort</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Theta(n)\)</span> for a new array</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Theta(\log n)\)</span> to <span class="math notranslate nohighlight">\(\Theta(n)\)</span> for recursion stack</p></li>
 </ul>
 </li>
 </ul>
