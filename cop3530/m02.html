@@ -129,18 +129,18 @@ variables, etc.</p></li>
 <ul>
 <li><p>Drivers</p>
 <ul>
-<li><p>contains a <code class="docutils literal notranslate"><span class="pre">main</span></code> function</p></li>
-<li><p>should has no header file</p></li>
+<li><p><strong>contains a ``main`` function</strong></p></li>
+<li><p>generally have no paired header file</p></li>
 <li><p>one per executable</p></li>
 <li><p>E.g. <code class="docutils literal notranslate"><span class="pre">main.cpp</span></code>, <code class="docutils literal notranslate"><span class="pre">test.cpp</span></code>, <code class="docutils literal notranslate"><span class="pre">driver.cpp</span></code>, etc.</p></li>
 </ul>
 </li>
 <li><p>Modules (or libraries)</p>
 <ul>
-<li><p>no <code class="docutils literal notranslate"><span class="pre">main</span></code> function</p></li>
+<li><p><strong>no ``main`` function</strong></p></li>
 <li><p>contain classes, functions, global variables, etc. to be used by the
 driver or other modules</p></li>
-<li><p>usually paired hpp and cpp files</p></li>
+<li><p><strong>paired hpp and cpp files</strong> or <strong>header only</strong></p></li>
 <li><p>E.g. <code class="docutils literal notranslate"><span class="pre">table.hpp</span> <span class="pre">+</span> <span class="pre">table.cpp</span></code>, <code class="docutils literal notranslate"><span class="pre">list.hpp</span> <span class="pre">+</span> <span class="pre">list.cpp</span></code>, etc.</p></li>
 <li><p>this term is used interchangeably with “library” in this course; it
 may be defined differently in other contexts</p></li>
@@ -151,6 +151,16 @@ may be defined differently in other contexts</p></li>
 </ul>
 </div>
 </div>
+</section>
+<section >
+<h3>Quick Quiz</h3>
+<p>In a project with files: <code class="docutils literal notranslate"><span class="pre">main.cpp</span></code>, <code class="docutils literal notranslate"><span class="pre">table.hpp</span></code>, <code class="docutils literal notranslate"><span class="pre">table.cpp</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">list.hpp</span></code>, find which files belongs to the following categories:</p>
+<ol class="arabic simple">
+<li><p>Driver</p></li>
+<li><p>Module (paired files)</p></li>
+<li><p>Module (header only)</p></li>
+</ol>
 </section>
 <section >
 <h3>C++ Building Model</h3>
@@ -221,19 +231,20 @@ file.</p></li>
 </ul>
 </section>
 <section >
-<h3>Two building approaches</h3>
-<ul>
-<li><p>One step building (not recommended)</p>
+<h3>Two building approaches: One step</h3>
 <ul class="simple">
+<li><p><strong>Not recommended</strong> for modular projects.</p></li>
 <li><p>Should be limited to simple projects.</p></li>
 <li><p>Preprocessing + Compilation + Linking all at once</p></li>
-<li><p>Generate one executable from <strong>a single driver</strong> and optionally other
+<li><p>Generate one executable from <strong>a single driver</strong> and other
 source files for modules</p></li>
 </ul>
-<pre><code data-trim data-noescape class="bash">g++ -Wall -std=c++14 -I&lt;path/to/headers&gt; -o &lt;executable&gt; &lt;list of .cpp files&gt;</code></pre>
-</li>
-<li><p>Step-wise modular building (recommended)</p>
+<pre data-id="two-building-approaches-one-step"><code data-trim data-noescape class="bash">g++ -std=c++14 -I&lt;path/to/headers&gt; -o &lt;executable&gt; &lt;list of .cpp files&gt;</code></pre>
+</section>
+<section >
+<h3>Two building approaches: Step-wise</h3>
 <ul>
+<li><p><strong>Recommended</strong> for modular projects.</p></li>
 <li><p>Allows fine control over the building process of complicated modular
 projects.</p></li>
 <li><p>Preprocessing + Compilation</p>
@@ -251,11 +262,33 @@ files of modules</p></li>
 <pre><code data-trim data-noescape class="bash">g++ -o &lt;executable&gt; &lt;list of .o files&gt;</code></pre>
 </li>
 </ul>
-</li>
+<ul class="simple">
 <li><p>Common errors: <a class="reference external" href="https://uwf-fang.github.io/cpp/building/gpp.html#common-error-messages-from-g">link</a></p></li>
 </ul>
 </section>
+<section >
+<h3>Never Do This!</h3>
+<ul class="simple">
+<li><p>Include cpp files using #include directive</p></li>
+<li><p>File name mismatch between #include directive and actual file name; Commonly
+caused by the use of capital letters in file names</p></li>
+<li><p>Include header file names in the g++ command line</p></li>
+<li><p>Linking object files of multiple drivers into one executable</p></li>
+<li><p>Forget to include header guards in header files</p></li>
+<li><p>Forget <code class="docutils literal notranslate"><span class="pre">-c</span></code> flag in the compilation command</p></li>
+</ul>
 </section>
+<section >
+<h3>Quick Quiz</h3>
+<p>What is wrong with the following commands? What type of building approach is?</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">g++</span> <span class="pre">-o</span> <span class="pre">main</span> <span class="pre">main.cpp</span> <span class="pre">grade-book.cpp</span> <span class="pre">grades.hpp</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">g++</span> <span class="pre">-o</span> <span class="pre">main.o</span> <span class="pre">main.cpp</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">g++</span> <span class="pre">-c</span> <span class="pre">-o</span> <span class="pre">main.o</span> <span class="pre">main.cpp</span> <span class="pre">grade-book.cpp</span></code></p></li>
+</ul>
+</section>
+</section>
+<section>
 <section >
 <h2>Automate the building process using GNU make</h2>
 <div class="flex-container docutils container">
@@ -276,7 +309,6 @@ to build targets in a project.</p>
 <ul class="simple">
 <li><p>Define rules to compile and link</p></li>
 <li><p>Have complicated syntax for makefile but easy to start with</p></li>
-<li><p>Better to keep it simple as a beginner</p></li>
 </ul>
 </li>
 <li><p>Common errors: <a class="reference external" href="https://uwf-fang.github.io/tools/make.html#common-error-messages-from-make">link</a></p></li>
@@ -310,17 +342,27 @@ clean:
 </div>
 </section>
 <section >
-<h2>Pitfalls and common errors</h2>
+<h3>Use GNU make to build</h3>
 <ul class="simple">
-<li><p>Missing header guards in header files</p></li>
-<li><p>Include .cpp files using #include directive</p></li>
-<li><p>Mismatched filenames in #include directives</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">using</span> <span class="pre">namespace</span> <span class="pre">std;</span></code> in header files</p></li>
-<li><p>Include header file names in the g++ command line</p></li>
-<li><p>Linking object files of multiple drivers into one executable</p></li>
-<li><p>Google and ChatGPT are your friends because the error message is usually
-confusing!</p></li>
+<li><p>Create a makefile in the project directory.</p></li>
+<li><p>Define rules for compiling and linking.</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">make</span></code> commands:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">make</span></code>: build the first target in the makefile, you can press tab to
+auto-complete the target name</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">&lt;target&gt;</span></code>: build the specified target</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">clean</span></code>: remove temporary files</p></li>
 </ul>
+</li>
+<li><p>Common make targets in projects</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">test-all</span></code>: run all tests</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">test-#-name</span></code>: run test number #</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">test-run</span></code>: compile and run the program</p></li>
+</ul>
+</li>
+</ul>
+</section>
 </section>
 <section >
 <h1>Testing For C++</h1>
