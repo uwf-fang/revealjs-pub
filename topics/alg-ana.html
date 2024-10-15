@@ -230,19 +230,12 @@ to take constant time.</p></li>
 </ul>
 </div>
 <div class="half docutils container">
-<pre><code data-trim data-noescape class="c++"></code></pre>
-<dl>
-<dt>int search(int * arr, int size, int val) {</dt><dd><dl class="simple">
-<dt>for (int i = 0; i &lt; size; ++i)</dt><dd><dl class="simple">
-<dt>if (arr[i] == val)</dt><dd><p>return i;</p>
-</dd>
-</dl>
-</dd>
-</dl>
-<p>return -1;</p>
-</dd>
-</dl>
-<p>}</p>
+<pre><code data-trim data-noescape class="c++">int search(int * arr, int size, int val) {
+  for (int i = 0; i &lt; size; ++i)
+    if (arr[i] == val)
+      return i;
+  return -1;
+}</code></pre>
 </div>
 </div>
 </section>
