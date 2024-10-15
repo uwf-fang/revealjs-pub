@@ -82,23 +82,20 @@ complete. Return the right cursor.</p></li>
 times.</strong></p></li>
 <li><p>The returned index is the final position of the pivot</p></li>
 </ul>
-<pre data-id="quick-partition-algorithm-our-variation-hoare-s-scheme"><code data-trim data-noescape class="default">function hoare_partition(arr, low, high):
-  middle = (low + high) / 2  // integer division
-  pivot = arr[middle]
-  i = low
-  j = high
-
-  while True:
-    // Find leftmost element greater than or equal to pivot
-    while arr[i] &lt; pivot: i = i + 1
-    // Find rightmost element less than or equal to pivot
-    while arr[j] &gt; pivot j = j - 1
-    // If pointers meet, partition is complete
-    if i == j:
-      return i  // it is same to break here and return later
-    swap(arr[i], arr[j])
-    i = i + 1
-    j = j - 1</code></pre>
+<pre data-id="quick-partition-algorithm-our-variation-hoare-s-scheme"><code data-trim data-noescape class="c++">int quickPartition(int *arr, int low, int high) {
+  int mid = (high + low) / 2;
+  // int mid = low + (high - low) / 2;
+  int pivot = arr[mid];
+  while (true) {
+    while (arr[low] &lt; pivot) ++low;
+    while (arr[high] &gt; pivot) --high;
+    if (low &gt;= high) break;
+    swap(arr[low], arr[high]);
+    ++low;
+    --high;
+  }
+  return high;
+}</code></pre>
 </section>
 <section >
 <h2>Quick Partition Example (con’d)</h2>
@@ -146,17 +143,16 @@ movement of data?</p></li>
 </ol>
 </li>
 </ul>
-<pre data-id="quick-sort-algorithm"><code data-trim data-noescape class="default">function quick_sort(arr, size):
-  quick_sort_helper(arr, 0, size - 1)
+<pre data-id="quick-sort-algorithm"><code data-trim data-noescape class="c++">void quicksort(int *arr, int size) {
+  quicksortHelper(arr, 0, size - 1);
+}
 
-function quick_sort_helper(arr, low, high):
-  if low &gt;= high:
-    return
-  // Partition the list into two sublists
-  partition_index = hoare_partition(arr, low, high)
-  // Recursively call quick sort on both sublists
-  quick_sort_helper(arr, low, partition_index)  // do not - 1
-  quick_sort_helper(arr, partition_index + 1, high)</code></pre>
+void quicksortHelper(int *arr, int low, int high) {
+  if (low &gt;= high) return;
+  int part = quickPartition(arr, low, high);
+  quicksortHelper(arr, low, part);
+  quicksortHelper(arr, part + 1, high);
+}</code></pre>
 </section>
 <section >
 <h2>Complexity</h2>
