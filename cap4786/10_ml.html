@@ -1,15 +1,15 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Introduction to Big Data Analytics</title>
-    <link rel="stylesheet" type="text/css" href="../_static/revealjs4/dist/reveal.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs/dist/reveal.css?v=40f0a724" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/revealjs4/plugin/highlight/zenburn.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs/plugin/highlight/zenburn.css?v=83d5745d" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -17,13 +17,16 @@
   </head><body>
     <div class="reveal">
         <div class="slides" role="main">
-            <section data-background-color="white" data-background-image="../_static/logo.png" data-background-size="50%" data-background-position="top center" data-background-repeat="no-repeat">
+            <section >
+<section data-background-color="white" data-background-image="../_static/logo.png" data-background-size="50%" data-background-position="top center" data-background-repeat="no-repeat">
 <h1>Introduction to Big Data Analytics</h1>
 <div class="subtitle docutils container">
 <p><strong>Chapter 8: Machine Learning with Spark</strong></p>
 <p>Xingang (Ian) Fang</p>
 </div>
 </section>
+</section>
+<section >
 <section >
 <h2>Outline</h2>
 <div class="flex-container docutils container">
@@ -36,11 +39,13 @@
 </ul>
 </div>
 <div class="half docutils container">
-<a class="reference internal image-reference" href="../_images/ml.png"><img alt="Machine learning" src="../_images/ml.png" style="width: 50%;" /></a>
+<a class="reference internal image-reference" href="../_images/ml.png"><img alt="Machine learning" src="../_images/ml.png" style="width: 50%;" />
+</a>
 </div>
 </div>
 </section>
-<section>
+</section>
+<section >
 <section >
 <h2>Introduction to Machine Learning</h2>
 <ul class="simple">
@@ -87,7 +92,8 @@ label)</p></li>
 </section>
 <section >
 <h3>Data in Machine Learning Example</h3>
-<a class="reference internal image-reference" href="../_images/ml-data.png"><img alt="Data in Machine Learning" src="../_images/ml-data.png" style="width: 100%;" /></a>
+<a class="reference internal image-reference" href="../_images/ml-data.png"><img alt="Data in Machine Learning" src="../_images/ml-data.png" style="width: 100%;" />
+</a>
 </section>
 <section >
 <h3>Data Preparation</h3>
@@ -162,6 +168,7 @@ amount of unlabeled data</p></li>
 </section>
 </section>
 <section >
+<section >
 <h2>Machine Learning with Spark</h2>
 <div class="flex-container docutils container">
 <div class="half docutils container">
@@ -191,6 +198,8 @@ amount of unlabeled data</p></li>
 </div>
 </div>
 </section>
+</section>
+<section >
 <section >
 <h2>MLlib RDD API</h2>
 <ul class="simple">
@@ -219,6 +228,8 @@ amount of unlabeled data</p></li>
 <li><p><a class="reference external" href="https://spark.apache.org/docs/latest/mllib-guide.html">Official MLlib RDD API Guide</a></p></li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>MLlib DataFrame API</h2>
 <ul class="simple">
@@ -243,17 +254,17 @@ amount of unlabeled data</p></li>
         </div>
     </div>
     
-    <script src="../_static/revealjs4/dist/reveal.js"></script>
+    <script src="../_static/revealjs/dist/reveal.js"></script>
     
     
-      <script src="../_static/revealjs4/plugin/notes/notes.js"></script>
-      <script src="../_static/revealjs4/plugin/highlight/highlight.js"></script>
-      <script src="../_static/revealjs4/plugin/math/math.js"></script>
+      <script src="../_static/revealjs/plugin/notes/notes.js"></script>
+      <script src="../_static/revealjs/plugin/highlight/highlight.js"></script>
+      <script src="../_static/revealjs/plugin/math/math.js"></script>
       
     
     <script>
         var revealjsConfig = new Object();
-        Object.assign(revealjsConfig, JSON.parse('{"controls": true, "progress": true, "hash": true, "center": true, "transition": "slide", "slideNumber": true}'));
+        Object.assign(revealjsConfig, {"controls": true, "progress": true, "hash": true, "center": true, "transition": "slide", "slideNumber": true, "scrollActivationWidth": null});
         
         
         

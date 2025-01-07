@@ -1,15 +1,15 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Template in C++</title>
-    <link rel="stylesheet" type="text/css" href="../_static/revealjs4/dist/reveal.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs/dist/reveal.css?v=40f0a724" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/revealjs4/plugin/highlight/zenburn.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs/plugin/highlight/zenburn.css?v=83d5745d" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -18,8 +18,11 @@
     <div class="reveal">
         <div class="slides" role="main">
             <section >
+<section >
 <h1>Template in C++</h1>
 </section>
+</section>
+<section >
 <section >
 <h2>Outline</h2>
 <ul class="simple">
@@ -28,6 +31,8 @@
 <li><p>Template Organization</p></li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>Overview</h2>
 <ul class="simple">
@@ -61,6 +66,8 @@ and implementation</p></li>
 <li><p>Related to Generic Programming</p></li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>Syntax: Create Template</h2>
 <div class="flex-container docutils container">
@@ -108,6 +115,8 @@ MyClass&lt;T&gt;::MyClass(T param1) {
 </div>
 </div>
 </section>
+</section>
+<section >
 <section >
 <h2>Syntax: Use Template</h2>
 <div class="flex-container docutils container">
@@ -142,6 +151,8 @@ MyClass obj1(10);  // T will be int</code></pre>
 </div>
 </div>
 </section>
+</section>
+<section >
 <section >
 <h2>Template Organization</h2>
 <p>Templates requires special organization of the source code because the compiler
@@ -174,17 +185,17 @@ not possible. E.g. complicate combination <code class="docutils literal notransl
         </div>
     </div>
     
-    <script src="../_static/revealjs4/dist/reveal.js"></script>
+    <script src="../_static/revealjs/dist/reveal.js"></script>
     
     
-      <script src="../_static/revealjs4/plugin/notes/notes.js"></script>
-      <script src="../_static/revealjs4/plugin/highlight/highlight.js"></script>
-      <script src="../_static/revealjs4/plugin/math/math.js"></script>
+      <script src="../_static/revealjs/plugin/notes/notes.js"></script>
+      <script src="../_static/revealjs/plugin/highlight/highlight.js"></script>
+      <script src="../_static/revealjs/plugin/math/math.js"></script>
       
     
     <script>
         var revealjsConfig = new Object();
-        Object.assign(revealjsConfig, JSON.parse('{"controls": true, "progress": true, "hash": true, "center": true, "transition": "slide", "slideNumber": true}'));
+        Object.assign(revealjsConfig, {"controls": true, "progress": true, "hash": true, "center": true, "transition": "slide", "slideNumber": true, "scrollActivationWidth": null});
         
         
         

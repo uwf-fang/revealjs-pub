@@ -1,15 +1,15 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Quick Sort</title>
-    <link rel="stylesheet" type="text/css" href="../_static/revealjs4/dist/reveal.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs/dist/reveal.css?v=40f0a724" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/revealjs4/plugin/highlight/zenburn.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs/plugin/highlight/zenburn.css?v=83d5745d" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -19,6 +19,7 @@
     <div class="reveal">
         <div class="slides" role="main">
             <section >
+<section >
 <h1>Quick Sort</h1>
 <ul class="simple">
 <li><p>By Sir Tony Hoare in 1959.</p></li>
@@ -35,6 +36,8 @@
 </li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>Quick partition algorithm</h2>
 <ul class="simple">
@@ -52,6 +55,8 @@ after it.</p></li>
 </li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>Quick Partition Algorithm</h2>
 <ul class="simple">
@@ -73,6 +78,8 @@ complete. Return the right cursor.</p></li>
 </li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>Quick Partition Algorithm: Our Variation (Hoare’s Scheme)</h2>
 <ul class="simple">
@@ -97,6 +104,8 @@ times.</strong></p></li>
   return high;
 }</code></pre>
 </section>
+</section>
+<section >
 <section >
 <h2>Quick Partition Example (con’d)</h2>
 <ul>
@@ -130,6 +139,8 @@ movement of data?</p></li>
 </li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>Quick Sort Algorithm</h2>
 <ul class="simple">
@@ -154,6 +165,8 @@ void quicksortHelper(int *arr, int low, int high) {
   quicksortHelper(arr, part + 1, high);
 }</code></pre>
 </section>
+</section>
+<section >
 <section >
 <h2>Complexity</h2>
 <ul class="simple">
@@ -179,6 +192,8 @@ of roughly equal size</p></li>
 </li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>Visualization For Quick sort</h2>
 <p>Unfortunately, the visualization websites are all using different
@@ -202,17 +217,17 @@ configurations and are not compatible with our demonstration.</p>
         </div>
     </div>
     
-    <script src="../_static/revealjs4/dist/reveal.js"></script>
+    <script src="../_static/revealjs/dist/reveal.js"></script>
     
     
-      <script src="../_static/revealjs4/plugin/notes/notes.js"></script>
-      <script src="../_static/revealjs4/plugin/highlight/highlight.js"></script>
-      <script src="../_static/revealjs4/plugin/math/math.js"></script>
+      <script src="../_static/revealjs/plugin/notes/notes.js"></script>
+      <script src="../_static/revealjs/plugin/highlight/highlight.js"></script>
+      <script src="../_static/revealjs/plugin/math/math.js"></script>
       
     
     <script>
         var revealjsConfig = new Object();
-        Object.assign(revealjsConfig, JSON.parse('{"controls": true, "progress": true, "hash": true, "center": true, "transition": "slide", "slideNumber": true}'));
+        Object.assign(revealjsConfig, {"controls": true, "progress": true, "hash": true, "center": true, "transition": "slide", "slideNumber": true, "scrollActivationWidth": null});
         
         
         

@@ -1,15 +1,15 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Divide and Conquer</title>
-    <link rel="stylesheet" type="text/css" href="../_static/revealjs4/dist/reveal.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs/dist/reveal.css?v=40f0a724" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/revealjs4/plugin/highlight/zenburn.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs/plugin/highlight/zenburn.css?v=83d5745d" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -19,11 +19,14 @@
     <div class="reveal">
         <div class="slides" role="main">
             <section >
+<section >
 <h1>Divide and Conquer</h1>
 <div class="subtitle docutils container">
 <p>Xingang (Ian) Fang</p>
 </div>
 </section>
+</section>
+<section >
 <section >
 <h2>Outline</h2>
 <ul class="simple">
@@ -34,6 +37,8 @@
 <li><p>Complexity</p></li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>Overview</h2>
 <div class="flex-container docutils container">
@@ -52,13 +57,16 @@ solutions to the subproblems to solve the original problem.</p></li>
 </ul>
 </div>
 <div class="half docutils container">
-<a class="reference internal image-reference" href="../_images/jigsaw-puzzle.jpg"><img alt="Jigsaw Puzzle" src="../_images/jigsaw-puzzle.jpg" style="width: 70%;" /></a>
+<a class="reference internal image-reference" href="../_images/jigsaw-puzzle.jpg"><img alt="Jigsaw Puzzle" src="../_images/jigsaw-puzzle.jpg" style="width: 70%;" />
+</a>
 <div class="footnote docutils container">
 <p>Credit: Photo by Bianca Ackermann on Unsplash</p>
 </div>
 </div>
 </div>
 </section>
+</section>
+<section >
 <section >
 <h2>Stages</h2>
 <ol class="arabic simple">
@@ -73,6 +81,8 @@ example, in Quick Sort, the division and combination steps are combined into
 a single partitioning step.</p>
 </div>
 </section>
+</section>
+<section >
 <section >
 <h2>Pro and Con</h2>
 <ul class="simple">
@@ -94,6 +104,8 @@ a single partitioning step.</p>
 </li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>Applications</h2>
 <ul class="simple">
@@ -106,6 +118,8 @@ a single partitioning step.</p>
 <li><p>Fast Fourier Transform (FFT) for Discrete Fourier Transform (DFT)</p></li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>Time Complexity</h2>
 <ul class="simple">
@@ -126,6 +140,8 @@ number of elements which are smaller than pivot</p></li>
 </ul>
 <p><strong>Exercise:</strong> Solve the recurrence relation for each of the above algorithms</p>
 </section>
+</section>
+<section >
 <section >
 <h2>Relationships to Other Paradigms</h2>
 <ul>
@@ -162,17 +178,17 @@ this lecture so they are treated as separate paradigms.</p>
         </div>
     </div>
     
-    <script src="../_static/revealjs4/dist/reveal.js"></script>
+    <script src="../_static/revealjs/dist/reveal.js"></script>
     
     
-      <script src="../_static/revealjs4/plugin/notes/notes.js"></script>
-      <script src="../_static/revealjs4/plugin/highlight/highlight.js"></script>
-      <script src="../_static/revealjs4/plugin/math/math.js"></script>
+      <script src="../_static/revealjs/plugin/notes/notes.js"></script>
+      <script src="../_static/revealjs/plugin/highlight/highlight.js"></script>
+      <script src="../_static/revealjs/plugin/math/math.js"></script>
       
     
     <script>
         var revealjsConfig = new Object();
-        Object.assign(revealjsConfig, JSON.parse('{"controls": true, "progress": true, "hash": true, "center": true, "transition": "slide", "slideNumber": true}'));
+        Object.assign(revealjsConfig, {"controls": true, "progress": true, "hash": true, "center": true, "transition": "slide", "slideNumber": true, "scrollActivationWidth": null});
         
         
         

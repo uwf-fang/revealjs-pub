@@ -1,15 +1,15 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Data Structure and Algorithm Design</title>
-    <link rel="stylesheet" type="text/css" href="../_static/revealjs4/dist/reveal.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs/dist/reveal.css?v=40f0a724" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/revealjs4/plugin/highlight/zenburn.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs/plugin/highlight/zenburn.css?v=83d5745d" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -18,13 +18,16 @@
   </head><body>
     <div class="reveal">
         <div class="slides" role="main">
-            <section data-background-color="white" data-background-image="../_static/logo.png" data-background-size="50%" data-background-position="top center" data-background-repeat="no-repeat">
+            <section >
+<section data-background-color="white" data-background-image="../_static/logo.png" data-background-size="50%" data-background-position="top center" data-background-repeat="no-repeat">
 <h1>Data Structure and Algorithm Design</h1>
 <div class="subtitle docutils container">
 <p><strong>Chapter 13</strong></p>
 <p>Xingang (Ian) Fang</p>
 </div>
 </section>
+</section>
+<section >
 <section >
 <h2>Sections</h2>
 <ul class="simple">
@@ -32,12 +35,16 @@
 <li><p>Backtracking</p></li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h1>Brute-Force Algorithm</h1>
 <div class="subtitle docutils container">
 <p>Xingang (Ian) Fang</p>
 </div>
 </section>
+</section>
+<section >
 <section >
 <h2>Overview</h2>
 <p>A brute-force algorithm is a straightforward and exhaustive problem-solving
@@ -69,12 +76,16 @@ relies on sheer computational power to find a solution.</p>
 </div>
 </div>
 </section>
+</section>
+<section >
 <section >
 <h1>Backtracking</h1>
 <div class="subtitle docutils container">
 <p>Xingang (Ian) Fang</p>
 </div>
 </section>
+</section>
+<section >
 <section >
 <h2>Outline</h2>
 <ul class="simple">
@@ -85,6 +96,8 @@ relies on sheer computational power to find a solution.</p>
 <li><p>Related algorithm and paradigms</p></li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>Overview</h2>
 <ul class="simple">
@@ -96,6 +109,8 @@ the candidate cannot be extended to a valid solution.</p></li>
 <li><p>Find one or all valid solutions to a problem.</p></li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>Core Concepts</h2>
 <ul>
@@ -116,6 +131,8 @@ a decision point.</p>
 </li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>Implementation details</h2>
 <ul class="simple">
@@ -164,6 +181,8 @@ a decision point.</p>
 </div>
 </div>
 </section>
+</section>
+<section >
 <section >
 <h2>Applications</h2>
 <p><a class="reference external" href="https://algorithm-visualizer.org">Visualizations</a></p>
@@ -174,6 +193,8 @@ a decision point.</p>
 <li><p>Maze solving/generation</p></li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>Related Algorithms and Paradigms</h2>
 <ul>
@@ -205,17 +226,17 @@ rule to prune the branch is different.</p>
         </div>
     </div>
     
-    <script src="../_static/revealjs4/dist/reveal.js"></script>
+    <script src="../_static/revealjs/dist/reveal.js"></script>
     
     
-      <script src="../_static/revealjs4/plugin/notes/notes.js"></script>
-      <script src="../_static/revealjs4/plugin/highlight/highlight.js"></script>
-      <script src="../_static/revealjs4/plugin/math/math.js"></script>
+      <script src="../_static/revealjs/plugin/notes/notes.js"></script>
+      <script src="../_static/revealjs/plugin/highlight/highlight.js"></script>
+      <script src="../_static/revealjs/plugin/math/math.js"></script>
       
     
     <script>
         var revealjsConfig = new Object();
-        Object.assign(revealjsConfig, JSON.parse('{"controls": true, "progress": true, "hash": true, "center": true, "transition": "slide", "slideNumber": true}'));
+        Object.assign(revealjsConfig, {"controls": true, "progress": true, "hash": true, "center": true, "transition": "slide", "slideNumber": true, "scrollActivationWidth": null});
         
         
         

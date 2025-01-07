@@ -1,15 +1,15 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Data Structure and Algorithm Design II</title>
-    <link rel="stylesheet" type="text/css" href="../_static/revealjs4/dist/reveal.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs/dist/reveal.css?v=40f0a724" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/revealjs4/plugin/highlight/zenburn.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs/plugin/highlight/zenburn.css?v=83d5745d" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -17,25 +17,32 @@
   </head><body>
     <div class="reveal">
         <div class="slides" role="main">
-            <section data-background-color="white" data-background-image="../_static/logo.png" data-background-size="50%" data-background-position="top center" data-background-repeat="no-repeat">
+            <section >
+<section data-background-color="white" data-background-image="../_static/logo.png" data-background-size="50%" data-background-position="top center" data-background-repeat="no-repeat">
 <h1>Data Structure and Algorithm Design II</h1>
 <div class="subtitle docutils container">
 <p><strong>Module 10</strong></p>
 <p>Xingang (Ian) Fang</p>
 </div>
 </section>
+</section>
+<section >
 <section >
 <h2>Sections</h2>
 <ul class="simple">
 <li><p>Greedy Algorithms 2</p></li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h1>Greedy Algorithms</h1>
 <div class="subtitle docutils container">
 <p>Xingang (Ian) Fang</p>
 </div>
 </section>
+</section>
+<section >
 <section >
 <h2>Outline</h2>
 <ul class="simple">
@@ -46,6 +53,8 @@
 <li><p>Huffman Coding</p></li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>Overview</h2>
 <ul class="simple">
@@ -63,6 +72,8 @@ hopes of finding the global optimum</p></li>
 </li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>Related Algorithmic Paradigms</h2>
 <p>Greedy algorithms are related to backtracking because they both make decisions
@@ -95,6 +106,8 @@ at each step.</p>
 </tbody>
 </table>
 </section>
+</section>
+<section >
 <section >
 <h2>Applications</h2>
 <ul class="simple">
@@ -113,7 +126,8 @@ algorithms.</p></li>
 <li><p>Fractional knapsack problem</p></li>
 </ul>
 </section>
-<section>
+</section>
+<section >
 <section >
 <h2>Bin Packing Problem (BPP)</h2>
 <ul class="simple">
@@ -200,7 +214,7 @@ Create a new bin if necessary.</p>
 </ul>
 </section>
 </section>
-<section>
+<section >
 <section >
 <h2>Huffman Coding</h2>
 <div class="flex-container docutils container">
@@ -225,7 +239,8 @@ Create a new bin if necessary.</p>
 </ul>
 </div>
 <div class="half docutils container">
-<a class="reference internal image-reference" href="../_images/data-compression.png"><img alt="Data Compression" src="../_images/data-compression.png" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="../_images/data-compression.png"><img alt="Data Compression" src="../_images/data-compression.png" style="width: 400px;" />
+</a>
 <div class="footnote docutils container">
 <p>Credit: <a class="reference external" href="https://developer.apple.com/documentation/compression">https://developer.apple.com/documentation/compression</a></p>
 </div>
@@ -319,17 +334,17 @@ frequency equal to the sum of the two nodes’ frequency</p></li>
         </div>
     </div>
     
-    <script src="../_static/revealjs4/dist/reveal.js"></script>
+    <script src="../_static/revealjs/dist/reveal.js"></script>
     
     
-      <script src="../_static/revealjs4/plugin/notes/notes.js"></script>
-      <script src="../_static/revealjs4/plugin/highlight/highlight.js"></script>
-      <script src="../_static/revealjs4/plugin/math/math.js"></script>
+      <script src="../_static/revealjs/plugin/notes/notes.js"></script>
+      <script src="../_static/revealjs/plugin/highlight/highlight.js"></script>
+      <script src="../_static/revealjs/plugin/math/math.js"></script>
       
     
     <script>
         var revealjsConfig = new Object();
-        Object.assign(revealjsConfig, JSON.parse('{"controls": true, "progress": true, "hash": true, "center": true, "transition": "slide", "slideNumber": true}'));
+        Object.assign(revealjsConfig, {"controls": true, "progress": true, "hash": true, "center": true, "transition": "slide", "slideNumber": true, "scrollActivationWidth": null});
         
         
         

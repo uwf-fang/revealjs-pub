@@ -1,15 +1,15 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Data Structure and Algorithm Design</title>
-    <link rel="stylesheet" type="text/css" href="../_static/revealjs4/dist/reveal.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs/dist/reveal.css?v=40f0a724" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/revealjs4/plugin/highlight/zenburn.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs/plugin/highlight/zenburn.css?v=83d5745d" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -18,13 +18,16 @@
   </head><body>
     <div class="reveal">
         <div class="slides" role="main">
-            <section data-background-color="white" data-background-image="../_static/logo.png" data-background-size="50%" data-background-position="top center" data-background-repeat="no-repeat">
+            <section >
+<section data-background-color="white" data-background-image="../_static/logo.png" data-background-size="50%" data-background-position="top center" data-background-repeat="no-repeat">
 <h1>Data Structure and Algorithm Design</h1>
 <div class="subtitle docutils container">
 <p><strong>Chapter 12</strong></p>
 <p>Xingang (Ian) Fang</p>
 </div>
 </section>
+</section>
+<section >
 <section >
 <h2>Sections</h2>
 <ul class="simple">
@@ -32,12 +35,16 @@
 <li><p>Priority Queue</p></li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h1>Heap Data Structure</h1>
 <div class="subtitle docutils container">
 <p>Xingang (Ian) Fang</p>
 </div>
 </section>
+</section>
+<section >
 <section >
 <h2>Outline</h2>
 <ul class="simple">
@@ -48,6 +55,8 @@
 <li><p>Time Complexity</p></li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>Overview</h2>
 <ul class="simple">
@@ -63,6 +72,8 @@ elements in its subtrees.</p></li>
 </li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>Structures</h2>
 <div class="flex-container docutils container">
@@ -115,6 +126,8 @@ elements in its subtrees.</p></li>
 </div>
 </div>
 </section>
+</section>
+<section >
 <section >
 <h2>Behaviors</h2>
 <ul class="simple">
@@ -135,6 +148,8 @@ elements in its subtrees.</p></li>
 <li><p>Percolate down: move an element down to its proper position</p></li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>Visualization</h2>
 <ul class="simple">
@@ -142,6 +157,8 @@ elements in its subtrees.</p></li>
 <li><p><a class="reference external" href="https://visualgo.net/en/heap">https://visualgo.net/en/heap</a></p></li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>Time Complexity</h2>
 <ul class="simple">
@@ -157,7 +174,8 @@ elements in its subtrees.</p></li>
 <li><p>Percolate down <span class="math notranslate nohighlight">\(\Theta(\log n)\)</span></p></li>
 </ul>
 </section>
-<section>
+</section>
+<section >
 <section >
 <h2>Heap Sort</h2>
 <ul class="simple">
@@ -239,7 +257,7 @@ for remaining element.</p></li>
 </ul>
 </section>
 </section>
-<section>
+<section >
 <section >
 <h2>Priority Queue Abstract Data Type</h2>
 <ul class="simple">
@@ -283,7 +301,7 @@ rank from the priority queue.</p></li>
 </ul>
 </section>
 </section>
-<section>
+<section >
 <section >
 <h2>C++ Implementation of Priority Queue ADT</h2>
 <ul>
@@ -320,17 +338,17 @@ class PriorityQueue {
         </div>
     </div>
     
-    <script src="../_static/revealjs4/dist/reveal.js"></script>
+    <script src="../_static/revealjs/dist/reveal.js"></script>
     
     
-      <script src="../_static/revealjs4/plugin/notes/notes.js"></script>
-      <script src="../_static/revealjs4/plugin/highlight/highlight.js"></script>
-      <script src="../_static/revealjs4/plugin/math/math.js"></script>
+      <script src="../_static/revealjs/plugin/notes/notes.js"></script>
+      <script src="../_static/revealjs/plugin/highlight/highlight.js"></script>
+      <script src="../_static/revealjs/plugin/math/math.js"></script>
       
     
     <script>
         var revealjsConfig = new Object();
-        Object.assign(revealjsConfig, JSON.parse('{"controls": true, "progress": true, "hash": true, "center": true, "transition": "slide", "slideNumber": true}'));
+        Object.assign(revealjsConfig, {"controls": true, "progress": true, "hash": true, "center": true, "transition": "slide", "slideNumber": true, "scrollActivationWidth": null});
         
         
         

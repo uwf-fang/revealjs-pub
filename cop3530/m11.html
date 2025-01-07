@@ -1,15 +1,15 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Data Structure and Algorithm Design</title>
-    <link rel="stylesheet" type="text/css" href="../_static/revealjs4/dist/reveal.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs/dist/reveal.css?v=40f0a724" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/revealjs4/plugin/highlight/zenburn.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs/plugin/highlight/zenburn.css?v=83d5745d" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -17,13 +17,16 @@
   </head><body>
     <div class="reveal">
         <div class="slides" role="main">
-            <section data-background-color="white" data-background-image="../_static/logo.png" data-background-size="50%" data-background-position="top center" data-background-repeat="no-repeat">
+            <section >
+<section data-background-color="white" data-background-image="../_static/logo.png" data-background-size="50%" data-background-position="top center" data-background-repeat="no-repeat">
 <h1>Data Structure and Algorithm Design</h1>
 <div class="subtitle docutils container">
 <p><strong>Chapter 11</strong></p>
 <p>Xingang (Ian) Fang</p>
 </div>
 </section>
+</section>
+<section >
 <section >
 <h2>Sections</h2>
 <ul class="simple">
@@ -31,12 +34,16 @@
 <li><p>Binary Search Trees</p></li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h1>Tree Data Structure</h1>
 <div class="subtitle docutils container">
 <p>Xingang (Ian) Fang</p>
 </div>
 </section>
+</section>
+<section >
 <section >
 <h2>Outline</h2>
 <ul class="simple">
@@ -48,6 +55,8 @@
 <li><p>Binary tree</p></li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>Definitions</h2>
 <ul>
@@ -67,6 +76,8 @@ root node) and zero or more children.</p>
 </li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>Tree Concepts</h2>
 <img alt="Tree concepts" src="../_images/tree-glossary.png" />
@@ -83,6 +94,8 @@ root node) and zero or more children.</p>
 <li><p>Ordered Unordered</p></li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>Applications</h2>
 <ul class="simple">
@@ -94,11 +107,14 @@ root node) and zero or more children.</p>
 <li><p>Blockchain (Merkle tree)</p></li>
 <li><p>Search-based Artificial Intelligence (game tree)</p></li>
 </ul>
-<a class="reference internal image-reference" href="../_images/merkletree.png"><img alt="Merkle tree" src="../_images/merkletree.png" style="width: 50%;" /></a>
+<a class="reference internal image-reference" href="../_images/merkletree.png"><img alt="Merkle tree" src="../_images/merkletree.png" style="width: 50%;" />
+</a>
 <div class="footnote docutils container">
 <p>Credit: <a class="reference external" href="https://coincentral.com/merkle-tree-hashing-blockchain/">https://coincentral.com/merkle-tree-hashing-blockchain/</a></p>
 </div>
 </section>
+</section>
+<section >
 <section >
 <h2>Operations</h2>
 <ul class="simple">
@@ -120,6 +136,8 @@ root node) and zero or more children.</p>
 <li><p>Degree</p></li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>Implementation Variations</h2>
 <ul class="simple">
@@ -128,12 +146,15 @@ root node) and zero or more children.</p>
 sibling</p></li>
 <li><p>Each node stores a reference to its parent</p></li>
 </ul>
-<a class="reference internal image-reference" href="../_images/tree-first-child-next-sibling.png"><img alt="First child next sibling representation" src="../_images/tree-first-child-next-sibling.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="../_images/tree-first-child-next-sibling.png"><img alt="First child next sibling representation" src="../_images/tree-first-child-next-sibling.png" style="width: 80%;" />
+</a>
 <div class="footnote docutils container">
 <p><strong>First child next sibling representation</strong></p>
 <p>Credit: Data Structures and Algorithm Analysis in C++, 4th Edition. Mark Allen Weiss.</p>
 </div>
 </section>
+</section>
+<section >
 <section >
 <h2>Binary Tree</h2>
 <p>Only concepts and operations that are different from general trees are covered.</p>
@@ -176,16 +197,21 @@ sibling</p></li>
 </ul>
 </li>
 </ul>
-<a class="reference internal image-reference" href="../_images/decision-tree.png"><img alt="Decision tree" src="../_images/decision-tree.png" style="width: 60%;" /></a>
+<a class="reference internal image-reference" href="../_images/decision-tree.png"><img alt="Decision tree" src="../_images/decision-tree.png" style="width: 60%;" />
+</a>
 </div>
 </div>
 </section>
+</section>
+<section >
 <section >
 <h1>Binary Search Tree</h1>
 <div class="subtitle docutils container">
 <p>Xingang (Ian) Fang</p>
 </div>
 </section>
+</section>
+<section >
 <section >
 <h2>Outline</h2>
 <ul class="simple">
@@ -196,6 +222,8 @@ sibling</p></li>
 <li><p>Applications</p></li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>Definition and Behaviors</h2>
 <div class="flex-container docutils container">
@@ -224,7 +252,8 @@ right child has a greater or equal key than itself.</p>
 </div>
 </div>
 </section>
-<section>
+</section>
+<section >
 <section >
 <h2>Implementation</h2>
 <ul>
@@ -288,6 +317,7 @@ right child has a greater or equal key than itself.</p>
 </section>
 </section>
 <section >
+<section >
 <h2>Drawbacks of naive BST</h2>
 <div class="flex-container docutils container">
 <div class="half docutils container">
@@ -317,6 +347,8 @@ right child has a greater or equal key than itself.</p>
 </div>
 </div>
 </section>
+</section>
+<section >
 <section >
 <h2>Applications</h2>
 <ul class="simple">
@@ -334,17 +366,17 @@ key.</p></li>
         </div>
     </div>
     
-    <script src="../_static/revealjs4/dist/reveal.js"></script>
+    <script src="../_static/revealjs/dist/reveal.js"></script>
     
     
-      <script src="../_static/revealjs4/plugin/notes/notes.js"></script>
-      <script src="../_static/revealjs4/plugin/highlight/highlight.js"></script>
-      <script src="../_static/revealjs4/plugin/math/math.js"></script>
+      <script src="../_static/revealjs/plugin/notes/notes.js"></script>
+      <script src="../_static/revealjs/plugin/highlight/highlight.js"></script>
+      <script src="../_static/revealjs/plugin/math/math.js"></script>
       
     
     <script>
         var revealjsConfig = new Object();
-        Object.assign(revealjsConfig, JSON.parse('{"controls": true, "progress": true, "hash": true, "center": true, "transition": "slide", "slideNumber": true}'));
+        Object.assign(revealjsConfig, {"controls": true, "progress": true, "hash": true, "center": true, "transition": "slide", "slideNumber": true, "scrollActivationWidth": null});
         
         
         

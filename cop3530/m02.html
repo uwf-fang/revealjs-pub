@@ -1,15 +1,15 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Data Structure and Algorithm Design</title>
-    <link rel="stylesheet" type="text/css" href="../_static/revealjs4/dist/reveal.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs/dist/reveal.css?v=40f0a724" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/revealjs4/plugin/highlight/zenburn.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs/plugin/highlight/zenburn.css?v=83d5745d" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -17,13 +17,16 @@
   </head><body>
     <div class="reveal">
         <div class="slides" role="main">
-            <section data-background-color="white" data-background-image="../_static/logo.png" data-background-size="50%" data-background-position="top center" data-background-repeat="no-repeat">
+            <section >
+<section data-background-color="white" data-background-image="../_static/logo.png" data-background-size="50%" data-background-position="top center" data-background-repeat="no-repeat">
 <h1>Data Structure and Algorithm Design</h1>
 <div class="subtitle docutils container">
 <p><strong>Chapter 2</strong></p>
 <p>Xingang (Ian) Fang</p>
 </div>
 </section>
+</section>
+<section >
 <section >
 <h2>Sections</h2>
 <ul class="simple">
@@ -31,12 +34,16 @@
 <li><p>Testing for C++</p></li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h1>Modular Development in C++</h1>
 <div class="subtitle docutils container">
 <p>Xingang (Ian) Fang</p>
 </div>
 </section>
+</section>
+<section >
 <section >
 <h2>Outline</h2>
 <ul class="simple">
@@ -64,6 +71,8 @@
 <li><p>Pitfalls and common errors</p></li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>TL;DR</h2>
 <ul class="simple">
@@ -75,7 +84,8 @@
 <li><p>Learn <strong>basic</strong> makefile syntax</p></li>
 </ul>
 </section>
-<section>
+</section>
+<section >
 <section >
 <h2>Modular Development Overview</h2>
 <ul>
@@ -191,10 +201,11 @@ called <strong>building</strong>.</p></li>
 </ul>
 </li>
 </ul>
-<a class="reference internal image-reference" href="../_images/cpp-build-process.png"><img alt="C++ Building Process of an Executable" src="../_images/cpp-build-process.png" style="width: 100%;" /></a>
+<a class="reference internal image-reference" href="../_images/cpp-build-process.png"><img alt="C++ Building Process of an Executable" src="../_images/cpp-build-process.png" style="width: 100%;" />
+</a>
 </section>
 </section>
-<section>
+<section >
 <section >
 <h2>Building using GNU g++</h2>
 <ul>
@@ -288,7 +299,7 @@ caused by the use of capital letters in file names</p></li>
 </ul>
 </section>
 </section>
-<section>
+<section >
 <section >
 <h2>Automate the building process using GNU make</h2>
 <div class="flex-container docutils container">
@@ -365,11 +376,14 @@ auto-complete the target name</p></li>
 </section>
 </section>
 <section >
+<section >
 <h1>Testing For C++</h1>
 <div class="subtitle docutils container">
 <p>Xingang (Ian) Fang</p>
 </div>
 </section>
+</section>
+<section >
 <section >
 <h2>Outline</h2>
 <ul class="simple">
@@ -379,6 +393,8 @@ auto-complete the target name</p></li>
 <li><p>Learning outcomes</p></li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>TL;DR</h2>
 <ul class="simple">
@@ -389,6 +405,8 @@ auto-complete the target name</p></li>
 <li><p>Expect you to learn to read tests first in this course.</p></li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>Overview</h2>
 <ul class="simple">
@@ -418,6 +436,8 @@ performance. Automated testing is especially important for large projects.</p></
 </li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>Types of tests</h2>
 <ul class="simple">
@@ -445,7 +465,8 @@ performance. Automated testing is especially important for large projects.</p></
 </li>
 </ul>
 </section>
-<section>
+</section>
+<section >
 <section >
 <h2>Write and run tests</h2>
 <ul>
@@ -519,6 +540,7 @@ TEST_CASE(&quot;StoreItem equality and printing&quot;, &quot;[StoreItem]&quot;) 
 </section>
 </section>
 <section >
+<section >
 <h2>Learning outcomes</h2>
 <ul class="simple">
 <li><p>Understand the importance of testing.</p></li>
@@ -532,17 +554,17 @@ pass the tests.</p></li>
         </div>
     </div>
     
-    <script src="../_static/revealjs4/dist/reveal.js"></script>
+    <script src="../_static/revealjs/dist/reveal.js"></script>
     
     
-      <script src="../_static/revealjs4/plugin/notes/notes.js"></script>
-      <script src="../_static/revealjs4/plugin/highlight/highlight.js"></script>
-      <script src="../_static/revealjs4/plugin/math/math.js"></script>
+      <script src="../_static/revealjs/plugin/notes/notes.js"></script>
+      <script src="../_static/revealjs/plugin/highlight/highlight.js"></script>
+      <script src="../_static/revealjs/plugin/math/math.js"></script>
       
     
     <script>
         var revealjsConfig = new Object();
-        Object.assign(revealjsConfig, JSON.parse('{"controls": true, "progress": true, "hash": true, "center": true, "transition": "slide", "slideNumber": true}'));
+        Object.assign(revealjsConfig, {"controls": true, "progress": true, "hash": true, "center": true, "transition": "slide", "slideNumber": true, "scrollActivationWidth": null});
         
         
         

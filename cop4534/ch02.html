@@ -1,15 +1,15 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Data Structure and Algorithm Design II</title>
-    <link rel="stylesheet" type="text/css" href="../_static/revealjs4/dist/reveal.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs/dist/reveal.css?v=40f0a724" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/revealjs4/plugin/highlight/zenburn.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs/plugin/highlight/zenburn.css?v=83d5745d" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -18,13 +18,16 @@
   </head><body>
     <div class="reveal">
         <div class="slides" role="main">
-            <section data-background-color="white" data-background-image="../_static/logo.png" data-background-size="50%" data-background-position="top center" data-background-repeat="no-repeat">
+            <section >
+<section data-background-color="white" data-background-image="../_static/logo.png" data-background-size="50%" data-background-position="top center" data-background-repeat="no-repeat">
 <h1>Data Structure and Algorithm Design II</h1>
 <div class="subtitle docutils container">
 <p><strong>Module 2</strong></p>
 <p>Xingang (Ian) Fang</p>
 </div>
 </section>
+</section>
+<section >
 <section >
 <h2>Sections</h2>
 <ul class="simple">
@@ -33,12 +36,16 @@
 <li><p>Amortized analysis</p></li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h1>Math Concepts Review</h1>
 <div class="subtitle docutils container">
 <p>Xingang (Ian) Fang</p>
 </div>
 </section>
+</section>
+<section >
 <section >
 <h2>Outline</h2>
 <ul class="simple">
@@ -48,6 +55,8 @@
 <li><p>Proof methods</p></li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>Exponents</h2>
 <ul class="simple">
@@ -67,6 +76,8 @@ a}_{n \text{ times}}\)</span></p></li>
 </li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>Logarithms</h2>
 <ul class="simple">
@@ -85,6 +96,8 @@ value, the base, must be raised to produce that number.</p></li>
 </li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>Series</h2>
 <ul class="simple">
@@ -118,6 +131,8 @@ value, the base, must be raised to produce that number.</p></li>
 </li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>Modular Arithmetic</h2>
 <ul class="simple">
@@ -131,6 +146,8 @@ modulus (plural moduli).</p></li>
 etc.</p></li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>Proof Methods</h2>
 <ul>
@@ -149,12 +166,16 @@ etc.</p></li>
 </li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h1>Algorithm Analysis</h1>
 <div class="subtitle docutils container">
 <p>Xingang (Ian) Fang</p>
 </div>
 </section>
+</section>
+<section >
 <section >
 <h2>Outline</h2>
 <ul class="simple">
@@ -177,6 +198,8 @@ etc.</p></li>
 </li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>Overview</h2>
 <ul class="simple">
@@ -225,14 +248,16 @@ int main() {
 </ul>
 </li>
 </ul>
-<a class="reference internal image-reference" href="../_images/growth-rate.png"><img alt="../_images/growth-rate.png" src="../_images/growth-rate.png" style="width: 70%;" /></a>
+<a class="reference internal image-reference" href="../_images/growth-rate.png"><img alt="../_images/growth-rate.png" src="../_images/growth-rate.png" style="width: 70%;" />
+</a>
 <div class="footnote docutils container">
 <p>Credit: <a class="reference external" href="https://en.wikipedia.org/wiki/Computational_complexity_of_mathematical_operations">https://en.wikipedia.org/wiki/Computational_complexity_of_mathematical_operations</a></p>
 </div>
 </div>
 </div>
 </section>
-<section>
+</section>
+<section >
 <section >
 <h2>Computational Complexity</h2>
 <ul class="simple">
@@ -280,7 +305,8 @@ of the function <span class="math notranslate nohighlight">\(T(n)\)</span>.</p><
 <li><p>Little o notation <span class="math notranslate nohighlight">\(T(n) = o(f(n))\)</span> describes the strict upper bound of
 the function <span class="math notranslate nohighlight">\(T(n)\)</span>. (FYI)</p></li>
 </ul>
-<a class="reference internal image-reference" href="../_images/asymptotic.png"><img alt="../_images/asymptotic.png" src="../_images/asymptotic.png" style="width: 50%;" /></a>
+<a class="reference internal image-reference" href="../_images/asymptotic.png"><img alt="../_images/asymptotic.png" src="../_images/asymptotic.png" style="width: 50%;" />
+</a>
 </section>
 <section >
 <h3>How bounds work and which one to choose</h3>
@@ -585,6 +611,7 @@ loop will run <span class="math notranslate nohighlight">\(n\)</span> times.</p>
 </section>
 </section>
 <section >
+<section >
 <h2>Amortized Analysis</h2>
 <ul class="simple">
 <li><p>Motivation: To analyze the average time complexity of a sequence of
@@ -612,17 +639,17 @@ performance of an algorithm or a data structure.</p></li>
         </div>
     </div>
     
-    <script src="../_static/revealjs4/dist/reveal.js"></script>
+    <script src="../_static/revealjs/dist/reveal.js"></script>
     
     
-      <script src="../_static/revealjs4/plugin/notes/notes.js"></script>
-      <script src="../_static/revealjs4/plugin/highlight/highlight.js"></script>
-      <script src="../_static/revealjs4/plugin/math/math.js"></script>
+      <script src="../_static/revealjs/plugin/notes/notes.js"></script>
+      <script src="../_static/revealjs/plugin/highlight/highlight.js"></script>
+      <script src="../_static/revealjs/plugin/math/math.js"></script>
       
     
     <script>
         var revealjsConfig = new Object();
-        Object.assign(revealjsConfig, JSON.parse('{"controls": true, "progress": true, "hash": true, "center": true, "transition": "slide", "slideNumber": true}'));
+        Object.assign(revealjsConfig, {"controls": true, "progress": true, "hash": true, "center": true, "transition": "slide", "slideNumber": true, "scrollActivationWidth": null});
         
         
         

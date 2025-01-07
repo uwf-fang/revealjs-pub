@@ -1,15 +1,15 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Introduction to Big Data Analytics</title>
-    <link rel="stylesheet" type="text/css" href="../_static/revealjs4/dist/reveal.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs/dist/reveal.css?v=40f0a724" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/revealjs4/plugin/highlight/zenburn.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs/plugin/highlight/zenburn.css?v=83d5745d" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -17,13 +17,16 @@
   </head><body>
     <div class="reveal">
         <div class="slides" role="main">
-            <section data-background-color="white" data-background-image="../_static/logo.png" data-background-size="50%" data-background-position="top center" data-background-repeat="no-repeat">
+            <section >
+<section data-background-color="white" data-background-image="../_static/logo.png" data-background-size="50%" data-background-position="top center" data-background-repeat="no-repeat">
 <h1>Introduction to Big Data Analytics</h1>
 <div class="subtitle docutils container">
 <p><strong>Chapter 2: Programming in Scala</strong></p>
 <p>Xingang (Ian) Fang</p>
 </div>
 </section>
+</section>
+<section >
 <section >
 <h2>TL;DR</h2>
 <ul class="simple">
@@ -34,6 +37,8 @@
 <li><p>PySpark is more recommended in the future</p></li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>Scala Programming Language</h2>
 <ul class="simple">
@@ -55,6 +60,8 @@
 </li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>Scala in this course</h2>
 <ul class="simple">
@@ -86,6 +93,8 @@
 </li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>Topics</h2>
 <ul class="simple">
@@ -103,6 +112,8 @@
 something you can refer to reference material as needed.</p>
 </div>
 </section>
+</section>
+<section >
 <section >
 <h2>Scala Shell</h2>
 <ul class="simple">
@@ -114,8 +125,11 @@ something you can refer to reference material as needed.</p>
 </ul>
 </li>
 </ul>
-<a class="reference internal image-reference" href="../_images/spark-shell.png"><img alt="../_images/spark-shell.png" src="../_images/spark-shell.png" style="width: 100%;" /></a>
+<a class="reference internal image-reference" href="../_images/spark-shell.png"><img alt="../_images/spark-shell.png" src="../_images/spark-shell.png" style="width: 100%;" />
+</a>
 </section>
+</section>
+<section >
 <section >
 <h2>Functional Programming</h2>
 <ul class="simple">
@@ -144,6 +158,8 @@ existing one</p></li>
 </li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>Syntax Basics</h2>
 <ul class="simple">
@@ -163,7 +179,8 @@ JavaScript in my opinion.</p></li>
 </li>
 </ul>
 </section>
-<section>
+</section>
+<section >
 <section >
 <h2>Values, Variables, and Types</h2>
 <div class="flex-container docutils container">
@@ -252,7 +269,7 @@ val a: Int = 10
 a = 20 // Error: reassignment to val</code></pre>
 </section>
 </section>
-<section>
+<section >
 <section >
 <h2>Functions in Scala</h2>
 <ul class="simple">
@@ -365,7 +382,7 @@ val adder = makeAdder(5) // Create a closure that adds 5 to its argument
 println(adder(3)) // Output is 5 + 3 = 8</code></pre>
 </section>
 </section>
-<section>
+<section >
 <section >
 <h2>Scala Classes</h2>
 <ul class="simple">
@@ -456,7 +473,7 @@ val b = 5
 val c = a + b  // same as a.+(b)</code></pre>
 </section>
 </section>
-<section>
+<section >
 <section >
 <h2>Misc. Scala Features</h2>
 <div class="flex-container docutils container">
@@ -531,7 +548,7 @@ for execution</p></li>
 </ul>
 </section>
 </section>
-<section>
+<section >
 <section >
 <h2>Advanced Data Types</h2>
 <ul class="simple">
@@ -626,7 +643,7 @@ println(getGreeting(Person(&quot;John&quot;, 21))) // Hello John
 println(getGreeting(Person(&quot;Bob&quot;, 24))) // I do not know you</code></pre>
 </section>
 </section>
-<section>
+<section >
 <section >
 <h2>Collections</h2>
 <ul>
@@ -678,17 +695,17 @@ Spark RDD for further parallel processing</p></li>
         </div>
     </div>
     
-    <script src="../_static/revealjs4/dist/reveal.js"></script>
+    <script src="../_static/revealjs/dist/reveal.js"></script>
     
     
-      <script src="../_static/revealjs4/plugin/notes/notes.js"></script>
-      <script src="../_static/revealjs4/plugin/highlight/highlight.js"></script>
-      <script src="../_static/revealjs4/plugin/math/math.js"></script>
+      <script src="../_static/revealjs/plugin/notes/notes.js"></script>
+      <script src="../_static/revealjs/plugin/highlight/highlight.js"></script>
+      <script src="../_static/revealjs/plugin/math/math.js"></script>
       
     
     <script>
         var revealjsConfig = new Object();
-        Object.assign(revealjsConfig, JSON.parse('{"controls": true, "progress": true, "hash": true, "center": true, "transition": "slide", "slideNumber": true}'));
+        Object.assign(revealjsConfig, {"controls": true, "progress": true, "hash": true, "center": true, "transition": "slide", "slideNumber": true, "scrollActivationWidth": null});
         
         
         

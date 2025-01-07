@@ -1,15 +1,15 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Chain Matrix Multiplication Problem</title>
-    <link rel="stylesheet" type="text/css" href="../_static/revealjs4/dist/reveal.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs/dist/reveal.css?v=40f0a724" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/revealjs4/plugin/highlight/zenburn.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs/plugin/highlight/zenburn.css?v=83d5745d" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -19,8 +19,11 @@
     <div class="reveal">
         <div class="slides" role="main">
             <section >
+<section >
 <h1>Chain Matrix Multiplication Problem</h1>
 </section>
+</section>
+<section >
 <section >
 <h2>Overview</h2>
 <ul class="simple">
@@ -44,6 +47,8 @@ multiplication.</p></li>
 </li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>Example</h2>
 <ul class="simple">
@@ -75,6 +80,8 @@ distinct ways:</p>
 </li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>Brute Force Solution</h2>
 <ul class="simple">
@@ -84,6 +91,8 @@ distinct ways:</p>
 <li><p>The algorithm is not practical.</p></li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>Dynamic Programming Solution</h2>
 <ul class="simple">
@@ -108,6 +117,8 @@ A_k A_{k+1} \cdots A_j\)</span>.</p></li>
 </li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>Dynamic Programming Algorithm (cont.)</h2>
 <ul class="simple">
@@ -141,17 +152,17 @@ A_k A_{k+1} \cdots A_j\)</span>.</p></li>
         </div>
     </div>
     
-    <script src="../_static/revealjs4/dist/reveal.js"></script>
+    <script src="../_static/revealjs/dist/reveal.js"></script>
     
     
-      <script src="../_static/revealjs4/plugin/notes/notes.js"></script>
-      <script src="../_static/revealjs4/plugin/highlight/highlight.js"></script>
-      <script src="../_static/revealjs4/plugin/math/math.js"></script>
+      <script src="../_static/revealjs/plugin/notes/notes.js"></script>
+      <script src="../_static/revealjs/plugin/highlight/highlight.js"></script>
+      <script src="../_static/revealjs/plugin/math/math.js"></script>
       
     
     <script>
         var revealjsConfig = new Object();
-        Object.assign(revealjsConfig, JSON.parse('{"controls": true, "progress": true, "hash": true, "center": true, "transition": "slide", "slideNumber": true}'));
+        Object.assign(revealjsConfig, {"controls": true, "progress": true, "hash": true, "center": true, "transition": "slide", "slideNumber": true, "scrollActivationWidth": null});
         
         
         

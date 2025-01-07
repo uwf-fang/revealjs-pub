@@ -1,15 +1,15 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Introduction to Big Data Analytics</title>
-    <link rel="stylesheet" type="text/css" href="../_static/revealjs4/dist/reveal.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs/dist/reveal.css?v=40f0a724" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/revealjs4/plugin/highlight/zenburn.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs/plugin/highlight/zenburn.css?v=83d5745d" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -17,13 +17,16 @@
   </head><body>
     <div class="reveal">
         <div class="slides" role="main">
-            <section data-background-color="white" data-background-image="../_static/logo.png" data-background-size="50%" data-background-position="top center" data-background-repeat="no-repeat">
+            <section >
+<section data-background-color="white" data-background-image="../_static/logo.png" data-background-size="50%" data-background-position="top center" data-background-repeat="no-repeat">
 <h1>Introduction to Big Data Analytics</h1>
 <div class="subtitle docutils container">
 <p><strong>Chapter 3: Spark Core</strong></p>
 <p>Xingang (Ian) Fang</p>
 </div>
 </section>
+</section>
+<section >
 <section >
 <h2>Spark Overview</h2>
 <ul class="simple">
@@ -40,6 +43,8 @@ processing.</p></li>
 </li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>Characteristics</h2>
 <ul class="simple">
@@ -80,7 +85,8 @@ lineage information.</p></li>
 </li>
 </ul>
 </section>
-<section>
+</section>
+<section >
 <section >
 <h2>Spark Architecture</h2>
 <img alt="../_images/spark-arch.png" src="../_images/spark-arch.png" />
@@ -99,7 +105,7 @@ nodes.</p></li>
 </ul>
 </section>
 </section>
-<section>
+<section >
 <section >
 <h2>Application Execution</h2>
 <ul class="simple">
@@ -135,6 +141,7 @@ stage is a collection of tasks.</p></li>
 </section>
 </section>
 <section >
+<section >
 <h2>Data Source</h2>
 <ul class="simple">
 <li><p>Spark does not provide its own storage system.</p></li>
@@ -152,6 +159,8 @@ and CSV.</p></li>
 <li><p>Data ingestion through data APIs, streaming, etc.</p></li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>Spark Application Programming Interface (API)</h2>
 <ul class="simple">
@@ -167,6 +176,8 @@ Spark.</p></li>
 RDDs.</p></li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>SparkContext Object</h2>
 <ul>
@@ -178,7 +189,8 @@ val sc = new SparkContext(conf)</code></pre>
 </li>
 </ul>
 </section>
-<section>
+</section>
+<section >
 <section >
 <h2>Resilient Distributed Dataset (RDD)</h2>
 <ul class="simple">
@@ -303,6 +315,7 @@ transformations.</p></li>
 </section>
 </section>
 <section >
+<section >
 <h2>Caching</h2>
 <p>As Spark RDDs are computed on-demand, it is possible that the same RDD is
 computed multiple times. To avoid this, Spark provides caching. When an RDD is
@@ -321,6 +334,8 @@ information.</p></li>
 new data.</p></li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>Spark Jobs</h2>
 <ul class="simple">
@@ -332,6 +347,8 @@ new data.</p></li>
 <li><p>Stages are scheduled on executors to be executed in parallel.</p></li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>Shared Variable</h2>
 <ul>
@@ -355,17 +372,17 @@ sc.parallelize(Array(1, 2, 3, 4)).foreach(x =&gt; accum.add(x))</code></pre>
         </div>
     </div>
     
-    <script src="../_static/revealjs4/dist/reveal.js"></script>
+    <script src="../_static/revealjs/dist/reveal.js"></script>
     
     
-      <script src="../_static/revealjs4/plugin/notes/notes.js"></script>
-      <script src="../_static/revealjs4/plugin/highlight/highlight.js"></script>
-      <script src="../_static/revealjs4/plugin/math/math.js"></script>
+      <script src="../_static/revealjs/plugin/notes/notes.js"></script>
+      <script src="../_static/revealjs/plugin/highlight/highlight.js"></script>
+      <script src="../_static/revealjs/plugin/math/math.js"></script>
       
     
     <script>
         var revealjsConfig = new Object();
-        Object.assign(revealjsConfig, JSON.parse('{"controls": true, "progress": true, "hash": true, "center": true, "transition": "slide", "slideNumber": true}'));
+        Object.assign(revealjsConfig, {"controls": true, "progress": true, "hash": true, "center": true, "transition": "slide", "slideNumber": true, "scrollActivationWidth": null});
         
         
         

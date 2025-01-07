@@ -1,15 +1,15 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Max Sum Subarray</title>
-    <link rel="stylesheet" type="text/css" href="../_static/revealjs4/dist/reveal.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs/dist/reveal.css?v=40f0a724" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/revealjs4/plugin/highlight/zenburn.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs/plugin/highlight/zenburn.css?v=83d5745d" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -19,6 +19,7 @@
     <div class="reveal">
         <div class="slides" role="main">
             <section >
+<section >
 <h1>Max Sum Subarray</h1>
 <ul class="simple">
 <li><p>Given an array of integers, find the contiguous subarray with the largest
@@ -49,6 +50,8 @@ with the largest sum is <span class="math notranslate nohighlight">\([4, -1, -2,
 </li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>Brute-force Solutions</h2>
 <ul class="simple">
@@ -68,6 +71,8 @@ with the largest sum is <span class="math notranslate nohighlight">\([4, -1, -2,
 
   return max_sum</code></pre>
 </section>
+</section>
+<section >
 <section >
 <h2>Divide and Conquer Solution</h2>
 <ul class="simple">
@@ -89,6 +94,8 @@ with the largest sum is <span class="math notranslate nohighlight">\([4, -1, -2,
             max_subarray(arr, mid + 1, high),
             max_crossing_sum(arr, low, mid, high))</code></pre>
 </section>
+</section>
+<section >
 <section >
 <h2>Divide and Conquer Solution (cont.)</h2>
 <pre data-id="divide-and-conquer-solution-cont"><code data-trim data-noescape class="default">function max_crossing_sum(arr, low, mid, high):
@@ -108,6 +115,8 @@ with the largest sum is <span class="math notranslate nohighlight">\([4, -1, -2,
 
   return left_sum + right_sum</code></pre>
 </section>
+</section>
+<section >
 <section >
 <h2>Dynamic Programming Solution</h2>
 <ul class="simple">
@@ -123,6 +132,8 @@ element</p></li>
 <li><p>Scan the array from left to right only once</p></li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>Dynamic Programming Solution (cont.)</h2>
 <p>Consider the array <span class="math notranslate nohighlight">\([-2, 1, -3, 4, -1, 2, 1, -5, 4]\)</span>:</p>
@@ -136,6 +147,8 @@ with each new element.</p></li>
 in this case is 6 from the subarray <span class="math notranslate nohighlight">\([4, -1, 2, 1]\)</span>.</p></li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>Dynamic Programming Solution (cont.)</h2>
 <pre data-id="id1"><code data-trim data-noescape class="default">function kadane_algorithm(arr):
@@ -152,17 +165,17 @@ in this case is 6 from the subarray <span class="math notranslate nohighlight">\
         </div>
     </div>
     
-    <script src="../_static/revealjs4/dist/reveal.js"></script>
+    <script src="../_static/revealjs/dist/reveal.js"></script>
     
     
-      <script src="../_static/revealjs4/plugin/notes/notes.js"></script>
-      <script src="../_static/revealjs4/plugin/highlight/highlight.js"></script>
-      <script src="../_static/revealjs4/plugin/math/math.js"></script>
+      <script src="../_static/revealjs/plugin/notes/notes.js"></script>
+      <script src="../_static/revealjs/plugin/highlight/highlight.js"></script>
+      <script src="../_static/revealjs/plugin/math/math.js"></script>
       
     
     <script>
         var revealjsConfig = new Object();
-        Object.assign(revealjsConfig, JSON.parse('{"controls": true, "progress": true, "hash": true, "center": true, "transition": "slide", "slideNumber": true}'));
+        Object.assign(revealjsConfig, {"controls": true, "progress": true, "hash": true, "center": true, "transition": "slide", "slideNumber": true, "scrollActivationWidth": null});
         
         
         

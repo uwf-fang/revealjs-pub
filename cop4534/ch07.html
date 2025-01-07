@@ -1,15 +1,15 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Data Structure and Algorithm Design II</title>
-    <link rel="stylesheet" type="text/css" href="../_static/revealjs4/dist/reveal.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs/dist/reveal.css?v=40f0a724" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/revealjs4/plugin/highlight/zenburn.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs/plugin/highlight/zenburn.css?v=83d5745d" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -18,22 +18,29 @@
   </head><body>
     <div class="reveal">
         <div class="slides" role="main">
-            <section data-background-color="white" data-background-image="../_static/logo.png" data-background-size="50%" data-background-position="top center" data-background-repeat="no-repeat">
+            <section >
+<section data-background-color="white" data-background-image="../_static/logo.png" data-background-size="50%" data-background-position="top center" data-background-repeat="no-repeat">
 <h1>Data Structure and Algorithm Design II</h1>
 <div class="subtitle docutils container">
 <p><strong>Module 7</strong></p>
 <p>Xingang (Ian) Fang</p>
 </div>
 </section>
+</section>
+<section >
 <section >
 <h2>Sections</h2>
 <ul class="simple">
 <li><p>Solving Recurrences</p></li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h1>Solving Recurrence</h1>
 </section>
+</section>
+<section >
 <section >
 <h2>Outline</h2>
 <ul class="simple">
@@ -48,6 +55,8 @@
 </li>
 </ul>
 </section>
+</section>
+<section >
 <section >
 <h2>Overview</h2>
 <ul class="simple">
@@ -64,7 +73,8 @@ relations.</p>
 </li>
 </ul>
 </section>
-<section>
+</section>
+<section >
 <section >
 <h2>Recurrence Relations</h2>
 <ul class="simple">
@@ -116,6 +126,7 @@ employed in the analysis of algorithms.</p></li>
 </section>
 </section>
 <section >
+<section >
 <h2>Solving Recurrence Relations</h2>
 <ul class="simple">
 <li><p>Finding a closed form expression for a given recurrence relation is a
@@ -130,7 +141,8 @@ challenging math problem.</p></li>
 </li>
 </ul>
 </section>
-<section>
+</section>
+<section >
 <section >
 <h2>Substitution Method</h2>
 <ul class="simple">
@@ -199,6 +211,7 @@ f(n) &amp;= f(n-1) + 3n \\
 </section>
 </section>
 <section >
+<section >
 <h2>Recursion Tree Method</h2>
 <ul class="simple">
 <li><p>A graphical visualization to assist the guessing of the closed form.</p></li>
@@ -216,7 +229,8 @@ f(n) &amp;= f(n-1) + 3n \\
 <p>Credit: Introduction to Algorithms, 4th Ed., T. Cormen et al.</p>
 </div>
 </section>
-<section>
+</section>
+<section >
 <section >
 <h2>Master Method</h2>
 <ul>
@@ -301,17 +315,17 @@ level, or larger than the cost of recursive calls.</p></li>
         </div>
     </div>
     
-    <script src="../_static/revealjs4/dist/reveal.js"></script>
+    <script src="../_static/revealjs/dist/reveal.js"></script>
     
     
-      <script src="../_static/revealjs4/plugin/notes/notes.js"></script>
-      <script src="../_static/revealjs4/plugin/highlight/highlight.js"></script>
-      <script src="../_static/revealjs4/plugin/math/math.js"></script>
+      <script src="../_static/revealjs/plugin/notes/notes.js"></script>
+      <script src="../_static/revealjs/plugin/highlight/highlight.js"></script>
+      <script src="../_static/revealjs/plugin/math/math.js"></script>
       
     
     <script>
         var revealjsConfig = new Object();
-        Object.assign(revealjsConfig, JSON.parse('{"controls": true, "progress": true, "hash": true, "center": true, "transition": "slide", "slideNumber": true}'));
+        Object.assign(revealjsConfig, {"controls": true, "progress": true, "hash": true, "center": true, "transition": "slide", "slideNumber": true, "scrollActivationWidth": null});
         
         
         
