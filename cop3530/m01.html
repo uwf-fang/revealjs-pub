@@ -296,28 +296,26 @@ considered for fairness to other students who finish on time.</p></li>
 <section >
 <h2>TL; DR</h2>
 <ul class="simple">
+<li><p>Everyone</p>
+<ul>
+<li><p>SSH server + VS Code in SSH remote mode 👍</p></li>
+<li><p>GitHub Codespaces 👍</p></li>
+</ul>
+</li>
 <li><p>Windows users</p>
 <ul>
-<li><p>Use WSL (Ubuntu preferred) to hold all tool-chain 👍</p></li>
-<li><p>NO MinGW/MSYS2/Git Bash!!!!</p></li>
-<li><p>VS Code in WSL mode</p></li>
+<li><p>Use WSL (Ubuntu preferred) + VS Code in WSL Mode 👍</p></li>
+<li><p>🚫 NO MinGW/MSYS2/Git Bash!!!!</p></li>
 </ul>
 </li>
 <li><p>Mac OS users</p>
 <ul>
-<li><p>Install XCode command line tools to get a fake <code class="docutils literal notranslate"><span class="pre">g++</span></code> which works like
-real</p></li>
-<li><p>Use native bash to hold all tool-chain</p></li>
+<li><p>Install XCode command line tools</p></li>
 </ul>
 </li>
 <li><p>Linux users</p>
 <ul>
-<li><p>I guess you know what to do</p></li>
-</ul>
-</li>
-<li><p>Chrome OS or Windows that have problem installing WSL</p>
-<ul>
-<li><p>GitHub Codespaces</p></li>
+<li><p>Install tool-chain package like <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">build-essential</span></code></p></li>
 </ul>
 </li>
 </ul>
@@ -331,111 +329,44 @@ real</p></li>
 <p><strong>An editor/IDE to edit the source code files</strong></p>
 <ul class="simple">
 <li><p>Visual Studio Code 👍</p></li>
-<li><p>Visual Studio - heavy and slow, overkill</p></li>
-<li><p>Xcode - heavy and slow, overkill</p></li>
-<li><p>CLion - good but you must learn CMake</p></li>
-<li><p>Eclipse - not bad if you are familiar with it</p></li>
-<li><p>Vim - hard to learn and setup</p></li>
-<li><p>Emacs</p></li>
-<li><p>Notepad++ - Windows only</p></li>
-<li><p>Sublime Text - almost as good as VS Code but is not open-source, free
-lifetime trial</p></li>
-<li><p>Atom - almost as good as VS Code but much slower</p></li>
-<li><p>JGrasp - simple but limited</p></li>
-<li><p>Code::Blocks - simple but limited</p></li>
-<li><p>…</p></li>
+<li><p>Other tools</p></li>
 </ul>
 </div>
 <div class="half docutils container">
 <p><strong>A building environment to compile the source code files to applications
 or libraries</strong></p>
 <ul class="simple">
-<li><p>Consists of a toolchain and an environment to use it in</p></li>
-<li><p>g++ (GNU C++ Compiler) toolchain in command line interface (bash) 👍</p>
-<ul>
-<li><p>Flexible</p></li>
-<li><p>Portable (cross-platform)</p></li>
-<li><p>Looked scary but actually easy to learn</p></li>
-</ul>
-</li>
-<li><p>g++ toolchain invoked by Editor/IDE</p>
-<ul>
-<li><p>Hard to setup for modular projects</p></li>
-<li><p>Not portable</p></li>
-<li><p>Easy to use for single file projects though</p></li>
-</ul>
-</li>
+<li><p>Access through command-line interface (CLI): usually bash</p></li>
+<li><p>Core software: g++, make, git and valgrind</p></li>
+<li><p>Other bash tools</p></li>
 </ul>
 </div>
 </div>
-</section>
-<section >
-<h3>In-class Review</h3>
-<ul class="simple">
-<li><p>How many editors/IDEs can you find on the classroom computers?</p></li>
-<li><p>What C++ environment can you find on the classroom computers?</p></li>
-</ul>
 </section>
 <section >
 <h3>Windows Users!</h3>
+<p><strong>In the case that you do not want to follow the suggested workflow, you are on
+your own, but here are some suggestion to at least help you to avoid the most
+annoying conditions!</strong></p>
 <ul class="simple">
 <li><p>NEVER put your project in One Drive folder!</p></li>
-<li><p>NEVER put your file under any directory that contains a space in its name!</p></li>
-<li><p>NEVER use Git for Windows!</p></li>
-<li><p>NEVER use MinGW/MSYS2/Git Bash!</p></li>
+<li><p>NEVER put your project under any directory that contains a space in its
+name!</p></li>
+<li><p>AVOID MinGW/MSYS2/Git Bash!</p></li>
 <li><p>Pay attention to line endings for any files you obtained from Windows apps.</p></li>
-<li><p>Never download and unzip from GitHub. Use “git clone” instead. Guess what?
+<li><p>NEVER download and unzip from GitHub. Use “git clone” instead. Guess what?
 Windows zip apps will mess up the line endings.</p></li>
 </ul>
 </section>
-</section>
 <section >
-<section >
-<h2>Toolchain and Environment</h2>
-<ul class="simple">
-<li><p>g++ from GNU Compiler Collection (GCC)</p>
-<ul>
-<li><p>Under Linux native bash 👍</p></li>
-<li><p>Under Windows subsystem for Linux 👍</p></li>
-<li><p>Under Mac OS native bash - hard to install 🚫</p></li>
-<li><p>Under MinGW/MSYS2 - bad compatibility 🚫</p></li>
-<li><p>Read more about <a class="reference external" href="https://uwf-fang.github.io/cpp/building/gpp.html">g++</a></p></li>
-</ul>
-</li>
-<li><p>Visual C++ Compiler</p>
-<ul>
-<li><p>Windows native 👍🚫</p></li>
-</ul>
-</li>
-<li><p>LLVM C++ Compiler</p>
-<ul>
-<li><p>Under Mac OS native bash 👍</p></li>
-<li><p>Install XCode command line tools first</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">clang++</span></code> tool is aliased as <code class="docutils literal notranslate"><span class="pre">g++</span></code></p></li>
-<li><p>Use it as if it is <code class="docutils literal notranslate"><span class="pre">g++</span></code></p></li>
-</ul>
-</li>
-</ul>
-</section>
-<section >
-<h3>Auxiliary Tools</h3>
+<h3>Tools and Environment</h3>
 <div class="flex-container docutils container">
 <div class="half docutils container">
 <p>GNU <code class="docutils literal notranslate"><span class="pre">make</span></code></p>
 <ul class="simple">
 <li><p>A tool to automate the build process</p></li>
 <li><p>A tool to manage dependencies between source files</p></li>
-<li><p>A tool to manage the build process of a modular project</p></li>
-<li><p>An old system with many modern alternatives</p></li>
-<li><p>Easy to learn and use but hard to master</p></li>
-<li><p>Not portable (incompatible versions on different platforms)</p></li>
-<li><p>Not worth the effort to master as there are better alternatives:</p>
-<ul>
-<li><p>CMake</p></li>
-<li><p>Ninja</p></li>
-<li><p>…</p></li>
-</ul>
-</li>
+<li><p>Not worth the effort to master as there are better alternatives</p></li>
 <li><p>Read more about <a class="reference external" href="https://uwf-fang.github.io/tools/make.html">make</a></p></li>
 </ul>
 </div>
@@ -444,19 +375,10 @@ Windows zip apps will mess up the line endings.</p></li>
 <ul class="simple">
 <li><p>a distributed version control system to manage pure text files including
 source code files</p></li>
-<li><p>What it can do for you</p>
+<li><p>We use a small subset of its functionality as beginners</p>
 <ul>
-<li><p>Track changes of your code</p></li>
-<li><p>Backup your code</p></li>
-<li><p>Work on different branches</p></li>
-<li><p>Revert to previous versions</p></li>
-<li><p>Collaborate with others</p></li>
-<li><p>Share code with others</p>
-<ul>
-<li><p>Assignment submission</p></li>
-<li><p>Push your code before asking for help</p></li>
-</ul>
-</li>
+<li><p>Backup versions of your work</p></li>
+<li><p>Submit your work</p></li>
 </ul>
 </li>
 <li><p>Read more about <a class="reference external" href="https://uwf-fang.github.io/tools/git.html">git</a></p></li>
@@ -479,13 +401,7 @@ source code files</p></li>
 <li><p>Counter part of GUI (Graphical User Interface)</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">bash</span></code> CLI environment 👍</p>
-<ul>
-<li><p>the most popular CLI environment</p></li>
-<li><p>native under Linux and Mac OS</p></li>
-<li><p>available on Windows though WSL, MinGW or CygWin</p></li>
-</ul>
-</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bash</span></code> CLI environment 👍</p></li>
 <li><p>Why CLI?</p>
 <ul>
 <li><p>Flexible - adjust parameters on the fly</p></li>
@@ -497,9 +413,11 @@ source code files</p></li>
 </ul>
 </div>
 <div class="half docutils container">
+<div class="vcenter docutils container">
 <img alt="Mac OS Terminal" src="../_images/mac-terminal.png" />
 <div class="footnote docutils container">
 <p>Credit: <a class="reference external" href="https://en.wikipedia.org/wiki/Terminal_%28macOS%29">https://en.wikipedia.org/wiki/Terminal_%28macOS%29</a></p>
+</div>
 </div>
 </div>
 </div>
@@ -516,31 +434,16 @@ source code files</p></li>
 <li><p>Find the right button or menu item from hundreds of them</p></li>
 </ul>
 </li>
-<li><p>GUI is not portable</p>
-<ul>
-<li><p>Different GUI on different platforms</p></li>
-<li><p>Different GUI on different versions of the same platform</p></li>
-</ul>
-</li>
-<li><p>GUI is not flexible</p>
-<ul>
-<li><p>Hard to adjust parameters on the fly</p></li>
 <li><p>Hard to automate</p></li>
-</ul>
-</li>
-<li><p>Hard to learn</p>
-<ul>
-<li><p>Learn from scratch for each GUI</p></li>
-<li><p>Hard to remember (too many buttons)</p></li>
-<li><p>Learn from screenshots (hard to follow)</p></li>
-</ul>
-</li>
+<li><p>Hard to learn</p></li>
 </ul>
 </div>
 <div class="half docutils container">
+<div class="vcenter docutils container">
 <img alt="Simplified Microsoft Office Ribbon" src="../_images/ms-ribbon.webp" />
 <div class="footnote docutils container">
 <p>Credit: <a class="reference external" href="https://www.reddit.com/r/Windows11/comments/y7g4fp/ms_office_word_has_a_new_simplified_ribbon/">MS Office Word has a new Simplified ribbon</a></p>
+</div>
 </div>
 </div>
 </div>
@@ -549,21 +452,19 @@ source code files</p></li>
 <section >
 <section >
 <h2>Local Environment</h2>
-<p>A local development environment is recommended for this course.</p>
-<ul class="simple">
-<li><p>Something worth learning as a programmer</p></li>
-<li><p>Faster and easier to use than other options</p></li>
-</ul>
 <div class="flex-container docutils container">
 <div class="half docutils container">
+<p>A local development environment is recommended for this course.</p>
+<ul class="simple">
+<li><p>Not the most convenient but worth your time to learn.</p></li>
+<li><p><strong>Come on! You are CS related major, right?</strong></p></li>
+</ul>
 <p>For Linux:</p>
 <ul class="simple">
 <li><p>Install g++ and make from Ubuntu terminal</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">update</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">build-essential</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">git</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">valgrind</span></code> (optional)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">build-essential</span> <span class="pre">git</span> <span class="pre">valgrind</span></code></p></li>
 </ul>
 </li>
 <li><p>Install Visual Studio Code</p></li>
@@ -605,10 +506,9 @@ Chromebook or a tablet.</p>
 <li><p>SSH Server</p>
 <ul>
 <li><p>From CS department</p></li>
-<li><p>Connect using SSH protocol</p></li>
 <li><p>C++ Toolchain pre-installed</p></li>
-<li><p>Works like a Linux terminal (CLI)</p></li>
-<li><p>May need to either edit in the CLI or transfer files back and forth</p></li>
+<li><p>Handle files remotely</p></li>
+<li><p>Best wth VS Code in SSH remote mode 👍</p></li>
 <li><p>Read <a class="reference external" href="https://uwf-fang.github.io/course/cs-ssh-server.html">SSH instructions</a></p></li>
 </ul>
 </li>
@@ -640,13 +540,15 @@ Chromebook or a tablet.</p>
 <li><p>Not recommended for this course</p></li>
 </ul>
 </li>
-<li><p>Click-and-run single file project</p>
+<li><p>Windows line ending</p>
 <ul>
-<li><p>Works well for introductory courses</p></li>
-<li><p>No <code class="docutils literal notranslate"><span class="pre">make</span></code> support</p></li>
-<li><p>Not suitable for modular projects</p></li>
-<li><p>Will fail especially when you are using multiple drivers to generate
-multiple executables</p></li>
+<li><p>Whenever you use software developed for Windows only on your files</p></li>
+</ul>
+</li>
+<li><p>Click-and-run feature</p>
+<ul>
+<li><p>Extremely tricky to configure for modular project with make</p></li>
+<li><p>Command line is way better!</p></li>
 <li><p>Examples</p>
 <ul>
 <li><p>JGrasp</p></li>
@@ -662,25 +564,15 @@ multiple executables</p></li>
 </section>
 <section >
 <section >
-<h1>General Programming Concepts</h1>
-<div class="subtitle docutils container">
-<p>Xingang (Ian) Fang</p>
-</div>
-</section>
-</section>
-<section >
-<section >
-<h2>Outline</h2>
+<h2>General Programming Concepts</h2>
 <ul class="simple">
 <li><p>Programming Paradigms</p></li>
 <li><p>Programming Languages</p></li>
 <li><p>Comment and Documentation</p></li>
 </ul>
 </section>
-</section>
 <section >
-<section >
-<h2>General Programming</h2>
+<h3>Programming</h3>
 <ul class="simple">
 <li><p>Programming Paradigms</p>
 <ul>
@@ -694,7 +586,7 @@ multiple executables</p></li>
 <li><p>Programming Languages</p></li>
 </ul>
 <div class="footnote docutils container">
-<table class="docutils align-default" id="id4">
+<table class="docutils align-default" id="id2">
 <caption><span class="caption-text">Popular Programming Languages</span></caption>
 <colgroup>
 <col style="width: 33.3%" />
@@ -747,7 +639,7 @@ programmers</p></li>
 </ul>
 </li>
 </ul>
-<div class="literal-block-wrapper docutils container" id="id5">
+<div class="literal-block-wrapper docutils container" id="id3">
 <div class="code-block-caption"><span class="caption-text">C++ comments</span></div>
 <pre><code data-trim data-noescape class="c++">// initialize the array
 // replaceable by a function named initializeArray
@@ -771,7 +663,7 @@ for (int i = 0; i &lt; 10; ++i) {
 </ul>
 </li>
 </ul>
-<div class="literal-block-wrapper docutils container" id="id6">
+<div class="literal-block-wrapper docutils container" id="id4">
 <div class="code-block-caption"><span class="caption-text">C++ documentation</span></div>
 <pre><code data-trim data-noescape class="c++">/**
  * &#64;brief initialize the array, doxygen style documentation
@@ -792,29 +684,18 @@ void initializeArray(int a[], int n) {
 </section>
 <section >
 <section >
-<h1>C++ Language Review</h1>
-<div class="subtitle docutils container">
-<p>Xingang (Ian) Fang</p>
-</div>
-</section>
-</section>
-<section >
-<section >
-<h2>Outline</h2>
+<h2>C++ Language Review</h2>
 <ul class="simple">
 <li><p>C++ convention and style recommended in this course</p></li>
 <li><p>Type of errors</p></li>
 </ul>
 </section>
-</section>
 <section >
-<section >
-<h2>C++ Convention</h2>
+<h3>C++ Convention in This Course</h3>
 <ul class="simple">
-<li><p>Claimer: The convention and style is for this course only. It is not
-necessarily the best practice.</p></li>
-<li><p>Following a convention makes your life easier</p></li>
-<li><p>Conventions in this course</p>
+<li><p>Claimer: The convention and style is for teaching only. It is not necessarily
+the best practice</p></li>
+<li><p>Following a convention makes your learning process easier</p>
 <ul>
 <li><p>Naming convention</p>
 <ul>
@@ -856,7 +737,7 @@ header file so <strong>your documentation will be in your header file</strong>.<
 <li><p>Add to declarations, not definitions.</p></li>
 <li><p>Do not abuse comments! No need to comment on well-known blocks of code or
 code that is self-explanatory, or code that has a name.</p></li>
-<li><p>Good finished code should have no comments.</p></li>
+<li><p><strong>Generally finished code should have no comments!</strong></p></li>
 </ul>
 </li>
 <li><p>C++ standard</p>
@@ -869,16 +750,15 @@ code that is self-explanatory, or code that has a name.</p></li>
 <ul>
 <li><p>Some are provided in projects</p></li>
 <li><p>Strongly recommended to write your own tests</p></li>
+<li><p>Adding asserts is a simple way to test your code</p></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </section>
-</section>
 <section >
-<section >
-<h2>Types of Errors in C++</h2>
+<h3>Types of Errors in C++</h3>
 <ul class="simple">
 <li><p>Syntax error</p>
 <ul>
@@ -918,6 +798,7 @@ but the program does not do what you want it to do</p></li>
 </ul>
 </li>
 </ul>
+</section>
 </section>
 
         </div>

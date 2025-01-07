@@ -352,3 +352,11 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
 .reveal dd {
   margin-left: 20px;
   padding-left: 0px; }
+
+.reveal .vcenter {
+  /* vertical centering */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%; }
