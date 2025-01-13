@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Programming Languages</title>
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs/dist/reveal.css?v=40f0a724" />
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs/plugin/highlight/zenburn.css?v=83d5745d" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  </head><body>
+    <div class="reveal">
+        <div class="slides" role="main">
+            <section >
+<section data-background-color="white" data-background-image="../_static/logo.png" data-background-size="50%" data-background-position="top center" data-background-repeat="no-repeat">
+<h1>Programming Languages</h1>
+<div class="subtitle docutils container">
+<p><strong>Module 1</strong></p>
+<p>Xingang (Ian) Fang</p>
+</div>
+</section>
+</section>
+<section >
+<section >
+<h2>Sections</h2>
+</section>
+</section>
+<section >
+<section >
+<h2>Motivation</h2>
+<ul class="simple">
+<li><p>Increased capacity to express ideas</p></li>
+<li><p>Improved background for choosing appropriate language</p></li>
+<li><p>Increased ability to learn new languages</p></li>
+<li><p>Better understanding of the significance of implementation</p></li>
+<li><p>Better use of languages that are already known</p></li>
+<li><p>Overall advancement of computing</p></li>
+</ul>
+</section>
+</section>
+<section >
+<section >
+<h2>Programming Domains</h2>
+<ul class="simple">
+<li><p>Scientific Applications (Fortran)</p></li>
+<li><p>Business Applications (COBOL)</p></li>
+<li><p>Artificial Intelligence (LISP, Prolog) <strong>note: old school AI</strong></p></li>
+<li><p>Systems Programming (C)</p></li>
+<li><p>Web Software (HTML, PHP, Java)</p></li>
+<li><p>AI Applications (Python)</p></li>
+</ul>
+</section>
+</section>
+<section >
+<section >
+<h2>Language Evaluation Criteria</h2>
+<div class="flex-container docutils container">
+<div class="half docutils container">
+<ul class="simple">
+<li><p>Readability</p></li>
+<li><p>Writability</p></li>
+<li><p>Reliability</p></li>
+<li><p>Cost</p></li>
+</ul>
+</div>
+<div class="half docutils container">
+<img alt="Criteria Table" src="../_images/evl_criteria.png" />
+<div class="footnote docutils container">
+<p>Credit: Concepts of Programming Languages - Sebesta</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section >
+<section >
+<h2>Readability</h2>
+<ul class="simple">
+<li><p>Overall simplicity</p></li>
+<li><p>Orthogonality</p></li>
+<li><p>Data Types</p></li>
+<li><p>Syntax Design</p></li>
+</ul>
+</section>
+<section >
+<h3>Overall simplicity</h3>
+<ul class="simple">
+<li><p>A language with more number of basic constructs is more difficult to learn than one with a smaller number.</p></li>
+<li><p>Feature multiplicity</p>
+<ul>
+<li><p>E.g. many ways to increase by 1</p></li>
+</ul>
+</li>
+<li><p>Operator overloading</p></li>
+<li><p>Warning: Too much simplicity makes program less readable</p>
+<ul>
+<li><p>E.g. use of abbreviations: Assembly language</p></li>
+<li><p>E.g. abuse of operator overloading</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section >
+<h3>Orthogonality</h3>
+<ul class="simple">
+<li><p>Ability of combining a small set of primitives to build control and data structures.</p></li>
+<li><p>The more orthogonal the design of a language, more is the simplicity.</p></li>
+<li><p>Most orthogonal programming language is ALGOL 68.</p></li>
+<li><p>Functional languages offer potentially the greatest overall simplicity</p></li>
+</ul>
+</section>
+<section >
+<h3>Data Types and Syntax design</h3>
+<div class="flex-container docutils container">
+<div class="half docutils container">
+<p><strong>Data Types</strong></p>
+<ul class="simple">
+<li><p>Implicit type conversion</p>
+<ul>
+<li><p>E.g. int isPositive = 1; // true</p></li>
+<li><p>E.g. exit(0); // success</p></li>
+</ul>
+</li>
+<li><p>Use of const variables or macros</p>
+<ul>
+<li><p>E.g. const int MAX = 100;</p></li>
+<li><p>E.g. #define MAX 100</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="half docutils container">
+<p><strong>Syntax Design</strong></p>
+<ul class="simple">
+<li><p>Special words (reserved words)</p>
+<ul>
+<li><p>E.g. if (a == b) { … }</p></li>
+<li><p>E.g. if a == b then …</p></li>
+</ul>
+</li>
+<li><p>Form and meaning</p>
+<ul>
+<li><p>E.g. violation of using a same work for different meanings</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+<section >
+<section >
+<h2>Writability</h2>
+<ul class="simple">
+<li><p>Simplicity and Orthogonality</p>
+<ul>
+<li><p>A language with small set of primitives is better than one with a large set of primitives</p></li>
+<li><p>Too much orthogonality decreases writability</p></li>
+</ul>
+</li>
+<li><p>Support for Abstraction</p></li>
+<li><p>Expressivity</p></li>
+</ul>
+</section>
+<section >
+<h3>Support for Abstraction</h3>
+<ul class="simple">
+<li><p>A language with small set of primitives is better than one with a large set of primitives</p></li>
+<li><p>Too much orthogonality decreases writability</p></li>
+</ul>
+</section>
+<section >
+<h3>Support for Abstraction</h3>
+<ul class="simple">
+<li><p>Abstraction is the ability to define and use complicated structures or operations in ways that allow many of the details to be ignored.</p></li>
+<li><p>Programming languages can support two types of abstraction: process and data.</p></li>
+<li><p>Example for process abstraction is to use a subprogram for sorting that is required several times in a program.</p></li>
+<li><p>Example for data abstraction is a binary tree that stores integer data in its nodes. It is better to implement a binary tree in C++ or Java using classes rather than in Fortran77 using pointers and dynamic memory management.</p></li>
+</ul>
+</section>
+<section >
+<h3>Expressivity</h3>
+<ul class="simple">
+<li><p>Ability of a language that allows a great deal of computation to be accomplished with a very small program.</p></li>
+<li><p>In C, count++ is more convenient than writing count = count + 1.</p></li>
+<li><p>Inclusion of for statement in Java makes writing counting loops easier than with the use of while.</p></li>
+</ul>
+</section>
+</section>
+
+        </div>
+    </div>
+    
+    <script src="../_static/revealjs/dist/reveal.js"></script>
+    
+    
+      <script src="../_static/revealjs/plugin/notes/notes.js"></script>
+      <script src="../_static/revealjs/plugin/highlight/highlight.js"></script>
+      <script src="../_static/revealjs/plugin/math/math.js"></script>
+      
+    
+    <script>
+        var revealjsConfig = new Object();
+        Object.assign(revealjsConfig, {"controls": true, "progress": true, "hash": true, "center": true, "transition": "slide", "slideNumber": true, "scrollActivationWidth": null});
+        
+        
+        
+          revealjsConfig.plugins = [
+            RevealNotes,RevealHighlight,RevealMath,
+          ];
+        
+        // More info https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize(revealjsConfig);
+    </script>
+
+  </body>
+</html>
