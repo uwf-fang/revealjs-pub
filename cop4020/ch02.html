@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/revealjs/plugin/highlight/zenburn.css?v=83d5745d" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -28,7 +29,13 @@
 </section>
 <section >
 <section >
-<h2>Sections</h2>
+<h2>Introduction to Programming Languages</h2>
+<ul class="simple">
+<li><p>Motivation</p></li>
+<li><p>Programming Domains</p></li>
+<li><p>Language Evaluation Criteria</p></li>
+<li><p>Language design</p></li>
+</ul>
 </section>
 </section>
 <section >
@@ -69,11 +76,69 @@
 <li><p>Cost</p></li>
 </ul>
 </div>
-<div class="half docutils container">
-<img alt="Criteria Table" src="../_images/evl_criteria.png" />
-<div class="footnote docutils container">
-<p>Credit: Concepts of Programming Languages - Sebesta</p>
-</div>
+<div class="half smaller docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Readability</p></th>
+<th class="head"><p>Writability</p></th>
+<th class="head"><p>Reliability</p></th>
+<th class="head"><p>Cost</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Simplicity</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>Orthogonality</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>Data types</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>Syntax design</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>Support for abstraction</p></td>
+<td></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>Expressivity</p></td>
+<td></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>Type checking</p></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>Exception handling</p></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>Restricted aliasing</p></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </section>
@@ -91,7 +156,8 @@
 <section >
 <h3>Overall simplicity</h3>
 <ul class="simple">
-<li><p>A language with more number of basic constructs is more difficult to learn than one with a smaller number.</p></li>
+<li><p>A language with more number of basic constructs is more difficult to learn
+than one with a smaller number.</p></li>
 <li><p>Feature multiplicity</p>
 <ul>
 <li><p>E.g. many ways to increase by 1</p></li>
@@ -109,7 +175,8 @@
 <section >
 <h3>Orthogonality</h3>
 <ul class="simple">
-<li><p>Ability of combining a small set of primitives to build control and data structures.</p></li>
+<li><p>Ability of combining a small set of primitives to build control and data
+structures.</p></li>
 <li><p>The more orthogonal the design of a language, more is the simplicity.</p></li>
 <li><p>Most orthogonal programming language is ALGOL 68.</p></li>
 <li><p>Functional languages offer potentially the greatest overall simplicity</p></li>
@@ -160,7 +227,8 @@
 <ul class="simple">
 <li><p>Simplicity and Orthogonality</p>
 <ul>
-<li><p>A language with small set of primitives is better than one with a large set of primitives</p></li>
+<li><p>A language with small set of primitives is better than one with a large set
+of primitives</p></li>
 <li><p>Too much orthogonality decreases writability</p></li>
 </ul>
 </li>
@@ -171,27 +239,268 @@
 <section >
 <h3>Support for Abstraction</h3>
 <ul class="simple">
-<li><p>A language with small set of primitives is better than one with a large set of primitives</p></li>
+<li><p>A language with small set of primitives is better than one with a large set
+of primitives</p></li>
 <li><p>Too much orthogonality decreases writability</p></li>
 </ul>
 </section>
 <section >
 <h3>Support for Abstraction</h3>
 <ul class="simple">
-<li><p>Abstraction is the ability to define and use complicated structures or operations in ways that allow many of the details to be ignored.</p></li>
+<li><p>Abstraction is the ability to define and use complicated structures or
+operations in ways that allow many of the details to be ignored.</p></li>
 <li><p>Programming languages can support two types of abstraction: process and data.</p></li>
-<li><p>Example for process abstraction is to use a subprogram for sorting that is required several times in a program.</p></li>
-<li><p>Example for data abstraction is a binary tree that stores integer data in its nodes. It is better to implement a binary tree in C++ or Java using classes rather than in Fortran77 using pointers and dynamic memory management.</p></li>
+<li><p>Example for process abstraction is to use a subprogram for sorting that is
+required several times in a program.</p></li>
+<li><p>Example for data abstraction is a binary tree that stores integer data in its
+nodes. It is better to implement a binary tree in C++ or Java using classes
+rather than in Fortran77 using pointers and dynamic memory management.</p></li>
 </ul>
 </section>
 <section >
 <h3>Expressivity</h3>
 <ul class="simple">
-<li><p>Ability of a language that allows a great deal of computation to be accomplished with a very small program.</p></li>
+<li><p>Ability of a language that allows a great deal of computation to be
+accomplished with a very small program.</p></li>
 <li><p>In C, count++ is more convenient than writing count = count + 1.</p></li>
-<li><p>Inclusion of for statement in Java makes writing counting loops easier than with the use of while.</p></li>
+<li><p>Inclusion of for statement in Java makes writing counting loops easier than
+with the use of while.</p></li>
 </ul>
 </section>
+</section>
+<section >
+<section >
+<h2>Reliability</h2>
+<ul class="simple">
+<li><p>Type Checking</p></li>
+<li><p>Exception Handling</p></li>
+<li><p>Restricted Aliasing</p></li>
+<li><p>Readability and Writability</p></li>
+</ul>
+</section>
+</section>
+<section >
+<section >
+<h2>Cost</h2>
+<ul class="simple">
+<li><p>Cost of training programmers</p></li>
+<li><p>Cost of writing the program</p></li>
+<li><p>Cost of compiling the program</p></li>
+<li><p>Cost of executing the program</p></li>
+<li><p>Cost of the implementation system</p></li>
+<li><p>Cost of poor reliability</p></li>
+<li><p>Cost of maintaining the program</p></li>
+</ul>
+</section>
+</section>
+<section >
+<section >
+<h2>Language Design And Categories</h2>
+<div class="flex-container docutils container">
+<div class="half docutils container">
+<p><strong>Language Design</strong></p>
+<ul class="simple">
+<li><p>Hardware Architecture</p>
+<ul>
+<li><p>Von Neumann</p></li>
+</ul>
+</li>
+<li><p>Programming Paradigms</p>
+<ul>
+<li><p>Imperative</p></li>
+<li><p>Functional</p></li>
+<li><p>Object-oriented</p></li>
+<li><p>Logic</p></li>
+<li><p>…</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="half docutils container">
+<p><strong>Language Categories</strong></p>
+<p>Languages can be categorized in many ways and each language can belong to
+multiple categories.</p>
+<ul class="simple">
+<li><p>By category</p></li>
+<li><p>By implementation</p></li>
+<li><p>By domain</p></li>
+<li><p>By application</p></li>
+<li><p>By characteristics</p></li>
+</ul>
+<p><strong>Trade-offs</strong> between different criteria</p>
+</div>
+</div>
+</section>
+</section>
+<section >
+<section >
+<h2>Describing Syntax and Semantics</h2>
+<ul class="simple">
+<li><p>Introduction and Challenges</p></li>
+<li><p>Formal Methods of Describing Syntax</p></li>
+</ul>
+</section>
+</section>
+<section >
+<section >
+<h2>Introduction to Syntax and Semantics</h2>
+<ul class="simple">
+<li><p>Syntax: form or structure of the expressions, statements, and program units</p></li>
+<li><p>Semantics: meaning of the expressions, statements, and program units</p></li>
+<li><p>Concepts:</p>
+<ul>
+<li><p>Lexemes: lowest-level syntactic units in a language</p></li>
+<li><p>Tokens: a category of lexemes</p></li>
+</ul>
+</li>
+<li><p>Components:</p>
+<ul>
+<li><p>Language recognizer: syntax analyzer/parser</p></li>
+<li><p>Language generator</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section >
+<section >
+<h2>Formal Methods of Describing Syntax</h2>
+<ul class="simple">
+<li><p>Backus- Naur Form (BNF)</p>
+<ul>
+<li><p>a metalanguage used to formally describe the syntax of a language</p></li>
+<li><p>for context-free grammars</p></li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li><p>Extended BNF (EBNF)</p></li>
+</ul>
+<ul class="simple">
+<li><p>Grammar</p>
+<ul>
+<li><p>a generative device for defining languages</p></li>
+</ul>
+</li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+&lt;program&gt; \rightarrow &amp;begin &lt;statement\ list&gt; end \\
+&lt;statement\ list&gt; \rightarrow &amp;&lt;statement&gt; \\
+                             &amp;| &lt;statement&gt;; &lt;statement\ list&gt; \\
+&lt;statement&gt; \rightarrow &amp;&lt;var&gt; = &lt;expression&gt; \\
+&lt;var&gt; \rightarrow &amp;A | B | C \\
+&lt;expression&gt; \rightarrow &amp;&lt;var&gt; + &lt;var&gt; \\
+                        &amp;| &lt;var&gt; - &lt;var&gt; \\
+                        &amp;| &lt;var&gt; \\
+\end{align*}\end{split}\]</div>
+</section>
+<section >
+<h3>Derivation Example</h3>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+&lt;program&gt; \ \rightarrow &amp; begin &lt;statement\ list&gt; end  \\
+\rightarrow &amp; begin &lt;statement&gt; ; &lt;statement\ list&gt; end  \\
+\rightarrow &amp; begin &lt;var&gt; = &lt;expression&gt; ; &lt;statement\ list&gt; end  \\
+\rightarrow &amp; begin \ A = &lt;expression&gt; ; &lt;statement\ list&gt; end  \\
+\rightarrow &amp; begin \ A = &lt;var&gt; + &lt;var&gt; ; &lt;statement\ list&gt; end  \\
+\rightarrow &amp; begin \ A = B + &lt;var&gt; ; &lt;statement\ list&gt; end  \\
+\rightarrow &amp; begin \ A = B + C ; &lt;statement\ list&gt; end  \\
+\rightarrow &amp; begin \ A = B + ; &lt;statement&gt; end  \\
+\rightarrow &amp; begin \ A = B + C ; &lt;var&gt; = &lt;expression&gt; end  \\
+\rightarrow &amp; begin \ A = B + C ; B = &lt;expression&gt; end  \\
+\rightarrow &amp; begin \ A = B + C ; B = &lt;var&gt; end  \\
+\rightarrow &amp; begin \ A = B + C ; B = C end
+\end{align*}\end{split}\]</div>
+</section>
+<section >
+<h3>Parsing Tree</h3>
+<div class="flex-container docutils container">
+<div class="half docutils container">
+<p><strong>Example parsing tree for A = B * A + C</strong></p>
+<div class="graphviz"><img src="../_images/graphviz-ce849807da4283aec03fb7eea385f4d018472b5a.png" alt="digraph ParseTree {
+  node [shape=circle];
+  A1 [label=&quot;A&quot;];
+  assign [label=&quot;=&quot;];
+  B [label=&quot;B&quot;];
+  mult [label=&quot;*&quot;];
+  add [label=&quot;+&quot;];
+  A2 [label=&quot;A&quot;];
+  C [label=&quot;C&quot;];
+
+  assign -&gt; A1;
+  assign -&gt; add;
+  add -&gt; mult;
+  add -&gt; C;
+  mult -&gt; B;
+  mult -&gt; A2;
+}" class="graphviz" /></div>
+</div>
+<div class="half docutils container">
+<ul class="simple">
+<li><p><strong>Example parsing tree for A = B * (A + C)</strong></p></li>
+<li><p><strong>May be an ambiguous to the last example if the grammar is not defined
+properly</strong></p></li>
+</ul>
+<div class="graphviz"><img src="../_images/graphviz-a52f717325074ad67401f8df17097f11e7a22e12.png" alt="digraph ParseTree {
+  node [shape=circle];
+  A1 [label=&quot;A&quot;];
+  assign [label=&quot;=&quot;];
+  B [label=&quot;B&quot;];
+  mult [label=&quot;*&quot;];
+  add [label=&quot;+&quot;];
+  A2 [label=&quot;A&quot;];
+  C [label=&quot;C&quot;];
+
+  assign -&gt; A1;
+  assign -&gt; mult;
+  mult -&gt; B;
+  mult -&gt; add;
+  add -&gt; A2;
+  add -&gt; C;
+}" class="graphviz" /></div>
+</div>
+</div>
+</section>
+</section>
+<section >
+<section >
+<h2>Attribute Grammars</h2>
+<ul class="simple">
+<li><p>a device used to describe more of the structure of a programming language
+than can be described with a context-free grammar</p></li>
+<li><p>a context-free grammar augmented with attributes and rules for computing</p>
+<ul>
+<li><p>attributes</p></li>
+<li><p>attribute computation functions</p></li>
+<li><p>predicate functions</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section >
+<section >
+<h2>Meaning of Programs</h2>
+<ul class="simple">
+<li><p>Static semantics: meanings that can be determined at compile time</p></li>
+<li><p>Dynamic semantics: meanings that can be determined at run time, refered as
+<strong>semantics</strong> in the rest of this course!</p></li>
+<li><p>Operational semantics: meanings of programs are defined by interpreting their
+execution on a machine</p>
+<ul>
+<li><p>natural operational semantics</p></li>
+<li><p>structural operational semantics</p></li>
+</ul>
+</li>
+<li><p>Denotational semantics: meanings of programs are defined by mathematical
+objects that represent the effect of executing the programs</p>
+<ul>
+<li><p>syntactic domain</p></li>
+<li><p>semantic domain</p></li>
+</ul>
+</li>
+</ul>
 </section>
 
         </div>
