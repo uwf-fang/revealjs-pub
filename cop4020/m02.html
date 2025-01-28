@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/revealjs/plugin/highlight/zenburn.css?v=83d5745d" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -334,6 +333,60 @@ multiple categories.</p>
 </section>
 <section >
 <section >
+<h2>Language Theory and Automata</h2>
+<ul class="simple">
+<li><p>Part of theoretical computer science</p></li>
+<li><p>Studies formal languages and automata</p></li>
+<li><p>Core concepts in theory of computation</p></li>
+<li><p>Formal languages: mathematical models of programming languages</p></li>
+<li><p>Automata theory: abstract machines modeling computation</p></li>
+<li><p>Chomsky hierarchy: types of grammars and automata</p></li>
+</ul>
+</section>
+<section >
+<h3>Core Concepts in Theory of Computation</h3>
+<ul class="simple">
+<li><p>Formal languages: mathematical models of programming languages</p></li>
+<li><p>Automata theory: abstract machines modeling computation</p></li>
+<li><p>Computability: what problems can/cannot be solved algorithmically</p></li>
+<li><p>Complexity theory: resource requirements for solving problems</p></li>
+</ul>
+</section>
+<section >
+<h3>Formal Languages</h3>
+<p>Employs mathematical tools to describe syntax and semantics of languages.</p>
+<ul class="simple">
+<li><p>Alphabet: finite set of symbols (Σ)</p></li>
+<li><p>String: finite sequence of symbols from alphabet</p></li>
+<li><p>Language: set of strings following specific rules</p></li>
+<li><p>Grammar: rules for generating valid strings</p></li>
+</ul>
+</section>
+<section >
+<h3>Automata Types</h3>
+<p>Automata are abstract machines that recognize languages. They also model
+computation.</p>
+<ul class="simple">
+<li><p>Finite automata: DFA, NFA</p></li>
+<li><p>Pushdown automata: stack memory</p></li>
+<li><p>Linear-bounded automata: limited tape</p></li>
+<li><p>Turing machines: infinite tape</p></li>
+</ul>
+</section>
+<section >
+<h3>Chomsky Hierarchy</h3>
+<p>Automaton works as recognizer for language. Types of automata are related to
+types of grammars.</p>
+<ul class="simple">
+<li><p>Type-0: Unrestricted grammars → Turing machines</p></li>
+<li><p>Type-1: Context-sensitive → Linear-bounded automata</p></li>
+<li><p>Type-2: Context-free → Pushdown automata</p></li>
+<li><p>Type-3: Regular → Finite automata</p></li>
+</ul>
+</section>
+</section>
+<section >
+<section >
 <h2>Describing Syntax and Semantics</h2>
 <ul class="simple">
 <li><p>Introduction and Challenges</p></li>
@@ -372,46 +425,40 @@ multiple categories.</p>
 <li><p>for context-free grammars</p></li>
 </ul>
 </li>
-</ul>
-<ul class="simple">
 <li><p>Extended BNF (EBNF)</p></li>
-</ul>
-<ul class="simple">
 <li><p>Grammar</p>
 <ul>
 <li><p>a generative device for defining languages</p></li>
 </ul>
 </li>
 </ul>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{align*}
-&lt;program&gt; \rightarrow &amp;begin &lt;statement\ list&gt; end \\
-&lt;statement\ list&gt; \rightarrow &amp;&lt;statement&gt; \\
-                             &amp;| &lt;statement&gt;; &lt;statement\ list&gt; \\
-&lt;statement&gt; \rightarrow &amp;&lt;var&gt; = &lt;expression&gt; \\
-&lt;var&gt; \rightarrow &amp;A | B | C \\
-&lt;expression&gt; \rightarrow &amp;&lt;var&gt; + &lt;var&gt; \\
-                        &amp;| &lt;var&gt; - &lt;var&gt; \\
-                        &amp;| &lt;var&gt; \\
-\end{align*}\end{split}\]</div>
+</section>
+<section >
+<h3>Example Grammar in BNF</h3>
+<pre data-id="example-grammar-in-bnf"><code data-trim data-noescape class="default">&lt;program&gt; → begin &lt;statement list&gt; end
+&lt;statement list&gt; → &lt;statement&gt;
+                | &lt;statement&gt;; &lt;statement list&gt;
+&lt;statement&gt; → &lt;var&gt; = &lt;expression&gt;
+&lt;var&gt; → A | B | C
+&lt;expression&gt; → &lt;var&gt; + &lt;var&gt;
+            | &lt;var&gt; - &lt;var&gt;
+            | &lt;var&gt;</code></pre>
 </section>
 <section >
 <h3>Derivation Example</h3>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{align*}
-&lt;program&gt; \ \rightarrow &amp; begin &lt;statement\ list&gt; end  \\
-\rightarrow &amp; begin &lt;statement&gt; ; &lt;statement\ list&gt; end  \\
-\rightarrow &amp; begin &lt;var&gt; = &lt;expression&gt; ; &lt;statement\ list&gt; end  \\
-\rightarrow &amp; begin \ A = &lt;expression&gt; ; &lt;statement\ list&gt; end  \\
-\rightarrow &amp; begin \ A = &lt;var&gt; + &lt;var&gt; ; &lt;statement\ list&gt; end  \\
-\rightarrow &amp; begin \ A = B + &lt;var&gt; ; &lt;statement\ list&gt; end  \\
-\rightarrow &amp; begin \ A = B + C ; &lt;statement\ list&gt; end  \\
-\rightarrow &amp; begin \ A = B + ; &lt;statement&gt; end  \\
-\rightarrow &amp; begin \ A = B + C ; &lt;var&gt; = &lt;expression&gt; end  \\
-\rightarrow &amp; begin \ A = B + C ; B = &lt;expression&gt; end  \\
-\rightarrow &amp; begin \ A = B + C ; B = &lt;var&gt; end  \\
-\rightarrow &amp; begin \ A = B + C ; B = C end
-\end{align*}\end{split}\]</div>
+<p>Prove that “begin A = B + C; B = C end” is a program in the grammar.</p>
+<pre data-id="derivation-example"><code data-trim data-noescape class="default">&lt;program&gt; → begin &lt;statement list&gt; end
+          → begin &lt;statement&gt;; &lt;statement list&gt; end
+          → begin &lt;var&gt; = &lt;expression&gt;; &lt;statement list&gt; end
+          → begin A = &lt;expression&gt;; &lt;statement list&gt; end
+          → begin A = &lt;var&gt; + &lt;var&gt;; &lt;statement list&gt; end
+          → begin A = B + &lt;var&gt;; &lt;statement list&gt; end
+          → begin A = B + C; &lt;statement list&gt; end
+          → begin A = B +; &lt;statement&gt; end
+          → begin A = B + C; &lt;var&gt; = &lt;expression&gt; end
+          → begin A = B + C; B = &lt;expression&gt; end
+          → begin A = B + C; B = &lt;var&gt; end
+          → begin A = B + C; B = C end</code></pre>
 </section>
 <section >
 <h3>Parsing Tree</h3>

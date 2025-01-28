@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/revealjs/plugin/highlight/zenburn.css?v=83d5745d" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -58,48 +57,44 @@
 <li><p>for context-free grammars</p></li>
 </ul>
 </li>
-</ul>
-<ul class="simple">
 <li><p>Extended BNF (EBNF)</p></li>
-</ul>
-<ul class="simple">
 <li><p>Grammar</p>
 <ul>
 <li><p>a generative device for defining languages</p></li>
 </ul>
 </li>
 </ul>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{align*}
-&lt;program&gt; \rightarrow &amp;begin &lt;statement\ list&gt; end \\
-&lt;statement\ list&gt; \rightarrow &amp;&lt;statement&gt; \\
-                             &amp;| &lt;statement&gt;; &lt;statement\ list&gt; \\
-&lt;statement&gt; \rightarrow &amp;&lt;var&gt; = &lt;expression&gt; \\
-&lt;var&gt; \rightarrow &amp;A | B | C \\
-&lt;expression&gt; \rightarrow &amp;&lt;var&gt; + &lt;var&gt; \\
-                        &amp;| &lt;var&gt; - &lt;var&gt; \\
-                        &amp;| &lt;var&gt; \\
-\end{align*}\end{split}\]</div>
+</section>
+</section>
+<section >
+<section >
+<h2>Example Grammar in BNF</h2>
+<pre data-id="example-grammar-in-bnf"><code data-trim data-noescape class="default">&lt;program&gt; → begin &lt;statement list&gt; end
+&lt;statement list&gt; → &lt;statement&gt;
+                | &lt;statement&gt;; &lt;statement list&gt;
+&lt;statement&gt; → &lt;var&gt; = &lt;expression&gt;
+&lt;var&gt; → A | B | C
+&lt;expression&gt; → &lt;var&gt; + &lt;var&gt;
+            | &lt;var&gt; - &lt;var&gt;
+            | &lt;var&gt;</code></pre>
 </section>
 </section>
 <section >
 <section >
 <h2>Derivation Example</h2>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{align*}
-&lt;program&gt; \ \rightarrow &amp; begin &lt;statement\ list&gt; end  \\
-\rightarrow &amp; begin &lt;statement&gt; ; &lt;statement\ list&gt; end  \\
-\rightarrow &amp; begin &lt;var&gt; = &lt;expression&gt; ; &lt;statement\ list&gt; end  \\
-\rightarrow &amp; begin \ A = &lt;expression&gt; ; &lt;statement\ list&gt; end  \\
-\rightarrow &amp; begin \ A = &lt;var&gt; + &lt;var&gt; ; &lt;statement\ list&gt; end  \\
-\rightarrow &amp; begin \ A = B + &lt;var&gt; ; &lt;statement\ list&gt; end  \\
-\rightarrow &amp; begin \ A = B + C ; &lt;statement\ list&gt; end  \\
-\rightarrow &amp; begin \ A = B + ; &lt;statement&gt; end  \\
-\rightarrow &amp; begin \ A = B + C ; &lt;var&gt; = &lt;expression&gt; end  \\
-\rightarrow &amp; begin \ A = B + C ; B = &lt;expression&gt; end  \\
-\rightarrow &amp; begin \ A = B + C ; B = &lt;var&gt; end  \\
-\rightarrow &amp; begin \ A = B + C ; B = C end
-\end{align*}\end{split}\]</div>
+<p>Prove that “begin A = B + C; B = C end” is a program in the grammar.</p>
+<pre data-id="derivation-example"><code data-trim data-noescape class="default">&lt;program&gt; → begin &lt;statement list&gt; end
+          → begin &lt;statement&gt;; &lt;statement list&gt; end
+          → begin &lt;var&gt; = &lt;expression&gt;; &lt;statement list&gt; end
+          → begin A = &lt;expression&gt;; &lt;statement list&gt; end
+          → begin A = &lt;var&gt; + &lt;var&gt;; &lt;statement list&gt; end
+          → begin A = B + &lt;var&gt;; &lt;statement list&gt; end
+          → begin A = B + C; &lt;statement list&gt; end
+          → begin A = B +; &lt;statement&gt; end
+          → begin A = B + C; &lt;var&gt; = &lt;expression&gt; end
+          → begin A = B + C; B = &lt;expression&gt; end
+          → begin A = B + C; B = &lt;var&gt; end
+          → begin A = B + C; B = C end</code></pre>
 </section>
 </section>
 <section >
@@ -108,7 +103,7 @@
 <div class="flex-container docutils container">
 <div class="half docutils container">
 <p><strong>Example parsing tree for A = B * A + C</strong></p>
-<div class="graphviz"><img src="../_images/graphviz-92c4594525b536c12e6c23a6d418138b1d300211.png" alt="digraph ParseTree {
+<div class="graphviz"><img src="../_images/graphviz-7ed6ecb1b4190b293b665099cafa13df9cd8bd5d.png" alt="digraph ParseTree {
   node [shape=circle];
   A1 [label=&quot;A&quot;];
   assign [label=&quot;=&quot;];
@@ -132,7 +127,7 @@
 <li><p><strong>May be an ambiguous to the last example if the grammar is not defined
 properly</strong></p></li>
 </ul>
-<div class="graphviz"><img src="../_images/graphviz-d00e0e92f77400a72476d0cf96554ad17269945a.png" alt="digraph ParseTree {
+<div class="graphviz"><img src="../_images/graphviz-750c1c5f397d80f384afa2213a91d0959a417480.png" alt="digraph ParseTree {
   node [shape=circle];
   A1 [label=&quot;A&quot;];
   assign [label=&quot;=&quot;];
