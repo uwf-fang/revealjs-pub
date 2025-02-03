@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/revealjs/plugin/highlight/zenburn.css?v=83d5745d" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -37,11 +36,13 @@
 <ul>
 <li><p>Lexical analysis</p>
 <ul>
+<li><p>Based on a language that describes lexemes</p></li>
 <li><p>small-scale language constructs: lexemes and token codes</p></li>
 </ul>
 </li>
 <li><p>Syntax analysis</p>
 <ul>
+<li><p>Based on a language that describes syntax</p></li>
 <li><p>large-scale language constructs: grammar and parse trees</p></li>
 </ul>
 </li>
@@ -50,89 +51,13 @@
 <li><p>Separate lexical analysis out for simplicity, efficiency and portability</p></li>
 </ul>
 </section>
-<section >
-<h3>Language Theory Revisit</h3>
-<ul class="simple">
-<li><p><strong>Alphabet</strong>: finite set of symbols</p></li>
-<li><p><strong>String</strong>: finite sequence of symbols</p></li>
-<li><p><strong>Language</strong>: set of strings over an alphabet</p></li>
-<li><p><strong>Grammar</strong>: set of rules to generate strings in a language</p></li>
-</ul>
-<div class="flex-container docutils container">
-<div class="half docutils container">
-<p><strong>In Lexical Analysis:</strong></p>
-<ul class="simple">
-<li><p><strong>Alphabet</strong>: ASCII character</p></li>
-<li><p><strong>String</strong>: Lexeme</p></li>
-<li><p><strong>Grammar</strong>: Rule to construct lexemes</p></li>
-<li><p>Tokens: Category of lexemes</p></li>
-</ul>
-</div>
-<div class="half docutils container">
-<p><strong>In Syntax Analysis:</strong></p>
-<ul class="simple">
-<li><p><strong>Alphabet</strong>: Token</p></li>
-<li><p><strong>String</strong>: Program</p></li>
-<li><p><strong>Grammar</strong>: Syntax rules</p></li>
-</ul>
-</div>
-</div>
-</section>
-<section >
-<h3>Chomsky Hierarchy</h3>
-<p>The Chomsky hierarchy, developed by Noam Chomsky in 1956, classifies formal
-grammars and their corresponding automata into four nested levels. From type 0
-to type 3, the grammars become more restricted, and the automata become
-simpler.</p>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Type</p></th>
-<th class="head"><p>Grammar</p></th>
-<th class="head"><p>Automaton</p></th>
-<th class="head"><p>Language Example</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Type 0</p></td>
-<td><p>Unrestricted</p></td>
-<td><p>Turing Machine (TM)</p></td>
-<td><p>Any language</p></td>
-</tr>
-<tr class="row-odd"><td><p>Type 1</p></td>
-<td><p>Context-sensitive</p></td>
-<td><p>Linear-bounded automaton (LBA)</p></td>
-<td><p>Most languages</p></td>
-</tr>
-<tr class="row-even"><td><p>Type 2</p></td>
-<td><p>Context-free</p></td>
-<td><p>Pushdown automaton (PDA)</p></td>
-<td><p>Expression grammar</p></td>
-</tr>
-<tr class="row-odd"><td><p>Type 3</p></td>
-<td><p>Regular</p></td>
-<td><p>Finite automaton (FA)</p></td>
-<td><p>Regular expressions, Lexemes</p></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section >
-<h3>Symbolic Notation</h3>
-<ul class="simple">
-<li><p>Terminal (a, b, …): single character in the alphabet, cannot be expanded</p></li>
-<li><p>Nonterminal (A, B, …): can be expanded</p></li>
-<li><p>Terminal or nonterminal (X, Y, …):</p></li>
-<li><p>Strings of terminal (w, x, …): sequence of terminal symbols</p></li>
-<li><p>Mixed strings <span class="math notranslate nohighlight">\(\alpha, \beta, \gamma, ...\)</span>: sequence of terminal and
-nonterminal</p></li>
-</ul>
-</section>
 </section>
 <section >
 <section >
 <h2>Lexical Analysis</h2>
 <ul class="simple">
-<li><p>Acts as pattern matcher</p></li>
+<li><p>Acts as pattern matcher to identify lexemes (find strings in a language of a
+certain grammar)</p></li>
 <li><p>Front-end to syntax analyzer</p></li>
 <li><p>Lexical analyzer: a.k.a. Lexer, Scanner, Tokenizer</p></li>
 <li><p>Tasks</p>
@@ -193,10 +118,11 @@ generate a lexical analyzer. E.g. <a class="reference external" href="https://en
 <ul class="simple">
 <li><p>State Diagram: directed graphs representing finite automata</p>
 <ul>
-<li><p>Some weird naming rule cannot be described by a finite automata</p></li>
+<li><p>Some naming rule cannot be described by a finite automata</p></li>
 </ul>
 </li>
-<li><p>Nodes: states; Arcs: transitions on input characters</p></li>
+<li><p>Nodes: states</p></li>
+<li><p>Arcs: transitions on input characters</p></li>
 <li><p>Use character classes (e.g., LETTER, DIGIT) to simplify</p></li>
 </ul>
 <a class="reference internal image-reference" href="../_images/state-diagram.png"><img alt="../_images/state-diagram.png" class="align-center" src="../_images/state-diagram.png" style="width: 50%;" />
@@ -218,7 +144,7 @@ generate a lexical analyzer. E.g. <a class="reference external" href="https://en
 <li><p>a switch statement or if-else chain to manage transitions</p></li>
 </ul>
 </li>
-<li><p>Book example <a class="reference external" href="lexer">Link</a></p>
+<li><p><a class="reference external" href="lexer">TextBook example of a Lexer</a></p>
 <ul>
 <li><p>written in C</p></li>
 <li><p>abuse of global variables</p></li>
@@ -235,8 +161,8 @@ generate a lexical analyzer. E.g. <a class="reference external" href="https://en
 <section >
 <h3>Quick Check for Lexical Analysis</h3>
 <ul class="simple">
-<li><p>Where to handle errors?</p></li>
-<li><p>What input will break the logic?</p></li>
+<li><p>Where to handle errors, like bad identifier names?</p></li>
+<li><p>Give one example of bad input?</p></li>
 <li><p>Where to handle reserved like if, for, etc?</p></li>
 <li><p>How about if I want to allow underscore in identifier names?</p></li>
 </ul>
@@ -244,13 +170,12 @@ generate a lexical analyzer. E.g. <a class="reference external" href="https://en
 <section >
 <h3>Quick Check Answers for Lexical Analysis</h3>
 <ul class="simple">
-<li><p>Where to handle errors? Default case in switch statement in the lookup
-function.</p></li>
-<li><p>What input will break the logic? 23abc as a bad identifier.</p></li>
+<li><p>Where to handle errors? Nowhere. Errors are passed to the syntax analysis.</p></li>
+<li><p>Give one example of bad input? 23abc as a bad identifier.</p></li>
 <li><p>Where to handle reserved like if, for, etc? End of identifier case in the lex
 function.</p></li>
-<li><p>How about if I want to allow underscore in identifier names? In the identifer
-case in the lex function.</p></li>
+<li><p>How about if I want to allow underscore in identifier names? In the
+identifier case in the lex function.</p></li>
 </ul>
 </section>
 </section>
@@ -258,7 +183,7 @@ case in the lex function.</p></li>
 <section >
 <h2>Syntax Analysis (Parsing)</h2>
 <ul class="simple">
-<li><p>Two main goals:</p>
+<li><p>Two tasks:</p>
 <ol class="arabic simple">
 <li><p>Check input program for syntax correctness</p></li>
 <li><p>Build parse tree for valid programs</p></li>
@@ -301,6 +226,24 @@ find a match</p></li>
 </ol>
 </li>
 <li><p>Example <a class="reference external" href="rdp">Link</a></p></li>
+</ul>
+</section>
+<section >
+<h3>Limitation of recursive-descent parsing</h3>
+<ul class="simple">
+<li><p>Problems with LL grammars:</p>
+<ul>
+<li><p>Left recursion <code class="code docutils literal notranslate"><span class="pre">A</span> <span class="pre">-&gt;</span> <span class="pre">Aa</span> <span class="pre">|</span> <span class="pre">b</span></code> causes infinite recursion</p></li>
+<li><p>Ambiguity of which rule to expand when <code class="code docutils literal notranslate"><span class="pre">A</span> <span class="pre">-&gt;</span> <span class="pre">aB</span> <span class="pre">|</span> <span class="pre">aC</span></code> when the next
+terminal symbol is a</p></li>
+</ul>
+</li>
+<li><p>Solutions:</p>
+<ul>
+<li><p>Choose other parsing methods</p></li>
+<li><p>Reconstruct rules</p></li>
+</ul>
+</li>
 </ul>
 </section>
 <section >
@@ -350,6 +293,131 @@ find a match</p></li>
 <li><p>Both approaches used in real compilers</p></li>
 <li><p>Modern parsers use generated parse tables</p></li>
 </ul>
+</section>
+</section>
+<section >
+<section >
+<h2>Shift-Reduce Parser Demonstration</h2>
+</section>
+<section >
+<h3>Grammar</h3>
+<div class="flex-container docutils container">
+<div class="half docutils container">
+<ul>
+<li><p>The grammar for our expression language:</p>
+<pre><code data-trim data-noescape class="default">E → E + T | T
+T → T * F | F
+F → (E) | id</code></pre>
+</li>
+<li><p>Left-recursive and ambiguous (not suitable for recursive-descent parsing)</p></li>
+<li><p>Simplified terminal symbols for a simpler lexer</p></li>
+</ul>
+</div>
+<div class="half docutils container">
+<ul class="simple">
+<li><p>It models a language:</p>
+<ul>
+<li><p>+, *, and (): operators</p></li>
+<li><p>id: the only terminal symbol allowed</p></li>
+</ul>
+</li>
+<li><p>Examples:</p>
+<ul>
+<li><p>id</p></li>
+<li><p>id + id</p></li>
+<li><p>id + id * id</p></li>
+<li><p>id * id + id</p></li>
+<li><p>(id + id) * id</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<section >
+<h3>LR(1) Parsing Tables</h3>
+<pre data-id="lr-1-parsing-tables"><code data-trim data-noescape class="c++">+-------------------------------------------+ +-------------------------+
+|               ACTION TABLE                | |         GOTO TABLE      |
++-------+-----+-----+-----+-----+-----+-----+ +-------+-----+-----+-----+
+| State | id  | +   | *   | (   | )   | $   | | State | E   | T   | F   |
++=======+=====+=====+=====+=====+=====+=====+ +=======+=====+=====+=====+
+| 0     | s5  |     |     | s4  |     |     | | 0     | 1   | 2   | 3   |
++-------+-----+-----+-----+-----+-----+-----+ +-------+-----+-----+-----+
+| 1     |     | s6  |     |     |     |acc  | | 1     |     |     |     |
++-------+-----+-----+-----+-----+-----+-----+ +-------+-----+-----+-----+
+| 2     |     | r2  | s7  |     |     | r2  | | 2     |     |     |     |
++-------+-----+-----+-----+-----+-----+-----+ +-------+-----+-----+-----+
+| 3     |     | r4  | r4  |     | r4  | r4  | | 3     |     |     |     |
++-------+-----+-----+-----+-----+-----+-----+ +-------+-----+-----+-----+
+| 4     | s5  |     |     | s4  |     |     | | 4     | 8   | 2   | 3   |
++-------+-----+-----+-----+-----+-----+-----+ +-------+-----+-----+-----+
+| 5     |     | r6  | r6  |     | r6  | r6  | | 5     |     |     |     |
++-------+-----+-----+-----+-----+-----+-----+ +-------+-----+-----+-----+
+| 6     | s5  |     |     | s4  |     |     | | 6     |     | 2   | 3   |
++-------+-----+-----+-----+-----+-----+-----+ +-------+-----+-----+-----+
+| 7     | s5  |     |     | s4  |     |     | | 7     |     |     | 3   |
++-------+-----+-----+-----+-----+-----+-----+ +-------+-----+-----+-----+
+| 8     |     | s6  |     |     | s9  |     | | 8     |     |     |     |
++-------+-----+-----+-----+-----+-----+-----+ +-------+-----+-----+-----+
+| 9     |     | r5  | r5  |     | r5  | r5  | | 9     |     |     |     |
++-------+-----+-----+-----+-----+-----+-----+ +-------+-----+-----+-----+</code></pre>
+<p><strong>Note</strong>: Empty cells in the Action table mean error</p>
+</section>
+<section >
+<h3>Example Parse: id + id * id</h3>
+<p><strong>Parse steps</strong></p>
+<pre data-id="example-parse-id-id-id"><code data-trim data-noescape class="c++">Stack                  Input         Action              Rule Applied
+----------------------------------------------------------------------
+0                      id+id*id$     shift 5             -
+0 id 5                 +id*id$       reduce by F→id      GOTO(0,F)=3
+0 F 3                  +id*id$       reduce by T→F       GOTO(0,T)=2
+0 T 2                  +id*id$       reduce by E→T       GOTO(0,E)=1
+0 E 1                  +id*id$       shift 6             -
+0 E 1 + 6              id*id$        shift 5             -
+0 E 1 + 6 id 5          *id$         reduce by F→id      GOTO(6,F)=3
+0 E 1 + 6 F 3           *id$         reduce by T→F       GOTO(6,T)=2
+0 E 1 + 6 T 2           *id$         shift 7             -
+0 E 1 + 6 T 2 * 7 id     $           shift 5             -
+0 E 1 + 6 T 2 * 7 id 5   $           reduce by F→id      GOTO(7,F)=3
+0 E 1 + 6 T 2 * 7 F 3    $           reduce by T→T*F     GOTO(6,T)=2
+0 E 1 + 6 T 2            $           reduce by E→E+T     GOTO(0,E)=1
+0 E 1                    $           accept              -
+----------------------------------------------------------------------</code></pre>
+</section>
+<section >
+<h3>How to Use the Tables</h3>
+<ol class="arabic simple">
+<li><p>ACTION Table Usage:</p>
+<ul class="simple">
+<li><p>‘s’ means shift: push symbol and next state</p></li>
+<li><p>‘r’ means reduce: pop all RHS items, push LHS and new state from GOTO</p></li>
+<li><p>‘acc’ means accept the input</p></li>
+</ul>
+</li>
+<li><p>GOTO Table Usage:</p>
+<ul class="simple">
+<li><p>After reduction, use current state and non-terminal to find next state</p></li>
+<li><p>Only used after reduce actions</p></li>
+</ul>
+</li>
+<li><p>Parse Process:</p>
+<ol class="loweralpha simple">
+<li><p>Look at current state (top of state stack) and next input symbol</p></li>
+<li><p>Find action in ACTION table</p></li>
+<li><p>For reduce actions, pop everything to be reduced and use GOTO table with
+current state (after popping) and non-terminal reduced to</p></li>
+<li><p>Continue until accept or error</p></li>
+</ol>
+</li>
+<li><p>Error Handling:</p>
+<ul class="simple">
+<li><p>Error when no valid action exists in table</p></li>
+<li><p>Blank entries (-) in tables indicate error</p></li>
+<li><p>Parser stops on error</p></li>
+</ul>
+</li>
+</ol>
+</section>
 </section>
 
         </div>
