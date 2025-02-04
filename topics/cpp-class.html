@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Algorithm and Program Design (COP3014)</title>
+  <title>C++ Classes and Objects</title>
     <link rel="stylesheet" type="text/css" href="../_static/revealjs/dist/reveal.css?v=40f0a724" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/revealjs/plugin/highlight/zenburn.css?v=83d5745d" />
@@ -18,22 +18,13 @@
     <div class="reveal">
         <div class="slides" role="main">
             <section >
-<section data-background-color="white" data-background-image="../_static/logo.png" data-background-size="50%" data-background-position="top center" data-background-repeat="no-repeat">
-<h1>Algorithm and Program Design (COP3014)</h1>
-<div class="subtitle docutils container">
-<p><strong>Chapter 4: Classes and objects</strong></p>
-<p>Xingang (Ian) Fang</p>
-</div>
+<section >
+<h1>C++ Classes and Objects</h1>
 </section>
 </section>
 <section >
 <section >
-<h2>C++ Classes and Objects</h2>
-</section>
-</section>
-<section >
-<section >
-<h2>Class Definition</h2>
+<h1>Class Definition</h1>
 <p><strong>Definition</strong>: A class is a user-defined type that encapsulates data and functions that operate on that data.</p>
 <ul class="simple">
 <li><p>Key Points:</p>
@@ -51,13 +42,13 @@ class Student {
  public:
   void setGrade(int score);
 };</code></pre>
-<a class="reference internal image-reference" href="cop3014/class_concept_diagram.png"><img alt="Class and Object Relationship Diagram" src="cop3014/class_concept_diagram.png" style="width: 400px;" />
+<a class="reference internal image-reference" href="topics/class_concept_diagram.png"><img alt="Class and Object Relationship Diagram" src="topics/class_concept_diagram.png" style="width: 400px;" />
 </a>
 </section>
 </section>
 <section >
 <section >
-<h2>Objects and Instances</h2>
+<h1>Objects and Instances</h1>
 <p><strong>Definition</strong>: An object is a variable of a class type that contains its own
 copy of the class’s members.</p>
 <ul>
@@ -82,7 +73,7 @@ new Student;</code></pre>
 </section>
 <section >
 <section >
-<h2>Instance Variables</h2>
+<h1>Instance Variables</h1>
 <p><strong>Definition</strong>: Instance variables are data elements contained within a class.</p>
 <ul class="simple">
 <li><p>Characteristics:</p>
@@ -103,7 +94,7 @@ class Car {
 </section>
 <section >
 <section >
-<h2>Methods</h2>
+<h1>Methods</h1>
 <p><strong>Definition</strong>: Member functions are methods that operate on class data.</p>
 <ul class="simple">
 <li><p>Properties:</p>
@@ -127,7 +118,7 @@ class Rectangle {
 </section>
 <section >
 <section >
-<h2>Access Modifiers</h2>
+<h1>Access Modifiers</h1>
 <p><strong>Definition</strong>: Access modifiers control the visibility and accessibility of class members.</p>
 <ul class="simple">
 <li><p>Types:</p>
@@ -152,13 +143,13 @@ class BankAccount {
   double balance;  // Should be private
   void deposit(double amount);
 };</code></pre>
-<a class="reference internal image-reference" href="cop3014/access_modifiers_diagram.png"><img alt="Access Modifiers Visualization" src="cop3014/access_modifiers_diagram.png" style="width: 400px;" />
+<a class="reference internal image-reference" href="topics/access_modifiers_diagram.png"><img alt="Access Modifiers Visualization" src="topics/access_modifiers_diagram.png" style="width: 400px;" />
 </a>
 </section>
 </section>
 <section >
 <section >
-<h2>Class Declaration</h2>
+<h1>Class Declaration</h1>
 <p><strong>Definition</strong>: A class declaration defines the class interface and structure.</p>
 <ul class="simple">
 <li><dl class="simple">
@@ -191,7 +182,7 @@ private:
 </section>
 <section >
 <section >
-<h2>Method Definition</h2>
+<h1>Method Definition</h1>
 <p><strong>Definition</strong>: Member function definition provides the implementation of class
 methods.</p>
 <ul class="simple">
@@ -210,8 +201,10 @@ void Time::setHour(int h) {
   hour = h;
 }</code></pre>
 </section>
+</section>
 <section >
-<h3>Constructors</h3>
+<section >
+<h2>Constructors</h2>
 <p><strong>Definition</strong>: Constructors are special methods that initialize objects of a
 class.</p>
 <ul>
@@ -242,8 +235,10 @@ class Point {
   void Point() {}  // Constructor can't have return type
 };</code></pre>
 </section>
+</section>
 <section >
-<h3>Destructor</h3>
+<section >
+<h2>Destructor</h2>
 <p><strong>Definition</strong>: A destructor is a special function that cleans up when an
 object is destroyed.</p>
 <ul>
@@ -276,11 +271,13 @@ class FileHandler {
     file.close();
   }
 };</code></pre>
-<a class="reference internal image-reference" href="cop3014/constructor_destructor_lifecycle.png"><img alt="Object Lifecycle Diagram" src="cop3014/constructor_destructor_lifecycle.png" style="width: 400px;" />
+<a class="reference internal image-reference" href="topics/constructor_destructor_lifecycle.png"><img alt="Object Lifecycle Diagram" src="topics/constructor_destructor_lifecycle.png" style="width: 400px;" />
 </a>
 </section>
+</section>
 <section >
-<h3>Getters and Setters</h3>
+<section >
+<h2>Getters and Setters</h2>
 <p><strong>Definition</strong>: Accessor (getter) and mutator (setter) methods provide
 controlled access to private members.</p>
 <ul>
@@ -306,7 +303,6 @@ class Temperature {
     celsius = temp;
   }
 };</code></pre>
-</section>
 </section>
 
         </div>
