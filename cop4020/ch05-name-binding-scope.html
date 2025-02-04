@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Programming Languages</title>
+  <title>Chapter 5: Names, Bindings, and Scopes</title>
     <link rel="stylesheet" type="text/css" href="../_static/revealjs/dist/reveal.css?v=40f0a724" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/revealjs/plugin/highlight/zenburn.css?v=83d5745d" />
@@ -18,76 +18,85 @@
     <div class="reveal">
         <div class="slides" role="main">
             <section >
-<section data-background-color="white" data-background-image="../_static/logo.png" data-background-size="50%" data-background-position="top center" data-background-repeat="no-repeat">
-<h1>Programming Languages</h1>
-<div class="subtitle docutils container">
-<p><strong>Module 4</strong></p>
-<p>Xingang (Ian) Fang</p>
-</div>
+<section >
+<h1>Chapter 5: Names, Bindings, and Scopes</h1>
 </section>
 </section>
 <section >
 <section >
-<h2>Chapter 5: Names, Bindings, and Scopes</h2>
-</section>
-<section >
-<h3>Overview</h3>
+<h2>Overview</h2>
 <ul class="simple">
 <li><p>Fundamental concepts of programming language semantics</p></li>
-<li><p>Key topics:</p>
-<ul>
+<li><dl class="simple">
+<dt>Key topics:</dt><dd><ul>
 <li><p>Names and variables</p></li>
 <li><p>Binding and binding times</p></li>
 <li><p>Scope rules and referencing environments</p></li>
 <li><p>Variable categories and lifetime</p></li>
 <li><p>Named constants</p></li>
 </ul>
+</dd>
+</dl>
 </li>
-<li><p>Learning objectives:</p>
-<ul>
+<li><dl class="simple">
+<dt>Learning objectives:</dt><dd><ul>
 <li><p>Understand variable attributes and binding concepts</p></li>
 <li><p>Master scope rules and referencing environments</p></li>
 <li><p>Learn different variable categories and their uses</p></li>
 </ul>
+</dd>
+</dl>
 </li>
 </ul>
 </section>
+</section>
 <section >
-<h3>Names</h3>
+<section >
+<h2>Names</h2>
 <ul class="simple">
-<li><p>Design Issues:</p>
-<ul>
+<li><dl class="simple">
+<dt>Design Issues:</dt><dd><ul>
 <li><p>Case sensitivity</p></li>
 <li><p>Special words (reserved vs keywords)</p></li>
 </ul>
+</dd>
+</dl>
 </li>
-<li><p>Name Forms:</p>
-<ul>
+<li><dl class="simple">
+<dt>Name Forms:</dt><dd><ul>
 <li><p>Usually a letter followed by letters, digits, underscores</p></li>
 <li><p>Camel notation in C-based languages (e.g., myStack)</p></li>
-<li><p>Special characters in some languages:</p>
-<ul>
+<li><dl class="simple">
+<dt>Special characters in some languages:</dt><dd><ul>
 <li><p>PHP: $ prefix required</p></li>
 <li><p>Perl: $, &#64;, % prefixes indicate type</p></li>
 <li><p>Ruby: &#64; and &#64;&#64; indicate instance/class variables</p></li>
 </ul>
+</dd>
+</dl>
 </li>
 </ul>
+</dd>
+</dl>
 </li>
-<li><p>Case Sensitivity:</p>
-<ul>
+<li><dl class="simple">
+<dt>Case Sensitivity:</dt><dd><ul>
 <li><p>C-based languages are case sensitive</p></li>
 <li><p>Example: rose, ROSE, and Rose are distinct</p></li>
 <li><p>Tradeoff between flexibility and readability</p></li>
 </ul>
+</dd>
+</dl>
 </li>
 </ul>
 </section>
+</section>
 <section >
-<h3>Variables</h3>
+<section >
+<h2>Variables</h2>
 <ul class="simple">
-<li><p>Variable Attributes (Sextuple):</p>
-<ul>
+<li><dl class="simple">
+<dt>Variable Attributes (Sextuple):</dt><dd><ul>
 <li><p>Name</p></li>
 <li><p>Address (l-value)</p></li>
 <li><p>Value (r-value)</p></li>
@@ -95,190 +104,248 @@
 <li><p>Lifetime</p></li>
 <li><p>Scope</p></li>
 </ul>
+</dd>
+</dl>
 </li>
-<li><p>Address:</p>
-<ul>
+<li><dl class="simple">
+<dt>Address:</dt><dd><ul>
 <li><p>Machine memory location</p></li>
 <li><p>Can change during execution</p></li>
 <li><p>Multiple variables can share address (aliasing)</p></li>
 </ul>
+</dd>
+</dl>
 </li>
-<li><p>Aliases:</p>
-<ul>
+<li><dl class="simple">
+<dt>Aliases:</dt><dd><ul>
 <li><p>Multiple variables referencing same memory</p></li>
-<li><p>Created through:</p>
-<ul>
+<li><dl class="simple">
+<dt>Created through:</dt><dd><ul>
 <li><p>Union types</p></li>
 <li><p>Pointer variables</p></li>
 <li><p>Reference variables</p></li>
 <li><p>Parameter passing</p></li>
 </ul>
+</dd>
+</dl>
 </li>
 </ul>
+</dd>
+</dl>
 </li>
 </ul>
 </section>
+</section>
 <section >
-<h3>Type Bindings</h3>
+<section >
+<h2>Type Bindings</h2>
 <ul class="simple">
-<li><p>Static Type Binding:</p>
-<ul>
+<li><dl class="simple">
+<dt>Static Type Binding:</dt><dd><ul>
 <li><p>Type fixed at compile time</p></li>
 <li><p>Through explicit/implicit declarations</p></li>
 <li><p>Examples: Java, C++, C#</p></li>
 </ul>
+</dd>
+</dl>
 </li>
-<li><p>Dynamic Type Binding:</p>
-<ul>
+<li><dl class="simple">
+<dt>Dynamic Type Binding:</dt><dd><ul>
 <li><p>Type determined at runtime</p></li>
 <li><p>Changes possible during execution</p></li>
 <li><p>Examples: Python, JavaScript</p></li>
-<li><p>Advantages:</p>
-<ul>
+<li><dl class="simple">
+<dt>Advantages:</dt><dd><ul>
 <li><p>More flexible</p></li>
 <li><p>Supports generic code</p></li>
 </ul>
+</dd>
+</dl>
 </li>
-<li><p>Disadvantages:</p>
-<ul>
+<li><dl class="simple">
+<dt>Disadvantages:</dt><dd><ul>
 <li><p>Less reliable</p></li>
 <li><p>Runtime overhead</p></li>
 <li><p>Harder to optimize</p></li>
 </ul>
+</dd>
+</dl>
 </li>
 </ul>
+</dd>
+</dl>
 </li>
 </ul>
 </section>
+</section>
 <section >
-<h3>Variable Categories by Lifetime</h3>
+<section >
+<h2>Variable Categories by Lifetime</h2>
 <ul class="simple">
-<li><p>Static Variables:</p>
-<ul>
+<li><dl class="simple">
+<dt>Static Variables:</dt><dd><ul>
 <li><p>Bound to memory before execution</p></li>
 <li><p>Retain value between calls</p></li>
 <li><p>Examples: global variables, static locals</p></li>
 </ul>
+</dd>
+</dl>
 </li>
-<li><p>Stack-Dynamic Variables:</p>
-<ul>
+<li><dl class="simple">
+<dt>Stack-Dynamic Variables:</dt><dd><ul>
 <li><p>Created upon declaration elaboration</p></li>
 <li><p>Deallocated upon block exit</p></li>
 <li><p>Used for local variables in functions</p></li>
 </ul>
+</dd>
+</dl>
 </li>
-<li><p>Explicit Heap-Dynamic Variables:</p>
-<ul>
+<li><dl class="simple">
+<dt>Explicit Heap-Dynamic Variables:</dt><dd><ul>
 <li><p>Allocated/deallocated by explicit commands</p></li>
 <li><p>Accessed through pointers/references</p></li>
 <li><p>Example: new/delete in C++</p></li>
 </ul>
+</dd>
+</dl>
 </li>
-<li><p>Implicit Heap-Dynamic Variables:</p>
-<ul>
+<li><dl class="simple">
+<dt>Implicit Heap-Dynamic Variables:</dt><dd><ul>
 <li><p>Bound to heap storage on assignment</p></li>
 <li><p>All attributes bound at assignment</p></li>
 <li><p>Example: JavaScript arrays</p></li>
 </ul>
+</dd>
+</dl>
 </li>
 </ul>
 </section>
+</section>
 <section >
-<h3>Scope</h3>
+<section >
+<h2>Scope</h2>
 <ul class="simple">
 <li><p>Definition: Range where variable is visible</p></li>
-<li><p>Categories:</p>
-<ul>
+<li><dl class="simple">
+<dt>Categories:</dt><dd><ul>
 <li><p>Local variables (declared in unit)</p></li>
 <li><p>Nonlocal variables (visible but not local)</p></li>
 <li><p>Global variables (special nonlocal case)</p></li>
 </ul>
+</dd>
+</dl>
 </li>
 </ul>
 </section>
+</section>
 <section >
-<h3>Static Scope</h3>
+<section >
+<h2>Static Scope</h2>
 <ul class="simple">
 <li><p>Based on program structure</p></li>
-<li><p>Rules:</p>
-<ul>
+<li><dl class="simple">
+<dt>Rules:</dt><dd><ul>
 <li><p>Search starts in local unit</p></li>
 <li><p>Continues in enclosing units</p></li>
 <li><p>Follows static nesting</p></li>
 </ul>
+</dd>
+</dl>
 </li>
-<li><p>Advantages:</p>
-<ul>
+<li><dl class="simple">
+<dt>Advantages:</dt><dd><ul>
 <li><p>Determinable at compile time</p></li>
 <li><p>Better readability</p></li>
 <li><p>More efficient</p></li>
 </ul>
+</dd>
+</dl>
 </li>
 </ul>
 </section>
+</section>
 <section >
-<h3>Dynamic Scope</h3>
+<section >
+<h2>Dynamic Scope</h2>
 <ul class="simple">
 <li><p>Based on call sequence</p></li>
-<li><p>Rules:</p>
-<ul>
+<li><dl class="simple">
+<dt>Rules:</dt><dd><ul>
 <li><p>Search starts in local unit</p></li>
 <li><p>Continues through calling sequence</p></li>
 <li><p>Follows dynamic calling chain</p></li>
 </ul>
+</dd>
+</dl>
 </li>
-<li><p>Characteristics:</p>
-<ul>
+<li><dl class="simple">
+<dt>Characteristics:</dt><dd><ul>
 <li><p>More flexible</p></li>
 <li><p>Harder to read/understand</p></li>
 <li><p>Less efficient</p></li>
 <li><p>Runtime binding resolution</p></li>
 </ul>
+</dd>
+</dl>
 </li>
 </ul>
 </section>
+</section>
 <section >
-<h3>Blocks and Declaration Order</h3>
+<section >
+<h2>Blocks and Declaration Order</h2>
 <ul class="simple">
-<li><p>Blocks:</p>
-<ul>
+<li><dl class="simple">
+<dt>Blocks:</dt><dd><ul>
 <li><p>Create new static scopes</p></li>
 <li><p>Allow local variables</p></li>
 <li><p>Stack-dynamic storage</p></li>
 <li><p>Example: compound statements in C/C++</p></li>
 </ul>
+</dd>
+</dl>
 </li>
-<li><p>Declaration Order:</p>
-<ul>
+<li><dl class="simple">
+<dt>Declaration Order:</dt><dd><ul>
 <li><p>Some languages require declarations first</p></li>
 <li><p>Others allow mixed declarations/statements</p></li>
 <li><p>Affects variable visibility</p></li>
 <li><p>Scope can start at declaration or block start</p></li>
 </ul>
+</dd>
+</dl>
 </li>
 </ul>
 </section>
+</section>
 <section >
-<h3>Named Constants</h3>
+<section >
+<h2>Named Constants</h2>
 <ul class="simple">
-<li><p>Purpose:</p>
-<ul>
+<li><dl class="simple">
+<dt>Purpose:</dt><dd><ul>
 <li><p>Improve readability</p></li>
 <li><p>Aid program maintenance</p></li>
 <li><p>Parameterize programs</p></li>
 </ul>
+</dd>
+</dl>
 </li>
-<li><p>Implementation:</p>
-<ul>
+<li><dl class="simple">
+<dt>Implementation:</dt><dd><ul>
 <li><p>C++: const keyword</p></li>
 <li><p>Java: final keyword</p></li>
 <li><p>C#: const and readonly</p></li>
 </ul>
+</dd>
+</dl>
 </li>
 </ul>
 </section>
+</section>
 <section >
-<h3>Summary</h3>
+<section >
+<h2>Summary</h2>
 <ul class="simple">
 <li><p>Variables characterized by six attributes</p></li>
 <li><p>Binding links attributes to entities</p></li>
@@ -288,8 +355,10 @@
 <li><p>Named constants improve maintainability</p></li>
 </ul>
 </section>
+</section>
 <section >
-<h3>Practice Questions</h3>
+<section >
+<h2>Practice Questions</h2>
 <ol class="arabic simple">
 <li><p>What are the six attributes of variables?</p></li>
 <li><p>Compare static and dynamic type binding</p></li>
@@ -297,7 +366,6 @@
 <li><p>What are the four categories of variable lifetime?</p></li>
 <li><p>How do blocks affect variable scope?</p></li>
 </ol>
-</section>
 </section>
 
         </div>
