@@ -34,7 +34,8 @@
 <section >
 <section >
 <h2>Class Definition</h2>
-<p><strong>Definition</strong>: A class is a user-defined type that encapsulates data and functions that operate on that data.</p>
+<p><strong>Definition</strong>: A class is a user-defined type that encapsulates data and
+functions that operate on that data.</p>
 <ul class="simple">
 <li><p>Key Points:</p>
 <ul>
@@ -51,8 +52,6 @@ class Student {
  public:
   void setGrade(int score);
 };</code></pre>
-<a class="reference internal image-reference" href="cop3014/class_concept_diagram.png"><img alt="Class and Object Relationship Diagram" src="cop3014/class_concept_diagram.png" style="width: 400px;" />
-</a>
 </section>
 </section>
 <section >
@@ -60,15 +59,13 @@ class Student {
 <h2>Objects and Instances</h2>
 <p><strong>Definition</strong>: An object is a variable of a class type that contains its own
 copy of the class’s members.</p>
-<ul>
+<ul class="simple">
 <li><p>Key Characteristics:</p>
-<blockquote>
-<div><ul class="simple">
+<ul>
 <li><p>Each object has its own memory space</p></li>
 <li><p>Objects can be created on stack or heap</p></li>
 <li><p>Multiple objects of same class are independent</p></li>
 </ul>
-</div></blockquote>
 </li>
 </ul>
 <pre data-id="objects-and-instances"><code data-trim data-noescape class="cpp">// Correct object creation
@@ -152,8 +149,6 @@ class BankAccount {
   double balance;  // Should be private
   void deposit(double amount);
 };</code></pre>
-<a class="reference internal image-reference" href="cop3014/access_modifiers_diagram.png"><img alt="Access Modifiers Visualization" src="cop3014/access_modifiers_diagram.png" style="width: 400px;" />
-</a>
 </section>
 </section>
 <section >
@@ -161,32 +156,22 @@ class BankAccount {
 <h2>Class Declaration</h2>
 <p><strong>Definition</strong>: A class declaration defines the class interface and structure.</p>
 <ul class="simple">
-<li><dl class="simple">
-<dt>Guidelines:</dt><dd><ul>
+<li><p>Guidelines:</p>
+<ul>
 <li><p>Public declarations go in header files</p></li>
 <li><p>Include all member declarations</p></li>
 <li><p>End with semicolon</p></li>
 </ul>
-</dd>
-</dl>
 </li>
 </ul>
 <pre data-id="class-declaration"><code data-trim data-noescape class="cpp">// Correct declaration
 class Time {
-public:
-    void setHour(int h);
-    int getHour() const;
-private:
-    int hour;
-};  // Note the semicolon
-
-// Wrong - missing semicolon
-class Time {
-public:
-    void setHour(int h);
-private:
-    int hour;
-}</code></pre>
+ private:
+  int hour;
+ public:
+  void setHour(int h);
+  int getHour() const;
+};  // Note the semicolon</code></pre>
 </section>
 </section>
 <section >
@@ -195,41 +180,39 @@ private:
 <p><strong>Definition</strong>: Member function definition provides the implementation of class
 methods.</p>
 <ul class="simple">
-<li><dl class="simple">
-<dt>Rules:</dt><dd><ul>
+<li><p>Rules:</p>
+<ul>
 <li><p>Implement in cpp files</p></li>
 <li><p>Use scope resolution operator (::)</p></li>
 <li><p>Include parameter names</p></li>
 </ul>
-</dd>
-</dl>
 </li>
 </ul>
 <pre data-id="method-definition"><code data-trim data-noescape class="cpp">// Correct definition
 void Time::setHour(int h) {
   hour = h;
-}</code></pre>
+}
+
+Time::Time() : hour(0) {}  // Constructor definition</code></pre>
 </section>
 <section >
 <h3>Constructors</h3>
 <p><strong>Definition</strong>: Constructors are special methods that initialize objects of a
 class.</p>
-<ul>
+<ul class="simple">
 <li><p>Characteristics:</p>
-<blockquote>
-<div><ul class="simple">
+<ul>
 <li><p>Same name as class</p></li>
 <li><p>No return type</p></li>
 <li><p>Can be overloaded</p></li>
 </ul>
-</div></blockquote>
 </li>
 </ul>
 <pre data-id="constructors"><code data-trim data-noescape class="cpp">// Correct constructors
 class Point {
-private:
+ private:
   int x, y;
-public:
+ public:
   Point() : x(0), y(0) {}  // Default constructor
   Point(int x, int y) : x(x), y(y) {}  // Parameterized
 };
@@ -246,15 +229,13 @@ class Point {
 <h3>Destructor</h3>
 <p><strong>Definition</strong>: A destructor is a special function that cleans up when an
 object is destroyed.</p>
-<ul>
+<ul class="simple">
 <li><p>Properties:</p>
-<blockquote>
-<div><ul class="simple">
+<ul>
 <li><p>Prefixed with ~</p></li>
 <li><p>No parameters</p></li>
 <li><p>Only one per class (no overloading)</p></li>
 </ul>
-</div></blockquote>
 </li>
 </ul>
 <pre data-id="destructor"><code data-trim data-noescape class="cpp">// Correct destructor
@@ -276,22 +257,18 @@ class FileHandler {
     file.close();
   }
 };</code></pre>
-<a class="reference internal image-reference" href="cop3014/constructor_destructor_lifecycle.png"><img alt="Object Lifecycle Diagram" src="cop3014/constructor_destructor_lifecycle.png" style="width: 400px;" />
-</a>
 </section>
 <section >
 <h3>Getters and Setters</h3>
 <p><strong>Definition</strong>: Accessor (getter) and mutator (setter) methods provide
 controlled access to private members.</p>
-<ul>
+<ul class="simple">
 <li><p>Best Practices:</p>
-<blockquote>
-<div><ul class="simple">
+<ul>
 <li><p>Getters should be const</p></li>
 <li><p>Use meaningful names</p></li>
 <li><p>Validate input in setters</p></li>
 </ul>
-</div></blockquote>
 </li>
 </ul>
 <pre data-id="getters-and-setters"><code data-trim data-noescape class="cpp">// Correct getter/setter
