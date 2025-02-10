@@ -125,17 +125,15 @@
 <h1>Side-effects in Expressions</h1>
 <ul>
 <li><p>Part of the expression changed the value of another part of the expression</p></li>
-<li><p>Example:</p>
-<p>result = (a++ + b) / (a– - c)</p>
-<dl class="simple">
-<dt>if ((a = 10) &gt; 0) {</dt><dd><p>a++;</p>
-</dd>
-</dl>
-<p>}</p>
+<li><p>Example</p>
+<pre><code data-trim data-noescape class="c">result = (a++ + b) / (a-- - c)
+
+if ((a = 10) &gt; 0) {
+  a++;
+}</code></pre>
 </li>
 <li><p>Referential transparency</p>
 <ul class="simple">
-<li></li>
 <li><p>Pure function</p></li>
 <li><p>No side-effect</p></li>
 </ul>
@@ -155,8 +153,8 @@
 </li>
 <li><p>Coercion (implicit type conversion)</p>
 <ul>
-<li><p>in javascript:</p>
-<pre><code data-trim data-noescape class="default">&quot;7&quot; + 5 = &quot;75&quot;
+<li><p>in javascript</p>
+<pre><code data-trim data-noescape class="javascript">&quot;7&quot; + 5 = &quot;75&quot;
 &quot;7&quot; == 7
 &quot;7&quot; === 7</code></pre>
 </li>
@@ -182,19 +180,20 @@
 <ul>
 <li><p>the result is determined before evaluating all operands</p></li>
 <li><p>Great for sanity check</p></li>
-<li><p>C++ example:</p>
-<dl class="simple">
-<dt>if (ptr != nullptr &amp;&amp; <a href="#id1"><span class="problematic" id="id2">*</span></a>ptr &gt; 0) {</dt><dd><p>// do something</p>
-</dd>
-</dl>
-<p>}</p>
+<li><p>C++ example</p>
+<pre><code data-trim data-noescape class="c">if (ptr != nullptr &amp;&amp; *ptr &gt; 0) {
+  // do something
+}</code></pre>
 </li>
 <li><p>Python example:</p>
-<dl class="simple">
+<pre><code data-trim data-noescape class="default">.. code-block:: python</code></pre>
+<blockquote>
+<div><dl class="simple">
 <dt>if ptr is not None and ptr[0] &gt; 0:</dt><dd><p># do something</p>
 </dd>
 </dl>
 <p>value = ptr and ptr[0]</p>
+</div></blockquote>
 </li>
 </ul>
 </li>
@@ -215,11 +214,14 @@
 <li><p>Chained assignment <code class="code docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">b</span> <span class="pre">=</span> <span class="pre">c</span> <span class="pre">=</span> <span class="pre">0</span></code></p></li>
 <li><p>Multiple assignment <code class="code docutils literal notranslate"><span class="pre">a,</span> <span class="pre">b</span> <span class="pre">=</span> <span class="pre">b,</span> <span class="pre">a</span></code></p></li>
 <li><p>Assignment as expression:</p>
-<dl class="simple">
-<dt>if ((ch = getchar()) != EOF) {</dt><dd><p>// do something</p>
+<pre><code data-trim data-noescape class="default">.. code-block:: c</code></pre>
+<blockquote>
+<div><dl class="simple">
+<dt>while ((ch = getchar()) != EOF) {</dt><dd><p>// do something</p>
 </dd>
 </dl>
 <p>}</p>
+</div></blockquote>
 </li>
 <li><p>Compound assignment: <code class="code docutils literal notranslate"><span class="pre">+=</span></code>, <code class="code docutils literal notranslate"><span class="pre">-=</span></code>, <code class="code docutils literal notranslate"><span class="pre">*=</span></code>, <code class="code docutils literal notranslate"><span class="pre">/=</span></code>,
 <code class="code docutils literal notranslate"><span class="pre">%=</span></code></p></li>
