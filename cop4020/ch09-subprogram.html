@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Subprograms</title>
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs/dist/reveal.css?v=40f0a724" />
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs/plugin/highlight/zenburn.css?v=83d5745d" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  </head><body>
+    <div class="reveal">
+        <div class="slides" role="main">
+            <section >
+<section >
+<h1>Subprograms</h1>
+</section>
+</section>
+<section >
+<section >
+<h2>Overview</h2>
+<ul class="simple">
+<li><p>Core concept in programming languages for process abstraction</p></li>
+<li><p>Building blocks for modular program design</p></li>
+<li><p>Key topics:</p>
+<ul>
+<li><p>Parameter passing methods</p></li>
+<li><p>Local referencing environments</p></li>
+<li><p>Overloaded and generic subprograms</p></li>
+<li><p>User-defined operators</p></li>
+<li><p>Closures and coroutines</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section >
+<section >
+<h2>Fundamentals of Subprograms</h2>
+<ul class="simple">
+<li><p>Basic Characteristics:</p>
+<ul>
+<li><p>Single entry point</p></li>
+<li><p>Caller suspended during execution</p></li>
+<li><p>Control returns to caller on completion</p></li>
+</ul>
+</li>
+<li><p>Components:</p>
+<ul>
+<li><p>Subprogram definition - interface and actions</p></li>
+<li><p>Subprogram header - name, parameters, return type</p></li>
+<li><p>Subprogram body - implementation</p></li>
+</ul>
+</li>
+<li><p>Types:</p>
+<ul>
+<li><p>Procedures - define new statements</p></li>
+<li><p>Functions - return values and define new operations</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section >
+<section >
+<h2>Parameters</h2>
+<ul class="simple">
+<li><p>Ways to pass data to/from subprograms</p></li>
+<li><p>Parameter Categories:</p>
+<ul>
+<li><p>Formal parameters - in subprogram definition</p></li>
+<li><p>Actual parameters - in subprogram call</p></li>
+</ul>
+</li>
+<li><p>Parameter Association:</p>
+<ul>
+<li><p>Positional parameters</p></li>
+<li><p>Keyword parameters (Python)</p></li>
+<li><p>Default parameters (C++, Python)</p></li>
+</ul>
+</li>
+<li><p>Variable Parameters:</p>
+<ul>
+<li><p>C# params modifier</p></li>
+<li><p>Python/Ruby array parameters</p></li>
+<li><p>Lua ellipsis (…)</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section >
+<section >
+<h2>Parameter-Passing Methods</h2>
+<ul class="simple">
+<li><p>Three Semantics Models:</p>
+<ul>
+<li><p>In mode - data to subprogram</p></li>
+<li><p>Out mode - data from subprogram</p></li>
+<li><p>Inout mode - bidirectional</p></li>
+</ul>
+</li>
+<li><p>Implementation Methods:</p>
+<ul>
+<li><p>Pass-by-value</p></li>
+<li><p>Pass-by-reference</p></li>
+<li><p>Pass-by-value-result</p></li>
+<li><p>Pass-by-name</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section >
+<section >
+<h2>Implementation Considerations</h2>
+<ul class="simple">
+<li><p>Pass-by-value:</p>
+<ul>
+<li><p>Copies data</p></li>
+<li><p>Safe but expensive for large data</p></li>
+</ul>
+</li>
+<li><p>Pass-by-reference:</p>
+<ul>
+<li><p>Passes address</p></li>
+<li><p>Efficient but can cause aliasing</p></li>
+</ul>
+</li>
+<li><p>Implementation via:</p>
+<ul>
+<li><p>Run-time stack</p></li>
+<li><p>Parameter storage allocation</p></li>
+<li><p>Address computation</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section >
+<section >
+<h2>Generic Subprograms</h2>
+<ul class="simple">
+<li><p>Purpose:</p>
+<ul>
+<li><p>Code reuse across different types</p></li>
+<li><p>Type-safe polymorphism</p></li>
+</ul>
+</li>
+<li><p>Implementations:</p>
+<ul>
+<li><p>C++ templates</p></li>
+<li><p>Java 5.0 generics</p></li>
+<li><p>C# 2005 generics</p></li>
+<li><p>F# automatic generalization</p></li>
+</ul>
+</li>
+<li><p>Constraints:</p>
+<ul>
+<li><p>Type restrictions</p></li>
+<li><p>Compile-time vs runtime binding</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section >
+<section >
+<h2>Closures and Coroutines</h2>
+<ul class="simple">
+<li><p>Closures:</p>
+<ul>
+<li><p>Subprogram + referencing environment</p></li>
+<li><p>Used in functional programming</p></li>
+<li><p>Support in modern languages</p></li>
+</ul>
+</li>
+<li><p>Coroutines:</p>
+<ul>
+<li><p>Multiple entry points</p></li>
+<li><p>Symmetric control transfer</p></li>
+<li><p>Quasi-concurrent execution</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section >
+<section >
+<h2>Summary</h2>
+<ul class="simple">
+<li><p>Key Concepts:</p>
+<ul>
+<li><p>Parameter passing methods</p></li>
+<li><p>Generic programming support</p></li>
+<li><p>Function vs procedure design</p></li>
+</ul>
+</li>
+<li><p>Design Considerations:</p>
+<ul>
+<li><p>Safety vs efficiency</p></li>
+<li><p>Static vs dynamic binding</p></li>
+<li><p>Type checking requirements</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section >
+<section >
+<h2>Practice Questions</h2>
+<ol class="arabic simple">
+<li><p>Compare pass-by-value and pass-by-reference</p></li>
+<li><p>When would you use generic subprograms?</p></li>
+<li><p>What are the tradeoffs in parameter passing methods?</p></li>
+<li><p>How do closures differ from regular subprograms?</p></li>
+</ol>
+</section>
+
+        </div>
+    </div>
+    
+    <script src="../_static/revealjs/dist/reveal.js"></script>
+    
+    
+      <script src="../_static/revealjs/plugin/notes/notes.js"></script>
+      <script src="../_static/revealjs/plugin/highlight/highlight.js"></script>
+      <script src="../_static/revealjs/plugin/math/math.js"></script>
+      
+    
+    <script>
+        var revealjsConfig = new Object();
+        Object.assign(revealjsConfig, {"controls": true, "progress": true, "hash": true, "center": true, "transition": "slide", "slideNumber": true, "scrollActivationWidth": null});
+        
+        
+        
+          revealjsConfig.plugins = [
+            RevealNotes,RevealHighlight,RevealMath,
+          ];
+        
+        // More info https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize(revealjsConfig);
+    </script>
+
+  </body>
+</html>
