@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Algorithm and Program Design (COP3014)</title>
+  <title>C String Operations</title>
     <link rel="stylesheet" type="text/css" href="../_static/revealjs/dist/reveal.css?v=40f0a724" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/revealjs/plugin/highlight/zenburn.css?v=83d5745d" />
@@ -18,26 +18,46 @@
     <div class="reveal">
         <div class="slides" role="main">
             <section >
-<section data-background-color="white" data-background-image="../_static/logo.png" data-background-size="50%" data-background-position="top center" data-background-repeat="no-repeat">
-<h1>Algorithm and Program Design (COP3014)</h1>
-<div class="subtitle docutils container">
-<p>Xingang (Ian) Fang</p>
-<p>Copyright © Xingang (Ian) Fang 2022-25</p>
-</div>
+<section >
+<h1>C String Operations</h1>
+<p>Basic operations and common pitfalls:</p>
+<pre data-id="c-string-operations"><code data-trim data-noescape class="c++">// String initialization
+char str1[100] = &quot;Hello&quot;;  // Fixed buffer
+char* str2 = new char[100];  // Dynamic allocation
+
+// Common operations
+strlen(str1);  // Length
+strcpy(str2, str1);  // Copy
+strcat(str2, &quot; World&quot;);  // Concatenate
+
+// Pitfalls to avoid
+char small[5] = &quot;Hello&quot;;  // Buffer overflow!
+if (str1 == str2) { }  // Wrong comparison!
+
+// Correct string comparison
+if (strcmp(str1, str2) == 0)
+  cout &lt;&lt; &quot;Strings are equal&quot; &lt;&lt; endl;</code></pre>
 </section>
 </section>
 <section >
 <section >
-<h2>Modules</h2>
+<h1>C++ String Class</h1>
 <ul class="simple">
-<li><p><a class="reference internal" href="ch01.html"><span class="doc">Course Intro</span></a></p></li>
-<li><p><a class="reference internal" href="ch02.html"><span class="doc">Variable, type and control flow in C++</span></a></p></li>
-<li><p><a class="reference internal" href="ch03.html"><span class="doc">Functions</span></a></p></li>
-<li><p><a class="reference internal" href="ch04.html"><span class="doc">Classes and Objects</span></a></p></li>
-<li><p><a class="reference internal" href="ch05.html"><span class="doc">Pointer and Array; Memory Management in C++</span></a></p></li>
-<li><p><a class="reference internal" href="ch06.html"><span class="doc">Algorithm on linear data; String; Sorting</span></a></p></li>
+<li><p>Modern string handling with std::string:</p></li>
 </ul>
-</section>
+<pre data-id="c-string-class"><code data-trim data-noescape class="c++">string str1 = &quot;Hello&quot;;
+string str2 = &quot; World&quot;;
+
+// Common operations
+str1 += str2;  // Concatenation
+str1.length();  // Get length
+str1.substr(0, 5);  // Substring
+str1.find(&quot;lo&quot;);  // Search
+
+// String parsing
+string data = &quot;John,30,Engineer&quot;;
+size_t pos = data.find(&quot;,&quot;);
+string name = data.substr(0, pos);</code></pre>
 
         </div>
     </div>
