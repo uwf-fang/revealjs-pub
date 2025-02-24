@@ -123,6 +123,15 @@
 </section>
 <section >
 <section >
+<h2>Demonstration: Stack and Subprogram Calls</h2>
+<img alt="Stack and Subprogram Calls" class="align-center" src="../_images/stack_subprog_calls.png" />
+<div class="footnote docutils container">
+<p>Credit: Textbook</p>
+</div>
+</section>
+</section>
+<section >
+<section >
 <h1>Nested Subprograms</h1>
 <ul class="simple">
 <li><p>Nested subprograms:</p>
@@ -137,6 +146,7 @@
 <li><p>Variables accessed by name</p></li>
 <li><p>Scope determined at compile time</p></li>
 <li><p>Static links to access non-local variables</p></li>
+<li><p><strong>Static chain</strong> method</p></li>
 </ul>
 </li>
 </ul>
@@ -145,9 +155,11 @@
 <section >
 <section >
 <h2>Static Chain Implementation</h2>
+<div class="flex-container docutils container">
+<div class="half docutils container">
 <ul class="simple">
 <li><p>Adds static link to activation records</p></li>
-<li><p>Links point to static parent’s activation</p></li>
+<li><p>Links point to static parent’s activation record</p></li>
 <li><p>Used for accessing nonlocal variables</p></li>
 <li><p>Components:</p>
 <ul>
@@ -157,6 +169,15 @@
 </ul>
 </li>
 </ul>
+</div>
+<div class="half docutils container">
+<a class="reference internal image-reference" href="../_images/static-chain.png"><img alt="Stack Chain Stack View" src="../_images/static-chain.png" style="width: 50%;" />
+</a>
+<div class="footnote docutils container">
+<p>Credit: Textbook</p>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section >

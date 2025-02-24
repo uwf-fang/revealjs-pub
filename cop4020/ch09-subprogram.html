@@ -162,6 +162,8 @@ functional programming chapter.</p>
 <section >
 <section >
 <h1>Parameter-Passing Methods</h1>
+<div class="flex-container docutils container">
+<div class="half docutils container">
 <ul class="simple">
 <li><p>Three Semantics Models:</p>
 <ul>
@@ -180,6 +182,17 @@ functional programming chapter.</p>
 </ul>
 </li>
 </ul>
+</div>
+<div class="half docutils container">
+<p><strong>C# Example of pass-by-result</strong></p>
+<pre><code data-trim data-noescape class="c#">void Fixer(out int x, out int y) {
+    x = 17;
+    y = 35;
+}
+
+f.Fixer(out a, out b);</code></pre>
+</div>
+</div>
 </section>
 </section>
 <section >
@@ -216,8 +229,16 @@ functional programming chapter.</p>
 <li><p>Dynamic invocation - subprogram called at runtime</p></li>
 <li><p>Examples:</p>
 <ul>
-<li><p>Function pointers in C/C++</p></li>
-<li><p>Lambda expression in C++</p></li>
+<li><p>Function pointers in C/C++</p>
+<ul>
+<li><p><code class="code docutils literal notranslate"><span class="pre">void</span> <span class="pre">(*f)(int)</span></code></p></li>
+</ul>
+</li>
+<li><p>Lambda expression in C++</p>
+<ul>
+<li><p><code class="code docutils literal notranslate"><span class="pre">auto</span> <span class="pre">f</span> <span class="pre">=</span> <span class="pre">[](int</span> <span class="pre">x)</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">x</span> <span class="pre">+</span> <span class="pre">1;</span> <span class="pre">}</span></code></p></li>
+</ul>
+</li>
 <li><p>Reflection in Java/C#</p></li>
 <li><p>Interface and lambda expressions in Java</p></li>
 <li><p>Method references in Java</p></li>
@@ -232,6 +253,7 @@ functional programming chapter.</p>
 <section >
 <h2>Passing Subprograms as Parameters</h2>
 <ul class="simple">
+<li><p>One way of dynamic invocation of subprograms</p></li>
 <li><p>Challenges</p>
 <ul>
 <li><p>Type checking</p></li>
@@ -283,24 +305,64 @@ functional programming chapter.</p>
 </section>
 <section >
 <section >
-<h2>Closures and Coroutines</h2>
-<ul>
-<li><p>Closures:</p>
+<h2>Closures</h2>
+<div class="flex-container docutils container">
+<div class="half docutils container">
 <p>In static-scope languages, when nested subprograms are passed as parameters, they carry their referencing environment with them.</p>
 <ul class="simple">
 <li><p>Subprogram + referencing environment</p></li>
 <li><p>Used in functional programming</p></li>
 <li><p>Support in modern languages</p></li>
 </ul>
-</li>
-<li><p>Coroutines:</p>
+</div>
+<div class="half docutils container">
+<p><strong>Python Example of Closures</strong></p>
+<pre><code data-trim data-noescape class="python">def outer(x):
+    def inner(y):
+        return x + y
+    return inner
+
+f = outer(5)
+print(f(3))  # 8</code></pre>
+<p>Do you think there is a better way to implement this?</p>
+</div>
+</div>
+</section>
+</section>
+<section >
+<section >
+<h2>Coroutines</h2>
+<div class="flex-container docutils container">
+<div class="half docutils container">
 <ul class="simple">
+<li><p>Very untypical subprograms</p></li>
 <li><p>Multiple entry points</p></li>
 <li><p>Symmetric control transfer</p></li>
 <li><p>Quasi-concurrent execution</p></li>
+<li><p>Examples:</p>
+<ul>
+<li><p>Python generators and async/await</p></li>
+<li><p>Go goroutines</p></li>
+<li><p>C++20 coroutines</p></li>
+<li><p>Ruby fibers</p></li>
+<li><p>C# async/await</p></li>
+<li><p>JavaScript async/await</p></li>
 </ul>
 </li>
 </ul>
+</div>
+<div class="half docutils container">
+<pre><code data-trim data-noescape class="python">def counter():
+    i = 0
+    while True:
+        yield i
+        i += 1
+
+c = counter()
+print(next(c))  # 0
+print(next(c))  # 1</code></pre>
+</div>
+</div>
 </section>
 </section>
 <section >
