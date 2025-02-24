@@ -8,7 +8,7 @@
   <title>Algorithm and Program Design (COP3014)</title>
     <link rel="stylesheet" type="text/css" href="../_static/revealjs/dist/reveal.css?v=40f0a724" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/revealjs/plugin/highlight/zenburn.css?v=83d5745d" />
+    <link rel="stylesheet" type="text/css" href="../_static/idea.css?v=e717f371" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -56,7 +56,7 @@
 <div class="flex-container docutils container">
 <div class="half docutils container">
 <p><strong>Examples</strong></p>
-<pre><code data-trim data-noescape class="c++">// Correct
+<pre><code data-trim data-noescape class="cpp">// Correct
 int add(int, int);
 int add(int a, int b);
 int add(int a, int b = 22);
@@ -70,7 +70,7 @@ int add(int a = 11, b = 22);  .. container:: half</code></pre>
 </div>
 <div class="half docutils container">
 <p><strong>More Examples</strong></p>
-<pre><code data-trim data-noescape class="c++">// This is correct! Surprisingly!
+<pre><code data-trim data-noescape class="cpp">// This is correct! Surprisingly!
 int add(int c=2, int d =3);  // names ignored in declaration
 
 int add(int a, int b) {
@@ -91,13 +91,13 @@ int main() {
 <div class="flex-container docutils container">
 <div class="half docutils container">
 <p><strong>Correct</strong></p>
-<pre><code data-trim data-noescape class="c++">int add(int a, int b) {
+<pre><code data-trim data-noescape class="cpp">int add(int a, int b) {
   return a + b;
 }</code></pre>
 </div>
 <div class="half docutils container">
 <p><strong>Incorrect</strong></p>
-<pre><code data-trim data-noescape class="c++">int add(int , int ) {
+<pre><code data-trim data-noescape class="cpp">int add(int , int ) {
   return a + b;
 }
 
@@ -116,7 +116,7 @@ int add(int a, b) {
 <div class="flex-container docutils container">
 <div class="half docutils container">
 <p><strong>Correct</strong></p>
-<pre><code data-trim data-noescape class="c++">int add(int a, int b) {
+<pre><code data-trim data-noescape class="cpp">int add(int a, int b) {
   return a + b;
 }
 
@@ -127,7 +127,7 @@ cout&lt;&lt; add(true, 4) &lt;&lt; endl;  // 5, auto conversion</code></pre>
 </div>
 <div class="half docutils container">
 <p><strong>Incorrect</strong></p>
-<pre><code data-trim data-noescape class="c++">int add(int a, int b) {
+<pre><code data-trim data-noescape class="cpp">int add(int a, int b) {
   return a + b;
 }
 
@@ -176,7 +176,7 @@ result = add(int 5, int 6);</code></pre>
 <div class="flex-container docutils container">
 <div class="half docutils container">
 <p><strong>Examples</strong></p>
-<pre><code data-trim data-noescape class="c++">void swap(int &amp;a, int &amp;b) {
+<pre><code data-trim data-noescape class="cpp">void swap(int &amp;a, int &amp;b) {
   int temp = a;
   a = b;
   b = temp;
@@ -197,7 +197,7 @@ string makeGreeting(const string &amp;name) {
 </div>
 <div class="half docutils container">
 <p><strong>Incorrect</strong></p>
-<pre><code data-trim data-noescape class="c++">void swap(int a, int b) {
+<pre><code data-trim data-noescape class="cpp">void swap(int a, int b) {
   int temp = a;
   a = b;
   b = temp;
@@ -213,7 +213,7 @@ void swap(int &amp;a, int &amp;b) {
 </section>
 <section >
 <h3>Array Passing</h3>
-<pre data-id="array-passing"><code data-trim data-noescape class="c++">// ---- Correct ----
+<pre data-id="array-passing"><code data-trim data-noescape class="cpp">// ---- Correct ----
 // ignore the size
 double average(double arr[], int size);
 double average(double *arr, int size);
@@ -243,7 +243,7 @@ cout &lt;&lt; average(arr1, 3) &lt;&lt; endl;  // correct
 </ul>
 </li>
 </ul>
-<pre><code data-trim data-noescape class="c++">// Incorrect
+<pre><code data-trim data-noescape class="cpp">// Incorrect
 for (int i = 0; i &lt; size; ++i)
   cout &lt;&lt; i &lt;&lt; endl;
 cout &lt;&lt; i &lt;&lt; endl;
@@ -260,7 +260,7 @@ cout &lt;&lt; i &lt;&lt; endl;  // get 100</code></pre>
 <ul class="simple">
 <li><p>Returning a pointer in functions</p></li>
 </ul>
-<pre><code data-trim data-noescape class="c++">// returning an dynamic array that have a lifetime beyond the function
+<pre><code data-trim data-noescape class="cpp">// returning an dynamic array that have a lifetime beyond the function
 // should be deleted after use
 int *makeArray(int size) {
   return new int[size];
@@ -289,7 +289,7 @@ string *func() {
 <div class="flex-container docutils container">
 <div class="half docutils container">
 <p><strong>Overloading Examples</strong></p>
-<pre><code data-trim data-noescape class="c++">// ==== Function Overloading ====
+<pre><code data-trim data-noescape class="cpp">// ==== Function Overloading ====
 
 // given this function
 int func1(int name);  // func1(3);
@@ -307,7 +307,7 @@ int func1(int name1);  // different parameter name</code></pre>
 </div>
 <div class="half docutils container">
 <p><strong>Call Matching Examples</strong></p>
-<pre><code data-trim data-noescape class="c++">// Pair 1: wrong
+<pre><code data-trim data-noescape class="cpp">// Pair 1: wrong
 // both exact matches
 void func1(int);
 void func1(int, int = 1);

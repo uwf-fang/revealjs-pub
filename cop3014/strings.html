@@ -8,7 +8,7 @@
   <title>C String Operations</title>
     <link rel="stylesheet" type="text/css" href="../_static/revealjs/dist/reveal.css?v=40f0a724" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/revealjs/plugin/highlight/zenburn.css?v=83d5745d" />
+    <link rel="stylesheet" type="text/css" href="../_static/idea.css?v=e717f371" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -21,7 +21,7 @@
 <section >
 <h1>C String Operations</h1>
 <p>Basic operations and common pitfalls:</p>
-<pre data-id="c-string-operations"><code data-trim data-noescape class="c++">// String initialization
+<pre data-id="c-string-operations"><code data-trim data-noescape class="cpp">// String initialization
 char str1[100] = &quot;Hello&quot;;  // Fixed buffer
 char* str2 = new char[100];  // Dynamic allocation
 
@@ -45,7 +45,7 @@ if (strcmp(str1, str2) == 0)
 <ul class="simple">
 <li><p>Modern string handling with std::string:</p></li>
 </ul>
-<pre data-id="c-string-class"><code data-trim data-noescape class="c++">string str1 = &quot;Hello&quot;;
+<pre data-id="c-string-class"><code data-trim data-noescape class="cpp">string str1 = &quot;Hello&quot;;
 string str2 = &quot; World&quot;;
 
 // Common operations

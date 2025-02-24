@@ -8,7 +8,7 @@
   <title>Chain Matrix Multiplication Problem</title>
     <link rel="stylesheet" type="text/css" href="../_static/revealjs/dist/reveal.css?v=40f0a724" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/revealjs/plugin/highlight/zenburn.css?v=83d5745d" />
+    <link rel="stylesheet" type="text/css" href="../_static/idea.css?v=e717f371" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -124,7 +124,7 @@ A_k A_{k+1} \cdots A_j\)</span>.</p></li>
 <ul class="simple">
 <li><p>C++ example that only computes the cost</p></li>
 </ul>
-<pre data-id="dynamic-programming-algorithm-cont"><code data-trim data-noescape class="c++">int matrixChainOrder(int p[], int n) {
+<pre data-id="dynamic-programming-algorithm-cont"><code data-trim data-noescape class="cpp">int matrixChainOrder(int p[], int n) {
   int m[n][n];
 
   for (int i = 1; i &lt; n; i++)

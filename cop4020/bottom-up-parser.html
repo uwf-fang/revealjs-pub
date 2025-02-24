@@ -8,7 +8,7 @@
   <title>Shift-Reduce Parser Demonstration</title>
     <link rel="stylesheet" type="text/css" href="../_static/revealjs/dist/reveal.css?v=40f0a724" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/revealjs/plugin/highlight/zenburn.css?v=83d5745d" />
+    <link rel="stylesheet" type="text/css" href="../_static/idea.css?v=e717f371" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -62,7 +62,7 @@ F → (E) | id</code></pre>
 <section >
 <section >
 <h2>LR(1) Parsing Tables</h2>
-<pre data-id="lr-1-parsing-tables"><code data-trim data-noescape class="c++">+-------------------------------------------+ +-------------------------+
+<pre data-id="lr-1-parsing-tables"><code data-trim data-noescape class="cpp">+-------------------------------------------+ +-------------------------+
 |               ACTION TABLE                | |         GOTO TABLE      |
 +-------+-----+-----+-----+-----+-----+-----+ +-------+-----+-----+-----+
 | State | id  | +   | *   | (   | )   | $   | | State | E   | T   | F   |
@@ -94,7 +94,7 @@ F → (E) | id</code></pre>
 <section >
 <h2>Example Parse: id + id * id</h2>
 <p><strong>Parse steps</strong></p>
-<pre data-id="example-parse-id-id-id"><code data-trim data-noescape class="c++">Stack                  Input         Action              Rule Applied
+<pre data-id="example-parse-id-id-id"><code data-trim data-noescape class="cpp">Stack                  Input         Action              Rule Applied
 ----------------------------------------------------------------------
 0                      id+id*id$     shift 5             -
 0 id 5                 +id*id$       reduce by F→id      GOTO(0,F)=3

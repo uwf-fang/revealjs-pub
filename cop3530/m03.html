@@ -8,7 +8,7 @@
   <title>Data Structure and Algorithm Design</title>
     <link rel="stylesheet" type="text/css" href="../_static/revealjs/dist/reveal.css?v=40f0a724" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/revealjs/plugin/highlight/zenburn.css?v=83d5745d" />
+    <link rel="stylesheet" type="text/css" href="../_static/idea.css?v=e717f371" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -167,7 +167,7 @@ but will not cause any problems.</p>
 <div class="half docutils container">
 <ul>
 <li><p>2D Dynamic array</p>
-<pre><code data-trim data-noescape class="c++">int **arr = new int*[10];
+<pre><code data-trim data-noescape class="cpp">int **arr = new int*[10];
 for (int i = 0; i &lt; 10; ++i)
     arr[i] = new int[10];
 // Use the array
@@ -176,7 +176,7 @@ for (int i = 0; i &lt; 10; ++i)
 delete[] arr;</code></pre>
 </li>
 <li><p>Local array of dynamic arrays as a 2D array</p>
-<pre><code data-trim data-noescape class="c++">int *arr[10];
+<pre><code data-trim data-noescape class="cpp">int *arr[10];
 for (int i = 0; i &lt; 10; ++i)
     arr[i] = new int[10];
 // Use the array
@@ -188,7 +188,7 @@ for (int i = 0; i &lt; 10; ++i)
 <div class="half docutils container">
 <ul>
 <li><p>Local array of object pointers</p>
-<pre><code data-trim data-noescape class="c++">MyClass *myArr[10];
+<pre><code data-trim data-noescape class="cpp">MyClass *myArr[10];
 for (int i = 0; i &lt; 10; ++i)
   myArr[i] = nullptr;
 
@@ -207,7 +207,7 @@ for (int i = 0; i &lt; 10; ++i)
   delete myArr[i];</code></pre>
 </li>
 <li><p>Dynamic array of object pointers</p>
-<pre><code data-trim data-noescape class="c++">MyClass **myArr = new MyClass*[10];
+<pre><code data-trim data-noescape class="cpp">MyClass **myArr = new MyClass*[10];
 for (int i = 0; i &lt; 10; ++i)
   myArr[i] = nullptr;
 
@@ -325,7 +325,7 @@ memory management is more complicated than in the function context.</p></li>
 <span class="pre">int[size];</span></code></p></li>
 <li><p>Deallocation in the destructor, etc. <code class="docutils literal notranslate"><span class="pre">delete[]</span> <span class="pre">this-&gt;array;</span></code></p></li>
 <li><p>Deep copy in the copy constructor, copy assignment operator, etc.</p>
-<pre><code data-trim data-noescape class="c++">for (int i = 0; i &lt; size; ++i)
+<pre><code data-trim data-noescape class="cpp">for (int i = 0; i &lt; size; ++i)
   this-&gt;array[i] = other.array[i];</code></pre>
 </li>
 </ul>
@@ -476,7 +476,7 @@ overloading</p></li>
 <div class="flex-container docutils container">
 <div class="half docutils container">
 <div class="smaller docutils container">
-<pre><code data-trim data-noescape class="c++">class MyVector {
+<pre><code data-trim data-noescape class="cpp">class MyVector {
   int *array;
   int size;
 public:

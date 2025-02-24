@@ -8,7 +8,7 @@
   <title>Data Structure and Algorithm Design</title>
     <link rel="stylesheet" type="text/css" href="../_static/revealjs/dist/reveal.css?v=40f0a724" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/revealjs/plugin/highlight/zenburn.css?v=83d5745d" />
+    <link rel="stylesheet" type="text/css" href="../_static/idea.css?v=e717f371" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -88,7 +88,7 @@ problem.</p></li>
 </ul>
 <div class="literal-block-wrapper docutils container" id="id2">
 <div class="code-block-caption"><span class="caption-text">Empirical analysis using &lt;chrono&gt; library</span></div>
-<pre><code data-trim data-noescape class="c++">#include &lt;iostream&gt;
+<pre><code data-trim data-noescape class="cpp">#include &lt;iostream&gt;
 #include &lt;chrono&gt;
 
 int main() {
@@ -255,7 +255,7 @@ to take constant time.</p></li>
 </ul>
 </div>
 <div class="half docutils container">
-<pre><code data-trim data-noescape class="c++">int search(int * arr, int size, int val) {
+<pre><code data-trim data-noescape class="cpp">int search(int * arr, int size, int val) {
   for (int i = 0; i &lt; size; ++i)
     if (arr[i] == val)
       return i;
@@ -277,7 +277,7 @@ to take constant time.</p></li>
 </ul>
 </div>
 <div class="half docutils container">
-<pre><code data-trim data-noescape class="c++">for (init; condition; update) {
+<pre><code data-trim data-noescape class="cpp">for (init; condition; update) {
   body statements;
 }</code></pre>
 </div>
@@ -298,7 +298,7 @@ to take constant time.</p></li>
 </ul>
 </div>
 <div class="half docutils container">
-<pre><code data-trim data-noescape class="c++">// Sort an array to ascending order
+<pre><code data-trim data-noescape class="cpp">// Sort an array to ascending order
 // arr: array to be sorted, must not be nullptr
 // size: must be greater than 0
 void selectionSort(int * arr, int size) {

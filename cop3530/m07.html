@@ -8,7 +8,7 @@
   <title>Data Structure and Algorithm Design</title>
     <link rel="stylesheet" type="text/css" href="../_static/revealjs/dist/reveal.css?v=40f0a724" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/revealjs/plugin/highlight/zenburn.css?v=83d5745d" />
+    <link rel="stylesheet" type="text/css" href="../_static/idea.css?v=e717f371" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -87,43 +87,55 @@ position</p></li>
 <section >
 <section >
 <h2>C++ Implementation of a List ADT</h2>
-<ul>
-<li><p>Use C++ STL container as a list: std::list, std::vector</p></li>
-<li><p>Make from scratch as templates</p></li>
-<li><p>Example public interface:</p>
+<div class="flex-container docutils container">
+<div class="half docutils container">
+<ol class="arabic">
+<li><p><strong>Existing C++ STL containers</strong></p></li>
+<li><p><strong>Make from scratch as templates</strong></p>
+<ul class="simple">
+<li><p>Partially filled array</p></li>
+<li><p>Linked list</p></li>
+</ul>
+<p>** Node struct**</p>
 <pre><code data-trim data-noescape class="cpp">template &lt;typename T&gt;
-class List {
- private:
-  Node&lt;T&gt; *head;
-  Node&lt;T&gt; *tail;
-  int count;
- public:
-  T at(int index) const; // read-only access
-  Node&lt;T&gt; *search(const T&amp; value) const;
-  void insertBefore(Node&lt;T&gt; *index, const T&amp; value);
-  void append(const T&amp; value);
-  void remove(int index);
-  void clear();
-  int size() const;
-  bool isEmpty() const;
-  void print() const;
+struct Node {
+  T data;
+  Node&lt;T&gt; *prev;
+  Node&lt;T&gt; *next;
 };</code></pre>
 </li>
-</ul>
+</ol>
+</div>
+<div class="half docutils container">
+<p><strong>Linked List Example</strong></p>
+<pre><code data-trim data-noescape class="cpp">template &lt;typename T&gt;
+class List {  // Doubly-linked list
+  Node&lt;T&gt; *head;
+  Node&lt;T&gt; *tail;
+  int size;
+public:
+  List();
+  ~List();
+  void clear();
+  void append(const T &amp;data);
+  void insertBefore(const T &amp;data, Node&lt;T&gt; *next);
+  void remove(Node&lt;T&gt; *node);
+  Node&lt;T&gt; *search(const T &amp;data);
+  int getSize() const;
+};</code></pre>
+</div>
+</div>
 </section>
 <section >
-<h3>Data Structures</h3>
-<p>List of data structures and STL containers that can be used to implement a
-list.
-+ No data structure is perfect
-+ Linked List</p>
-<blockquote>
-<div><ul class="simple">
+<h3>Choice of Data Structures</h3>
+<ul class="simple">
+<li><p>No data structure is perfect</p></li>
+<li><p>Linked List</p>
+<ul>
 <li><p>fast insertion and removal</p></li>
 <li><p>slow indexing</p></li>
 </ul>
-</div></blockquote>
-<ul class="simple">
+</li>
 <li><p>Array</p>
 <ul>
 <li><p>fast indexing</p></li>
@@ -131,7 +143,7 @@ list.
 <li><p>slow insertion and removal</p></li>
 </ul>
 </li>
-<li><p>Advanced data structures</p>
+<li><p>Advanced data structures (FYI)</p>
 <ul>
 <li><p>In the cost of complex logics or extra spaces</p></li>
 <li><p>hybrid: linked list with array indices</p></li>
@@ -174,7 +186,7 @@ list.
 </ul>
 </li>
 </ul>
-<figure class="align-default" id="id3">
+<figure class="align-default" id="id2">
 <div class="graphviz"><img src="../_images/graphviz-35a198d8e8310a46652a253800994a73af9a2a9f.png" alt="digraph ll {
     rankdir=LR;
     node [shape=record];
@@ -187,19 +199,19 @@ list.
     b:ref:c -&gt; c:data [arrowhead=vee, arrowtail=dot, dir=both, tailclip=false];
 }" class="graphviz" /></div>
 <figcaption>
-<p><span class="caption-text">a minimal linked-list</span></p>
+<p><span class="caption-text">A minimal linked-list</span></p>
 </figcaption>
 </figure>
 </section>
 </section>
 <section >
 <section >
-<h2>Variations</h2>
+<h2>Linked-List Variations</h2>
 <ul class="simple">
 <li><p>Minimal implementation: a head pointer; singly-linked</p></li>
 <li><p>Ideal implementation: a head pointer, a tail pointer, and a size;
 doubly-linked</p></li>
-<li><p>Reference pointers</p>
+<li><p>Instance variables</p>
 <ul>
 <li><p>head pointer</p></li>
 <li><p>tail pointer (optional)</p></li>
@@ -212,16 +224,10 @@ doubly-linked</p></li>
 <li><p>doubly-linked - pointers to previous and next nodes</p></li>
 </ul>
 </li>
-<li><p>Terminal node handling (FYI)</p>
+<li><p>Other variations (FYI)</p>
 <ul>
-<li><p>cyclic - link(s) connecting the first and last nodes; not useful</p></li>
-<li><p>acyclic</p></li>
-</ul>
-</li>
-<li><p>Dummy node before the first node (FYI)</p>
-<ul>
-<li><p>simplifies empty list and first node handling</p></li>
-<li><p>not useful</p></li>
+<li><p>Circular linked list</p></li>
+<li><p>Dummy node before the first node</p></li>
 </ul>
 </li>
 </ul>
@@ -229,63 +235,9 @@ doubly-linked</p></li>
 </section>
 <section >
 <section >
-<h2>Behaviors</h2>
+<h2>Operations and Time Complexity</h2>
 <ul class="simple">
-<li><p>Access</p>
-<ul>
-<li><p>by index</p></li>
-<li><p>first</p></li>
-<li><p>last</p></li>
-</ul>
-</li>
-<li><p>Insertion</p>
-<ul>
-<li><p>at the beginning</p></li>
-<li><p>at the end</p></li>
-<li><p>at a specified position (by pointer/iterator, by index)</p></li>
-</ul>
-</li>
-<li><p>Removal</p>
-<ul>
-<li><p>at the beginning</p></li>
-<li><p>at the end</p></li>
-<li><p>at a specified position (by pointer/iterator, by index)</p></li>
-<li><p>by value</p></li>
-</ul>
-</li>
-</ul>
-</section>
-</section>
-<section >
-<section >
-<h2>Implementation Details</h2>
-<ul class="simple">
-<li><p>Linked list class</p>
-<ul>
-<li><p>head pointer</p></li>
-<li><p>tail pointer (optional)</p></li>
-<li><p>size (optional)</p></li>
-</ul>
-</li>
-<li><p>Linked node class/struct</p>
-<ul>
-<li><p>top-level or nested</p></li>
-<li><p>use or not use getters and setters</p></li>
-</ul>
-</li>
-<li><p>Use class templates for generalization</p>
-<ul>
-<li><p>type of data stored in nodes can be parameterized</p></li>
-</ul>
-</li>
-</ul>
-</section>
-</section>
-<section >
-<section >
-<h2>Time Complexity</h2>
-<ul class="simple">
-<li><p>Based on the ideal implementation</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Based</span> <span class="pre">on</span> <span class="pre">the</span> <span class="pre">ideal</span> <span class="pre">implementation</span></code></p></li>
 <li><p>Access</p>
 <ul>
 <li><p>by index <span class="math notranslate nohighlight">\(\Theta(n)\)</span></p></li>
@@ -299,6 +251,30 @@ doubly-linked</p></li>
 <li><p>at the end <span class="math notranslate nohighlight">\(\Theta(1)\)</span></p></li>
 <li><p>at a specified position (by pointer/iterator) <span class="math notranslate nohighlight">\(\Theta(1)\)</span></p></li>
 <li><p>at a specified position (by index) <span class="math notranslate nohighlight">\(\Theta(n)\)</span></p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section >
+<section >
+<h2>C++ Implementation Details</h2>
+<ul class="simple">
+<li><p>Linked list class</p>
+<ul>
+<li><p>head pointer</p></li>
+<li><p>tail pointer (optional)</p></li>
+<li><p>size (optional)</p></li>
+</ul>
+</li>
+<li><p>Linked node class/struct</p>
+<ul>
+<li><p>top-level or nested</p></li>
+</ul>
+</li>
+<li><p>Use class templates for generalization</p>
+<ul>
+<li><p>type of data stored in nodes can be parameterized</p></li>
 </ul>
 </li>
 </ul>

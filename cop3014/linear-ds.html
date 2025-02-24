@@ -8,7 +8,7 @@
   <title>Algorithms on Sequential Data</title>
     <link rel="stylesheet" type="text/css" href="../_static/revealjs/dist/reveal.css?v=40f0a724" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/revealjs/plugin/highlight/zenburn.css?v=83d5745d" />
+    <link rel="stylesheet" type="text/css" href="../_static/idea.css?v=e717f371" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -45,7 +45,7 @@
 <ul class="simple">
 <li><p>Time complexity: <span class="math notranslate nohighlight">\(\Theta(n)\)</span></p></li>
 </ul>
-<pre><code data-trim data-noescape class="c++">int linearSearch(const int arr[], int size, int target) {
+<pre><code data-trim data-noescape class="cpp">int linearSearch(const int arr[], int size, int target) {
   for (int i = 0; i &lt; size; i++)
     if (arr[i] == target)
       return i;  // Found, return index
@@ -54,7 +54,7 @@
 </div>
 <div class="half docutils container">
 <p><strong>Example usage</strong></p>
-<pre><code data-trim data-noescape class="c++">int numbers[] = {4, 2, 7, 1, 9, 5};
+<pre><code data-trim data-noescape class="cpp">int numbers[] = {4, 2, 7, 1, 9, 5};
 int pos = linearSearch(numbers, 6, 7);  // Returns 2
 pos = linearSearch(numbers, 6, 3);      // Returns -1</code></pre>
 </div>
@@ -70,7 +70,7 @@ pos = linearSearch(numbers, 6, 3);      // Returns -1</code></pre>
 <ul class="simple">
 <li><p>Time complexity: <span class="math notranslate nohighlight">\(\Theta(\log n)\)</span></p></li>
 </ul>
-<pre><code data-trim data-noescape class="c++">int binarySearch(int arr[], int size, int target) {
+<pre><code data-trim data-noescape class="cpp">int binarySearch(int arr[], int size, int target) {
   int left = 0, right = size - 1;
   while (left &lt;= right) {
     int mid = left + (right - left) / 2;
@@ -87,7 +87,7 @@ pos = linearSearch(numbers, 6, 3);      // Returns -1</code></pre>
 </div>
 <div class="half docutils container">
 <p><strong>Example usage</strong></p>
-<pre><code data-trim data-noescape class="c++">int sorted[] = {1, 2, 4, 5, 7, 9};
+<pre><code data-trim data-noescape class="cpp">int sorted[] = {1, 2, 4, 5, 7, 9};
 int pos = binarySearch(sorted, 6, 7);  // Returns 4
 pos = binarySearch(sorted, 6, 3);      // Returns -1</code></pre>
 </div>
@@ -98,7 +98,7 @@ pos = binarySearch(sorted, 6, 3);      // Returns -1</code></pre>
 <section >
 <h2>Mapping Functions</h2>
 <p><strong>One-to-one</strong> mapping between input and output</p>
-<pre data-id="mapping-functions"><code data-trim data-noescape class="c++">void squareAll(int arr[], int size) {
+<pre data-id="mapping-functions"><code data-trim data-noescape class="cpp">void squareAll(int arr[], int size) {
   for (int i = 0; i &lt; size; i++)
     arr[i] *= arr[i];
 }
@@ -116,7 +116,7 @@ void absAll(int arr[], int size) {
 <div class="flex-container docutils container">
 <div class="half docutils container">
 <p><strong>Statistical functions</strong></p>
-<pre><code data-trim data-noescape class="c++">double mean(const int arr[], int size) {
+<pre><code data-trim data-noescape class="cpp">double mean(const int arr[], int size) {
   if (size == 0) return 0.0;
   double sum = 0.0;
   for (int i = 0; i &lt; size; i++)
@@ -140,7 +140,7 @@ double median(int arr[], int size) {
 }</code></pre>
 </div>
 <div class="half docutils container">
-<pre><code data-trim data-noescape class="c++">double stddev(const int arr[], int size) {
+<pre><code data-trim data-noescape class="cpp">double stddev(const int arr[], int size) {
   if (size == 0) return 0.0;
   double m = mean(arr, size);
   double sum = 0.0;
@@ -149,7 +149,7 @@ double median(int arr[], int size) {
   return sqrt(sum / size);
 }</code></pre>
 <p><strong>Example usage</strong></p>
-<pre><code data-trim data-noescape class="c++">int data[] = {4, 2, 7, 1, 9, 5};
+<pre><code data-trim data-noescape class="cpp">int data[] = {4, 2, 7, 1, 9, 5};
 double avg = mean(data, 6);      // Returns 4.67
 double med = median(data, 6);    // Returns 4.5
 double std = stddev(data, 6);    // Returns 2.73</code></pre>
@@ -162,7 +162,7 @@ double std = stddev(data, 6);    // Returns 2.73</code></pre>
 <h2>Advanced Algorithm</h2>
 <ul>
 <li><p>Palindrome detection</p>
-<pre><code data-trim data-noescape class="c++">bool isPalindrome(const int arr[], int size) {
+<pre><code data-trim data-noescape class="cpp">bool isPalindrome(const int arr[], int size) {
   for (int i = 0; i &lt; size / 2; i++)
     if (arr[i] != arr[size - i - 1])
       return false;
@@ -170,7 +170,7 @@ double std = stddev(data, 6);    // Returns 2.73</code></pre>
 }</code></pre>
 </li>
 <li><p>Subarray search</p>
-<pre><code data-trim data-noescape class="c++">bool isSubarray(int arr[], int size,
+<pre><code data-trim data-noescape class="cpp">bool isSubarray(int arr[], int size,
                 int sub[], int subSize) {
   for (int i = 0; i &lt;= size - subSize; i++) {
     bool found = true;

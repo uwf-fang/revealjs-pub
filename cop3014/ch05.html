@@ -8,7 +8,7 @@
   <title>Algorithm and Program Design (COP3014)</title>
     <link rel="stylesheet" type="text/css" href="../_static/revealjs/dist/reveal.css?v=40f0a724" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/revealjs/plugin/highlight/zenburn.css?v=83d5745d" />
+    <link rel="stylesheet" type="text/css" href="../_static/idea.css?v=e717f371" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -66,7 +66,7 @@ memory location of another variable.</p></li>
 <li><p>Memory addresses in C++: 8 bytes (64-bit systems)</p></li>
 <li><p>Declaration syntax</p></li>
 </ul>
-<pre data-id="introduction-to-pointers"><code data-trim data-noescape class="c++">int* ptr;     // Pointer to integer
+<pre data-id="introduction-to-pointers"><code data-trim data-noescape class="cpp">int* ptr;     // Pointer to integer
 double* dptr; // Pointer to double
 char* cptr;   // Pointer to character</code></pre>
 </section>
@@ -86,7 +86,7 @@ char* cptr;   // Pointer to character</code></pre>
 </li>
 <li><p>Example</p></li>
 </ul>
-<pre data-id="pointer-related-operations"><code data-trim data-noescape class="c++">int num = 42;
+<pre data-id="pointer-related-operations"><code data-trim data-noescape class="cpp">int num = 42;
 int* ptr = &amp;num;    // ptr stores address of num
 cout &lt;&lt; *ptr;       // prints 42 (value at address)
 cout &lt;&lt; ptr;        // prints memory address
@@ -99,7 +99,7 @@ cout &lt;&lt; ptr;        // prints memory address
 <li><p>Relationship with data type size</p></li>
 <li><p>Example</p></li>
 </ul>
-<pre data-id="pointer-arithmetic"><code data-trim data-noescape class="c++">int arr[5] = {1, 2, 3, 4, 5};
+<pre data-id="pointer-arithmetic"><code data-trim data-noescape class="cpp">int arr[5] = {1, 2, 3, 4, 5};
 int size = 5;
 int* ptr = arr;  // points to first element
 
@@ -117,7 +117,7 @@ cout &lt;&lt; *ptr;   // 4</code></pre>
 <li><p>Empty pointers (nullptr)</p></li>
 <li><p>Example</p></li>
 </ul>
-<pre data-id="common-pointer-pitfalls"><code data-trim data-noescape class="c++">int *ptr;           // Uninitialized (dangerous!)
+<pre data-id="common-pointer-pitfalls"><code data-trim data-noescape class="cpp">int *ptr;           // Uninitialized (dangerous!)
 int *safe = nullptr;// Safe initialization
 
 int *danger;
@@ -133,7 +133,7 @@ int *danger;
 <li><p>Modifying variables through pointers</p></li>
 <li><p>Example</p></li>
 </ul>
-<pre data-id="function-pass-by-pointer-example"><code data-trim data-noescape class="c++">void swap(int* a, int* b) {
+<pre data-id="function-pass-by-pointer-example"><code data-trim data-noescape class="cpp">void swap(int* a, int* b) {
   int temp = *a;
   *a = *b;
   *b = temp;
@@ -152,7 +152,7 @@ cout &lt;&lt; x &lt;&lt; &quot; &quot; &lt;&lt; y;  // 20 10</code></pre>
 <li><p>Array declaration and initialization</p></li>
 <li><p>Example</p></li>
 </ul>
-<pre data-id="introduction-to-arrays"><code data-trim data-noescape class="c++">int array[10];  // Uninitialized array
+<pre data-id="introduction-to-arrays"><code data-trim data-noescape class="cpp">int array[10];  // Uninitialized array
 
 int numbers[] = {1, 2, 3, 4, 5};
 // int numbers[5] = {1, 2, 3, 4, 5};
@@ -170,7 +170,7 @@ int matrix[2][3] = {
 <li><p>Array indexing vs pointer arithmetic</p></li>
 <li><p>Example</p></li>
 </ul>
-<pre data-id="array-pointer-relationship"><code data-trim data-noescape class="c++">int arr[] = {10, 20, 30, 40, 50};
+<pre data-id="array-pointer-relationship"><code data-trim data-noescape class="cpp">int arr[] = {10, 20, 30, 40, 50};
 // 5 integers * 4 bytes = 20 bytes are allocated
 // arr is a pointer pointing to the first element
 
@@ -195,7 +195,7 @@ cout &lt;&lt; ptr[2];  // pointers work with array indexing</code></pre>
 </li>
 <li><p>Example</p></li>
 </ul>
-<pre data-id="function-parameters"><code data-trim data-noescape class="c++">void processArray(int arr[], int size) {
+<pre data-id="function-parameters"><code data-trim data-noescape class="cpp">void processArray(int arr[], int size) {
   for(int i = 0; i &lt; size; i++)
     arr[i] *= 2;
 }
@@ -212,7 +212,7 @@ void processPointer(int *arr, int size) {
 <li><p>new and delete operators</p></li>
 <li><p>Example</p></li>
 </ul>
-<pre data-id="dynamic-arrays"><code data-trim data-noescape class="c++">// Single dynamic array
+<pre data-id="dynamic-arrays"><code data-trim data-noescape class="cpp">// Single dynamic array
 int size = 5;
 int* dynArr = new int[size];
 
@@ -363,7 +363,7 @@ but will not cause any problems.</p>
 <div class="half docutils container">
 <ul>
 <li><p>2D Dynamic array</p>
-<pre><code data-trim data-noescape class="c++">int **arr = new int*[10];
+<pre><code data-trim data-noescape class="cpp">int **arr = new int*[10];
 for (int i = 0; i &lt; 10; ++i)
     arr[i] = new int[10];
 // Use the array
@@ -372,7 +372,7 @@ for (int i = 0; i &lt; 10; ++i)
 delete[] arr;</code></pre>
 </li>
 <li><p>Local array of dynamic arrays as a 2D array</p>
-<pre><code data-trim data-noescape class="c++">int *arr[10];
+<pre><code data-trim data-noescape class="cpp">int *arr[10];
 for (int i = 0; i &lt; 10; ++i)
     arr[i] = new int[10];
 // Use the array
@@ -384,7 +384,7 @@ for (int i = 0; i &lt; 10; ++i)
 <div class="half docutils container">
 <ul>
 <li><p>Local array of object pointers</p>
-<pre><code data-trim data-noescape class="c++">MyClass *myArr[10];
+<pre><code data-trim data-noescape class="cpp">MyClass *myArr[10];
 for (int i = 0; i &lt; 10; ++i)
   myArr[i] = nullptr;
 
@@ -403,7 +403,7 @@ for (int i = 0; i &lt; 10; ++i)
   delete myArr[i];</code></pre>
 </li>
 <li><p>Dynamic array of object pointers</p>
-<pre><code data-trim data-noescape class="c++">MyClass **myArr = new MyClass*[10];
+<pre><code data-trim data-noescape class="cpp">MyClass **myArr = new MyClass*[10];
 for (int i = 0; i &lt; 10; ++i)
   myArr[i] = nullptr;
 

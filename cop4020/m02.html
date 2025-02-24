@@ -8,7 +8,7 @@
   <title>Programming Languages</title>
     <link rel="stylesheet" type="text/css" href="../_static/revealjs/dist/reveal.css?v=40f0a724" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/revealjs/plugin/highlight/zenburn.css?v=83d5745d" />
+    <link rel="stylesheet" type="text/css" href="../_static/idea.css?v=e717f371" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -585,13 +585,20 @@ properly</strong></p></li>
 <section >
 <h2>Attribute Grammars</h2>
 <ul class="simple">
-<li><p>a device used to describe more of the structure of a programming language
-than can be described with a context-free grammar</p></li>
-<li><p>a context-free grammar augmented with attributes and rules for computing</p>
+<li><p>Support certain context-sensitive semantics by associating attributes with
+grammar symbols</p></li>
+<li><p>Parser extension</p>
 <ul>
-<li><p>attributes</p></li>
-<li><p>attribute computation functions</p></li>
-<li><p>predicate functions</p></li>
+<li><p>Add attributes to tokens and nonterminals</p></li>
+<li><p>Add semantic rules to the grammar</p></li>
+</ul>
+</li>
+<li><p>Type of attributes</p>
+<ul>
+<li><p>Synthesized attributes - bottom-up attributes that are computed from the
+attributes of the children</p></li>
+<li><p>Inherited attributes - top-down attributes that are passed from the parent
+to the children</p></li>
 </ul>
 </li>
 </ul>

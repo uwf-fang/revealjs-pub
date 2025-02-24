@@ -8,7 +8,7 @@
   <title>Simple Sorting Algorithms</title>
     <link rel="stylesheet" type="text/css" href="../_static/revealjs/dist/reveal.css?v=40f0a724" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/revealjs/plugin/highlight/zenburn.css?v=83d5745d" />
+    <link rel="stylesheet" type="text/css" href="../_static/idea.css?v=e717f371" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,7 +36,7 @@
 first unsorted element.</p></li>
 <li><p>Time complexity: <span class="math notranslate nohighlight">\(\Theta(n^2)\)</span></p></li>
 </ul>
-<pre data-id="selection-sort"><code data-trim data-noescape class="c++">void selectionSort(int arr[], int n) {
+<pre data-id="selection-sort"><code data-trim data-noescape class="cpp">void selectionSort(int arr[], int n) {
   for (int i = 0; i &lt; n-1; i++) {
     // Find minimum element in unsorted array
     int min_idx = i;
@@ -52,7 +52,7 @@ first unsorted element.</p></li>
   }
 }</code></pre>
 <p><strong>Example</strong></p>
-<pre data-id="selection-sort"><code data-trim data-noescape class="c++">int arr[] = {64, 25, 12, 22, 11};
+<pre data-id="selection-sort"><code data-trim data-noescape class="cpp">int arr[] = {64, 25, 12, 22, 11};
 selectionSort(arr, 5);
 // arr is now {11, 12, 22, 25, 64}</code></pre>
 </section>
@@ -65,7 +65,7 @@ selectionSort(arr, 5);
 sorted portion.</p></li>
 <li><p>Time complexity: <span class="math notranslate nohighlight">\(\Theta(n^2)\)</span></p></li>
 </ul>
-<pre data-id="insertion-sort"><code data-trim data-noescape class="c++">void insertionSort(int arr[], int n) {
+<pre data-id="insertion-sort"><code data-trim data-noescape class="cpp">void insertionSort(int arr[], int n) {
   for (int i = 1; i &lt; n; i++) {
     int key = arr[i];
     int j = i - 1;
@@ -80,7 +80,7 @@ sorted portion.</p></li>
   }
 }</code></pre>
 <p><strong>Example</strong></p>
-<pre data-id="insertion-sort"><code data-trim data-noescape class="c++">int arr[] = {64, 34, 25, 12, 22, 11, 90};
+<pre data-id="insertion-sort"><code data-trim data-noescape class="cpp">int arr[] = {64, 34, 25, 12, 22, 11, 90};
 insertionSort(arr, 7);
 // arr is now {11, 12, 22, 25, 34, 64, 90}</code></pre>
 </section>

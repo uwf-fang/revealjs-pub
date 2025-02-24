@@ -8,7 +8,7 @@
   <title>Subprograms</title>
     <link rel="stylesheet" type="text/css" href="../_static/revealjs/dist/reveal.css?v=40f0a724" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/revealjs/plugin/highlight/zenburn.css?v=83d5745d" />
+    <link rel="stylesheet" type="text/css" href="../_static/idea.css?v=e717f371" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -20,20 +20,30 @@
             <section >
 <section >
 <h1>Subprograms</h1>
-</section>
-</section>
-<section >
-<section >
-<h2>Overview</h2>
 <ul class="simple">
-<li><p>Core concept in programming languages for process abstraction</p></li>
+<li><p>Introduction</p></li>
+<li><p>Parameter-passing methods</p></li>
+<li><p>Dynamic invocation of subprograms</p></li>
+<li><p>Generic subprograms</p></li>
+<li><p>Closures and coroutines</p></li>
+</ul>
+</section>
+</section>
+<section >
+<section >
+<h1>Introduction</h1>
+<ul class="simple">
+<li><p>Core concept in programming languages for process abstraction</p>
+<ul>
+<li><p>Counter part to data abstraction</p></li>
+</ul>
+</li>
 <li><p>Building blocks for modular program design</p></li>
 <li><p>Key topics:</p>
 <ul>
 <li><p>Parameter passing methods</p></li>
 <li><p>Local referencing environments</p></li>
 <li><p>Overloaded and generic subprograms</p></li>
-<li><p>User-defined operators</p></li>
 <li><p>Closures and coroutines</p></li>
 </ul>
 </li>
@@ -44,7 +54,7 @@
 <section >
 <h2>Fundamentals of Subprograms</h2>
 <ul class="simple">
-<li><p>Basic Characteristics:</p>
+<li><p>Basic Characteristics (with exceptions)</p>
 <ul>
 <li><p>Single entry point</p></li>
 <li><p>Caller suspended during execution</p></li>
@@ -53,9 +63,13 @@
 </li>
 <li><p>Components:</p>
 <ul>
-<li><p>Subprogram definition - interface and actions</p></li>
+<li><p>Subprogram definition - interface and actions</p>
+<ul>
 <li><p>Subprogram header - name, parameters, return type</p></li>
 <li><p>Subprogram body - implementation</p></li>
+</ul>
+</li>
+<li><p>Subprogram call - explicit invocation</p></li>
 </ul>
 </li>
 <li><p>Types:</p>
@@ -88,7 +102,8 @@
 <li><p>Variable Parameters:</p>
 <ul>
 <li><p>C# params modifier</p></li>
-<li><p>Python/Ruby array parameters</p></li>
+<li><p>Python *args and *kwargs</p></li>
+<li><p>Ruby splat operator (*)</p></li>
 <li><p>Lua ellipsis (…)</p></li>
 </ul>
 </li>
@@ -97,7 +112,56 @@
 </section>
 <section >
 <section >
-<h2>Parameter-Passing Methods</h2>
+<h2>More Design Issues</h2>
+<ol class="arabic">
+<li><p>Parameter-passing methods</p></li>
+<li><p>Support to nested subprograms</p>
+<ul class="simple">
+<li><p>Closure - nested subprogram + referencing environment</p></li>
+</ul>
+</li>
+<li><p>Overloaded and generic subprograms</p>
+<ul class="simple">
+<li><p>Overloaded Subprograms - Same name, different parameter profile</p></li>
+<li><p>Generic Subprograms - Type-independent subprograms</p></li>
+</ul>
+</li>
+<li><p>Side effects</p>
+<p>Definition: Modification of state outside subprogram. Will discuss more in
+functional programming chapter.</p>
+<ul class="simple">
+<li><p>Functional side effects</p></li>
+<li><p>Referential transparency</p></li>
+</ul>
+</li>
+<li><p>Return values</p>
+<ul class="simple">
+<li><p>type</p></li>
+<li><p>number</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<section >
+<section >
+<h2>Local Referencing Environments</h2>
+<ul class="simple">
+<li><p>Scope - visibility of identifiers</p></li>
+<li><p>Lifetime - duration of identifiers</p></li>
+<li><p>Referencing environment - collection of all active bindings</p>
+<ul>
+<li><p>Local variables</p></li>
+<li><p>Formal parameters</p></li>
+<li><p>Nested subprograms</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section >
+<section >
+<h1>Parameter-Passing Methods</h1>
 <ul class="simple">
 <li><p>Three Semantics Models:</p>
 <ul>
@@ -108,10 +172,11 @@
 </li>
 <li><p>Implementation Methods:</p>
 <ul>
-<li><p>Pass-by-value</p></li>
-<li><p>Pass-by-reference</p></li>
-<li><p>Pass-by-value-result</p></li>
-<li><p>Pass-by-name</p></li>
+<li><p>Pass-by-value (In mode)</p></li>
+<li><p>Pass-by-result (Out mode)</p></li>
+<li><p>Pass-by-reference (Inout mode)</p></li>
+<li><p>Pass-by-value-result (Inout mode)</p></li>
+<li><p>Pass-by-name (Inout mode, FYI)</p></li>
 </ul>
 </li>
 </ul>
@@ -121,39 +186,85 @@
 <section >
 <h2>Implementation Considerations</h2>
 <ul class="simple">
-<li><p>Pass-by-value:</p>
+<li><p>Pass-by-value/result/value-result:</p>
 <ul>
-<li><p>Copies data</p></li>
+<li><p>Copies data</p>
+<ul>
+<li><p>at call (by-value)</p></li>
+<li><p>at return (by-result)</p></li>
+</ul>
+</li>
 <li><p>Safe but expensive for large data</p></li>
 </ul>
 </li>
 <li><p>Pass-by-reference:</p>
 <ul>
-<li><p>Passes address</p></li>
-<li><p>Efficient but can cause aliasing</p></li>
+<li><p>Copies address at call</p></li>
+<li><p>Efficient and simple to implement</p></li>
+<li><p>Security concerns: aliasing allows modification</p></li>
+<li><p>May use use constant/read-only modifiers to improve safety</p></li>
 </ul>
 </li>
-<li><p>Implementation via:</p>
-<ul>
-<li><p>Run-time stack</p></li>
-<li><p>Parameter storage allocation</p></li>
-<li><p>Address computation</p></li>
-</ul>
-</li>
+<li><p>Implementation via the run-time stack</p></li>
 </ul>
 </section>
 </section>
 <section >
 <section >
-<h2>Generic Subprograms</h2>
+<h1>Dynamic Invocation Of Subprograms</h1>
 <ul class="simple">
+<li><p>Dynamic invocation - subprogram called at runtime</p></li>
+<li><p>Examples:</p>
+<ul>
+<li><p>Function pointers in C/C++</p></li>
+<li><p>Lambda expression in C++</p></li>
+<li><p>Reflection in Java/C#</p></li>
+<li><p>Interface and lambda expressions in Java</p></li>
+<li><p>Method references in Java</p></li>
+<li><p>Delegates in C#</p></li>
+<li><p>Functions as objects in Python/Ruby/JavaScript</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section >
+<section >
+<h2>Passing Subprograms as Parameters</h2>
+<ul class="simple">
+<li><p>Challenges</p>
+<ul>
+<li><p>Type checking</p></li>
+<li><p>Referencing environment of nested subprograms</p>
+<ul>
+<li><p>Shallow binding</p></li>
+<li><p>Deep binding - most common, closures</p></li>
+<li><p>Ad hoc binding</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section >
+<section >
+<h1>Generic Subprograms</h1>
+<ul class="simple">
+<li><p>Type of polymorphism</p>
+<ul>
+<li><p>Ad hoc polymorphism - overloading</p></li>
+<li><p>Subtype polymorphism - object-oriented</p></li>
+<li><p>Parametric polymorphism - generic programming</p></li>
+</ul>
+</li>
 <li><p>Purpose:</p>
 <ul>
 <li><p>Code reuse across different types</p></li>
 <li><p>Type-safe polymorphism</p></li>
 </ul>
 </li>
-<li><p>Implementations:</p>
+<li><p>Implementations of generic subprograms:</p>
 <ul>
 <li><p>C++ templates</p></li>
 <li><p>Java 5.0 generics</p></li>
@@ -173,40 +284,20 @@
 <section >
 <section >
 <h2>Closures and Coroutines</h2>
-<ul class="simple">
-<li><p>Closures:</p>
 <ul>
+<li><p>Closures:</p>
+<p>In static-scope languages, when nested subprograms are passed as parameters, they carry their referencing environment with them.</p>
+<ul class="simple">
 <li><p>Subprogram + referencing environment</p></li>
 <li><p>Used in functional programming</p></li>
 <li><p>Support in modern languages</p></li>
 </ul>
 </li>
 <li><p>Coroutines:</p>
-<ul>
+<ul class="simple">
 <li><p>Multiple entry points</p></li>
 <li><p>Symmetric control transfer</p></li>
 <li><p>Quasi-concurrent execution</p></li>
-</ul>
-</li>
-</ul>
-</section>
-</section>
-<section >
-<section >
-<h2>Summary</h2>
-<ul class="simple">
-<li><p>Key Concepts:</p>
-<ul>
-<li><p>Parameter passing methods</p></li>
-<li><p>Generic programming support</p></li>
-<li><p>Function vs procedure design</p></li>
-</ul>
-</li>
-<li><p>Design Considerations:</p>
-<ul>
-<li><p>Safety vs efficiency</p></li>
-<li><p>Static vs dynamic binding</p></li>
-<li><p>Type checking requirements</p></li>
 </ul>
 </li>
 </ul>
