@@ -144,7 +144,14 @@ factorialTail n = helper n 1
   where
     helper 0 acc = acc
     helper n acc = helper (n - 1) (n * acc)</code></pre>
-<p>Tail recursion can be optimized by the compiler into iteration!</p>
+<ul class="simple">
+<li><p>Tail recursion can be optimized by the compiler into iteration (loop)!</p></li>
+<li><p><cite>where</cite> clause defines a local helper function</p></li>
+<li><p><cite>acc</cite> parameter accumulates the result as the recursion progresses</p></li>
+<li><p><cite>n * acc</cite> is done before the recursive call</p></li>
+<li><p>The last line of <cite>helper</cite> is the recursive call which does nothing but call
+itself, nothing to do after that</p></li>
+</ul>
 </section>
 </section>
 <section >
@@ -213,7 +220,7 @@ first10 = take 10 naturalNumbers  -- [1,2,3,4,5,6,7,8,9,10]</code></pre>
 </section>
 <section >
 <section >
-<h1>Resources for Learning More</h1>
+<h2>Resources for Learning More</h2>
 <ul class="simple">
 <li><p><a class="reference external" href="http://learnyouahaskell.com/">Learn You a Haskell for Great Good</a></p></li>
 <li><p><a class="reference external" href="https://www.haskell.org/">Haskell.org</a></p></li>
@@ -221,6 +228,7 @@ first10 = take 10 naturalNumbers  -- [1,2,3,4,5,6,7,8,9,10]</code></pre>
 <li><p><a class="reference external" href="https://wiki.haskell.org/">Haskell Wiki</a></p></li>
 <li><p><a class="reference external" href="https://stackoverflow.com/questions/tagged/haskell">Haskell on Stack Overflow</a></p></li>
 </ul>
+</section>
 
         </div>
     </div>
