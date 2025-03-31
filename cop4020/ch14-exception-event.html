@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Exception Handling and Event Handling</title>
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs/dist/reveal.css?v=40f0a724" />
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/idea.css?v=e717f371" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  </head><body>
+    <div class="reveal">
+        <div class="slides" role="main">
+            <section >
+<section >
+<h1>Exception Handling and Event Handling</h1>
+</section>
+</section>
+<section >
+<section >
+<h2>Exception Handling</h2>
+<ul class="simple">
+<li><p>Exception: any unusual event, erroneous or not, detectable by hardware or software that may require special processing</p></li>
+<li><p>Exception handling: special processing required when exception is detected</p></li>
+<li><p>Exception handler: code unit that implements exception handling</p></li>
+<li><p>Raising an exception: when associated event occurs</p>
+<ul>
+<li><p>In C-based languages, called “throwing” an exception</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section >
+<h3>Advantages of Language Support for Exceptions</h3>
+<ul class="simple">
+<li><p>Simplifies code by reducing error-detection clutter</p></li>
+<li><p>Enables exception propagation across program units</p></li>
+<li><p>Encourages developers to consider unusual/error scenarios</p></li>
+<li><p>Improves program structure when handling non-erroneous unusual situations</p></li>
+</ul>
+</section>
+<section >
+<h3>Exception Handling Design Issues</h3>
+<ul class="simple">
+<li><p>How and where are exception handlers specified?</p></li>
+<li><p>How is an exception occurrence bound to an exception handler?</p></li>
+<li><p>Can information about an exception be passed to the handler?</p></li>
+<li><p>Where does execution continue after handler completes? (continuation)</p></li>
+<li><p>Is finalization provided?</p></li>
+<li><p>How are user-defined exceptions specified?</p></li>
+<li><p>Should there be default handlers for predefined exceptions?</p></li>
+<li><p>Can predefined exceptions be explicitly raised?</p></li>
+<li><p>Are hardware-detectable errors treated as exceptions?</p></li>
+</ul>
+</section>
+<section >
+<h3>Exception Handling in C++</h3>
+<ul class="simple">
+<li><p>Exceptions are user or library defined and explicitly raised</p></li>
+<li><p>Exception handlers use try-catch blocks</p></li>
+<li><p>try contains code that might raise exceptions</p></li>
+<li><p>catch blocks handle specific exception types</p></li>
+</ul>
+</section>
+<section >
+<h3>C++ Exception Handler Example</h3>
+<pre data-id="c-exception-handler-example"><code data-trim data-noescape class="cpp">try {
+    // Code that might raise an exception
+} catch (int e) {
+    // Handle integer exception
+} catch (char* e) {
+    // Handle string exception
+} catch (...) {
+    // Handle any other exception
+}</code></pre>
+</section>
+<section >
+<h3>C++ Binding Exceptions to Handlers</h3>
+<ul class="simple">
+<li><p>Exceptions raised with <cite>throw expression;</cite></p></li>
+<li><p>Handler selected by matching expression type with formal parameter</p></li>
+<li><p>Handler with <cite>…</cite> formal parameter catches any exception</p></li>
+<li><p>Exception propagation:</p>
+<ul>
+<li><p>If no matching handler in current try, propagate to enclosing try or caller</p></li>
+<li><p>If no handler found, default handler terminates program</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section >
+<h3>C++ Other Design Choices</h3>
+<ul class="simple">
+<li><p>Can list exception types in function header: <cite>int fun() throw(int, char*)</cite></p></li>
+<li><p>Empty throw list means function throws no exceptions</p></li>
+<li><p>No throw list means any exception can be thrown</p></li>
+<li><p>Overriding functions cannot add more exceptions than overridden function</p></li>
+<li><p>Default handler is <cite>unexpected()</cite> which terminates program</p></li>
+</ul>
+</section>
+<section >
+<h3>Exception Handling in Java</h3>
+<ul class="simple">
+<li><p>All exceptions are objects descending from <cite>Throwable</cite> class</p></li>
+<li><p>Two main exception categories:</p>
+<ul>
+<li><p>Checked exceptions: must be declared or handled</p></li>
+<li><p>Unchecked exceptions: can occur anywhere (subclasses of <cite>Error</cite> or <cite>RuntimeException</cite>)</p></li>
+</ul>
+</li>
+<li><p>Similar try-catch blocks to C++</p></li>
+</ul>
+</section>
+<section >
+<h3>Java Exception Class Hierarchy</h3>
+<ul class="simple">
+<li><p><cite>Throwable</cite> (base class for all exceptions)</p>
+<ul>
+<li><p><cite>Error</cite> - serious system problems, not typically handled</p></li>
+<li><p><cite>Exception</cite> - application-level problems</p>
+<ul>
+<li><p><cite>RuntimeException</cite> - programming errors (unchecked)</p></li>
+<li><p><cite>IOException</cite> - input/output problems (checked)</p></li>
+<li><p>User-defined exceptions (typically checked)</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section >
+<h3>Java Binding Exceptions to Handlers</h3>
+<ul class="simple">
+<li><p>Throw with: <cite>throw new ExceptionClass();</cite></p></li>
+<li><p>Catch using parameter matching class or superclass</p></li>
+<li><p>Universal handler: <cite>catch(Exception e)</cite></p></li>
+<li><p>Handler parameter provides information via methods like:</p>
+<ul>
+<li><p><cite>getMessage()</cite></p></li>
+<li><p><cite>getClass().getName()</cite></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section >
+<h3>Java Method Declaration</h3>
+<ul class="simple">
+<li><p><cite>throws</cite> clause lists checked exceptions that might be propagated</p></li>
+<li><p>If method calls code that throws checked exceptions, it must either:</p>
+<ul>
+<li><p>Handle them with try-catch</p></li>
+<li><p>List them in its own <cite>throws</cite> clause</p></li>
+<li><p>Cannot declare more exceptions than an overridden method</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section >
+<h3>Java finally Clause</h3>
+<ul class="simple">
+<li><p>Placed after all catch blocks in a try construct</p></li>
+<li><p>Code in finally always executes:</p>
+<ul>
+<li><p>After try completes normally</p></li>
+<li><p>After a catch handler completes</p></li>
+<li><p>Before an exception is propagated (if not caught)</p></li>
+</ul>
+</li>
+<li><p>Ensures cleanup code runs regardless of how try exits</p></li>
+</ul>
+</section>
+<section >
+<h3>Java assert Statement</h3>
+<ul class="simple">
+<li><p>Added in Java 1.4</p></li>
+<li><p>Syntax: <cite>assert condition;</cite> or <cite>assert condition : expression;</cite></p></li>
+<li><p>Used for defensive programming</p></li>
+<li><p>Must be enabled with -enableassertions flag</p></li>
+<li><p>Throws AssertionError when condition is false</p></li>
+<li><p>Expression becomes debugging output in error message</p></li>
+</ul>
+</section>
+<section >
+<h3>Exception Handling in Python</h3>
+<ul class="simple">
+<li><p>try-except-else-finally construct</p></li>
+<li><p>except clauses define handlers</p></li>
+<li><p>else executes when no exception is raised</p></li>
+<li><p>finally always executes regardless of exception</p></li>
+<li><p>Can access exception object with <cite>except Exception as ex_obj:</cite></p></li>
+</ul>
+</section>
+<section >
+<h3>Exception Handling in Ruby</h3>
+<ul class="simple">
+<li><p>rescue clause attached to statement</p></li>
+<li><p>begin-end block defines scope</p></li>
+<li><p>ensure clause like finally</p></li>
+<li><p>Can retry code that raised exception</p></li>
+<li><p>raise method throws exceptions</p></li>
+</ul>
+</section>
+<section >
+<h3>Introduction to Event Handling</h3>
+<ul class="simple">
+<li><p>Similar to exception handling but for external actions</p></li>
+<li><p>Event: notification that something specific occurred</p>
+<ul>
+<li><p>Usually user interactions with GUI components</p></li>
+</ul>
+</li>
+<li><p>Event handler: code executed in response to an event</p></li>
+<li><p>Common in web browsers, GUI applications</p></li>
+</ul>
+</section>
+<section >
+<h3>Event Handling in Java</h3>
+<ul class="simple">
+<li><p>Swing provides GUI components (JTextField, JRadioButton, etc.)</p></li>
+<li><p>Event generators create event objects</p></li>
+<li><p>Event listeners connect generators to handlers</p></li>
+<li><p>Event handlers implement specific interfaces</p></li>
+</ul>
+</section>
+<section >
+<h3>Java Event Model</h3>
+<ul class="simple">
+<li><p>Components generate events</p></li>
+<li><p>Event listeners register for events</p></li>
+<li><p>Event handlers implement methods defined in listener interfaces</p></li>
+<li><p>Components call listener methods when events occur</p></li>
+</ul>
+</section>
+<section >
+<h3>Event Handling in C#</h3>
+<ul class="simple">
+<li><p>Similar to Java but uses delegates</p></li>
+<li><p>Windows Forms for GUI components</p></li>
+<li><p>EventHandler objects created for listener registration</p></li>
+<li><p>Handler methods have standard signature: void handler(object sender, EventArgs e)</p></li>
+</ul>
+</section>
+<section >
+<h3>Comparison of Exception Handling</h3>
+<ul class="simple">
+<li><p>C++: No predefined exceptions, any type can be thrown</p></li>
+<li><p>Java: Rich hierarchy of exceptions, checked/unchecked distinction</p></li>
+<li><p>Python: Built-in exceptions, additional else clause</p></li>
+<li><p>Ruby: Ability to retry code that failed</p></li>
+</ul>
+</section>
+<section >
+<h3>Advantages of Modern Exception Handling</h3>
+<ul class="simple">
+<li><p>Separation of error handling from normal code</p></li>
+<li><p>Propagation of exceptions across method calls</p></li>
+<li><p>Clean resource management with finally/ensure</p></li>
+<li><p>Type-based binding of exceptions to handlers</p></li>
+<li><p>Improved code readability and robustness</p></li>
+</ul>
+</section>
+</section>
+
+        </div>
+    </div>
+    
+    <script src="../_static/revealjs/dist/reveal.js"></script>
+    
+    
+      <script src="../_static/revealjs/plugin/notes/notes.js"></script>
+      <script src="../_static/revealjs/plugin/highlight/highlight.js"></script>
+      <script src="../_static/revealjs/plugin/math/math.js"></script>
+      
+    
+    <script>
+        var revealjsConfig = new Object();
+        Object.assign(revealjsConfig, {"controls": true, "progress": true, "hash": true, "center": true, "transition": "slide", "slideNumber": true, "scrollActivationWidth": null});
+        
+        
+        
+          revealjsConfig.plugins = [
+            RevealNotes,RevealHighlight,RevealMath,
+          ];
+        
+        // More info https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize(revealjsConfig);
+    </script>
+
+  </body>
+</html>
