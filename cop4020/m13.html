@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Introduction to Exception Handling (1/3)</title>
+  <title>Programming Languages</title>
     <link rel="stylesheet" type="text/css" href="../_static/revealjs/dist/reveal.css?v=40f0a724" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/idea.css?v=e717f371" />
@@ -18,8 +18,17 @@
     <div class="reveal">
         <div class="slides" role="main">
             <section >
+<section data-background-color="white" data-background-image="../_static/logo.png" data-background-size="50%" data-background-position="top center" data-background-repeat="no-repeat">
+<h1>Programming Languages</h1>
+<div class="subtitle docutils container">
+<p><strong>Module 13: Exception and Event Handling</strong></p>
+<p>Xingang (Ian) Fang</p>
+</div>
+</section>
+</section>
 <section >
-<h1>Introduction to Exception Handling (1/3)</h1>
+<section >
+<h2>Introduction to Exception Handling (1/3)</h2>
 <ul class="simple">
 <li><p><strong>Definition:</strong> An exception is any unusual event, erroneous or not,
 detectable by hardware or software, requiring special processing.</p></li>
@@ -30,10 +39,8 @@ detected.</p></li>
 languages) when its associated event occurs.</p></li>
 </ul>
 </section>
-</section>
 <section >
-<section >
-<h2>Introduction to Exception Handling (2/3)</h2>
+<h3>Introduction to Exception Handling (2/3)</h3>
 <ul class="simple">
 <li><p><strong>Need:</strong></p>
 <ul>
@@ -51,10 +58,8 @@ languages) when its associated event occurs.</p></li>
 </li>
 </ul>
 </section>
-</section>
 <section >
-<section >
-<h2>Introduction to Exception Handling (3/3)</h2>
+<h3>Introduction to Exception Handling (3/3)</h3>
 <ul class="simple">
 <li><p><strong>Advantages of Built-in Support:</strong></p>
 <ul>
@@ -66,10 +71,8 @@ languages) when its associated event occurs.</p></li>
 </li>
 </ul>
 </section>
-</section>
 <section >
-<section >
-<h2>Design Issues for Exception Handling (1/2)</h2>
+<h3>Design Issues for Exception Handling (1/2)</h3>
 <ul class="simple">
 <li><p><strong>Handler Specification &amp; Scope:</strong> How and where are handlers defined? What
 is their scope?</p></li>
@@ -83,10 +86,8 @@ is their scope?</p></li>
 handler?</p></li>
 </ul>
 </section>
-</section>
 <section >
-<section >
-<h2>Design Issues for Exception Handling (2/2)</h2>
+<h3>Design Issues for Exception Handling (2/2)</h3>
 <ul class="simple">
 <li><p><strong>Continuation:</strong> What happens after a handler executes?</p>
 <ul>
@@ -103,10 +104,8 @@ clause).</p></li>
 explicitly?</p></li>
 </ul>
 </section>
-</section>
 <section >
-<section >
-<h2>Exception Handling in C++ (1/2)</h2>
+<h3>Exception Handling in C++ (1/2)</h3>
 <ul class="simple">
 <li><p><strong>Based on:</strong> CLU, Ada, ML. User/library defined and explicitly raised.</p></li>
 <li><p><strong>Handlers:</strong> Defined in <code class="docutils literal notranslate"><span class="pre">catch</span></code> blocks following a <code class="docutils literal notranslate"><span class="pre">try</span></code> block.</p>
@@ -119,10 +118,8 @@ type or ancestor classes).</p></li>
 </li>
 </ul>
 </section>
-</section>
 <section >
-<section >
-<h2>Exception Handling in C++ (2/2)</h2>
+<h3>Exception Handling in C++ (2/2)</h3>
 <ul class="simple">
 <li><p><strong>Raising Exceptions:</strong> <code class="docutils literal notranslate"><span class="pre">throw</span> <span class="pre">[expression];</span></code>. <code class="docutils literal notranslate"><span class="pre">throw;</span></code> inside a handler
 reraises.</p></li>
@@ -137,10 +134,8 @@ compilers). <code class="docutils literal notranslate"><span class="pre">throw()
 less readable than using meaningful class hierarchies.</p></li>
 </ul>
 </section>
-</section>
 <section >
-<section >
-<h2>Exception Handling in Java (1/3)</h2>
+<h3>Exception Handling in Java (1/3)</h3>
 <ul class="simple">
 <li><p><strong>Based on:</strong> C++, but more object-oriented. Includes predefined exceptions.</p></li>
 <li><p><strong>Exception Classes:</strong> All descend from <code class="docutils literal notranslate"><span class="pre">Throwable</span></code>.</p>
@@ -151,10 +146,8 @@ less readable than using meaningful class hierarchies.</p></li>
 </li>
 </ul>
 </section>
-</section>
 <section >
-<section >
-<h2>Exception Handling in Java (2/3)</h2>
+<h3>Exception Handling in Java (2/3)</h3>
 <ul class="simple">
 <li><p><strong>Subclasses of</strong> <code class="docutils literal notranslate"><span class="pre">Exception</span></code>:</p>
 <ul>
@@ -174,10 +167,8 @@ handling or declaration.</p></li>
 </li>
 </ul>
 </section>
-</section>
 <section >
-<section >
-<h2>Exception Handling in Java (3/3)</h2>
+<h3>Exception Handling in Java (3/3)</h3>
 <ul class="simple">
 <li><p><strong>Handlers (``catch``):</strong> Similar to C++, parameter type must descend from
 <code class="docutils literal notranslate"><span class="pre">Throwable</span></code>. Parameter required.</p></li>
@@ -190,10 +181,8 @@ ancestor).</p></li>
 inside a <code class="docutils literal notranslate"><span class="pre">catch</span></code> block.</p></li>
 </ul>
 </section>
-</section>
 <section >
-<section >
-<h2>Exception Handling in Python</h2>
+<h3>Exception Handling in Python</h3>
 <ul class="simple">
 <li><p><strong>Exceptions:</strong> Objects, many predefined (base: <code class="docutils literal notranslate"><span class="pre">BaseException</span></code>, common:
 <code class="docutils literal notranslate"><span class="pre">Exception</span></code> descendants).</p></li>
@@ -210,10 +199,8 @@ inside a <code class="docutils literal notranslate"><span class="pre">catch</spa
 condition is false (and <code class="docutils literal notranslate"><span class="pre">__debug__</span></code> is True).</p></li>
 </ul>
 </section>
-</section>
 <section >
-<section >
-<h2>Exception Handling in Ruby</h2>
+<h3>Exception Handling in Ruby</h3>
 <ul class="simple">
 <li><p><strong>Exceptions:</strong> Objects, many predefined (descendants of <code class="docutils literal notranslate"><span class="pre">Exception</span></code>,
 usually handle <code class="docutils literal notranslate"><span class="pre">StandardError</span></code> descendants). Methods <code class="docutils literal notranslate"><span class="pre">message</span></code> and
@@ -235,7 +222,7 @@ methods.</p>
 </section>
 <section >
 <section >
-<h1>Introduction to Event Handling (1/2)</h1>
+<h2>Introduction to Event Handling (1/2)</h2>
 <ul class="simple">
 <li><p><strong>Similarity to Exceptions:</strong> Handlers called implicitly based on an
 occurrence (event vs. exception).</p></li>
@@ -245,10 +232,8 @@ usually program code errors.</p></li>
 unpredictable events, unlike conventional sequential programming.</p></li>
 </ul>
 </section>
-</section>
 <section >
-<section >
-<h2>Introduction to Event Handling (2/2)</h2>
+<h3>Introduction to Event Handling (2/2)</h3>
 <ul class="simple">
 <li><p><strong>Context:</strong> Often related to GUIs and user interactions with components
 (widgets).</p></li>
@@ -258,10 +243,8 @@ response to an action (e.g., mouse click, key press).</p></li>
 programs responsive.</p></li>
 </ul>
 </section>
-</section>
 <section >
-<section >
-<h2>Event Handling with Java (AWT/Swing) (1/2)</h2>
+<h3>Event Handling with Java (AWT/Swing) (1/2)</h3>
 <ul class="simple">
 <li><p><strong>Model:</strong> Delegation model.</p></li>
 <li><p><strong>Event Source:</strong> GUI component where the event occurs (e.g., <code class="docutils literal notranslate"><span class="pre">JButton</span></code>).</p></li>
@@ -271,10 +254,8 @@ programs responsive.</p></li>
 implement a specific listener interface.</p></li>
 </ul>
 </section>
-</section>
 <section >
-<section >
-<h2>Event Handling with Java (AWT/Swing) (2/2)</h2>
+<h3>Event Handling with Java (AWT/Swing) (2/2)</h3>
 <ul class="simple">
 <li><p><strong>Listener Interface:</strong> Defines methods that act as handlers (e.g.,
 <code class="docutils literal notranslate"><span class="pre">ActionListener</span></code> interface has <code class="docutils literal notranslate"><span class="pre">actionPerformed</span></code> method).</p></li>
@@ -285,10 +266,8 @@ implement a specific listener interface.</p></li>
 to event details.</p></li>
 </ul>
 </section>
-</section>
 <section >
-<section >
-<h2>Event Handling in C# (.NET Windows Forms) (1/2)</h2>
+<h3>Event Handling in C# (.NET Windows Forms) (1/2)</h3>
 <ul class="simple">
 <li><p><strong>Similarity:</strong> Similar model to Java. Uses Windows Forms or WPF.</p></li>
 <li><p><strong>GUI Creation:</strong> Subclass <code class="docutils literal notranslate"><span class="pre">System.Windows.Forms.Form</span></code>. Components added to
@@ -297,10 +276,8 @@ to event details.</p></li>
 <code class="docutils literal notranslate"><span class="pre">AutoSize</span></code>, <code class="docutils literal notranslate"><span class="pre">Checked</span></code>.</p></li>
 </ul>
 </section>
-</section>
 <section >
-<section >
-<h2>Event Handling in C# (.NET Windows Forms) (2/2)</h2>
+<h3>Event Handling in C# (.NET Windows Forms) (2/2)</h3>
 <ul class="simple">
 <li><p><strong>Event Handlers:</strong> Methods with a specific signature: <code class="docutils literal notranslate"><span class="pre">void</span>
 <span class="pre">HandlerName(object</span> <span class="pre">sender,</span> <span class="pre">EventArgs</span> <span class="pre">e)</span></code>.</p>
@@ -321,6 +298,44 @@ uses <code class="docutils literal notranslate"><span class="pre">EventHandler</
 </ul>
 </li>
 </ul>
+</section>
+</section>
+<section >
+<section >
+<h2>More Examples On Exception and Event</h2>
+<ul class="simple">
+<li><p>Python Example To Compare Traditional vs. Exception Handling</p></li>
+</ul>
+</section>
+<section >
+<h3>Python Example On Exception Handling (1/2)</h3>
+<pre data-id="python-example-on-exception-handling-1-2"><code data-trim data-noescape class="python">def divide_traditional(dividend, divisor):
+    if divisor == 0:
+        return None # Signal error/failure
+    else:
+        return dividend / divisor
+
+# Caller
+result = divide_traditional(10, 0)
+if result is None:
+    print(&quot;Error: Division by zero detected (traditional)&quot;)
+else:
+    print(f&quot;Success: Result is {result}&quot;)</code></pre>
+</section>
+<section >
+<h3>Python Example On Exception Handling (2/2)</h3>
+<pre data-id="python-example-on-exception-handling-2-2"><code data-trim data-noescape class="python">def divide_exceptions(dividend, divisor):
+    # No explicit check needed here for ZeroDivisionError
+    # Python raises it automatically if divisor is 0
+    return dividend / divisor
+
+# Caller
+try:
+    result = divide_exceptions(10, 0)
+    print(f&quot;Success: Result is {result}&quot;) # Won't be reached
+except ZeroDivisionError:
+    print(&quot;Error: Caught ZeroDivisionError exception&quot;)</code></pre>
+</section>
 </section>
 
         </div>

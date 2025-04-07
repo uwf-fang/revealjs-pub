@@ -242,8 +242,15 @@ append([Head | List_1], List_2, [Head | List_3]) :-
 <h3>The Cut Operator</h3>
 <ul class="simple">
 <li><p>Controls backtracking with <cite>!</cite> symbol</p></li>
-<li><p>Once reached, prevents backtracking to subgoals to its left</p></li>
-<li><p>Used for efficiency and controlling resolution order</p></li>
+<li><p>The cut (!) is a special goal that always succeeds immediately and commits
+Prolog to all choices made since the rule containing the cut was selected. It
+prevents backtracking to:</p>
+<ul>
+<li><p>Find alternative solutions for goals listed before the ! in the current
+rule.</p></li>
+<li><p>Try any alternative rules (clauses) for the predicate.</p></li>
+</ul>
+</li>
 <li><p>Example:</p></li>
 </ul>
 <pre data-id="the-cut-operator"><code data-trim data-noescape class="prolog">member(Element, [Element | _]) :- !.
