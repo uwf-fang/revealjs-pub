@@ -81,35 +81,6 @@ performance. Automated testing is especially important for large projects.</p></
 </section>
 <section >
 <section >
-<h2>Types of tests</h2>
-<ul class="simple">
-<li><p>Unit tests</p>
-<ul>
-<li><p>Test a single function or class method.</p></li>
-<li><p>Test the correctness of the function/method.</p></li>
-<li><p>Test the boundary cases.</p></li>
-<li><p>Test the performance.</p></li>
-<li><p>May need special techniques to isolate the function/method.</p></li>
-</ul>
-</li>
-<li><p>Integration tests</p>
-<ul>
-<li><p>Test the interaction between modules.</p></li>
-<li><p>Test the correctness of the interaction.</p></li>
-</ul>
-</li>
-<li><p>System tests</p>
-<ul>
-<li><p>Test the system as a whole.</p></li>
-<li><p>Test the correctness of the system.</p></li>
-<li><p>Test the performance.</p></li>
-</ul>
-</li>
-</ul>
-</section>
-</section>
-<section >
-<section >
 <h2>Write and run tests</h2>
 <ul>
 <li><p>Workflow</p>
@@ -121,7 +92,8 @@ performance. Automated testing is especially important for large projects.</p></
 </li>
 <li><p>Simple test driver</p>
 <p>Display the result of a function call for the tester to compare.</p>
-<pre><code data-trim data-noescape class="cpp">#include &lt;iostream&gt;
+<pre><code data-trim data-noescape class="cpp">// test-store-item.cpp
+#include &lt;iostream&gt;
 #include &quot;store-item.hpp&quot;
 
 void testStoreItem() {
@@ -146,7 +118,7 @@ the program.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">assert</span></code> is a simple way to write test drivers.</p></li>
 <li><p>include <code class="docutils literal notranslate"><span class="pre">&lt;cassert&gt;</span></code> to use <code class="docutils literal notranslate"><span class="pre">assert</span></code>.</p></li>
 </ul>
-<pre><code data-trim data-noescape class="cpp">#include &lt;cassert&gt;
+<pre><code data-trim data-noescape class="cpp">#include &lt;cassert&gt;  // C assert header
 #include &quot;store-item.hpp&quot;
 
 void testStoreItem() {
@@ -167,7 +139,7 @@ void testStoreItem() {
 <li><p>E.g. Google Test, Boost Test, Catch2 etc.</p></li>
 <li><p>We use Catch2 in this course.</p></li>
 </ul>
-<pre><code data-trim data-noescape class="cpp">#include &quot;catch.hpp&quot;
+<pre><code data-trim data-noescape class="cpp">#include &quot;catch.hpp&quot;  // Catch2 testing framework
 #include &quot;store-item.hpp&quot;
 
 TEST_CASE(&quot;StoreItem equality and printing&quot;, &quot;[StoreItem]&quot;) {
@@ -183,13 +155,24 @@ TEST_CASE(&quot;StoreItem equality and printing&quot;, &quot;[StoreItem]&quot;) 
 </section>
 <section >
 <section >
-<h2>Learning outcomes</h2>
+<h2>Testing In DSA Programming Projects</h2>
 <ul class="simple">
-<li><p>Understand the importance of testing.</p></li>
-<li><p>Know how to write simple test drivers.</p></li>
-<li><p>Know how to write test drivers using <code class="docutils literal notranslate"><span class="pre">assert</span></code> macro.</p></li>
-<li><p>Know how to read test cases written with Catch2 framework and write code to
-pass the tests.</p></li>
+<li><p>Test Drivers are provided in DSA 1 Courses</p>
+<ul>
+<li><p>Unit and integration tests</p></li>
+<li><p>Read to learn the expected behavior of the code.</p></li>
+<li><p><strong>Should never be modified.</strong></p></li>
+<li><p>Serve as part of grading rubric</p></li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li><p>System tests are provided</p>
+<ul>
+<li><p>Usually in the provided makefile</p></li>
+<li><p>Separate test.mk file in DSA 2 course</p></li>
+</ul>
+</li>
 </ul>
 </section>
 
