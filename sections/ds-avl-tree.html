@@ -47,10 +47,8 @@ one.</p></li>
 <li><p>Worst case guarantee for search, insert, and delete is <span class="math notranslate nohighlight">\(\Theta(\log n)\)</span></p></li>
 </ul>
 </section>
-</section>
 <section >
-<section >
-<h2>Characteristics</h2>
+<h3>Characteristics</h3>
 <ul class="simple">
 <li><p>Balance factor = height(left subtree) - height(right subtree)</p></li>
 <li><p>Balance factor of 0, -1, or 1 is considered balanced</p></li>
@@ -59,6 +57,36 @@ which cases the balance factor of one or more nodes will be -2 or +2.</p></li>
 <li><p>Self-balancing: balance restored by rotations during insertion and deletion</p></li>
 <li><p>Balancing operations are performed bottom-up, starting with the deepest
 unbalanced node.</p></li>
+</ul>
+</section>
+</section>
+<section >
+<section >
+<h2>Self-balancing in AVL Trees</h2>
+<ul class="simple">
+<li><p>Find and restore the imbalance from bottom up</p>
+<ol class="arabic simple">
+<li><p>Check the balance factor of each node.</p></li>
+<li><p>If the balance factor is -2 or +2, perform rotations to restore balance.</p></li>
+</ol>
+</li>
+<li><p>4 types of imbalances and corresponding restoration by rotations</p></li>
+</ul>
+</section>
+<section >
+<h3>Type of Imbalances</h3>
+<ul class="simple">
+<li><p>Balance factor of -2 or +2 indicates an imbalance</p></li>
+<li><p>Go to the longest subtree from top to bottom starting from the unbalanced
+node</p></li>
+<li><p>Naming convention for imbalances:</p>
+<ul>
+<li><p>Left-Left (LL)</p></li>
+<li><p>Right-Right (RR)</p></li>
+<li><p>Left-Right (LR)</p></li>
+<li><p>Right-Left (RL)</p></li>
+</ul>
+</li>
 </ul>
 </section>
 <section >
@@ -79,6 +107,11 @@ unbalanced node.</p></li>
 </section>
 <section >
 <h3>Rotations to restore balance (cont.)</h3>
+<ul class="simple">
+<li><p>Double rotations are named from the bottom up. E.g., Left-Right rotation
+means first a left rotation on the left child, then a right rotation on the
+unbalanced node.</p></li>
+</ul>
 <div class="flex-container docutils container">
 <div class="half docutils container">
 <p><strong>Left-right double rotation</strong> to restore left-right (LR) imbalance.</p>
@@ -93,6 +126,17 @@ unbalanced node.</p></li>
 <p>Credit: Data Structures and Algorithm Analysis in C++, 4th Edition. Mark Allen Weiss.</p>
 </div>
 </section>
+</section>
+<section >
+<section >
+<h2>What to remember</h2>
+<ul class="simple">
+<li><p>What is the imbalance type?</p></li>
+<li><p>LL: Right rotation</p></li>
+<li><p>RR: Left rotation</p></li>
+<li><p>LR: Left-right double rotation</p></li>
+<li><p>RL: Right-left double rotation</p></li>
+</ul>
 </section>
 
         </div>
