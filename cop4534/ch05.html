@@ -9,7 +9,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/revealjs/dist/reveal.css?v=40f0a724" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/idea.css?v=e717f371" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -282,10 +284,8 @@ rule to prune the branch is different.</p>
 </div>
 </div>
 </section>
-</section>
 <section >
-<section >
-<h2>Metaheuristic Paradigm</h2>
+<h3>Metaheuristic Paradigm</h3>
 <ul class="simple">
 <li><p><strong>Definition</strong>:</p>
 <ul>
@@ -307,10 +307,8 @@ capacity.</p></li>
 </li>
 </ul>
 </section>
-</section>
 <section >
-<section >
-<h2>Basics of Genetics and Evolution</h2>
+<h3>Basics of Genetics and Evolution</h3>
 <ul class="simple">
 <li><p><strong>DNA, Genes, and Chromosomes</strong>:</p>
 <ul>
@@ -332,21 +330,19 @@ parent genes.</p></li>
 </li>
 </ul>
 </section>
-</section>
 <section >
-<section >
-<h2>Core Components</h2>
+<h3>Core Components</h3>
 <ul class="simple">
 <li><p><strong>Individual and encoding</strong></p>
 <ul>
 <li><p>An individual is a possible solution to the problem.</p></li>
-<li><p>Encoded as a string of genes, often binary, sometimes permutation.</p></li>
+<li><p>Encoded as a string of genes, often binary, integer, real, or sometimes permutation.</p></li>
 </ul>
 </li>
 <li><p><strong>Population</strong>:</p>
 <ul>
 <li><p>Collection of individual potential solutions.</p></li>
-<li><p>Each individual is a possible solution, often encoded (e.g., binary
+<li><p>Each individual is a possible solution, mostly encoded (e.g., binary
 string).</p></li>
 <li><p>Initial population usually generated randomly.</p></li>
 </ul>
@@ -360,10 +356,8 @@ string).</p></li>
 </li>
 </ul>
 </section>
-</section>
 <section >
-<section >
-<h2>Core Components (cont.)</h2>
+<h3>Core Components (cont.)</h3>
 <ul class="simple">
 <li><p><strong>Selection</strong></p>
 <ul>
@@ -393,6 +387,100 @@ of crossover.</p></li>
 <li><p>Total replacement or partial replacement.</p></li>
 <li><p>Often performed with an elitism rate (e.g., 0.1) to preserve the best
 individuals.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section >
+<section >
+<h2>Code Framework</h2>
+<p>A basic framework for a Genetic Algorithm is as follows:</p>
+<pre data-id="code-framework"><code data-trim data-noescape class="default">1. Generate initial population of size N.
+2. Evaluate the fitness of each individual in the population.
+
+3. WHILE (stopping condition not met):
+
+  a. Select two parents based on their fitness.
+  b. Perform crossover on the selected parents to produce offsprings.
+  c. Apply mutation on offsprings with a certain probability.
+  d. Evaluate the fitness of the new offsprings.
+  e. Replace individuals in the current population with the new offspring
+      based on a replacement strategy.
+
+4. Return the best solution found.</code></pre>
+</section>
+</section>
+<section >
+<section >
+<h2>GA Details</h2>
+<ul class="simple">
+<li><p>Encoding, Gene</p>
+<ul>
+<li><p>Binary Encoding: Each gene is a bit (0 or 1).</p></li>
+<li><p>Integer Encoding: Each gene is an integer value.</p></li>
+<li><p>Real-valued Encoding: Each gene is a real number.</p></li>
+<li><p>Permutation Encoding: Each gene represents a position in a sequence.</p></li>
+</ul>
+</li>
+<li><p>Individual</p>
+<ul>
+<li><p>Binary String: e.g., “1100101”.</p></li>
+<li><p>Integer Array: e.g., [3, 5, 2, 8].</p></li>
+<li><p>Real-valued Vector: e.g., [0.5, 1.2, 3.4].</p></li>
+<li><p>Permutation: e.g., [2, 3, 1, 4] for ordering problems.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section >
+<h3>GA Details (cont.)</h3>
+<ul class="simple">
+<li><p>Selection Methods</p>
+<ul>
+<li><p>Roulette Wheel Selection: Probability proportional to fitness.</p></li>
+<li><p>Tournament Selection: Randomly select a group and choose the best.</p></li>
+<li><p>Rank-based Selection: Rank individuals and select based on rank.</p></li>
+</ul>
+</li>
+<li><p>Crossover Techniques</p>
+<ul>
+<li><p>Binary, Integer, Real-valued: One-point, Two-point, Uniform crossover.</p></li>
+<li><p>Permutation: Order crossover (OX), Partially matched crossover (PMX).</p></li>
+</ul>
+</li>
+<li><p>Mutation Techniques</p>
+<ul>
+<li><p>Binary: Bit flip mutation.</p></li>
+<li><p>Integer: Random reset mutation.</p></li>
+<li><p>Real-valued: Gaussian mutation.</p></li>
+<li><p>Permutation: Swap mutation, Inversion mutation.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section >
+<section >
+<h2>TSP Example</h2>
+<ul class="simple">
+<li><p>Traveling Salesman Problem (TSP)</p>
+<ul>
+<li><p>A classic optimization problem.</p></li>
+<li><p>Objective: Find the shortest possible route visiting each city exactly once
+and returning to the origin city.</p></li>
+</ul>
+</li>
+<li><p>NP-hard Problem for exact solutions.</p></li>
+<li><p>GAs provide a practical approach to find good-enough solutions.</p>
+<ul>
+<li><p>Encoding: Permutation of city indices.</p></li>
+<li><p>Fitness Function: Minimize the total distance <strong>or</strong> Maximizing the inverse of the total distance of the tour.</p></li>
+<li><p>Selection: Tournament selection.</p></li>
+<li><p>Crossover: Order crossover (OX).</p></li>
+<li><p>Mutation: Swap mutation.</p></li>
+<li><p>Replacement: Total replacement (with elitism).</p></li>
+<li><p>Stop criterion: Fixed number of generations or no improvement over several generations.</p></li>
 </ul>
 </li>
 </ul>

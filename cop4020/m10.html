@@ -9,7 +9,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/revealjs/dist/reveal.css?v=40f0a724" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/idea.css?v=e717f371" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -121,7 +123,7 @@ in list</p>
 <li><p>Syntax closer to imperative languages than Lisp</p></li>
 <li><p>Influenced many later languages</p></li>
 </ul>
-<pre data-id="ml"><code data-trim data-noescape class="ml">fun factorial 0 = 1
+<pre data-id="ml"><code data-trim data-noescape class="default">fun factorial 0 = 1
   | factorial n = n * factorial (n - 1)
 factorial 5
 // gives 120</code></pre>

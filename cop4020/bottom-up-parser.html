@@ -9,7 +9,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/revealjs/dist/reveal.css?v=40f0a724" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/idea.css?v=e717f371" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -94,7 +96,7 @@ F → (E) | id</code></pre>
 <section >
 <h2>Example Parse: id + id * id</h2>
 <p><strong>Parse steps</strong></p>
-<pre data-id="example-parse-id-id-id"><code data-trim data-noescape class="cpp">Stack                  Input         Action              Rule Applied
+<pre data-id="example-parse-id-id-id"><code data-trim data-noescape class="default">Stack                  Input         Action              Rule Applied
 ----------------------------------------------------------------------
 0                      id+id*id$     shift 5             -
 0 id 5                 +id*id$       reduce by F→id      GOTO(0,F)=3

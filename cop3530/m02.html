@@ -9,7 +9,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/revealjs/dist/reveal.css?v=40f0a724" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/idea.css?v=e717f371" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -171,6 +173,7 @@ may be defined differently in other contexts</p></li>
 <li><p>Module (paired files)</p></li>
 <li><p>Module (header only)</p></li>
 </ol>
+<p>Try it in ExcalidDraw: <a class="reference external" href="https://excalidraw.com/#json=dCqPvMfGFINUsva4FAEAD,cIEnWcZTtHCA7JKWGCo5IQ">link</a></p>
 </section>
 <section >
 <h3>C++ Building Model</h3>
@@ -272,8 +275,6 @@ files of modules</p></li>
 </ul>
 <pre><code data-trim data-noescape class="bash">g++ -o &lt;executable&gt; &lt;list of .o files&gt;</code></pre>
 </li>
-</ul>
-<ul class="simple">
 <li><p>Common errors: <a class="reference external" href="https://uwf-fang.github.io/cpp/building/gpp.html#common-error-messages-from-g">link</a></p></li>
 </ul>
 </section>
@@ -322,10 +323,13 @@ to build targets in a project.</p>
 <li><p>Have complicated syntax for makefile but easy to start with</p></li>
 </ul>
 </li>
-<li><p>Common errors: <a class="reference external" href="https://uwf-fang.github.io/tools/make.html#common-error-messages-from-make">link</a></p></li>
+<li><p>Common make errors: <a class="reference external" href="https://uwf-fang.github.io/tools/make.html#common-error-messages-from-make">link</a></p></li>
 </ul>
 </div>
 <div class="half docutils container">
+<ul class="simple">
+<li><p>See the <a class="reference external" href="https://mermaid.live/edit#pako:eNp1U01zgjAU_CvMOyOjRQE59FLbaw_21NJxAkRjCwlDkhmt439vwjcYuJD3dvftJoEbJCzFEMKpRAWxPnYRtdTDZVw3Xi84kQLFGa4B_eToTOsK0zSiE8V7_IMTYb2dM8zHmgP70i-Hffd9pUnxIWbsV6FVsdDFiMOFTDEVitCsHifwVs07zJRtz2SZYGO2pCjqdGphzqcZg4RjXptRk9qUhkm8n8LnncjYiRidyMCJmJxI79Tjg1PRu7UWi-fmbibN4cVMoO4-TBKu2z1wYL2F2u8DMN71AzzYbHeZrfuI0M02wwN9m3IYuVObwKm2OZRp_PGMGRKZJY2Szo-p4oANOS7VMaXqx71pegSC4BxHEKplio9IZiKCiN4VFUnB9leaQChKiW0omTwRCI8o46qSRYoE3p2RGp933QLRT8byVnIqtVUjV58QLl-YpALClf9UkSG8wQXCYOts3dV2Hbiuu166fmDDVXV9Z7P0PE91PW_lru82_FXDl07gb-7_Elh4IQ">Diagram</a> of the modular dependencies</p></li>
+</ul>
 <pre><code data-trim data-noescape class="makefile"># declare virtual targets
 .PHONY: clean
 
@@ -479,7 +483,8 @@ performance. Automated testing is especially important for large projects.</p></
 </li>
 <li><p>Simple test driver</p>
 <p>Display the result of a function call for the tester to compare.</p>
-<pre><code data-trim data-noescape class="cpp">#include &lt;iostream&gt;
+<pre><code data-trim data-noescape class="cpp">// test-store-item.cpp
+#include &lt;iostream&gt;
 #include &quot;store-item.hpp&quot;
 
 void testStoreItem() {
@@ -504,7 +509,7 @@ the program.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">assert</span></code> is a simple way to write test drivers.</p></li>
 <li><p>include <code class="docutils literal notranslate"><span class="pre">&lt;cassert&gt;</span></code> to use <code class="docutils literal notranslate"><span class="pre">assert</span></code>.</p></li>
 </ul>
-<pre><code data-trim data-noescape class="cpp">#include &lt;cassert&gt;
+<pre><code data-trim data-noescape class="cpp">#include &lt;cassert&gt;  // C assert header
 #include &quot;store-item.hpp&quot;
 
 void testStoreItem() {
@@ -525,7 +530,7 @@ void testStoreItem() {
 <li><p>E.g. Google Test, Boost Test, Catch2 etc.</p></li>
 <li><p>We use Catch2 in this course.</p></li>
 </ul>
-<pre><code data-trim data-noescape class="cpp">#include &quot;catch.hpp&quot;
+<pre><code data-trim data-noescape class="cpp">#include &quot;catch.hpp&quot;  // Catch2 testing framework
 #include &quot;store-item.hpp&quot;
 
 TEST_CASE(&quot;StoreItem equality and printing&quot;, &quot;[StoreItem]&quot;) {
@@ -548,6 +553,29 @@ TEST_CASE(&quot;StoreItem equality and printing&quot;, &quot;[StoreItem]&quot;) 
 <li><p>Know how to write test drivers using <code class="docutils literal notranslate"><span class="pre">assert</span></code> macro.</p></li>
 <li><p>Know how to read test cases written with Catch2 framework and write code to
 pass the tests.</p></li>
+</ul>
+</section>
+</section>
+<section >
+<section >
+<h2>Testing In DSA Programming Projects</h2>
+<ul class="simple">
+<li><p>Test Drivers are provided in DSA Courses</p>
+<ul>
+<li><p>Unit and integration tests</p></li>
+<li><p>Read to learn the expected behavior of the code.</p></li>
+<li><p><strong>Should never be modified.</strong></p></li>
+<li><p>Serve as part of grading rubric</p></li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li><p>System tests are provided</p>
+<ul>
+<li><p>Usually in the provided makefile</p></li>
+<li><p>Separate test.mk file in DSA 2 course</p></li>
+</ul>
+</li>
 </ul>
 </section>
 
