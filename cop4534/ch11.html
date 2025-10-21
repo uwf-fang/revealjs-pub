@@ -12,7 +12,6 @@
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -33,441 +32,592 @@
 <section >
 <h2>Sections</h2>
 <ul class="simple">
-<li><p>Max Sum Subarray Problem</p></li>
-<li><p>Chain Matrix Multiplication Problem</p></li>
-<li><p>Longest Common Subsequence Problem</p></li>
+<li><p>Graph</p></li>
+<li><p>Graph Traversal Algorithms</p></li>
+<li><p>Topological Sort Algorithm</p></li>
+<li><p>Minimum Spanning Tree Algorithms</p></li>
+<li><p>Shortest Path Algorithms</p></li>
 </ul>
 </section>
 </section>
 <section >
 <section >
-<h2>Max Sum Subarray</h2>
+<h1>Graph</h1>
+<div class="subtitle docutils container">
+<p>Xingang (Ian) Fang</p>
+</div>
+</section>
+</section>
+<section >
+<section >
+<h2>Outline</h2>
 <ul class="simple">
-<li><p>Given an array of integers, find the contiguous subarray with the largest
-sum. The array can contain both negative and positive values.</p></li>
-<li><p>For array <span class="math notranslate nohighlight">\([-2, -3, 4, -1, -2, 1, 5, -3]\)</span>, the contiguous subarray
-with the largest sum is <span class="math notranslate nohighlight">\([4, -1, -2, 1, 5]\)</span> with sum 7.</p></li>
-<li><p>Many real-life applications</p>
-<ul>
-<li><p>Stock market</p></li>
-<li><p>Image processing</p></li>
+<li><p>Overview</p></li>
+<li><p>Concepts</p></li>
+<li><p>Example graphs</p></li>
+<li><p>Representations</p></li>
+<li><p>Algorithms</p></li>
+</ul>
+</section>
+</section>
+<section >
+<section >
+<h2>Overview</h2>
+<ul class="simple">
+<li><p>Graphs are a fundamental data structure in computer science.</p></li>
+<li><p>Graphs are used to model networks, complex relationships, etc.</p></li>
+<li><p>Vertices(nodes) connected by edges.</p></li>
+</ul>
+<div class="graphviz"><img src="../_images/graphviz-3982c39f3dd56a8b715600d6eae82dbb012177b0.png" alt="digraph G {
+   A -&gt; B;
+   A -&gt; C;
+   B -&gt; C;
+   B -&gt; D;
+   C -&gt; D;
+   D -&gt; C;
+   E -&gt; F;
+   F -&gt; C;
+}" class="graphviz" /></div>
+</section>
+<section >
+<h3>Applications</h3>
+<div class="flex-container docutils container">
+<div class="half docutils container">
+<ul class="simple">
+<li><p>Social networks</p></li>
+<li><p>Routing algorithms</p></li>
+<li><p>Computer networks</p></li>
+<li><p>Transportation and logistics</p></li>
+<li><p>Machine learning/deep learning</p></li>
 <li><p>Bioinformatics</p></li>
 </ul>
-</li>
-<li><p>Problem type: Optimization</p></li>
-<li><p>Need exact solution</p></li>
-<li><p>Satisfies</p>
-<ul>
-<li><p>Optimal substructure</p></li>
-<li><p>Overlapping subproblems</p></li>
-</ul>
-</li>
-<li><p>Solutions</p>
-<ul>
-<li><p>Brute-force <span class="math notranslate nohighlight">\(\Theta(n^2)\)</span></p></li>
-<li><p>Divide and conquer <span class="math notranslate nohighlight">\(\Theta(n \log n)\)</span></p></li>
-<li><p>Dynamic Programming (Kadane’s algorithm) <span class="math notranslate nohighlight">\(\Theta(n)\)</span></p></li>
-</ul>
-</li>
-</ul>
-</section>
-<section >
-<h3>Brute-force Solutions</h3>
+</div>
+<div class="half docutils container">
 <ul class="simple">
-<li><p>Consider all possible subarrays and compute their sums</p></li>
+<li><p>Integrated circuit design</p></li>
+<li><p>Database systems</p></li>
+<li><p>Computer vision</p></li>
+<li><p>Optimization problems</p></li>
+<li><p>Game development</p></li>
 </ul>
-<pre data-id="brute-force-solutions"><code data-trim data-noescape class="default">function brute_force_max_subarray(arr):
-  max_sum = -infinity
-
-  for start from 0 to length(arr) - 1:
-    sum_of_subarray = 0
-
-    for end from start to length(arr) - 1:
-      sum_of_subarray = sum_of_subarray + arr[end]
-
-      if sum_of_subarray &gt; max_sum:
-        max_sum = sum_of_subarray
-
-  return max_sum</code></pre>
+</div>
+</div>
 </section>
 <section >
-<h3>Divide and Conquer Solution</h3>
+<h3>Concepts</h3>
+<div class="flex-container docutils container">
+<div class="half docutils container">
 <ul class="simple">
-<li><p>Divide the array into two halves</p></li>
-<li><p>Recursively find the maximum subarray sum in:</p>
+<li><p>Vertex/Node</p>
 <ul>
-<li><p>Left half</p></li>
-<li><p>Right half</p></li>
-<li><p>Crossing the midpoint</p></li>
+<li><p>degree of vertex</p></li>
+<li><p>degree of graph</p></li>
+</ul>
+</li>
+<li><p>Edge/Arc</p>
+<ul>
+<li><p>directed/undirected</p></li>
+<li><p>weighted/unweighted</p></li>
+</ul>
+</li>
+<li><p>Connectivity</p>
+<ul>
+<li><p>path between two vertices</p>
+<ul>
+<li><p>length of path</p></li>
+</ul>
+</li>
+<li><p>distance between two vertices</p></li>
+<li><p>adjacent</p></li>
+<li><p>connected / unconnected</p></li>
+<li><p>cyclic / acyclic</p></li>
 </ul>
 </li>
 </ul>
-<pre data-id="divide-and-conquer-solution"><code data-trim data-noescape class="default">function max_subarray(arr, low, high):
-  if low == high:
-    return arr[low]
-
-  mid = (low + high) / 2
-  return max(max_subarray(arr, low, mid),
-            max_subarray(arr, mid + 1, high),
-            max_crossing_sum(arr, low, mid, high))</code></pre>
-</section>
-<section >
-<h3>Divide and Conquer Solution (cont.)</h3>
-<pre data-id="divide-and-conquer-solution-cont"><code data-trim data-noescape class="default">function max_crossing_sum(arr, low, mid, high):
-  left_sum = -infinity
-  sum = 0
-  for i from mid downto low:
-    sum = sum + arr[i]
-    if sum &gt; left_sum:
-        left_sum = sum
-
-  right_sum = -infinity
-  sum = 0
-  for j from mid + 1 to high:
-    sum = sum + arr[j]
-    if sum &gt; right_sum:
-        right_sum = sum
-
-  return left_sum + right_sum</code></pre>
-</section>
-<section >
-<h3>Dynamic Programming Solution</h3>
+</div>
+<div class="half docutils container">
 <ul class="simple">
-<li><p>Kadane’s algorithm</p></li>
-<li><p>Idea: Compute the maximum subarray sum ending at each position</p></li>
-<li><p>At each end position, the maximum subarray sum is either:</p>
+<li><p>Graph level properties</p>
 <ul>
-<li><p>The maximum subarray sum ending at the previous position plus the current
-element</p></li>
-<li><p>The current element</p></li>
+<li><p>directed/undirected</p></li>
+<li><p>weighted/unweighted</p></li>
+<li><p>cyclic/acyclic</p></li>
+<li><p>connected/unconnected</p></li>
+<li><p>dense/sparse</p></li>
 </ul>
 </li>
-<li><p>Scan the array from left to right only once</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section >
+<h3>Examples</h3>
+<div class="flex-container docutils container">
+<div class="half docutils container">
+<figure class="align-default" id="id6">
+<div class="graphviz"><img src="../_images/graphviz-42d704a5b7b7f38b9a3608fb601f25ff7a374c46.png" alt="digraph G {
+  node[shape=circle];
+  a -&gt; {b, c, d};
+  b -&gt; {a, d};
+}" class="graphviz" /></div>
+<figcaption>
+<p><span class="caption-text">Directed connected cyclic graph</span></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id7">
+<div class="graphviz"><img src="../_images/graphviz-b7e11c6ce821708eb09143afcd1113faca622da6.png" alt="graph G {
+  node[shape=ellipse];
+  Atlanta -- Dallas [label=4];
+  Atlanta -- Miami [label=4];
+  Atlanta -- Orlando [label=3];
+  Dallas -- Austin [label=1];
+  Dallas -- Orlando [label=6];
+}" class="graphviz" /></div>
+<figcaption>
+<p><span class="caption-text">Undirected connected cyclic weighted graph</span></p>
+</figcaption>
+</figure>
+</div>
+<div class="half docutils container">
+<figure class="align-default" id="id8">
+<div class="graphviz"><img src="../_images/graphviz-b633cb76c5c8da38336c1df19773b8ce52e407a4.png" alt="graph G {
+  node[shape=circle];
+  b -- a;
+  a -- {c, d};
+  b -- {e, f};
+}" class="graphviz" /></div>
+<figcaption>
+<p><span class="caption-text">Undirected connected acyclic graph (Tree)</span></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id9">
+<div class="graphviz"><img src="../_images/graphviz-2af75476f54e58cdb41d3f8e0492927fff12342e.png" alt="digraph G {
+  rankdir=LR;
+  node[shape=box];
+  task1 -&gt; task2;
+  task2 -&gt; {task3, task4};
+  task3 -&gt; {task5, task6};
+  task4 -&gt; task6;
+}" class="graphviz" /></div>
+<figcaption>
+<p><span class="caption-text">Directed acyclic graph (DAG) task planning</span></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section >
+<h3>Representations</h3>
+<ul>
+<li><p>Vertices with pointers to neighbors (uncommon)</p></li>
+<li><p>List of edges</p>
+<p>A list of edges is a 1d array in which every element in the array represents
+an edge. It is the simplest way to represent a graph. It is also an easy way
+to store a graph in a relational database. It is not efficient for most graph
+algorithms though.</p>
+</li>
+<li><p>Adjacency list</p>
+<p>An adjacency list is a 1d array in which every element in the array
+represents a vertex and points to a list of its neighbors.</p>
+</li>
+<li><p>Adjacency matrix</p>
+<p>An adjacency matrix is a 2d array in which each row represents a source
+vertex and each column represents a destination vertex. The elements in the
+matrix represents the edge between the two vertices.</p>
+</li>
 </ul>
 </section>
 <section >
-<h3>Dynamic Programming Solution (cont.)</h3>
-<p>Consider the array <span class="math notranslate nohighlight">\([-2, 1, -3, 4, -1, 2, 1, -5, 4]\)</span>:</p>
+<h3>Algorithms</h3>
 <ul class="simple">
-<li><p>Start with <span class="math notranslate nohighlight">\(current\_max = arr[0] = -2\)</span> and <span class="math notranslate nohighlight">\(global\_max = -2\)</span>.</p></li>
-<li><p>At the second element (1), <span class="math notranslate nohighlight">\(current\_max\)</span> is <span class="math notranslate nohighlight">\(max(-2+1, 1)\)</span>,
-which is 1. <span class="math notranslate nohighlight">\(global\_max\)</span> is now <span class="math notranslate nohighlight">\(max(-2, 1)\)</span>, which is 1.</p></li>
-<li><p>This process continues, updating <span class="math notranslate nohighlight">\(current\_max\)</span> and <span class="math notranslate nohighlight">\(global\_max\)</span>
-with each new element.</p></li>
-<li><p>By the end of the array, <span class="math notranslate nohighlight">\(global\_max\)</span> contains the maximum sum, which
-in this case is 6 from the subarray <span class="math notranslate nohighlight">\([4, -1, 2, 1]\)</span>.</p></li>
+<li><p>Graph traversal</p>
+<ul>
+<li><p>Breadth-first search</p></li>
+<li><p>Depth-first search</p></li>
+</ul>
+</li>
+<li><p>Topological sort (DAG only)</p></li>
+<li><p>Shortest path</p>
+<ul>
+<li><p>Dijkstra’s algorithm (single source, greedy)</p></li>
+<li><p>Floyd-Warshall Algorithm (all pairs, dynamic programming)</p></li>
+</ul>
+</li>
+<li><p>Minimum spanning tree</p>
+<ul>
+<li><p>Prim’s algorithm (greedy)</p></li>
+<li><p>Kruskal’s algorithm (greedy)</p></li>
+</ul>
+</li>
 </ul>
 </section>
-<section >
-<h3>Dynamic Programming Solution (cont.)</h3>
-<pre data-id="id1"><code data-trim data-noescape class="default">function kadane_algorithm(arr):
-  current_max = global_max = arr[0]
-
-  for index from 1 to length(arr) - 1:
-    current_max = max(arr[index], current_max + arr[index])
-
-    global_max = max(global_max, current_max)
-
-  return global_max</code></pre>
-</section>
 </section>
 <section >
 <section >
-<h2>Chain Matrix Multiplication Problem</h2>
+<h2>Graph Traversal</h2>
+<ul class="simple">
+<li><p>Overview</p></li>
+<li><p>Depth First Search (DFS)</p></li>
+<li><p>Breadth First Search (BFS)</p></li>
+<li><p>Visualization</p></li>
+</ul>
 </section>
 <section >
 <h3>Overview</h3>
 <ul class="simple">
-<li><p>Given a sequence of matrices, find the most efficient way to multiply these
-matrices together.</p></li>
-<li><p>The costs are different depending on how you associate the matrices in the
-multiplication.</p></li>
-<li><p>Problem type: Optimization</p></li>
-<li><p>Need exact solution</p></li>
-<li><p>Satisfies</p>
+<li><p>Start from a vertex</p></li>
+<li><p>Visit all reachable vertices connected to it in a systematic order</p></li>
+<li><p>Two common ways to traverse a graph</p>
 <ul>
-<li><p>Optimal substructure</p></li>
-<li><p>Overlapping subproblems</p></li>
-</ul>
-</li>
-<li><p>Solutions</p>
-<ul>
-<li><p>Brute force</p></li>
-<li><p>Dynamic programming</p></li>
+<li><p>Depth First Search (DFS)</p></li>
+<li><p>Breadth First Search (BFS)</p></li>
 </ul>
 </li>
 </ul>
 </section>
 <section >
-<h3>Example</h3>
+<h3>Depth First Search (DFS)</h3>
 <ul class="simple">
-<li><p>Consider the multiplication of four matrices A, B, C, and D with dimensions
-<span class="math notranslate nohighlight">\(10 \times 30\)</span>, <span class="math notranslate nohighlight">\(30 \times 5\)</span>, <span class="math notranslate nohighlight">\(5 \times 60\)</span>, and <span class="math notranslate nohighlight">\(60
-\times 10\)</span>, respectively. We can fully parenthesize the product in five
-distinct ways:</p>
-<ol class="arabic simple">
-<li><p><span class="math notranslate nohighlight">\(((AB)C)D\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\((A(BC))D\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\((AB)(CD)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(A((BC)D)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(A(B(CD))\)</span></p></li>
-</ol>
-</li>
-<li><p>The cost of 3 is the best:</p>
-<ol class="arabic simple">
-<li><p><span class="math notranslate nohighlight">\((10 \times 30 \times 5) + (10 \times 5 \times 60) + (10 \times 60
-\times 10) = 1500 + 3000 + 6000 = 10500\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\((30 \times 5 \times 60) + (10 \times 30 \times 60) + (10 \times 60
-\times 10) = 9000 + 18000 + 6000 = 33000\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\((10 \times 30 \times 5) + (5 \times 60 \times 10) + (10 \times 5
-\times 10) = 1500 + 3000 + 500 = 5000\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\((30 \times 5 \times 60) + (30 \times 60 \times 10) + (10 \times 30
-\times 10) = 9000 + 18000 + 3000 = 30000\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\((5 \times 60 \times 10) + (30 \times 5 \times 10) + (10 \times 30
-\times 10) = 3000 + 1500 + 3000 = 7500\)</span></p></li>
-</ol>
-</li>
+<li><p>Like walking in a maze, you go as far as you can, then backtrack</p></li>
 </ul>
-</section>
-<section >
-<h3>Brute Force Solution</h3>
-<ul class="simple">
-<li><p>The combinatorics: The way to parenthesize a product of <span class="math notranslate nohighlight">\(n\)</span> matrices is
-<span class="math notranslate nohighlight">\(\Theta(\frac{4^n}{n^{3/2}\sqrt{\pi}})\)</span>. A.k.a. the Catalan number.</p></li>
-<li><p>The complexity is close to exponent complexity.</p></li>
-<li><p>The algorithm is not practical.</p></li>
-</ul>
-</section>
-<section >
-<h3>Dynamic Programming Solution</h3>
-<ul class="simple">
-<li><p>Bottom-up approach</p>
-<ul>
-<li><p>Let the length of chain <span class="math notranslate nohighlight">\(L\)</span> range from 2 to <span class="math notranslate nohighlight">\(n\)</span>.</p></li>
-<li><p>Enumerate all subchains of length <span class="math notranslate nohighlight">\(L\)</span> in the sequence.</p></li>
-<li><p>Enumerate all possible ways of parenthesizing each subchain by splitting
-the subchain into two subchains.</p></li>
-<li><p>Time complexity: <span class="math notranslate nohighlight">\(\Theta(n^3)\)</span></p></li>
-</ul>
-</li>
-<li><p>Memorization using two tables</p>
-<ul>
-<li><p><span class="math notranslate nohighlight">\(m[i, j]\)</span>: The minimum number of scalar multiplications needed to
-compute the matrix <span class="math notranslate nohighlight">\(A_i \cdots A_j\)</span>.</p></li>
-<li><p><span class="math notranslate nohighlight">\(s[i, j]\)</span>: The index <span class="math notranslate nohighlight">\(k\)</span> at which we split the product
-<span class="math notranslate nohighlight">\(A_i \cdots A_j\)</span> in an optimal parenthesization <span class="math notranslate nohighlight">\(A_i \cdots
-A_k A_{k+1} \cdots A_j\)</span>.</p></li>
-<li><p>Both <span class="math notranslate nohighlight">\(\Theta(n^2)\)</span> space.</p></li>
-</ul>
-</li>
-</ul>
-</section>
-<section >
-<h3>Dynamic Programming Algorithm (cont.)</h3>
-<ul class="simple">
-<li><p>C++ example that only computes the cost</p></li>
-</ul>
-<pre data-id="dynamic-programming-algorithm-cont"><code data-trim data-noescape class="cpp">int matrixChainOrder(int p[], int n) {
-  int m[n][n];
-
-  for (int i = 1; i &lt; n; i++)
-    m[i][i] = 0;
-
-  // L is the chain length
-  for (int L = 2; L &lt; n; L++) {
-    for (int i = 1; i &lt; n - L + 1; i++) {
-      int j = i + L - 1;
-      m[i][j] = INT_MAX;
-      // Try all possible split points
-      for (int k = i; k &lt;= j - 1; k++) {
-        int q = m[i][k] + m[k + 1][j] + p[i - 1] * p[k] * p[j];
-        if (q &lt; m[i][j])
-          m[i][j] = q;
-      }
-    }
-  }
-  // Return the minimum number of scalar multiplications needed
-  // to multiply the original chain
-  return m[1][n - 1];
-}</code></pre>
-</section>
-</section>
-<section >
-<section >
-<h2>Longest Common Subsequence (LCS) Problem</h2>
-<ul class="simple">
-<li><p>Sequences and subsequences: foundational concepts in computational problems</p></li>
-<li><p>Critical for sequence comparison in bioinformatics and computer science</p>
-<ul>
-<li><p>DNA sequence alignment</p></li>
-<li><p>DNA sequence similarity</p></li>
-<li><p>Text comparison and plagiarism detection</p></li>
-<li><p>File comparison</p></li>
-<li><p>Version control systems</p></li>
-</ul>
-</li>
-</ul>
-</section>
-<section >
-<h3>LCS Problem Overview</h3>
-<ul class="simple">
-<li><p>LCS: finding the longest subsequence common to two sequences</p>
-<ul>
-<li><p>More than one possible solution</p></li>
-<li><p>Subsequence: not necessarily contiguous</p></li>
-</ul>
-</li>
-<li><p>Used in genetics and version control systems</p></li>
-<li><p>Example: The Longest Common Subsequence for the DNA sequences “AGGTAB” and
-“GXTXAYB” is “GGTAB”</p></li>
-</ul>
-</section>
-<section >
-<h3>LCS Problem Properties</h3>
-<ul class="simple">
-<li><p>Optimal Substructure: (last character match version)</p>
-<ul>
-<li><p>For sequences <cite>X</cite> and <cite>Y</cite>, if <cite>X[m]</cite> equals <cite>Y[n]</cite>, the LCS includes <cite>X[m]</cite>
-and is one more than <cite>LCS(X[1..m-1], Y[1..n-1])</cite>.</p>
-<ul>
-<li><p>E.g. <cite>LCS(“ABCBDAB”, “BDCABB”) = 1 + LCS(“ABCBDA”, “BDCAB”)</cite></p></li>
-</ul>
-</li>
-<li><p>If <cite>X[m]</cite> does not equal <cite>Y[n]</cite>, the LCS is the longer of <cite>LCS(X[1..m],
-Y[1..n-1])</cite> or <cite>LCS(X[1..m-1], Y[1..n])</cite>.</p>
-<ul>
-<li><p>E.g. <cite>LCS(“ABCBDAB”, “BDCABD”) = max(LCS(“ABCBDAB”, “BDCAB”),
-LCS(“ABCBDA”, “BDCABD”))</cite></p></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Overlapping Subproblems:</p>
-<ul>
-<li><p>Calculating <cite>LCS(X[1..m], Y[1..n])</cite> will often require recalculating
-<cite>LCS(X[1..m-1], Y[1..n-1])</cite>, <cite>LCS(X[1..m], Y[1..n-1])</cite>, and <cite>LCS(X[1..m-1],
-Y[1..n])</cite> multiple times.</p></li>
-</ul>
-</li>
-</ul>
-</section>
-<section >
-<h3>Brute Force Approach</h3>
-<ul class="simple">
-<li><p>Involves comparing all possible subsequences of both strings and compare</p></li>
-<li><p>Results in exponential time complexity <span class="math notranslate nohighlight">\(2^{m+n}\)</span></p></li>
-<li><p>Not feasible for long sequences due to inefficiency</p></li>
-</ul>
-</section>
-<section >
-<h3>Divide and Conquer Approach</h3>
-<ul class="simple">
-<li><p>Employ the subproblem definition of LCS</p></li>
-<li><p>Recursively divide the problem into smaller subproblems</p></li>
-<li><p>Redundant computations on overlapping subproblems</p></li>
-</ul>
-<pre data-id="divide-and-conquer-approach"><code data-trim data-noescape class="default">function findLCSLength(s1, s2, m, n):
-    // Base case: If either of the strings is empty, LCS length is 0
-    if m == 0 or n == 0:
-        return 0
-
-    // If the last characters of both strings match
-    if s1[m-1] == s2[n-1]:
-        return 1 + findLCSLength(s1, s2, m-1, n-1)
-
-    // If the last characters of both strings don't match
-    return max(findLCSLength(s1, s2, m, n-1), findLCSLength(s1, s2, m-1, n))</code></pre>
-</section>
-<section >
-<h3>Dynamic Programming (DP) Solution</h3>
-<ul class="simple">
-<li><p>DP Table: set up with dimensions one greater than sequence lengths</p></li>
-<li><p>Matching characters: increment LCS length</p></li>
-<li><p>Non-matching characters: take the maximum value from adjacent cells</p></li>
-<li><p>LCS length located at <cite>dp[m][n]</cite></p></li>
-<li><p>Algorithm complexity: <span class="math notranslate nohighlight">\(\Theta(m*n)\)</span> for both time and space</p></li>
-</ul>
-</section>
-<section >
-<h3>Traceback for LCS</h3>
 <div class="flex-container docutils container">
 <div class="half docutils container">
-<a class="reference internal image-reference" href="../_images/lcs-traceback.png"><img alt="../_images/lcs-traceback.png" src="../_images/lcs-traceback.png" style="width: 70%;" />
-</a>
-<div class="footnote docutils container">
-<p>Credit: Introduction to Algorithms, 4th Ed., T. Cormen et al.</p>
+<ul class="simple">
+<li><p>Stack based implementation</p></li>
+</ul>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-text">Iterative DFS traversal using a stack</span></div>
+<pre><code data-trim data-noescape class="default">function dfs(startVertex):
+  create a new stack
+
+  push startVertex onto the stack
+  mark startVertex as visited
+
+  while the stack is not empty:
+    current = pop from the stack
+    process(current)  # Perform an action on the current node
+
+    for each neighbor in current.neighbors:
+      if neighbor is not in visited set:
+        push neighbor onto the stack
+        add neighbor to the visited set</code></pre>
 </div>
 </div>
 <div class="half docutils container">
 <ul class="simple">
-<li><p><strong>Can only find one LCS</strong></p></li>
-<li><p>Reconstruct LCS from the filled DP table</p></li>
-<li><p>Backtrack from <cite>dp[m][n]</cite>, storing characters</p></li>
-<li><p>Diagonal movement for matches; otherwise to cell with higher value; if
-same, go up</p></li>
-<li><p>Complexity: <span class="math notranslate nohighlight">\(\Theta(m+n)\)</span></p></li>
-<li><p><strong>Question</strong>: How about same values?</p></li>
+<li><p>Recursive implementation</p></li>
 </ul>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-text">DFS traversal using recursion</span></div>
+<pre><code data-trim data-noescape class="default">function dfs(vertex, visited):
+  if vertex is not visited:
+    mark vertex as visited
+    visit(node)  # Perform an action on the vertex
+
+    for each neighbor of the vertex:
+      if neighbor is not visited:
+          dfs(neighbor, visited)</code></pre>
 </div>
 </div>
+</div>
 </section>
 <section >
-<h3>Pseudocode</h3>
-<pre data-id="pseudocode"><code data-trim data-noescape class="default">Function LCS(X, Y):
-    m = length of X
-    n = length of Y
-    dp = array of (m+1) rows and (n+1) columns
-
-    # Initialize the table with 0's, as the LCS of an empty sequence
-    # with any sequence is 0
-    For i from 0 to m:
-        dp[i][0] = 0
-    For j from 0 to n:
-        dp[0][j] = 0
-
-    # Fill the dp table
-    For i from 1 to m:
-        For j from 1 to n:
-            If X[i] == Y[j]:
-                dp[i][j] = dp[i-1][j-1] + 1
-            Else:
-                dp[i][j] = max(dp[i-1][j], dp[i][j-1])
-
-    # The length of LCS is in the cell dp[m][n]
-    length_LCS = dp[m][n]</code></pre>
-</section>
-<section >
-<h3>Pseudocode (cont.)</h3>
-<pre data-id="pseudocode-cont"><code data-trim data-noescape class="default"># To find the LCS string, traceback from dp[m][n]
-LCS = &quot;&quot;
-i = m, j = n
-While i &gt; 0 and j &gt; 0:
-    If X[i] == Y[j]:
-        LCS = X[i] + LCS  # Prepend the character to LCS
-        i = i - 1
-        j = j - 1
-    Else If dp[i-1][j] &gt;= dp[i][j-1]: # if same, go up
-        i = i - 1
-    Else:
-        j = j - 1
-
-Return LCS, length_LCS</code></pre>
-</section>
-<section >
-<h3>Variations</h3>
+<h3>Breadth First Search (BFS)</h3>
 <ul class="simple">
-<li><p><strong>All LCSs</strong>: The DP solution only finds one LCS. To find all LCSs, use
-backtracking to find all possible paths in the DP table that lead to the
-LCS length.</p></li>
-<li><p><strong>Longest Common Substring</strong>: A substring is a contiguous sequence of
-characters within a string. The Longest Common Substring (LCSu) problem is
-similar to the LCS problem, but requires that the common elements be
-contiguous.</p></li>
-<li><p><strong>Improve space complexity</strong>: The DP solution requires <span class="math notranslate nohighlight">\(\Theta(m*n)\)</span>
-space. This can be improved to <span class="math notranslate nohighlight">\(\Theta(min(m, n))\)</span> by only storing the
-current and previous rows of the DP table.</p></li>
+<li><p>Like a wave, you visit all vertices at the same level before going deeper</p></li>
+<li><p>Queue based implementation</p></li>
+</ul>
+<div class="literal-block-wrapper docutils container" id="id12">
+<div class="code-block-caption"><span class="caption-text">BFS traversal using a queue</span></div>
+<pre><code data-trim data-noescape class="default">function bfs(startVertex):
+  create a new queue
+
+  enqueue the startVertex
+  mark the startVertex as visited
+
+  while the queue is not empty:
+    dequeue a vertex from the queue
+    process(vertex)  # Perform an action on the vertex
+
+    for each neighbor of the vertex:
+      if neighbor is not visited:
+        mark the neighbor as visited
+        enqueue the neighbor</code></pre>
+</div>
+</section>
+<section >
+<h3>Visualization</h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://visualgo.net/en/dfsbfs">https://visualgo.net/en/dfsbfs</a></p></li>
+<li><p><a class="reference external" href="https://www.cs.usfca.edu/~galles/visualization/BFS.html">https://www.cs.usfca.edu/~galles/visualization/BFS.html</a></p></li>
+<li><p><a class="reference external" href="https://www.cs.usfca.edu/~galles/visualization/DFS.html">https://www.cs.usfca.edu/~galles/visualization/DFS.html</a></p></li>
 </ul>
 </section>
+</section>
+<section >
+<section >
+<h2>Topological sort</h2>
+<ul class="simple">
+<li><p>Overview</p></li>
+<li><p>Algorithm</p></li>
+</ul>
+</section>
+<section >
+<h3>Overview</h3>
+<ul class="simple">
+<li><p>Only works on directed acyclic graphs (DAGs)</p></li>
+<li><p>Will provide a unique ordering of the vertices if the order of of vertices in
+the graph is unique</p></li>
+<li><p>Will provide a linear ordering of the vertices</p></li>
+<li><p>Applications and Use cases</p>
+<ul>
+<li><p>Task scheduling</p></li>
+<li><p>Dependency resolution</p></li>
+<li><p>Compiler optimization</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section >
+<h3>Algorithm</h3>
+<ul class="simple">
+<li><p>For every vertex, use DFS to find all vertices reachable from it</p></li>
+<li><p>Add the vertex to a result list after the recursive call</p></li>
+<li><p>Reverse the result list to get the topological sort</p></li>
+<li><p>visualization <a class="reference external" href="https://www.cs.usfca.edu/~galles/visualization/TopoSortDFS.html">https://www.cs.usfca.edu/~galles/visualization/TopoSortDFS.html</a></p></li>
+</ul>
+<pre data-id="algorithm"><code data-trim data-noescape class="default">function topologicalSort(graph):
+  initialize an empty list 'result' to store the topological order
+  initialize a set 'visited' to keep track of visited nodes
+
+  for each node 'v' in graph:
+    if 'v' is not in 'visited':
+      performDFS(v, visited, result)
+
+return 'result' in reverse order
+
+function performDFS(node, visited, result):
+  mark 'node' as visited
+  for each neighbor 'n' of 'node':
+    if 'n' is not in 'visited':
+      performDFS(n, visited, result)
+  append 'node' to 'result'</code></pre>
+</section>
+</section>
+<section >
+<section >
+<h2>Minimum Spanning Tree</h2>
+<ul class="simple">
+<li><p>Overview</p></li>
+<li><p>Prim’s Algorithm</p></li>
+<li><p>Kruskal’s Algorithm</p></li>
+<li><p>Comparison</p></li>
+<li><p>Visualization</p></li>
+</ul>
+</section>
+<section >
+<h3>Overview</h3>
+<ul class="simple">
+<li><p>A spanning tree of a graph is a subgraph that contains all the vertices of
+the graph and is a tree.</p></li>
+<li><p>A minimum spanning tree (MST) of a weighted graph is a spanning tree whose
+total weight is minimum.</p></li>
+<li><p>Prim’s Algorithm</p></li>
+<li><p>Kruskal’s Algorithm</p></li>
+<li><p>Other</p>
+<ul>
+<li><p>Boruvka’s Algorithm</p></li>
+<li><p>Reverse-Delete Algorithm</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section >
+<h3>Prim’s Algorithm</h3>
+<ul class="simple">
+<li><p>Greedy</p></li>
+<li><p>Vertex based</p></li>
+<li><p>Use a priority queue</p></li>
+<li><p>Steps</p>
+<ol class="arabic simple">
+<li><p>Create an empty MST.</p></li>
+<li><p>Initialize a priority queue with all vertices and their respective
+weights.</p></li>
+<li><p>Start with an arbitrary vertex as the current vertex.</p></li>
+<li><p>Mark the current vertex as visited.</p></li>
+<li><p>While the priority queue is not empty:</p>
+<ol class="loweralpha simple">
+<li><p>Dequeue the vertex with the smallest weight from the priority queue.</p></li>
+<li><p>If the dequeued vertex is not in the MST, add it to the MST and update
+its neighbors’ weights in the priority queue.</p></li>
+</ol>
+</li>
+<li><p>Repeat steps 4-5 until all vertices are in the MST.</p></li>
+</ol>
+</li>
+</ul>
+</section>
+<section >
+<h3>Kruskal’s Algorithm</h3>
+<ul class="simple">
+<li><p>Greedy</p></li>
+<li><p>Edge based</p></li>
+<li><p>Use a disjoint set and a sorted edge list</p></li>
+<li><p>Steps</p>
+<ol class="arabic simple">
+<li><p>Create an empty MST.</p></li>
+<li><p>Sort all edges in the graph in ascending order of their weights.</p></li>
+<li><p>Initialize a disjoint-set data structure to keep track of connected
+components.</p></li>
+<li><p>For each edge in sorted order:</p>
+<ol class="loweralpha simple">
+<li><p>If adding the edge to the MST does not create a cycle, add it to the
+MST.</p></li>
+</ol>
+</li>
+<li><p>Repeat step 4 until the MST has (n-1) edges, where n is the number of
+vertices in the graph.</p></li>
+</ol>
+</li>
+</ul>
+</section>
+<section >
+<h3>Comparison</h3>
+<table class="docutils align-default" id="id13">
+<caption><span class="caption-text">Comparison of two MST algorithms</span></caption>
+<tbody>
+<tr class="row-odd"><td><p>Comparison Criteria</p></td>
+<td><p>Prim’s Algorithm</p></td>
+<td><p>Kruskal’s Algorithm</p></td>
+</tr>
+<tr class="row-even"><td><p>Type</p></td>
+<td><p>Greedy</p></td>
+<td><p>Greedy</p></td>
+</tr>
+<tr class="row-odd"><td><p>Graph elements</p></td>
+<td><p>Vertices</p></td>
+<td><p>Edges</p></td>
+</tr>
+<tr class="row-even"><td><p>Efficient for</p></td>
+<td><p>Dense graphs</p></td>
+<td><p>Sparse graphs</p></td>
+</tr>
+<tr class="row-odd"><td><p>Data structure/ADT</p></td>
+<td><p>Priority queue</p></td>
+<td><p>Disjoint-set</p></td>
+</tr>
+<tr class="row-even"><td><p>Parallelization</p></td>
+<td><p>Not suitable</p></td>
+<td><p>Suitable</p></td>
+</tr>
+<tr class="row-odd"><td><p>Connected results</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes (extra step)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section >
+<h3>Visualization</h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://visualgo.net/en/mst">https://visualgo.net/en/mst</a></p></li>
+<li><p><a class="reference external" href="https://www.cs.usfca.edu/~galles/visualization/Prim.html">https://www.cs.usfca.edu/~galles/visualization/Prim.html</a></p></li>
+<li><p><a class="reference external" href="https://www.cs.usfca.edu/~galles/visualization/Kruskal.html">https://www.cs.usfca.edu/~galles/visualization/Kruskal.html</a></p></li>
+</ul>
+</section>
+</section>
+<section >
+<section >
+<h2>Shortest Path Algorithms</h2>
+<ul class="simple">
+<li><p>Overview</p></li>
+<li><p>Dijkstra’s Algorithm (Single Source Shortest Path)</p></li>
+<li><p>Floyd-Warshall Algorithm (All Pairs Shortest Path)</p></li>
+</ul>
+</section>
+<section >
+<h3>Overview</h3>
+<ul class="simple">
+<li><p><strong>Shortest Path Problem</strong>: Given a weighted graph G, find the shortest path</p>
+<ul>
+<li><p>Single Source Shortest Path (SSSP): from a source vertex to all other
+vertices in G</p></li>
+<li><p>All Pairs Shortest Path (APSP): among all pairs of vertices in G.</p></li>
+</ul>
+</li>
+<li><p>Algorithms</p>
+<ul>
+<li><p>Dijkstra’s Algorithm (SSSP)</p></li>
+<li><p>Floyd-Warshall Algorithm (APSP)</p></li>
+</ul>
+</li>
+<li><p>Applications</p>
+<ul>
+<li><p>Network routing</p></li>
+<li><p>GPS navigation</p></li>
+<li><p>Optimization problems</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section >
+<section >
+<h2>Dijkstra’s Algorithm</h2>
+<ul class="simple">
+<li><p>Single source shortest path algorithm</p></li>
+<li><p>Greedy algorithm</p></li>
+<li><p>visualization</p>
+<ul>
+<li><p><a class="reference external" href="https://visualgo.net/en/sssp">https://visualgo.net/en/sssp</a></p></li>
+<li><p><a class="reference external" href="https://www.cs.usfca.edu/~galles/visualization/Dijkstra.html">https://www.cs.usfca.edu/~galles/visualization/Dijkstra.html</a></p></li>
+</ul>
+</li>
+</ul>
+<div class="literal-block-wrapper docutils container" id="id14">
+<div class="code-block-caption"><span class="caption-text">Dijkstra’s Algorithm</span></div>
+<pre><code data-trim data-noescape class="default">function dijkstra(graph, source):
+  create a priority queue PQ
+  initialize distances to all vertices as infinity
+  set the distance to the source as 0
+  enqueue source to PQ
+
+  while PQ is not empty:
+    current_vertex = vertex with the smallest distance in PQ
+    remove current_vertex from PQ
+
+    for each neighbor of current_vertex:
+      edge_weight = weight of the edge between current_vertex and neighbor
+      tentative_distance = distance to current_vertex + edge_weight
+      if tentative_distance &lt; distance to neighbor:
+        set distance to neighbor as tentative_distance
+        add neighbor to PQ</code></pre>
+</div>
+</section>
+</section>
+<section >
+<section >
+<h2>Floyd-Warshall Algorithm</h2>
+<ul class="simple">
+<li><p>All pairs shortest path algorithm</p></li>
+<li><p>Dynamic programming</p></li>
+<li><p>Visualization <a class="reference external" href="https://www.cs.usfca.edu/~galles/visualization/Floyd.html">https://www.cs.usfca.edu/~galles/visualization/Floyd.html</a></p></li>
+</ul>
+<div class="literal-block-wrapper docutils container" id="id15">
+<div class="code-block-caption"><span class="caption-text">Floyd-Warshall Algorithm</span></div>
+<pre><code data-trim data-noescape class="default">function floyd_warshall(graph):
+  initialize a distance matrix with infinite values
+  set diagonal entries to 0 (distance to itself)
+
+  for each edge (u, v) with weight w in the graph:
+    set distance[u][v] = w
+
+  for k in all vertices:
+    for i in all vertices:
+      for j in all vertices:
+        if distance[i][j] &gt; distance[i][k] + distance[k][j]:
+          set distance[i][j] = distance[i][k] + distance[k][j]</code></pre>
+</div>
 </section>
 
         </div>
