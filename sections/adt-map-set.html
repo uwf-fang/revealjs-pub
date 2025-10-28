@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Data Structure and Algorithm Design II</title>
+  <title>Map and Set ADTs</title>
     <link rel="stylesheet" type="text/css" href="../_static/revealjs/dist/reveal.css?v=40f0a724" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/idea.css?v=e717f371" />
@@ -20,50 +20,64 @@
     <div class="reveal">
         <div class="slides" role="main">
             <section >
-<section data-background-color="white" data-background-image="../_static/logo.png" data-background-size="50%" data-background-position="top center" data-background-repeat="no-repeat">
-<h1>Data Structure and Algorithm Design II</h1>
-<div class="subtitle docutils container">
-<p>Xingang (Ian) Fang</p>
-<p>Copyright © Xingang (Ian) Fang 2022-25</p>
-</div>
+<section >
+<h1>Map and Set ADTs</h1>
+<ul class="simple">
+<li><p>Overview</p></li>
+<li><p>Behaviors</p></li>
+</ul>
 </section>
 </section>
 <section >
 <section >
-<h2>Modules</h2>
+<h2>Overview</h2>
+<ul class="simple">
+<li><p>A map ADT is a collection of key-value pairs, where each key is unique and is
+used to retrieve the corresponding value.</p></li>
+<li><p>A set ADT is a collection of unique elements, with no specific order.</p></li>
+<li><p>Characteristics</p>
+<ul>
+<li><p>Homogeneous</p></li>
+<li><p>Keys in map are unique</p></li>
+<li><p>Elements in set are unique</p></li>
+<li><p>Finite</p></li>
+<li><p>Dynamic size</p></li>
+</ul>
+</li>
+<li><p>Applications</p>
+<ul>
+<li><p>Database indexing (map)</p></li>
+<li><p>Caching (map)</p></li>
+<li><p>Key-value storage (map)</p></li>
+<li><p>Membership testing (set)</p></li>
+<li><p>Removing duplicates from a collection (set)</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section >
+<section >
+<h2>Behaviors</h2>
 <div class="flex-container docutils container">
 <div class="half docutils container">
+<p><strong>Map Behaviors</strong></p>
 <ul class="simple">
-<li><p><a class="reference internal" href="ch01.html"><span class="doc">Chapter 1</span></a></p></li>
-<li><p><a class="reference internal" href="ch02.html"><span class="doc">Chapter 2</span></a></p></li>
-<li><p><a class="reference internal" href="ch03.html"><span class="doc">Chapter 3</span></a></p></li>
-<li><p><a class="reference internal" href="ch04.html"><span class="doc">Chapter 4</span></a></p></li>
-<li><p><a class="reference internal" href="ch05.html"><span class="doc">Chapter 5</span></a></p></li>
-<li><p><a class="reference internal" href="ch06.html"><span class="doc">Chapter 6</span></a></p></li>
-<li><p><a class="reference internal" href="ch07.html"><span class="doc">Chapter 7</span></a></p></li>
-<li><p><a class="reference internal" href="ch08.html"><span class="doc">Chapter 8</span></a></p></li>
+<li><p>put: Insert a key-value pair into the map.</p></li>
+<li><p>get: Retrieve the value associated with a given key.</p></li>
+<li><p>remove: Remove a key-value pair from the map using the key.</p></li>
+<li><p>containsKey: Check if a key exists in the map.</p></li>
 </ul>
 </div>
 <div class="half docutils container">
+<p><strong>Set Behaviors</strong></p>
 <ul class="simple">
-<li><p><a class="reference internal" href="ch09.html"><span class="doc">Chapter 9</span></a></p></li>
-<li><p><a class="reference internal" href="ch10.html"><span class="doc">Chapter 10</span></a></p></li>
-<li><p><a class="reference internal" href="ch11.html"><span class="doc">Chapter 11</span></a></p></li>
-<li><p><a class="reference internal" href="ch12.html"><span class="doc">Chapter 12</span></a></p></li>
-<li><p><a class="reference internal" href="ch13.html"><span class="doc">Chapter 13</span></a></p></li>
-<li><p><a class="reference internal" href="ch14.html"><span class="doc">Chapter 14</span></a></p></li>
-<li><p><a class="reference internal" href="ch15.html"><span class="doc">Chapter 15</span></a></p></li>
+<li><p>add: Insert an element into the set.</p></li>
+<li><p>remove: Remove an element from the set.</p></li>
+<li><p>contains: Check if an element exists in the set.</p></li>
 </ul>
 </div>
 </div>
-</section>
-</section>
-<section >
-<section >
-<h2>Other Documents</h2>
-<ul class="simple">
-<li><p><a class="reference internal" href="course_summary.html"><span class="doc">Course contents summary</span></a></p></li>
-</ul>
 </section>
 
         </div>
