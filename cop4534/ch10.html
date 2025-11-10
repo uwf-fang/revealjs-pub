@@ -50,17 +50,6 @@
 </section>
 <section >
 <section >
-<h2>Outline</h2>
-<ul class="simple">
-<li><p>Overview</p></li>
-<li><p>Applications</p></li>
-<li><p>Benefit and Challenges</p></li>
-<li><p>Complexity</p></li>
-</ul>
-</section>
-</section>
-<section >
-<section >
 <h2>Overview</h2>
 <ul class="simple">
 <li><p>An algorithmic paradigm</p></li>
@@ -69,42 +58,40 @@
 <li><p>Store the result in a table for future use</p></li>
 </ul>
 </section>
-</section>
 <section >
-<section >
-<h2>Characteristics</h2>
+<h3>Characteristics</h3>
 <ul class="simple">
+<li><p>What makes a problem suitable for dynamic programming?</p>
+<ul>
 <li><p>Optimal substructure</p></li>
 <li><p>Overlapping subproblems</p></li>
+</ul>
+</li>
+<li><p>Implementation techniques:</p>
+<ul>
 <li><p>Memoization/tabulation</p></li>
 <li><p>Recursive formulation</p></li>
 <li><p>Either top-down or bottom-up</p></li>
 </ul>
-</section>
+</li>
+</ul>
 </section>
 <section >
-<section >
-<h2>DP Algorithms</h2>
+<h3>Problems Solved by DP</h3>
 <ul class="simple">
 <li><p>Enumeration, decision or optimization types of problems</p></li>
-<li><p>Fibonacci numbers</p></li>
+<li><p><strong>Fibonacci numbers</strong></p></li>
+<li><p><strong>Max subarray sum (Kadane’s algorithm)</strong></p></li>
+<li><p><strong>Matrix chain multiplication</strong></p></li>
+<li><p><strong>Longest common subsequence</strong></p></li>
 <li><p>Knapsack problem</p></li>
-<li><p>Longest common subsequence</p></li>
 <li><p>Integer partition</p></li>
 <li><p>Coin change</p></li>
 <li><p>Rod cutting</p></li>
-<li><p>Matrix chain multiplication</p></li>
-</ul>
-<p><strong>Quick Exercises:</strong></p>
-<ul class="simple">
-<li><p>Can you categorize the above problems by their problem types?</p></li>
-<li><p>Why dynamic programming is not a good fit for bin packing problems?</p></li>
 </ul>
 </section>
-</section>
 <section >
-<section >
-<h2>Benefit and Challenges</h2>
+<h3>Benefit and Challenges</h3>
 <div class="flex-container docutils container">
 <div class="half docutils container">
 <p><strong>Benefits</strong></p>
@@ -137,13 +124,14 @@
 <li><p>Number of distinct subproblems</p></li>
 <li><p>Work per subproblem</p></li>
 <li><p>Memoization/tabulation overhead</p></li>
-<li><p>Recursive call overhead</p></li>
+<li><p>Recursive call overhead (top-down approach)</p></li>
 </ul>
 </div>
 <div class="half docutils container">
 <p><strong>Space Complexity</strong></p>
 <ul class="simple">
-<li><p>number of distinct subproblems</p></li>
+<li><p>Memorization table size</p></li>
+<li><p>Call stack space (top-down approach)</p></li>
 </ul>
 </div>
 </div>
