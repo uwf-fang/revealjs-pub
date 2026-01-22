@@ -70,7 +70,7 @@ memory management is more complicated than in the function context.</p></li>
 <li><p>Implicitly defined methods</p></li>
 <li><p>Common mem problems in classes</p></li>
 <li><p>The rule of three</p></li>
-<li><p><a href="#id5"><span class="problematic" id="id6">`Code example`__</span></a></p>
+<li><p><a class="reference external" href="https://github.com/uwf-fang/cop3530-examples/tree/main/m03-mem-man-class">Code example</a></p>
 <ul>
 <li><p>shallow-copy.cpp: class with dynamic data and shallow copy</p></li>
 <li><p>rule-of-3.cpp: improved version with the <strong>big three</strong></p></li>
@@ -122,7 +122,7 @@ dynamic data. Must be careful!</p></li>
 <li><p>The constructor with one parameter of the same type as the class</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">MyClass</span> <span class="pre">myObj(otherObj);</span></code> or <code class="docutils literal notranslate"><span class="pre">MyClass</span> <span class="pre">myObj</span> <span class="pre">=</span> <span class="pre">otherObj;</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">MyClass</span> <span class="pre">*obj</span> <span class="pre">=</span> <span class="pre">new</span> <span class="pre">MyClass(otherObj);</span></code></p></li>
-<li><p><strong>Parameter passing by value ``void func(MyClass obj)``</strong></p></li>
+<li><p>Parameter passing by value <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">func(MyClass</span> <span class="pre">obj)</span></code></p></li>
 </ul>
 </li>
 <li><p>Copy assignment operator overloading</p>
@@ -196,7 +196,7 @@ explicitly.</p></li>
 <section >
 <h3>Example Class with Dynamic Data</h3>
 <ul class="simple">
-<li><p><a href="#id2"><span class="problematic" id="id3">``</span></a>Code Example``__: see the files in the link above.</p></li>
+<li><p><a class="reference external" href="https://github.com/uwf-fang/cop3530-examples/blob/main/m03-mem-man-class/rule-of-3.cpp">Code Example</a></p></li>
 <li><p>Copy constructor:</p>
 <ul>
 <li><p>Must take a const reference to class. Pass by value will trigger the copy
