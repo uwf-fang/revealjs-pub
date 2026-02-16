@@ -108,6 +108,63 @@ B calls A)</p></li>
 </ul>
 </section>
 <section >
+<h3>Recursive Linear Search Example</h3>
+<ul class="simple">
+<li><p>Linear search is a fundamental search algorithm that checks each element
+sequentially until the target is found or the end of the array is reached.</p></li>
+<li><p>Recursion provides an elegant alternative to iteration for implementing
+linear search.</p></li>
+<li><p>Three common approaches:</p>
+<ol class="arabic simple">
+<li><p>Helper function with index parameter</p></li>
+<li><p>Improvement on method 1: default parameter (no helper function)</p></li>
+<li><p>Backward search (compare tail element)</p></li>
+</ol>
+</li>
+</ul>
+</section>
+<section >
+<h3>Method 1: Helper Function with Index Parameter</h3>
+<p>The most straightforward approach uses a helper function to manage the current
+index being checked:</p>
+<pre data-id="method-1-helper-function-with-index-parameter"><code data-trim data-noescape class="cpp">int searchFirst(int *array, int size, int toSearch) {
+  return searchFirstHelper(array, size, toSearch, 0);
+}
+
+int searchFirstHelper(int *array, int size, int toSearch, int start) {
+  if (start &gt;= size)  // hit the end
+    return -1;
+  if (array[start] == toSearch) return start;
+  return searchFirstHelper(array, size, toSearch, start + 1);
+}</code></pre>
+<p>The wrapper function calls a helper function that tracks the current starting
+index. This separates the public interface from the recursive implementation.</p>
+</section>
+<section >
+<h3>Method 2: Default Parameter (No Helper Function)</h3>
+<p>Using default parameters eliminates the need for a separate helper function:</p>
+<pre data-id="method-2-default-parameter-no-helper-function"><code data-trim data-noescape class="cpp">int searchFirst1(int *array, int size, int toSearch, int start = 0) {
+  if (start &gt;= size)  // hit the end
+    return -1;
+  if (array[start] == toSearch) return start;
+  return searchFirst1(array, size, toSearch, start + 1);
+}</code></pre>
+<p>This approach is cleaner for small implementations and allows callers to
+optionally provide a custom starting position.</p>
+</section>
+<section >
+<h3>Method 3: Backward Search (Compare Tail Element)</h3>
+<p>This method searches from the end of the array backward:</p>
+<pre data-id="method-3-backward-search-compare-tail-element"><code data-trim data-noescape class="cpp">int searchLast(int *array, int size, int toSearch) {
+  if (size == 0) return -1;
+  if (array[size - 1] == toSearch) return size - 1;
+  else return searchLast(array, size - 1, toSearch);
+}</code></pre>
+<p>Instead of incrementing an index from the beginning, this method decrements
+the size parameter, effectively checking the last element first and moving
+backward through the array.</p>
+</section>
+<section >
 <h3>Time complexity</h3>
 <ul class="simple">
 <li><p>Use recursive trees to estimate time complexity.</p></li>
