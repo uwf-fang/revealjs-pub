@@ -49,13 +49,208 @@
 <section >
 <h2>Assignment Collection</h2>
 <ul class="simple">
-<li><p>GitHub Classroom</p></li>
+<li><p><a class="reference external" href="https://uwf-dsa-teaching.github.io">Classroom 50</a></p>
+<ul>
+<li><p>UWF’s self-hosted assignment and autograding service</p></li>
+<li><p>Replaces GitHub Classroom for this course</p></li>
+<li><p>Uses GitHub repositories for starter code, submissions, and feedback</p></li>
+<li><p>Uses GitHub Actions to run automated checks</p></li>
+</ul>
+</li>
 <li><p>git</p>
 <ul>
 <li><p>Command line</p></li>
 <li><p>GUI clients (optional)</p></li>
 </ul>
 </li>
+<li><p><a class="reference internal" href="gh-cli.html"><span class="doc">GitHub CLI for experienced users</span></a> (<code class="docutils literal notranslate"><span class="pre">gh</span></code>)</p>
+<ul>
+<li><p>An optional command-line alternative for managing the GitHub repository</p></li>
+<li><p>Read the guide before using the Classroom 50 <code class="docutils literal notranslate"><span class="pre">gh</span></code> student extension</p></li>
+</ul>
+</li>
+</ul>
+<p>For both COP3530 and COP4534, use the Classroom 50 web interface for the
+assignment workflow unless you are already comfortable with GitHub and the
+command line. The web interface is the recommended and supported way to accept
+assignments, connect your course account, and check submission status. The
+<code class="docutils literal notranslate"><span class="pre">gh</span></code> guide is provided for experienced users who prefer to manage their
+GitHub repository from a terminal; it does not replace the Classroom 50 web
+interface.</p>
+</section>
+</section>
+<section >
+<section >
+<h2>Classroom 50 Workflow</h2>
+<p>Classroom 50 is the course’s frontend for distributing assignments and
+checking submissions. It works with GitHub, so the skills you practice here
+are the same skills used in professional software development.</p>
+</section>
+<section >
+<h3>Before you begin</h3>
+<ul class="simple">
+<li><p>Create and verify a GitHub account: <a class="reference external" href="https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github">GitHub account setup</a></p></li>
+<li><p>Use the GitHub username associated with your course account.</p></li>
+<li><p>Accept any invitation to the course GitHub organization.</p></li>
+<li><p>Install Git and a C++ compiler, or use the remote development environment
+described in the development-environment slides.</p></li>
+<li><p>Bookmark the UWF Classroom 50 site:
+<a class="reference external" href="https://uwf-dsa-teaching.github.io">uwf-dsa-teaching.github.io</a></p></li>
+</ul>
+</section>
+<section >
+<h3>Web interface sign-in</h3>
+<p>The sign-in method depends on which Classroom 50 portal you are using:</p>
+<ul class="simple">
+<li><p><strong>Public hosted app (``classroom50.org``):</strong> click <strong>Sign in with GitHub</strong>
+and complete the standard OAuth flow.</p></li>
+<li><p><strong>Self-hosted course portal (such as
+``https://uwf-dsa-teaching.github.io/``):</strong> sign in using a GitHub Personal Access Token (Classic):</p>
+<ol class="arabic simple">
+<li><p>On the sign-in card, click <strong>Other sign-in methods</strong>, then <strong>Use a
+personal access token</strong>.</p></li>
+<li><p>Open the <a class="reference external" href="https://github.com/settings/tokens/new?description=Classroom+50+Student+Sign-In&amp;scopes=repo,workflow,admin:org,read:org,read:user,delete_repo">GitHub Classic Token Generator</a>.</p></li>
+<li><p>Scroll to the bottom of the GitHub page and click <strong>Generate token</strong>.</p></li>
+<li><p>Copy the generated <code class="docutils literal notranslate"><span class="pre">ghp_...</span></code> token, paste it into Classroom 50, and
+click <strong>Sign in</strong>.</p></li>
+</ol>
+</li>
+</ul>
+<p>..note:</p>
+<pre data-id="web-interface-sign-in"><code data-trim data-noescape class="default">Treat the token like a password. Do not share it or commit it to a
+repository.</code></pre>
+</section>
+<section >
+<h3>Select your roster name carefully</h3>
+<ul class="simple">
+<li><p>When Classroom 50 asks you to bind your account to the course roster, select
+<strong>your exact name</strong>.</p></li>
+<li><p>Double-check before confirming</p></li>
+<li><p>Selected the wrong name:</p>
+<ul>
+<li><p>contact the instructor immediately</p></li>
+</ul>
+</li>
+<li><p>Your name is not listed:</p>
+<ul>
+<li><p>do <strong>not</strong> select another student’s name.</p></li>
+<li><p>Contact the instructor immediately so you can be added to the roster.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section >
+<h3>Finish accepting the assignment</h3>
+<ol class="arabic simple">
+<li><p>Click <strong>Accept assignment</strong>.</p></li>
+<li><p>Classroom 50 creates a private repository named
+<code class="docutils literal notranslate"><span class="pre">&lt;classroom&gt;-&lt;assignment&gt;-&lt;your-username&gt;</span></code> in the GitHub organization.</p></li>
+<li><p>Open the link to the new repository on GitHub and copy its SSH or HTTPS
+clone URL.</p></li>
+</ol>
+</section>
+<section >
+<h3>Clone and develop locally</h3>
+<ol class="arabic">
+<li><p>Clone the assignment repository once, then work in that local directory:
+.. code-block:: console</p>
+<blockquote>
+<div><p>git clone REPOSITORY-URL
+cd ASSIGNMENT-DIRECTORY</p>
+</div></blockquote>
+<p>Experienced GitHub CLI users may use <code class="docutils literal notranslate"><span class="pre">gh</span> <span class="pre">repo</span> <span class="pre">clone</span></code> instead. See the
+<a class="reference internal" href="gh-cli.html"><span class="doc">GitHub CLI guide</span></a> for the commands and prerequisites.</p>
+</li>
+<li><p>The normal development loop is:</p></li>
+</ol>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Read the assignment instructions and inspect the starter code.</p></li>
+<li><p>Implement one small change at a time.</p></li>
+<li><p>Build and test locally.</p></li>
+<li><p>Check <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> and review your diff.</p></li>
+<li><p>Commit meaningful checkpoints.</p></li>
+<li><p>Push your commits to GitHub.</p></li>
+</ol>
+<blockquote>
+<div><pre><code data-trim data-noescape class="console">git add .
+git commit -m &quot;Implement the requested feature&quot;
+git push</code></pre>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section >
+<h3>Submission and feedback</h3>
+<ul class="simple">
+<li><p>A push to the assignment repository is the submission event. Push before
+the deadline and do not wait for the last few minutes.</p></li>
+<li><p>Open the repository’s <strong>Actions</strong> tab after pushing to see whether the
+automated checks passed or failed.</p></li>
+<li><p>Read the check output carefully. A failed check is feedback about the
+current commit, not proof that the entire project is incorrect.</p></li>
+<li><p>Fix the problem locally, commit again, and push again.</p></li>
+<li><p>The instructor may use the repository, commit history, and automated test
+results when grading.</p></li>
+</ul>
+</section>
+<section >
+<h3>Good repository habits</h3>
+<ul class="simple">
+<li><p>Keep the repository organized and submit only the requested files.</p></li>
+<li><p>Commit frequently with messages that describe the change.</p></li>
+<li><p>Push regularly so that your work is backed up on GitHub.</p></li>
+<li><p>Never commit generated binaries, passwords, API keys, or other secrets.</p></li>
+<li><p>Ask for help by sharing the repository URL and the relevant error output;
+do not send a screenshot when copyable text is available.</p></li>
+</ul>
+</section>
+<section >
+<h3>Troubleshooting</h3>
+<ul class="simple">
+<li><p><strong>The assignment repository was not created:</strong> return to the assignment
+link, verify that you are signed in to the correct GitHub account, and make
+sure any organization invitation has been accepted.</p></li>
+<li><p><strong>Permission denied when cloning or pushing:</strong> verify the remote URL and
+your GitHub authentication. SSH and HTTPS are both supported, but they
+require different authentication setup.</p></li>
+<li><p><strong>Checks are still running:</strong> wait for the GitHub Actions workflow to
+finish, then refresh the Actions or checks page.</p></li>
+<li><p><strong>A check failed:</strong> open the failed job, read the first relevant error, fix
+it locally, and push a new commit.</p></li>
+<li><p><strong>The site or repository is unavailable:</strong> preserve your local commits and
+contact the instructor with the assignment name, repository URL, and error
+message.</p></li>
+</ul>
+<p>Classroom 50 is hosted for this course at
+<a class="reference external" href="https://uwf-dsa-teaching.github.io">uwf-dsa-teaching.github.io</a>. Use that
+address and the course-provided assignment links. The public
+<code class="docutils literal notranslate"><span class="pre">classroom50.org</span></code> portal is a separate hosted deployment; use it only when
+your instructor directs you to do so.</p>
+</section>
+</section>
+<section >
+<section >
+<h2>Grading Process</h2>
+<ul class="simple">
+<li><p>Automated checks provide fast feedback on correctness and basic project
+requirements.</p></li>
+<li><p>Passing all automated checks does not necessarily guarantee full credit.</p></li>
+<li><p>The instructor may also evaluate design, readability, documentation,
+memory management, and commit history.</p></li>
+<li><p>Read the assignment rubric before submitting and test edge cases yourself.</p></li>
+</ul>
+</section>
+</section>
+<section >
+<section >
+<h2>Development workflow</h2>
+<ul class="simple">
+<li><p>Understand the requirements.</p></li>
+<li><p>Plan the data structures and algorithms before writing code.</p></li>
+<li><p>Implement incrementally.</p></li>
+<li><p>Test normal cases, boundary cases, and invalid input.</p></li>
+<li><p>Commit and push a coherent checkpoint.</p></li>
+<li><p>Review the automated feedback and iterate.</p></li>
 </ul>
 </section>
 
