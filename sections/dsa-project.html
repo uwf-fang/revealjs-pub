@@ -28,41 +28,85 @@
 <section >
 <h2>Overview</h2>
 <ul class="simple">
-<li><p>Learning outcomes</p></li>
-<li><p>Assignment Collection</p></li>
-<li><p>Grading Process</p></li>
-<li><p>Development workflow</p></li>
-</ul>
-</section>
-</section>
-<section >
-<section >
-<h2>Learning outcomes</h2>
-<ul class="simple">
+<li><p>Learning outcomes</p>
+<ul>
 <li><p>Practice DSA concepts</p></li>
 <li><p>Learn end-to-end project development</p></li>
 <li><p>Learn essential tools and workflows</p></li>
 </ul>
+</li>
+<li><p>Account setup</p>
+<ul>
+<li><p>GitHub account</p></li>
+<li><p>Join the course GitHub organization</p></li>
+<li><p>Login to Classroom 50 web frontend</p></li>
+</ul>
+</li>
+<li><p>Development workflow</p>
+<ul>
+<li><p>Accept the assignment to create a private repository</p></li>
+<li><p>Clone the assignment repository locally</p></li>
+<li><p>Implement incrementally</p></li>
+<li><p>Test locally</p></li>
+<li><p>Commit and push to GitHub</p></li>
+</ul>
+</li>
+</ul>
 </section>
 </section>
 <section >
 <section >
-<h2>Assignment Collection Workflow: Prep</h2>
+<h2>GitHub Account and Organization</h2>
 <ul class="simple">
-<li><p>Create and verify a GitHub account: <a class="reference external" href="https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github">GitHub account setup</a></p></li>
-<li><p>Use your UWF email to register or add it to your existing GitHub account</p></li>
-<li><p>Accept any invitation to the course GitHub organization.</p></li>
-<li><p>Prepare your development environment.</p></li>
-<li><p>Open the assignment link supplied by your instructor.</p></li>
-<li><p>Sign in with GitHub if prompted, select your exact roster name, and accept
-the assignment. If your name is missing or incorrect, contact the
-instructor; do not select another student’s name.</p></li>
-<li><p>Open the new GitHub repository and copy its SSH or HTTPS clone URL for
-cloning</p></li>
+<li><p>GitHub Account Setup</p>
+<ul>
+<li><p><strong>Option A (New to GitHub)</strong>:</p>
+<ol class="arabic simple">
+<li><p>Register a new account at <a class="reference external" href="https://github.com/signup">github.com/signup</a>.</p></li>
+<li><p>Use your official university email (<cite>&#64;uwf.edu</cite>).</p></li>
+</ol>
+</li>
+<li><p><strong>Option B (Existing GitHub Account)</strong>:</p>
+<ol class="arabic simple">
+<li><p>Log into your existing GitHub account.</p></li>
+<li><p>Go to <a class="reference external" href="https://github.com/settings/emails">Settings → Emails</a>.</p></li>
+<li><p>Add and verify your university email (<cite>&#64;uwf.edu</cite>).</p></li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>Join the course GitHub organization</p>
+<ol class="arabic simple">
+<li><p>Accept the invitation from email to join the course GitHub organization.</p></li>
+<li><p>If you do not see an invitation, contact your instructor.</p></li>
+</ol>
+</li>
 </ul>
 </section>
 <section >
-<h3>Clone and develop locally</h3>
+<h3>Classroom 50 Web Frontend</h3>
+<ul class="simple">
+<li><p>Open the portal at <a class="reference external" href="https://uwf-dsa-teaching.github.io">https://uwf-dsa-teaching.github.io</a></p>
+<ul>
+<li><p>Do not use the official classroom50.org to avoid version mismatch</p></li>
+</ul>
+</li>
+<li><p>Sign in using Personal Access Token (PAT) generated from your GitHub account</p>
+<ul>
+<li><p>Default GitHub login will fail due to the network problem</p></li>
+<li><p>Use the <a class="reference external" href="https://github.com/settings/tokens/new?scopes=read:user,read:org,repo,workflow&amp;description=Classroom50-Student-Portal-Sign-In">Pre-configured PAT</a>
+URL to generate a token with the required scopes</p></li>
+<li><p><strong>Change the expiration to the end of the semester</strong> to avoid token expiration during the course</p></li>
+</ul>
+</li>
+<li><p>You should be able to see your course organization listed there. Open it to
+see your assignments.</p></li>
+</ul>
+</section>
+</section>
+<section >
+<section >
+<h2>Development Workflow: Cloning</h2>
 <ol class="arabic">
 <li><p>Clone the assignment repository once, then work in that local directory:</p>
 <pre><code data-trim data-noescape class="console">git clone REPOSITORY-URL
@@ -70,32 +114,37 @@ cd ASSIGNMENT-DIRECTORY</code></pre>
 <p>Experienced GitHub CLI users may use <code class="docutils literal notranslate"><span class="pre">gh</span> <span class="pre">repo</span> <span class="pre">clone</span></code> instead. See the
 <a class="reference internal" href="gh-cli.html"><span class="doc">GitHub CLI guide</span></a> for the commands and prerequisites.</p>
 </li>
-<li><p>The normal development loop is:</p></li>
 </ol>
-<blockquote>
-<div><ol class="arabic simple">
+</section>
+<section >
+<h3>Development Workflow: Implementing</h3>
+<p><strong>The normal development loop:</strong></p>
+<ol class="arabic simple">
 <li><p>Read the assignment instructions and inspect the starter code.</p></li>
 <li><p>Implement one small change at a time.</p></li>
 <li><p>Build and test locally using make commands.</p></li>
 <li><p>Check <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> and review your diff.</p></li>
 <li><p>Commit meaningful checkpoints.</p></li>
-<li><p>Push your commits to GitHub.</p></li>
+<li><p>Optionally, push your commits to GitHub (avoid pushing every minor change
+to save shared autograding quota).</p></li>
 </ol>
 <blockquote>
 <div><pre><code data-trim data-noescape class="console">git add .
 git commit -m &quot;Implement the requested feature&quot;
 git push origin main</code></pre>
 </div></blockquote>
-</div></blockquote>
 </section>
 <section >
-<h3>Submission and feedback</h3>
+<h3>Submission and Check Feedback</h3>
 <ul class="simple">
+<li><p>Every grading items has a corresponding automated check with make targets.
+Run the checks locally to see the immediate feedback.</p></li>
 <li><p>A push to the assignment repository is the submission event. Push before
 the deadline and do not wait for the last few minutes.</p></li>
-<li><p>Open the repository’s <strong>Actions</strong> tab if you need to inspect automated checks.</p></li>
-<li><p>Find grading results in the repository’s <strong>Releases</strong> display; you usually do
-not need to return to the Classroom 50 web frontend.</p></li>
+<li><p>Open the repository’s <strong>Actions</strong> tab to inspect automated grading processes.</p></li>
+<li><p>Find grading results in the repository’s <strong>Releases</strong> display. The Classroom
+50 web frontend is useful for staff monitoring, but students normally work
+from the assignment repository after accepting it.</p></li>
 <li><p>Fix the problem locally, commit again, and push again.</p></li>
 <li><p>The instructor may use the repository, commit history, and automated test
 results when grading.</p></li>
@@ -129,6 +178,9 @@ your GitHub authentication. SSH and HTTPS are both supported, but they
 require different authentication setup.</p></li>
 <li><p><strong>Checks are still running:</strong> wait for the GitHub Actions workflow to
 finish, then refresh the Actions or checks page.</p></li>
+<li><p><strong>macOS memory checks fail:</strong> <code class="docutils literal notranslate"><span class="pre">valgrind</span></code> is unavailable locally. Use
+<a class="reference external" href="https://github.com/features/codespaces">GitHub Codespaces</a> (<strong>Code -&gt;
+Codespaces -&gt; Create codespace on main</strong>) for <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">test-mem</span></code>.</p></li>
 <li><p><strong>A check failed:</strong> open the failed job, read the first relevant error, fix
 it locally, and push a new commit.</p></li>
 <li><p><strong>The site or repository is unavailable:</strong> preserve your local commits and
@@ -143,23 +195,11 @@ message.</p></li>
 <ul class="simple">
 <li><p>Automated checks provide fast feedback on correctness and basic project
 requirements.</p></li>
-<li><p>Passing all automated checks does not necessarily guarantee full credit.</p></li>
+<li><p>Passing all automated checks does not necessarily guarantee full credit, as
+there are subjective grading items that require human evaluation.</p></li>
 <li><p>The instructor may also evaluate design, readability, documentation,
 memory management, and commit history.</p></li>
 <li><p>Read the assignment rubric before submitting and test edge cases yourself.</p></li>
-</ul>
-</section>
-</section>
-<section >
-<section >
-<h2>Development workflow</h2>
-<ul class="simple">
-<li><p>Understand the requirements.</p></li>
-<li><p>Plan the data structures and algorithms before writing code.</p></li>
-<li><p>Implement incrementally.</p></li>
-<li><p>Test normal cases, boundary cases, and invalid input.</p></li>
-<li><p>Commit and push a coherent checkpoint.</p></li>
-<li><p>Review the automated feedback and iterate.</p></li>
 </ul>
 </section>
 
