@@ -84,19 +84,46 @@
 </ul>
 </section>
 <section >
+<h3>Organization Membership Is Not Assignment Acceptance</h3>
+<ul class="simple">
+<li><p>Accepting the GitHub organization invitation only gives your account access
+to the course organization. It does <strong>not</strong> accept an assignment or create
+your assignment repository.</p></li>
+<li><p>Do <strong>not</strong> search the organization for the template repository. Do not fork,
+clone, or edit the template repository; work there is not your submission.</p></li>
+<li><p>After accepting the organization invitation:</p>
+<ol class="arabic simple">
+<li><p>Return to the assignment link provided in Canvas or on the course website.</p></li>
+<li><p>Sign in to the UWF Classroom 50 portal with your PAT.</p></li>
+<li><p>Verify the course and assignment shown, then select your exact roster name.</p></li>
+<li><p>Accept the assignment and wait for Classroom 50 to create your private
+repository.</p></li>
+<li><p>Open and clone the repository link displayed for you. Work only in that
+repository.</p></li>
+</ol>
+</li>
+</ul>
+</section>
+<section >
 <h3>Classroom 50 Web Frontend</h3>
 <ul class="simple">
-<li><p>Open the portal at <a class="reference external" href="https://uwf-dsa-teaching.github.io">https://uwf-dsa-teaching.github.io</a></p>
+<li><p><strong>Required login method: GitHub Classic Personal Access Token (PAT)</strong></p></li>
+<li><p>Open the UWF portal at <a class="reference external" href="https://uwf-dsa-teaching.github.io">https://uwf-dsa-teaching.github.io</a></p>
 <ul>
-<li><p>Do not use the official classroom50.org to avoid version mismatch</p></li>
+<li><p>Do not use the public classroom50.org site.</p></li>
+<li><p>Do not select the standard <strong>Sign in with GitHub</strong> button. It will fail on
+the self-hosted portal.</p></li>
 </ul>
 </li>
-<li><p>Sign in using Personal Access Token (PAT) generated from your GitHub account</p>
+<li><p>Select <strong>Other sign-in methods -&gt; Use a personal access token</strong> and paste
+your PAT.</p></li>
+<li><p>Generate the PAT from your GitHub account:</p>
 <ul>
-<li><p>Default GitHub login will fail due to the network problem</p></li>
 <li><p>Use the <a class="reference external" href="https://github.com/settings/tokens/new?description=Classroom+50+Student+Sign-In&amp;scopes=repo,workflow,admin:org,read:org,read:user,delete_repo">Pre-configured PAT</a>
 URL to generate a token with the required scopes</p></li>
-<li><p><strong>Change the expiration to the end of the semester</strong> to avoid token expiration during the course</p></li>
+<li><p><strong>Change the expiration to the end of the semester or later.</strong></p></li>
+<li><p>Copy the token immediately; GitHub displays it only once.</p></li>
+<li><p>Treat the PAT like a password. Never share or commit it.</p></li>
 </ul>
 </li>
 <li><p>You should be able to see your course organization listed there. Open it to
