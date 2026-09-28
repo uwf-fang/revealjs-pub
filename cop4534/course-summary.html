@@ -156,17 +156,21 @@ due to the complexity of implementations). MC, MA, coding</p></li>
 solve it</p></li>
 <li><p>By the goal</p>
 <ul>
-<li><p>Enumeration (counting) - find all</p></li>
+<li><p>Enumeration - find all qualifying solutions</p></li>
 <li><p>Search - find one</p></li>
 <li><p>Optimization - find the best</p></li>
-<li><p>Decision - find true/false (yes/no)</p></li>
+<li><p>Decision - answer yes or no</p></li>
+<li><p>Counting - report how many qualifying solutions</p></li>
 <li><p>Evaluation - calculate the value, usually math problems</p></li>
 </ul>
 </li>
 <li><p>Relationships</p>
 <ul>
-<li><p>Enumeration can cover search and optimization problems.</p></li>
-<li><p>Decision is a special case of search.</p></li>
+<li><p>These are goals (requested outputs), not algorithmic paradigms.</p></li>
+<li><p>Enumerating all solutions can answer search, decision, counting, or
+optimization questions, but may do more work than necessary.</p></li>
+<li><p>Search asks for a witness; decision asks only whether one exists.</p></li>
+<li><p>Interactive reference: <a class="reference external" href="../_static/problem-type-paradigm.html">Connecting Problem Types to Algorithm Paradigms</a></p></li>
 </ul>
 </li>
 </ul>
@@ -180,10 +184,14 @@ solve it</p></li>
 <li><p>Not all algorithms fit into a single or any paradigm</p></li>
 <li><p>Brute-force</p></li>
 <li><p>Backtracking (brute-force with pruning on unfeasible partial solutions)</p></li>
-<li><p>Branch and bound (brute-force with pruning on less optimal partial solutions)</p></li>
-<li><p>Divide and conquer (not consider overlapping subproblems)</p></li>
-<li><p>Greedy (only look at the current best solution, no looking back)</p></li>
-<li><p>Dynamic programming (consider overlapping subproblems)</p></li>
+<li><p>Branch and bound (use bounds to prune partial candidates that cannot improve
+the best known solution; commonly used for exact optimization)</p></li>
+<li><p>Divide and conquer (solve subproblems and combine their results; suited to
+independent subproblems)</p></li>
+<li><p>Greedy (make locally best choices; exact only when a greedy-choice argument
+applies, otherwise may be heuristic or approximate)</p></li>
+<li><p>Dynamic programming (reuse results for overlapping subproblems; can compute
+an optimum, count, yes/no answer, or other value)</p></li>
 </ul>
 </section>
 <section >
@@ -209,11 +217,10 @@ check to return early</p></li>
 <section >
 <h3>Divide and conquer</h3>
 <ul class="simple">
-<li><p>Find one or all feasible solutions</p></li>
 <li><p>Divide the problem into subproblems, solve them individually, and combine
 the results</p></li>
-<li><p>Does not consider overlapping subproblems (they may exist but we will ignore
-them and compute them multiple times)</p></li>
+<li><p>Suited to problems whose subproblems can be solved independently; repeated
+subproblems may be recomputed</p></li>
 <li><p>Recursive structure</p></li>
 <li><p>Master method to solve time complexity</p></li>
 </ul>
@@ -221,23 +228,27 @@ them and compute them multiple times)</p></li>
 <section >
 <h3>Greedy</h3>
 <ul class="simple">
-<li><p>Find the best solution</p></li>
-<li><p>Usually approximate (Prim’s algorithm, Kruskal’s algorithm as exceptions)</p></li>
-<li><p>Only look at the current best solution, no looking back</p></li>
-<li><p>Usually linear time complexity <span class="math notranslate nohighlight">\(\Theta(n)\)</span>, usually the best time
-complexity you can get</p></li>
+<li><p>Make a locally best choice at each step</p></li>
+<li><p>Gives an exact optimum when the greedy-choice property is established;
+otherwise it may be a heuristic or approximation</p></li>
+<li><p>Choices are not revised later</p></li>
+<li><p>Runtime depends on the problem and implementation; it is not inherently
+linear</p></li>
 <li><p>Employs a <strong>priority queue</strong> or a sorted list to get the best option</p></li>
 </ul>
 </section>
 <section >
 <h3>Dynamic programming</h3>
 <ul class="simple">
-<li><p>Find all feasible solutions</p></li>
+<li><p>Compute a result from overlapping subproblems without necessarily listing
+every feasible solution</p></li>
 <li><p>Characteristics</p>
 <ul>
 <li><p>Overlapping subproblems</p></li>
-<li><p>Optimal substructure (the optimal solution can be constructed from optimal
-solutions of subproblems)</p></li>
+<li><p>Many DP optimization problems have optimal substructure: an optimal
+solution can be constructed from optimal solutions to subproblems</p></li>
+<li><p>Depending on the recurrence, DP can compute an optimum, count, Boolean
+answer, or other value</p></li>
 </ul>
 </li>
 <li><p>Tabulation (bottom-up) or memoization (top-down)</p></li>

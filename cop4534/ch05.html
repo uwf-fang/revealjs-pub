@@ -203,9 +203,9 @@ a decision point.</p>
 <ul>
 <li><p>Brute-force</p>
 <p>Brute-force paradigm can be used to solve a wide variety of problems.
-However, it is mostly not efficient and are replaced by more efficient
-algorithms. For the constraint satisfaction problems, backtracking is the
-better algorithm that can replace brute-force.</p>
+However, it may do substantial work when the candidate space is large.
+Backtracking adds feasibility checks on partial candidates and can reduce
+work when those checks allow large parts of the search space to be pruned.</p>
 </li>
 <li><p>Depth-first search (DFS)</p>
 <p>DFS and backtracking look similar because they both explore as deep as
@@ -217,11 +217,12 @@ or a tree and set the backtracking constraints to be whenever a dead end is
 reached.</p>
 </li>
 <li><p>Branch and bound</p>
-<p>Branch and bound and backtracking is similar because they both explore the
-tree spaces and prune the brach when a condition is met. However, branch and
-bound is used to find the optimal solution to a problem. Backtracking is used
-to find a solution to a constraint satisfaction problem. For that reason, the
-rule to prune the branch is different.</p>
+<p>Branch and bound and backtracking both explore a tree of partial candidates
+and prune branches, but use different pruning tests. Backtracking prunes a
+partial candidate when it cannot lead to a feasible solution. Branch and
+bound uses an objective bound to prune a branch that cannot improve the best
+known solution, so it is commonly used for optimization. Backtracking can
+also be adapted to optimization by keeping the best feasible solution found.</p>
 </li>
 </ul>
 </section>

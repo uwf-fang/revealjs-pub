@@ -35,6 +35,7 @@
 <ul class="simple">
 <li><p>B tree and variants</p></li>
 <li><p>Introduction to problem and algorithm classification</p></li>
+<li><p>Interactive reference: <a class="reference external" href="../_static/problem-type-paradigm.html">Connecting Problem Types to Algorithm Paradigms</a></p></li>
 </ul>
 </section>
 </section>
@@ -259,13 +260,19 @@ together, allowing for easy traversal of all keys in order.</p></li>
 <section >
 <h2>By The Goal</h2>
 <ul class="simple">
-<li><p>Find a(n) optimal/near-optimal solution - optimization</p></li>
-<li><p>Find whether something is true or false - decision</p></li>
-<li><p>Find a solution that satisfies given criteria - search</p></li>
-<li><p>Find all solutions that satisfies given criteria - enumeration</p></li>
-<li><p>Find how many ways to do something - counting</p></li>
+<li><p>Find one solution that satisfies the requirements - search</p></li>
+<li><p>Find all solutions that satisfy the requirements - enumeration</p></li>
+<li><p>Find the best solution according to an objective - optimization</p></li>
+<li><p>Determine whether at least one qualifying solution exists (yes/no) - decision</p></li>
+<li><p>Count the qualifying solutions - counting</p></li>
 <li><p>Find the output of a mathematical or logical function - evaluation problem</p></li>
 </ul>
+<p>These labels describe the requested output, not the algorithm used. A problem
+may have several related formulations. Enumerating all solutions can be used
+to find one, decide whether any exist, count them, or select the best one, but
+an algorithm may solve those goals directly without enumerating every
+solution. Search asks for a witness; decision asks only whether a witness
+exists.</p>
 </section>
 </section>
 <section >
@@ -329,6 +336,10 @@ provide high-level templates or frameworks for solving various types of
 computational problems.</p></li>
 <li><p>The choice of an algorithmic paradigm depends on the nature of the problem
 and the resources available to solve it.</p></li>
+<li><p>Problem types describe the requested output; paradigms describe how an
+algorithm is designed. A paradigm is not tied to one problem type: its fit
+depends on the problem structure, required output, and whether exactness is
+required.</p></li>
 </ul>
 </section>
 </section>
@@ -368,8 +379,9 @@ to the tour.</p></li>
 <li><p>No heuristic, no pruning, no optimization.</p></li>
 <li><p>Only feasible for small problem instances.</p></li>
 <li><p>Exact algorithms.</p></li>
-<li><p>Solves enumeration problems thus can also solve searching, optimization,
-decision and counting problems.</p></li>
+<li><p>By checking every candidate, brute force can implement enumeration and
+derive search, decision, counting, or optimization answers. It may do more
+work than needed for those goals.</p></li>
 <li><p>Examples: Combinations, Permutations, TSP, knapsack, etc.</p></li>
 </ul>
 </li>
