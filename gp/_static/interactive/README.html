@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>DSA Interactive Demonstrations Bundle</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/revealjs/dist/reveal.css?v=40f0a724" />
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/idea.css?v=e717f371" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  </head><body>
+    <div class="reveal">
+        <div class="slides" role="main">
+            <section >
+<section >
+<h1>DSA Interactive Demonstrations Bundle</h1>
+<p>This directory is a <strong>self-contained, standalone static web application bundle</strong> designed to be dropped directly into any web server or Sphinx documentation project.</p>
+<p>All assets, links, scripts, and stylesheets within this folder use strictly <strong>relative paths</strong>, requiring zero server-side build steps or external JavaScript dependencies.</p>
+<hr class="docutils" />
+</section>
+</section>
+<section >
+<section >
+<h2>Directory Structure</h2>
+<pre data-id="directory-structure"><code data-trim data-noescape class="default">interactive/
+├── index.html                 &lt;- Master Interactive Hub (entry point)
+├── shared-nav.css             &lt;- Shared course navigation bar &amp; style tokens
+├── card-sort.html             &lt;- Automated Card Sort Visualizer (stability tracking)
+├── movable-cards.html         &lt;- Hands-on Card Sorting Practice Workbench
+├── dijkstra.html              &lt;- Single-Source Dijkstra Shortest Path Visualizer
+├── problem-type-paradigm.html &lt;- Problem Types &amp; Algorithmic Paradigms Explorer
+├── adt-overview/              &lt;- 7-ADT Comparative Explorer
+│   ├── index.html             &lt;- ADT Explorer entry page
+│   ├── app.js                 &lt;- ADT UI controller &amp; quiz logic
+│   ├── adts.js                &lt;- ADT definitions &amp; workloads
+│   ├── impls.js               &lt;- Underlying data structure implementations
+│   └── style.css              &lt;- ADT Explorer styling
+└── README.md                  &lt;- This guide (Sphinx integration instructions)
+</code></pre>
+</section>
+<hr class="docutils" />
+</section>
+<section >
+<section >
+<h2>Sphinx Integration Guide</h2>
+<p>You can easily integrate this entire <code class="docutils literal notranslate"><span class="pre">interactive/</span></code> folder into your Sphinx documentation website using one of the following methods:</p>
+</section>
+<section >
+<h3>Method 1: Drop into Sphinx <code class="docutils literal notranslate"><span class="pre">_static/</span></code> Directory (Recommended)</h3>
+<ol class="arabic">
+<li><p>Copy the entire <code class="docutils literal notranslate"><span class="pre">interactive/</span></code> folder into your Sphinx project’s static folder:</p>
+<pre><code data-trim data-noescape class="bash">cp -r interactive/ /path/to/sphinx-project/_static/
+</code></pre>
+</li>
+<li><p>In your Sphinx <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>, ensure the static path is configured:</p>
+<pre><code data-trim data-noescape class="python">html_static_path = ['_static']
+</code></pre>
+</li>
+<li><p>Link to the hub or individual tools from any documentation page:</p>
+<ul>
+<li><p><strong>In reStructuredText (<code class="docutils literal notranslate"><span class="pre">.rst</span></code>)</strong>:</p>
+<pre><code data-trim data-noescape class="rst">* `DSA Interactive Hub &lt;_static/interactive/index.html&gt;`_
+* `Card Sort Visualizer &lt;_static/interactive/card-sort.html&gt;`_
+* `Dijkstra Visualizer &lt;_static/interactive/dijkstra.html&gt;`_
+* `Problem Paradigms &lt;_static/interactive/problem-type-paradigm.html&gt;`_
+* `ADT Explorer &lt;_static/interactive/adt-overview/index.html&gt;`_
+</code></pre>
+</li>
+<li><p><strong>In MyST Markdown (<code class="docutils literal notranslate"><span class="pre">.md</span></code>)</strong>:</p>
+<pre><code data-trim data-noescape class="markdown">- [DSA Interactive Hub](_static/interactive/index.html)
+- [Card Sort Visualizer](_static/interactive/card-sort.html)
+- [Dijkstra Visualizer](_static/interactive/dijkstra.html)
+</code></pre>
+</li>
+</ul>
+</li>
+</ol>
+</section>
+<section >
+<h3>Method 2: Embed Directly in Sphinx Pages via <code class="docutils literal notranslate"><span class="pre">&lt;iframe&gt;</span></code></h3>
+<p>If you want an interactive demo embedded inline inside a Sphinx documentation page:</p>
+<ul>
+<li><p><strong>In reStructuredText (<code class="docutils literal notranslate"><span class="pre">.rst</span></code>)</strong>:</p>
+<pre><code data-trim data-noescape class="rst">.. raw:: html
+
+   &lt;iframe src=&quot;_static/interactive/card-sort.html&quot; width=&quot;100%&quot; height=&quot;750px&quot; style=&quot;border: 1.5px solid #1E2022; border-radius: 8px;&quot;&gt;&lt;/iframe&gt;
+</code></pre>
+</li>
+<li><p><strong>In MyST Markdown (<code class="docutils literal notranslate"><span class="pre">.md</span></code>)</strong>:</p>
+<pre><code data-trim data-noescape class="html">&lt;iframe src=&quot;_static/interactive/card-sort.html&quot; width=&quot;100%&quot; height=&quot;750px&quot; style=&quot;border: 1.5px solid #1E2022; border-radius: 8px;&quot;&gt;&lt;/iframe&gt;
+</code></pre>
+</li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section >
+<section >
+<h2>Design System &amp; Compliance</h2>
+<p>All modules in this bundle comply with <a class="reference internal" href="#../docs/style.md"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">../docs/style.md</span></code></span></a>:</p>
+<ul class="simple">
+<li><p><strong>Background</strong>: Pure <code class="docutils literal notranslate"><span class="pre">#FFFFFF</span></code> without texture</p></li>
+<li><p><strong>Typography</strong>: Montserrat (headings), Roboto (body), Courier Prime (code/metrics) via Google Fonts</p></li>
+<li><p><strong>Palette</strong>: Dark charcoal (<code class="docutils literal notranslate"><span class="pre">#1E2022</span></code>), Dark Blue (<code class="docutils literal notranslate"><span class="pre">#003366</span></code>), Dark Green (<code class="docutils literal notranslate"><span class="pre">#1E5631</span></code>), Dark Red (<code class="docutils literal notranslate"><span class="pre">#8B0000</span></code>)</p></li>
+<li><p><strong>Outlines</strong>: Minimalist 1.5px solid line-art borders</p></li>
+</ul>
+</section>
+
+        </div>
+    </div>
+    
+    <script src="../../../_static/revealjs/dist/reveal.js"></script>
+    
+    
+      <script src="../../../_static/revealjs/plugin/notes/notes.js"></script>
+      <script src="../../../_static/revealjs/plugin/highlight/highlight.js"></script>
+      <script src="../../../_static/revealjs/plugin/math/math.js"></script>
+      
+    
+    <script>
+        var revealjsConfig = new Object();
+        Object.assign(revealjsConfig, {"controls": true, "progress": true, "hash": true, "center": true, "transition": "slide", "slideNumber": true, "scrollActivationWidth": null});
+        
+        
+        
+          revealjsConfig.plugins = [
+            RevealNotes,RevealHighlight,RevealMath,
+          ];
+        
+        // More info https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize(revealjsConfig);
+    </script>
+
+  </body>
+</html>

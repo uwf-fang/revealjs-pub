@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>ADT Overview: Seven ADTs and Their Implementations</title>
+    <link rel="stylesheet" type="text/css" href="../../../../_static/revealjs/dist/reveal.css?v=40f0a724" />
+    <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/idea.css?v=e717f371" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  </head><body>
+    <div class="reveal">
+        <div class="slides" role="main">
+            <section >
+<section >
+<h1>ADT Overview: Seven ADTs and Their Implementations</h1>
+<p>Interactive, framework-free HTML demo. Open <code class="docutils literal notranslate"><span class="pre">index.html</span></code> in a browser (no build step).</p>
+</section>
+</section>
+<section >
+<section >
+<h2>Modes</h2>
+<ol class="arabic simple">
+<li><p><strong>Learn</strong>: pick an ADT, pick one implementation, run the operations, and see the picture, the explanation and the cost in steps.</p></li>
+<li><p><strong>Compare implementations</strong>: every implementation of the chosen ADT receives the same operations side by side, with step counters and a per-operation bar chart. “Run workload” replays a prepared sequence that shows the trade-offs.</p></li>
+<li><p><strong>Cheat sheet</strong>: all ADTs, who decides what leaves, the operations, and the cost of each implementation.</p></li>
+<li><p><strong>Quiz</strong>: ten questions, seven on choosing the ADT and three on choosing the implementation, followed by an end-of-quiz review list of all questions, answers, and explanations.</p></li>
+</ol>
+<p>A <em>step</em> is one element read, written, shifted or compared, or one link followed. It is a teaching measure, not a timing benchmark.</p>
+</section>
+</section>
+<section >
+<section >
+<h2>Operation names (aligned to the course)</h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>ADT</p></th>
+<th class="head"><p>Operations</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>List</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">append(v)</span></code>, <code class="docutils literal notranslate"><span class="pre">insertBefore(i,</span> <span class="pre">v)</span></code>, <code class="docutils literal notranslate"><span class="pre">remove(i)</span></code>, <code class="docutils literal notranslate"><span class="pre">get(i)</span></code>, <code class="docutils literal notranslate"><span class="pre">isEmpty()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Stack</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">push(v)</span></code>, <code class="docutils literal notranslate"><span class="pre">pop()</span></code>, <code class="docutils literal notranslate"><span class="pre">peek()</span></code>, <code class="docutils literal notranslate"><span class="pre">isEmpty()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Queue</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">enqueue(v)</span></code>, <code class="docutils literal notranslate"><span class="pre">dequeue()</span></code>, <code class="docutils literal notranslate"><span class="pre">peek()</span></code>, <code class="docutils literal notranslate"><span class="pre">isEmpty()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Deque</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">enQueueFront(v)</span></code>, <code class="docutils literal notranslate"><span class="pre">enQueueBack(v)</span></code>, <code class="docutils literal notranslate"><span class="pre">deQueueFront()</span></code>, <code class="docutils literal notranslate"><span class="pre">deQueueBack()</span></code>, <code class="docutils literal notranslate"><span class="pre">isEmpty()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Map</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">put(k,</span> <span class="pre">v)</span></code>, <code class="docutils literal notranslate"><span class="pre">get(k)</span></code>, <code class="docutils literal notranslate"><span class="pre">remove(k)</span></code>, <code class="docutils literal notranslate"><span class="pre">isEmpty()</span></code> (keys and values are integers)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Set</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">add(v)</span></code>, <code class="docutils literal notranslate"><span class="pre">remove(v)</span></code>, <code class="docutils literal notranslate"><span class="pre">contains(v)</span></code>, <code class="docutils literal notranslate"><span class="pre">isEmpty()</span></code> (elements are integers)</p></td>
+</tr>
+<tr class="row-even"><td><p>Priority Queue</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">enqueue(x,</span> <span class="pre">p)</span></code>, <code class="docutils literal notranslate"><span class="pre">dequeue()</span></code>, <code class="docutils literal notranslate"><span class="pre">peek()</span></code>, <code class="docutils literal notranslate"><span class="pre">isEmpty()</span></code> (smallest priority number leaves first)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section >
+<section >
+<h2>Implementations covered</h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>ADT</p></th>
+<th class="head"><p>Implementations</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>List</p></td>
+<td><p>Partially filled array, linked list</p></td>
+<td><p>Array: Θ(1) <code class="docutils literal notranslate"><span class="pre">get</span></code>, Θ(n) insert/remove by shifting. Linked: Θ(1) at head/tail ends, Θ(n) walk to reach an index. Both Θ(1) <code class="docutils literal notranslate"><span class="pre">isEmpty()</span></code>. Note: In this demo, <code class="docutils literal notranslate"><span class="pre">insertBefore(size,</span> <span class="pre">v)</span></code> allows appending right after the last index; alternatively, ADT designs can achieve all insertions using <code class="docutils literal notranslate"><span class="pre">prepend(v)</span></code> with <code class="docutils literal notranslate"><span class="pre">insertAfter(i,</span> <span class="pre">v)</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Stack</p></td>
+<td><p>Partially filled array, linked list</p></td>
+<td><p>Both Θ(1) amortized: array works at the end, linked list at the head. Both Θ(1) <code class="docutils literal notranslate"><span class="pre">isEmpty()</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p>Queue</p></td>
+<td><p>Partially filled array, linked list, <strong>circular</strong> partially filled array</p></td>
+<td><p>Plain array makes <code class="docutils literal notranslate"><span class="pre">dequeue</span></code> Θ(n); the circular array fixes this with modulo indices (Θ(1)); linked list operates at head (dequeue/peek) and tail (enqueue) in Θ(1). All Θ(1) <code class="docutils literal notranslate"><span class="pre">isEmpty()</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Deque</p></td>
+<td><p>Partially filled array, (doubly) linked list</p></td>
+<td><p>Array: front operations Θ(n) (not a good fit; note: a <strong>circular array</strong> can achieve Θ(1) amortized at both ends). Doubly linked: all four end ops (head and tail) Θ(1). Both Θ(1) <code class="docutils literal notranslate"><span class="pre">isEmpty()</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p>Map</p></td>
+<td><p>Hash table, binary search tree</p></td>
+<td><p>Hash: Θ(1) average, no order. BST: Θ(h), sorted keys, degenerates on sorted input. Both Θ(1) <code class="docutils literal notranslate"><span class="pre">isEmpty()</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Set</p></td>
+<td><p>Hash table, binary search tree</p></td>
+<td><p>Same trade-off as Map, with values only. Both Θ(1) <code class="docutils literal notranslate"><span class="pre">isEmpty()</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p>Priority Queue</p></td>
+<td><p>Unsorted array, sorted array, binary heap</p></td>
+<td><p>Unsorted array: enqueue Θ(1), dequeue/peek Θ(n). Sorted array: enqueue Θ(n), dequeue/peek Θ(1). Heap: enqueue/dequeue Θ(log n), peek Θ(1). All Θ(1) <code class="docutils literal notranslate"><span class="pre">isEmpty()</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Simplifications: the hash table has 7 fixed buckets with chaining and does not rehash; the BST is not self-balancing; the list-based Stack and Queue use a singly linked list with head and tail pointers, and the Deque uses a doubly linked list.</p>
+</section>
+</section>
+<section >
+<section >
+<h2>Files</h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">index.html</span></code>: shell</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">style.css</span></code>: visual style from <a class="reference internal" href="#../docs/style.md"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">../docs/style.md</span></code></span></a> (white background, charcoal titles, dark blue accent, green/red for correct/wrong)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">impls.js</span></code>: the data structures (array, circular array, linked list, hash table, BST, heap) with step counting</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">adts.js</span></code>: ADT catalog: operation names, implementations, cost facts, workloads</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">app.js</span></code>: the four modes</p></li>
+</ul>
+</section>
+</section>
+<section >
+<section >
+<h2>Next</h2>
+<p>Optional video versions (Hyperframes and Remotion) reusing <code class="docutils literal notranslate"><span class="pre">impls.js</span></code> and <code class="docutils literal notranslate"><span class="pre">adts.js</span></code> plus the same design tokens, for comparison.</p>
+</section>
+
+        </div>
+    </div>
+    
+    <script src="../../../../_static/revealjs/dist/reveal.js"></script>
+    
+    
+      <script src="../../../../_static/revealjs/plugin/notes/notes.js"></script>
+      <script src="../../../../_static/revealjs/plugin/highlight/highlight.js"></script>
+      <script src="../../../../_static/revealjs/plugin/math/math.js"></script>
+      
+    
+    <script>
+        var revealjsConfig = new Object();
+        Object.assign(revealjsConfig, {"controls": true, "progress": true, "hash": true, "center": true, "transition": "slide", "slideNumber": true, "scrollActivationWidth": null});
+        
+        
+        
+          revealjsConfig.plugins = [
+            RevealNotes,RevealHighlight,RevealMath,
+          ];
+        
+        // More info https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize(revealjsConfig);
+    </script>
+
+  </body>
+</html>
